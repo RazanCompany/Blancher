@@ -304,6 +304,42 @@
     <Compile Include="RAL\UART_RAL.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="RTE\RTE_encoders.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_encoders.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_flowrate.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_flowrate.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_invertersetting.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_invertersetting.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_operations.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_operations.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_tankslevels.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_tankslevels.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_temperature.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_temperature.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="rtos\croutine.c">
       <SubType>compile</SubType>
     </Compile>
@@ -415,6 +451,7 @@
     <Folder Include="ECUAL\Encoder\" />
     <Folder Include="ECUAL\Modbus\" />
     <Folder Include="MCAL\" />
+    <Folder Include="RTE" />
     <Folder Include="RAL\" />
     <Folder Include="rtos\" />
     <Folder Include="Services\" />

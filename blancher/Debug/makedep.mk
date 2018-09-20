@@ -40,6 +40,18 @@ MCAL\Timer.c
 
 MCAL\UART.c
 
+RTE\RTE_encoders.c
+
+RTE\RTE_flowrate.c
+
+RTE\RTE_invertersetting.c
+
+RTE\RTE_operations.c
+
+RTE\RTE_tankslevels.c
+
+RTE\RTE_temperature.c
+
 rtos\croutine.c
 
 rtos\event_groups.c
