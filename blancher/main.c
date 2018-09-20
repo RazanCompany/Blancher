@@ -16,6 +16,7 @@
  #include "rtos/FreeRTOS.h"
 #include "rtos/task.h"
 #include "MCAL/UART.h"
+#include "rtos/message_buffer.h"
 
 
 #ifdef DEBUG
@@ -35,8 +36,14 @@ StackType_t variables. The size of StackType_t is dependent on the RTOS port. */
 StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ];
 
 
-
-
+#define STORAGE_SIZE_BYTES 100
+/* Defines the memory that will actually hold the messages within the message
+buffer. Should be one more than the value passed in the xBufferSizeBytes
+parameter. */
+static uint8_t ucStorageBuffer[ STORAGE_SIZE_BYTES ];
+/* The variable used to hold the message buffer structure. */
+StaticMessageBuffer_t xMessageBufferStruct;
+MessageBufferHandle_t xMessageBuffer;
 
 int main() {
 	DDRE = 0xFF;
@@ -51,7 +58,7 @@ int main() {
 					NULL, /* Parameter passed into the task. */
 					2,/* Priority at which the task is created. */
 					xStack1, /* Array to use as the task's stack. */
-					&xTask1Buffer ); /* Variable to hold the task's data structure. */
+					&xTask1Buffer); /* Variable to hold the task's data structure. */
 	
 	xHandle2 = xTaskCreateStatic(
 				vTask2, /* Function that implements the task. */
@@ -61,72 +68,52 @@ int main() {
 				2,/* Priority at which the task is created. */
 				xStack2, /* Array to use as the task's stack. */
 				&xTask2Buffer ); /* Variable to hold the task's data structure. */
-	
-// 	  xTaskCreateStatic(vTask1, "task1", 300, NULL, 2, NULL);
-// 	  xTaskCreateStatic(vTask2, "task2", 300, NULL, 2, NULL);
+
+
+
+		//
+		xMessageBuffer = xMessageBufferCreateStatic( sizeof( ucStorageBuffer ),
+														ucStorageBuffer, &xMessageBufferStruct );
+
 
 	  // Start scheduler.
 	  vTaskStartScheduler();
-	//DIO_init();
-	//millis_init();
-	//01100f0200010200019972
-// 	debug_send_lcd[0]=0x01;
-// 	debug_send_lcd[1]=0x10;
-// 	debug_send_lcd[2]=0x0f; 
-// 	debug_send_lcd[3]=0x02;
-// 	debug_send_lcd[4]=0x00;
-// 	debug_send_lcd[5]=0x01;
-// 	debug_send_lcd[6]=0x02;
-// 	
-// 	debug_send_lcd[7]=0x00;
-// 	debug_send_lcd[8]=0x05;
-// 	debug_send_lcd[9]=0x98;
-// 	debug_send_lcd[10]=0xB1;
-	
 
-//	Lcd_init(UART2,115200,0x01);
-	//UART0_puts("START\n");
-//	uint16_t rece;
-	while (1) {
-		
-		//PORTE ^=0xFF;
-		//_delay_ms(1000);
-	//	UART0_puts("START\n");
-		//LCD_pre_transmission();
-		//_delay_ms(2000);
-// 		for(uint8_t i=0;i<11;i++){
-// 			UART2_putc(debug_send_lcd[i]);
-// 		}
-	//	UART2_flush();
-	//	_delay_us(100);
-	//	UART0_puts("HERE \n");
-	//	LCD_post_transmission();
-// 	Lcd_Write(LCD_CURRENT_ENCODER,30);
-// 		   _delay_ms(2000);
-// 	Lcd_Read(0x0009,&rece);
-// 	UART0_puts("Receive = ");
-// 	UART0_OutUDec(rece);
-// 	UART0_putc('\n');
-// 	_delay_ms(3000);
-// 	lcd_Open_buzzer(500);
-// 	lcd_Jump_to(2);
-// 	_delay_ms(5000);
-// 	
-// 	
-
-	}
+	while (1){}
 }
 static void vTask1(void* pvParameters)
 {
+	uint8_t ucArrayToSend[] = { 5, 6, 9, 1 };
 	while(1)
 	{
-		PORTE |=(1<<0);
-		UART0_puts("Vtask1 B\n");
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-		PORTE &=~(1<<0);
-		UART0_puts("Vtask1 A\n");
-		vTaskDelay(1000/portTICK_PERIOD_MS);
+// 		PORTE |=(1<<0);
+// 		UART0_puts("Vtask1 B\n");
+// 		vTaskDelay(1000/portTICK_PERIOD_MS);
+// 		PORTE &=~(1<<0);
+// 		UART0_puts("Vtask1 A\n");
+// 		vTaskDelay(1000/portTICK_PERIOD_MS);
+// 		
+		size_t xBytesSent;
 		
+			for(uint8_t i =0 ;i<4;i++){
+				++ucArrayToSend[i];
+			}
+		const TickType_t x100ms = pdMS_TO_TICKS( 100 );
+		/* Send an array to the message buffer, blocking for a maximum of 100ms to
+		wait for enough space to be available in the message buffer. */
+		UART0_puts("Vtask1 sends data\n");
+		for(uint8_t i =0 ; i<4;i++){
+				UART0_OutUDec(ucArrayToSend[i]);
+				UART0_putc(',');
+		}
+		UART0_putc('\n');
+		xBytesSent = xMessageBufferSend( xMessageBuffer,
+										( void * ) ucArrayToSend,
+										sizeof( ucArrayToSend ),
+										0 );
+		UART0_puts("Vtask1 sent_____R data\n");
+	    vTaskDelay(4000/portTICK_PERIOD_MS);
+										
 		
 	}
 }
@@ -134,14 +121,38 @@ static void vTask2(void* pvParameters)
 {
 	while(1){
 		
-		PORTE |=(1<<1);
-		UART0_puts("Vtask2 B\n");
-		vTaskDelay(2000/portTICK_PERIOD_MS);
-		PORTE &=~(1<<1);
-		UART0_puts("Vtask2 A\n");
-		vTaskDelay(2000/portTICK_PERIOD_MS);
-	}
+// 		PORTE |=(1<<1);
+// 		UART0_puts("Vtask2 B\n");
+// 		vTaskDelay(2000/portTICK_PERIOD_MS);
+// 		PORTE &=~(1<<1);
+// 		UART0_puts("Vtask2 A\n");
+// 		vTaskDelay(2000/portTICK_PERIOD_MS);
+		uint8_t ucRxData[ 4 ];
+		size_t xReceivedBytes;
+		const TickType_t xBlockTime = pdMS_TO_TICKS( 100 );
+		/* Receive the next message from the message buffer. Wait in the Blocked
+		state (so not using any CPU processing time) for a maximum of 100ms for
+		a message to become available. */
+		UART0_puts("Vtask2 requires data\n");
+		xReceivedBytes = xMessageBufferReceive( xMessageBuffer,
+												( void * ) ucRxData,
+												sizeof( ucRxData ),
+												xBlockTime );
+		if(xReceivedBytes==0){
+			UART0_puts("NO data\n");
+		}
+		else{
+			UART0_puts("Vtask2 receives data\n");
+			for(uint8_t i =0 ; i<4;i++){
+				UART0_OutUDec(ucRxData[i]);
+				UART0_putc(',');
+			}
+			UART0_putc('\n');
+			//vTaskDelay(1000/portTICK_PERIOD_MS);
+		
+		}
 	
+	}
 }
 // 
 // uint16_t x=0;
