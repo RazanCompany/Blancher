@@ -27,16 +27,43 @@ uint8_t debug_rece_lcd[7];
 static void vTask1(void* pvParameters);
 static void vTask2(void* pvParameters);
 
+#define STACK_SIZE 200
+/* Structure that will hold the TCB of the task being created. */
+StaticTask_t xTask1Buffer,xTask2Buffer;
+/* Buffer that the task being created will use as its stack. Note this is an array of
+StackType_t variables. The size of StackType_t is dependent on the RTOS port. */
+StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ];
+
+
+
 
 
 int main() {
 	DDRE = 0xFF;
 	UART0_init(9600);
+	TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ;
 	//UART2_init(115200);
-
+	/* Create the task without using any dynamic memory allocation. */
+	xHandle1 = xTaskCreateStatic(
+					vTask1, /* Function that implements the task. */
+					"Task1", /* Text name for the task. */
+					STACK_SIZE, /* The number of indexes in the xStack array. */
+					NULL, /* Parameter passed into the task. */
+					2,/* Priority at which the task is created. */
+					xStack1, /* Array to use as the task's stack. */
+					&xTask1Buffer ); /* Variable to hold the task's data structure. */
 	
-	  xTaskCreate(vTask1, "task1", 300, NULL, 2, NULL);
-	  xTaskCreate(vTask2, "task2", 300, NULL, 2, NULL);
+	xHandle2 = xTaskCreateStatic(
+				vTask2, /* Function that implements the task. */
+				"Task2", /* Text name for the task. */
+				STACK_SIZE, /* The number of indexes in the xStack array. */
+				NULL, /* Parameter passed into the task. */
+				2,/* Priority at which the task is created. */
+				xStack2, /* Array to use as the task's stack. */
+				&xTask2Buffer ); /* Variable to hold the task's data structure. */
+	
+// 	  xTaskCreateStatic(vTask1, "task1", 300, NULL, 2, NULL);
+// 	  xTaskCreateStatic(vTask2, "task2", 300, NULL, 2, NULL);
 
 	  // Start scheduler.
 	  vTaskStartScheduler();
@@ -116,13 +143,13 @@ static void vTask2(void* pvParameters)
 	}
 	
 }
-
-uint16_t x=0;
-void vApplicationIdleHook(void){
-	UART0_putc('y');	
-	UART0_putc('\n');
-}
-
+// 
+// uint16_t x=0;
+// void vApplicationIdleHook(void){
+// 	UART0_putc('y');	
+// 	UART0_putc('\n');
+// }
+// 
 
 
 

@@ -56,8 +56,6 @@ rtos\croutine.c
 
 rtos\event_groups.c
 
-rtos\heap_3.c
-
 rtos\hooks.c
 
 rtos\list.c
@@ -71,6 +69,8 @@ rtos\stream_buffer.c
 rtos\tasks.c
 
 rtos\timers.c
+
+Services\Encoder_Tasks.c
 
 Tasks.c
 

@@ -361,9 +361,6 @@
     <Compile Include="rtos\FreeRTOSConfig.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="rtos\heap_3.c">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="rtos\hooks.c">
       <SubType>compile</SubType>
     </Compile>
@@ -419,6 +416,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="rtos\timers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Encoder_Tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Encoder_Tasks.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Tasks.c">
@@ -540,15 +543,6 @@
       <SubType>compile</SubType>
     </None>
     <None Include="Debug\utils\subdir.mk">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="rtos\history.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="rtos\license.txt">
-      <SubType>compile</SubType>
-    </None>
-    <None Include="rtos\README.md">
       <SubType>compile</SubType>
     </None>
   </ItemGroup>
