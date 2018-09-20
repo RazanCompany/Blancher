@@ -96,7 +96,7 @@ void lcd_Jump_to(uint16_t pic_id){ // v
 }
 
 // to open buzzer to 2 second pass 200 to this function
-void lcd_Open_buzzer(uint16_t value){ //v
+void lcd_set_buzzer(uint16_t value){ //v
 
 		Modbus_Set_transmit_buffer(LCD,0,value);
 		Modbus_Write_multiple_coils(LCD,LCD_BUZZER_REG, 1);

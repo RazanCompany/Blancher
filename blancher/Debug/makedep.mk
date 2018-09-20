@@ -72,6 +72,8 @@ rtos\timers.c
 
 Services\Encoder_Tasks.c
 
+Services\LCD_Tasks.c
+
 Tasks.c
 
 utils\CRC16.c

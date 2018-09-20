@@ -418,10 +418,19 @@
     <Compile Include="rtos\timers.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="RTOS_Includes.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Services\Encoder_Tasks.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\Encoder_Tasks.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\LCD_Tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\LCD_Tasks.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Tasks.c">

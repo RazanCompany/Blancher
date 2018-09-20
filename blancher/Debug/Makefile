@@ -87,6 +87,7 @@ C_SRCS +=  \
 ../rtos/tasks.c \
 ../rtos/timers.c \
 ../Services/Encoder_Tasks.c \
+../Services/LCD_Tasks.c \
 ../Tasks.c \
 ../utils/CRC16.c \
 ../utils/Millis.c
@@ -134,6 +135,7 @@ rtos/stream_buffer.o \
 rtos/tasks.o \
 rtos/timers.o \
 Services/Encoder_Tasks.o \
+Services/LCD_Tasks.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -174,6 +176,7 @@ rtos/stream_buffer.o \
 rtos/tasks.o \
 rtos/timers.o \
 Services/Encoder_Tasks.o \
+Services/LCD_Tasks.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -214,6 +217,7 @@ rtos/stream_buffer.d \
 rtos/tasks.d \
 rtos/timers.d \
 Services/Encoder_Tasks.d \
+Services/LCD_Tasks.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -254,6 +258,7 @@ rtos/stream_buffer.d \
 rtos/tasks.d \
 rtos/timers.d \
 Services/Encoder_Tasks.d \
+Services/LCD_Tasks.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -511,6 +516,13 @@ rtos/timers.o: ../rtos/timers.c
 	
 
 Services/Encoder_Tasks.o: ../Services/Encoder_Tasks.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Services/LCD_Tasks.o: ../Services/LCD_Tasks.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

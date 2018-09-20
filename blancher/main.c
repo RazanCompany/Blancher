@@ -13,10 +13,10 @@
 // #include "ECUAL/LCD.h"
 // #include "DEBUG.h"
 // #include <string.h>
- #include "rtos/FreeRTOS.h"
-#include "rtos/task.h"
+#include "RTOS_Includes.h"
 #include "MCAL/UART.h"
-#include "rtos/message_buffer.h"
+#include "ECUAL/LCD.h"
+
 
 
 #ifdef DEBUG
@@ -48,6 +48,12 @@ MessageBufferHandle_t xMessageBuffer;
 int main() {
 	DDRE = 0xFF;
 	UART0_init(9600);
+	//Lcd_init(UART2,115200,1);
+	lcd_set_buzzer(1);
+	_delay_ms(1000);
+	lcd_set_buzzer(0);
+	_delay_ms(1000);
+	
 	TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ;
 	//UART2_init(115200);
 	/* Create the task without using any dynamic memory allocation. */
@@ -86,14 +92,7 @@ static void vTask1(void* pvParameters)
 	uint8_t ucArrayToSend[] = { 5, 6, 9, 1 };
 	while(1)
 	{
-// 		PORTE |=(1<<0);
-// 		UART0_puts("Vtask1 B\n");
-// 		vTaskDelay(1000/portTICK_PERIOD_MS);
-// 		PORTE &=~(1<<0);
-// 		UART0_puts("Vtask1 A\n");
-// 		vTaskDelay(1000/portTICK_PERIOD_MS);
-// 		
-		size_t xBytesSent;
+			size_t xBytesSent;
 		
 			for(uint8_t i =0 ;i<4;i++){
 				++ucArrayToSend[i];
