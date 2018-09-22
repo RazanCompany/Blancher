@@ -10,72 +10,66 @@
 #include "flow_rate.h"
 #include "Encoder/Encoder.h" 
 #include "../MCAL/DIO.h"
-#define FLOW_DEBBUGE 0
 
-#ifdef FLOW_DEBBUGE
-#include <stdio.h>
-#include  "../MCAL/UART.h"
-#endif 
+
+
+
 
 #define TICKS_FOR_LITER   480
 #define TICKS_FOR_HALF_LITER   240
 
- volatile float g_liters_counter = 0 ;
-g_Timer_Config configeration;
+static void flowrate_feeding_callback (uint32_t time );
+static void flowrate_outing_callback (uint32_t time );
 
+// pointer to function for the callbacks of the operation layer .
+void (*feeding_operation_callback)() ; 
+void (*out_operation_callback)() ;
 
-void Flow_rate_init(uint8_t timer_num) 
+// structs to hold the timers config .
+g_Timer_Config feeding_configeration;
+g_Timer_Config outing_configeration;
+
+void Flow_rate_init(void (*callback1)() , void (*callback2)()) 
 {
 	
-	configeration.ticks = TICKS_FOR_HALF_LITER ;
-	configeration.timer_number = timer_num ;
-	configeration.isr_call_back = Liters_count ;
+	feeding_configeration.ticks = TICKS_FOR_HALF_LITER ;
+	feeding_configeration.timer_number = 1 ;
+	feeding_configeration.isr_call_back = flowrate_feeding_callback ;
 	
 	// initialize the needed timer with the previous config .
-    timers_init(&configeration);
+    timers_init(&feeding_configeration);
+	
+	// initialize other timer for the seconde flowrate .
+	feeding_configeration.ticks = TICKS_FOR_HALF_LITER ;
+	feeding_configeration.timer_number = 3 ;
+	feeding_configeration.isr_call_back = flowrate_outing_callback ;
+	
+	// initialize the needed timer with the previous config .
+	timers_init(&outing_configeration);
+	feeding_operation_callback = callback1;
+	out_operation_callback = callback2 ;
+	DIO_init();
 }
 
-
-uint8_t Tank_feed(float liters) 
+void flowrate_feeding_callback (uint32_t time )
 {
-	
-	if(liters > 0.0)
-	{
-		// in case of debugging 
-		#if FLOW_DEBBUGE
-			UART0_puts("start feeding");
-		#endif 
-		// reset the global counter.
-		g_liters_counter = 0;
-		// start the feeding valve to fill the tank.
-		Tank_valve_1_change_state(HIGH);
-		// keep monitoring the amount of water .
-		while(g_liters_counter < liters );
-		// turn the feeding valve when the proper amount pass.
-		Tank_valve_1_change_state(LOW);
-		// in case of debugging .
-		#if FLOW_DEBBUGE
-			UART0_puts("done feeding");
-		#endif
-		return 1 ;
-	} //liters > 0 
-	
-	// something went wrong .
-	return -1 ;
-}
-
-
-
-void Liters_count (uint32_t time )
-{
-  // increment the global counter.
-  g_liters_counter +=0.5 ;
+	/*
+	*	this function is called back from the isr to increment the liters counter .
+	*/
+  // call the feeding operation callback .
+     feeding_operation_callback();
   
-  // in case of debugging 
-  #if FLOW_DEBBUGE
-     UART0_puts("counting : \n");
-     UART0_OutUDec(g_liters_counter);
-  #endif
+ 
+}
+
+void flowrate_outing_callback (uint32_t time )
+{
+	/*
+	*	this function is called back from the isr to increment the liters counter .
+	*/
+  // call the feeding operation callback .
+     out_operation_callback();
+  
 }
 
 
