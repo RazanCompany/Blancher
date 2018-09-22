@@ -110,10 +110,10 @@
 #define BLANCHER_VALVE_PIN                  5
 
 //_______  MODE BUS 1 ____________________//
-#define DEVICE_0_MODBUS_DIRECTION_REG        DDRE
-#define DEVICE_0_MODBUS_DATA_REG             PORTE
-#define DEVICE_0_MODBUS_STATUS_REG           PINE
-#define DEVICE_0_MODBUS_PIN                  3
+#define DEVICE_0_MODBUS_DIRECTION_REG        DDRJ
+#define DEVICE_0_MODBUS_DATA_REG             PORTJ
+#define DEVICE_0_MODBUS_STATUS_REG           PINJ
+#define DEVICE_0_MODBUS_PIN                  2
 
 //_______  MODE BUS 2 ____________________//
 #define DEVICE_1_MODBUS_DIRECTION_REG        DDRC

@@ -23,7 +23,11 @@ main.d main.o: .././main.c \
  .././rtos/list.h .././rtos/task.h .././rtos/message_buffer.h \
  .././rtos/stream_buffer.h .././MCAL/UART.h .././ECUAL/LCD.h \
  .././ECUAL/Modbus/Modbus_master.h .././ECUAL/Modbus/../../MCAL/UART.h \
- .././ECUAL/Modbus/../../CONFIG.h
+ .././ECUAL/Modbus/../../CONFIG.h .././utils/Millis.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
+ .././utils/../RAL/RAL_timer.h .././utils/../RAL/HW_types.h \
+ .././MCAL/DIO.h .././MCAL/../CONFIG.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -94,3 +98,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././ECUAL/Modbus/../../MCAL/UART.h:
 
 .././ECUAL/Modbus/../../CONFIG.h:
+
+.././utils/Millis.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
+
+.././utils/../RAL/RAL_timer.h:
+
+.././utils/../RAL/HW_types.h:
+
+.././MCAL/DIO.h:
+
+.././MCAL/../CONFIG.h:

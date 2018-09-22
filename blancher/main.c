@@ -16,7 +16,8 @@
 #include "RTOS_Includes.h"
 #include "MCAL/UART.h"
 #include "ECUAL/LCD.h"
-
+#include "utils/Millis.h"
+#include "MCAL/DIO.h"
 
 
 #ifdef DEBUG
@@ -48,11 +49,17 @@ MessageBufferHandle_t xMessageBuffer;
 int main() {
 	DDRE = 0xFF;
 	UART0_init(9600);
-	//Lcd_init(UART2,115200,1);
-	lcd_set_buzzer(1);
-	_delay_ms(1000);
-	lcd_set_buzzer(0);
-	_delay_ms(1000);
+	millis_init();
+	DIO_init();
+	Lcd_init(UART3,115200,1);
+// 	lcd_set_buzzer(1);
+// 	_delay_ms(1000);
+// 	lcd_set_buzzer(0);
+// 	_delay_ms(1000);
+// 	Lcd_Write(LCD_TEMP_DATA,50);
+// 	_delay_ms(1000);
+// 	Lcd_Write(LCD_TEMP_DATA,52);
+// 	_delay_ms(1000);
 	
 	TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ;
 	//UART2_init(115200);
@@ -82,11 +89,21 @@ int main() {
 														ucStorageBuffer, &xMessageBufferStruct );
 
 
+// while(1){
+// 		Lcd_Write(LCD_TEMP_DATA,50);
+// 		_delay_ms(1000);
+// 		Lcd_Write(LCD_TEMP_DATA,52);
+// 		_delay_ms(1000);
+// }
+
 	  // Start scheduler.
 	  vTaskStartScheduler();
 
 	while (1){}
 }
+
+
+
 static void vTask1(void* pvParameters)
 {
 	uint8_t ucArrayToSend[] = { 5, 6, 9, 1 };

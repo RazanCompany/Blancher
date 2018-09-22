@@ -1,83 +1,6 @@
 #ifndef UART_H
 #define UART_H
 
-/************************************************************************
-Title:    Interrupt UART library with receive/transmit circular buffers
-Author:   Andy Gock
-Software: AVR-GCC 4.1, AVR Libc 1.4
-Hardware: any AVR with built-in UART, tested on AT90S8515 & ATmega8 at 4 Mhz
-License:  GNU General Public License 
-Usage:    see README.md and Doxygen manual
-
-Based on original library by Peter Fluery, Tim Sharpe, Nicholas Zambetti.
-
-https://github.com/andygock/avr-UART
-
-LICENSE:
-
-	Copyright (C) 2012 Andy Gock
-	Copyright (C) 2006 Peter Fleury
-
-	This program is free software; you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation; either version 2 of the License, or
-	any later version.
-
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-
-************************************************************************/
-
-/************************************************************************
-UART_available, UART_flush, UART1_available, and UART1_flush functions
-were adapted from the Arduino HardwareSerial.h library by Tim Sharpe on 
-11 Jan 2009.  The license info for HardwareSerial.h is as follows:
-
-  HardwareSerial.h - Hardware serial library for Wiring
-  Copyright (c) 2006 Nicholas Zambetti.  All right reserved.
-
-  This library is free software; you can redistribute it and/or
-  modify it under the terms of the GNU Lesser General Public
-  License as published by the Free Software Foundation; either
-  version 2.1 of the License, or (at your option) any later version.
-
-  This library is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-  Lesser General Public License for more details.
-
-  You should have received a copy of the GNU Lesser General Public
-  License along with this library; if not, write to the Free Software
-  Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-************************************************************************/
-
-/** 
- *  @defgroup avr-UART UART Library
- *  @code #include <UART.h> @endcode
- * 
- *  @brief Interrupt UART library using the built-in UART with transmit and receive circular buffers.
- *  @see README.md
- *
- *  This library can be used to transmit and receive data through the built in UART. 
- *
- *  An interrupt is generated when the UART has finished transmitting or
- *  receiving a byte. The interrupt handling routines use circular buffers
- *  for buffering received and transmitted data.
- *
- *  The UART_RXn_BUFFER_SIZE and UART_TXn_BUFFER_SIZE constants define
- *  the size of the circular buffers in bytes. Note that these constants must be a power of 2.
- *
- *  You need to define these buffer sizes as a symbol in your compiler settings or in UART.h
- *
- *  See README.md for more detailed information. Especially that relating to symbols: USARTn_ENABLED and USARTn_LARGE_BUFFER
- *
- *  @author Andy Gock <andy@gock.net>
- *  @note Based on Atmel Application Note AVR306 and original library by Peter Fleury and Tim Sharpe.
- */
- 
-/**@{*/
 #include <stdint.h>
 #include <avr/io.h>
 
@@ -96,7 +19,7 @@ were adapted from the Arduino HardwareSerial.h library by Tim Sharpe on
 #endif
 #define USART1_ENABLED
 #define USART2_ENABLED
-//#define USART3_ENABLED
+#define USART3_ENABLED
 
 /* Set size of receive and transmit buffers */
 
@@ -238,7 +161,8 @@ were adapted from the Arduino HardwareSerial.h library by Tim Sharpe on
 typedef enum UART_M{
 	UART0=0,
 	UART1,
-	UART2
+	UART2,
+	UART3
 }UART_Modules;
 
 

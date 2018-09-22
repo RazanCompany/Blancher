@@ -8,6 +8,8 @@
  */
 
 #include "Encoder.h"
+#include <avr/interrupt.h>
+#include "../../MCAL/UART.h"
 /*************************Variable*******************************************/
 // Timer 1 configration parameters
 g_Timer_Config *g_timer1_config;
@@ -97,7 +99,7 @@ uint8_t timers_init(g_Timer_Config *config)
 		// Enable interrupt Bit on the timer Mask
 		SET_BIT(TIMER5_INTERUPT, TIMER5_COMPARE_INT);
 		// copy the config parameter to Timer stuct
-		g_timer4_config = config;
+		g_timer5_config = config;
 		// set the time before get ticks ISR time
 		g_Timer5_old_time = Get_millis();
 		//Clear the counter number
@@ -110,7 +112,7 @@ uint8_t timers_init(g_Timer_Config *config)
 		return -1;
 	}// Else
 
-    //sei();
+    sei();
     return 1;// Setup done ok
 }//timer_init
 
@@ -153,19 +155,19 @@ ISR(TIMER4_COMPA_vect)
 // intruptted service routine when we have rech the number of  Ticks On Encoder
 ISR(TIMER5_COMPA_vect)
 {
-	TOG_BIT(PORTB,0);
+	//TOG_BIT(PORTB,0);
 	// get the time now
-	g_Timer5_new_time = Get_millis();
+	/*g_Timer5_new_time = Get_millis();
 	// calculate the diff between now and last interrupt
 	g_diff_time = g_Timer5_new_time - g_Timer5_old_time;
 	// save the to the old time to next interrupt
-	g_Timer5_old_time = g_Timer5_new_time;
+	g_Timer5_old_time = g_Timer5_new_time;*/
+	// clear the counter
+	UART0_putc('a');
+	TIMER5_COUNT_L = 0;
 	//call back function on upper layer to get time
 	g_timer5_config->isr_call_back(g_diff_time);
-	// clear the counter
-	TIMER5_COUNT_L = 0;
-
-
+	
 }
 
 

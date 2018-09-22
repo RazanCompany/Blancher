@@ -1013,8 +1013,8 @@ Purpose:  called when the UART2 has received a character
 	//}
 //#endif
 	/* */
-	debug_rece_lcd[count]=data;
-	count++;
+//	debug_rece_lcd[count]=data;
+//	count++;
 	lastRxError = (usr & (_BV(FE2)|_BV(DOR2)));
 
 	/* calculate buffer index */
@@ -1119,7 +1119,7 @@ uint16_t UART2_getc(void)
 			return UART_NO_DATA;   /* no data available */
 		}
 	
-
+  //}
 		/* calculate / store buffer index */
 
 		tmptail = (UART2_RxTail + 1) & UART_RX2_BUFFER_MASK;
@@ -1127,7 +1127,7 @@ uint16_t UART2_getc(void)
 	
 		/* get data from receive buffer */
 		data = UART2_RxBuf[tmptail];
-	//}
+	
 	return (UART2_LastRxError << 8) + data;
 
 } /* UART2_getc */
@@ -1239,13 +1239,10 @@ Returns:  Integer number of bytes in the receive buffer
 uint16_t UART2_available(void)
 {
 	uint16_t ret;
-	//UART0_puts("UART2_available__CALL \n");
 	ATOMIC_BLOCK(ATOMIC_FORCEON) {
 		ret = (UART_RX2_BUFFER_SIZE + UART2_RxHead - UART2_RxTail) & UART_RX2_BUFFER_MASK;
 	}
-//	UART0_puts("ret = ");
-//	UART0_OutUDec(ret);
-//	UART0_putc('\n');
+
 	return ret;
 } /* UART2_available */
 
@@ -1310,7 +1307,7 @@ Purpose:  called when the UART3 has received a character
 	UART3_LastRxError = lastRxError;
 }
 
-static uint8_t UART3_Transmission_end=0;
+static volatile uint8_t UART3_Transmission_end=0;
 ISR(UART3_TRANSMIT_INTERRUPT)
 /*************************************************************************
 Function: UART3 Data Register Empty interrupt
@@ -1390,11 +1387,11 @@ uint16_t UART3_getc(void)
 	uint16_t tmptail;
 	uint8_t data;
 
-	ATOMIC_BLOCK(ATOMIC_FORCEON) {
+	//ATOMIC_BLOCK(ATOMIC_FORCEON) {
 		if (UART3_RxHead == UART3_RxTail) {
 			return UART_NO_DATA;   /* no data available */
 		}
-	}
+	//}
 	
 	/* calculate / store buffer index */
 	tmptail = (UART3_RxTail + 1) & UART_RX3_BUFFER_MASK;

@@ -132,6 +132,7 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
 	//
 	static uint8_t UART1_used=0;
 	static uint8_t UART2_used=0;
+	static uint8_t UART3_used=0;
 	if(device_num  == 0){
 		g_mod0_slave = mod->slave_address;
 		g_mod0_uart_no = mod->uart_num;
@@ -174,6 +175,23 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
 			else{
 				//error uart2 used before
 			}
+		}
+		else if(UART3 == g_mod0_uart_no){
+			if(0 == UART3_used){//uart2 not used
+				UART3_used = 1;
+				UART3_init(g_mod0_baud_rate);
+				g_mod0_Serial_available = UART3_available;
+				g_mod0_Serial_peek = UART3_peek;
+				g_mod0_Serial_flush = UART3_flush;
+				g_mod0_Serial_puts = UART3_puts;
+				g_mod0_Serial_getc = UART3_getc;
+				g_mod0_Serial_putc = UART3_putc;
+				g_mod0_Serial_puts_p = UART3_puts_p;
+			}
+			else{
+				//error uart3 used before
+			}
+			
 		}
 		else{
 			//error uart number is not corect;

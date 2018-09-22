@@ -4,6 +4,8 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               ECUAL/PowderIF.o (__subsf3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3.o) (__addsf3x)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+                              Services/Encoder_Tasks.o (__nesf2)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
                               ECUAL/Temperature.o (__divsf3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3x.o)
@@ -12,6 +14,8 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               ECUAL/Temperature.o (__fixunssfsi)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
                               ECUAL/Temperature.o (__floatunsisf)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o) (__fp_cmp)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o) (__fp_inf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_nan.o)
@@ -38,8 +42,6 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               ECUAL/Temperature.o (round)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(exp.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(pow.o) (exp)
-c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
-                              c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(gesf2.o) (__fp_cmp)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(round.o) (__fp_mintl)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mpack.o)
@@ -70,6 +72,7 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 Allocating common symbols
 Common symbol       size              file
 
+g_conveyor_time     0x4               Services/Encoder_Tasks.o
 s_Lcd_data_write    0x8               Services/LCD_Tasks.o
 g_Timer3_old_time   0x4               ECUAL/Encoder/Encoder.o
 xTask1Buffer        0x28              main.o
@@ -92,11 +95,14 @@ timer1_millis       0x4               utils/Millis.o
 xStack2             0xc8              main.o
 g_timer4_config     0x2               ECUAL/Encoder/Encoder.o
 g_Timer5_new_time   0x4               ECUAL/Encoder/Encoder.o
+g_conveyor          0x5               Services/Encoder_Tasks.o
 g_Timer3_new_time   0x4               ECUAL/Encoder/Encoder.o
 g_timer1_config     0x2               ECUAL/Encoder/Encoder.o
+g_drum              0x5               Services/Encoder_Tasks.o
 debug_rece_lcd      0x7               main.o
 g_GM_target         0x4               ECUAL/PowderIF.o
 g_recieved_data     0x1               MCAL/SPI.o
+g_drum_time         0x4               Services/Encoder_Tasks.o
 g_Timer4_old_time   0x4               ECUAL/Encoder/Encoder.o
 g_Timer1_new_time   0x4               ECUAL/Encoder/Encoder.o
 g_timer5_config     0x2               ECUAL/Encoder/Encoder.o
@@ -201,26 +207,16 @@ Discarded input sections
  .text          0x00000000        0x0 ECUAL/LCD.o
  .data          0x00000000        0x0 ECUAL/LCD.o
  .bss           0x00000000        0x0 ECUAL/LCD.o
- .text.LCD_pre_transmission
-                0x00000000        0xa ECUAL/LCD.o
- .text.LCD_post_transmission
-                0x00000000        0xa ECUAL/LCD.o
- .text.Lcd_init
-                0x00000000       0x2a ECUAL/LCD.o
  .rodata.str1.1
                 0x00000000       0x13 ECUAL/LCD.o
  .text.Lcd_Read
                 0x00000000       0x32 ECUAL/LCD.o
- .text.Lcd_Write
-                0x00000000       0x22 ECUAL/LCD.o
  .text.Lcd_Read_multiple_data
                 0x00000000       0x5a ECUAL/LCD.o
  .text.Lcd_Write_multiple_data
                 0x00000000       0x4a ECUAL/LCD.o
  .text.lcd_Jump_to
                 0x00000000       0x1a ECUAL/LCD.o
- .bss.g_LCD_modbus_config
-                0x00000000        0xa ECUAL/LCD.o
  .debug_macro   0x00000000      0xa78 ECUAL/LCD.o
  .debug_macro   0x00000000      0x1c9 ECUAL/LCD.o
  .debug_macro   0x00000000       0x10 ECUAL/LCD.o
@@ -257,8 +253,6 @@ Discarded input sections
  .text          0x00000000        0x0 ECUAL/Modbus/Modbus_master.o
  .data          0x00000000        0x0 ECUAL/Modbus/Modbus_master.o
  .bss           0x00000000        0x0 ECUAL/Modbus/Modbus_master.o
- .text.Modbus_init
-                0x00000000      0x19e ECUAL/Modbus/Modbus_master.o
  .text.Modbus_Begin_transmission
                 0x00000000       0x24 ECUAL/Modbus/Modbus_master.o
  .text.Modbus_Send_16
@@ -293,16 +287,10 @@ Discarded input sections
                 0x00000000       0x4c ECUAL/Modbus/Modbus_master.o
  .text.Modbus_Our_write_multiple_coils
                 0x00000000       0x3c ECUAL/Modbus/Modbus_master.o
- .text.Modbus_Write_multiple_registers
-                0x00000000       0x3c ECUAL/Modbus/Modbus_master.o
  .text.Modbus_Mask_write_register
                 0x00000000       0x44 ECUAL/Modbus/Modbus_master.o
  .text.Modbus_Read_write_multiple_registers
                 0x00000000       0x64 ECUAL/Modbus/Modbus_master.o
- .bss.UART2_used.1979
-                0x00000000        0x1 ECUAL/Modbus/Modbus_master.o
- .bss.UART1_used.1978
-                0x00000000        0x1 ECUAL/Modbus/Modbus_master.o
  .debug_macro   0x00000000      0xa78 ECUAL/Modbus/Modbus_master.o
  .debug_macro   0x00000000      0x1c9 ECUAL/Modbus/Modbus_master.o
  .debug_macro   0x00000000       0x10 ECUAL/Modbus/Modbus_master.o
@@ -482,6 +470,11 @@ Discarded input sections
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -501,7 +494,12 @@ Discarded input sections
  .debug_macro   0x00000000      0x166 main.o
  .debug_macro   0x00000000       0x1c main.o
  .debug_macro   0x00000000       0x94 main.o
- .debug_macro   0x00000000       0x3a main.o
+ .debug_macro   0x00000000       0x40 main.o
+ .debug_macro   0x00000000       0x69 main.o
+ .debug_macro   0x00000000       0x34 main.o
+ .debug_macro   0x00000000      0x112 main.o
+ .debug_macro   0x00000000       0x8e main.o
+ .debug_macro   0x00000000       0x10 main.o
  .group         0x00000000        0x8 MCAL/ADC.o
  .group         0x00000000        0x8 MCAL/ADC.o
  .group         0x00000000        0x8 MCAL/ADC.o
@@ -527,7 +525,7 @@ Discarded input sections
                 0x00000000        0xc MCAL/ADC.o
  .text.ADC_read
                 0x00000000       0x1a MCAL/ADC.o
- .debug_macro   0x00000000      0xa72 MCAL/ADC.o
+ .debug_macro   0x00000000      0xa78 MCAL/ADC.o
  .debug_macro   0x00000000      0x1c9 MCAL/ADC.o
  .debug_macro   0x00000000      0x2fc MCAL/ADC.o
  .debug_macro   0x00000000     0x1ecb MCAL/ADC.o
@@ -561,8 +559,6 @@ Discarded input sections
  .text          0x00000000        0x0 MCAL/DIO.o
  .data          0x00000000        0x0 MCAL/DIO.o
  .bss           0x00000000        0x0 MCAL/DIO.o
- .text.DIO_init
-                0x00000000       0x4c MCAL/DIO.o
  .text.Get_tank_level_state
                 0x00000000       0x28 MCAL/DIO.o
  .text.Get_blancher_level_state
@@ -593,8 +589,6 @@ Discarded input sections
                 0x00000000       0x10 MCAL/DIO.o
  .text.Spark_change_state
                 0x00000000       0x10 MCAL/DIO.o
- .text.Modbus_change_state
-                0x00000000       0x2a MCAL/DIO.o
  .text.Electrical_heater_change_state
                 0x00000000       0x10 MCAL/DIO.o
  .text.Pre_heater_change_state
@@ -603,16 +597,8 @@ Discarded input sections
                 0x00000000       0x10 MCAL/DIO.o
  .text.Blower_change_state
                 0x00000000       0x10 MCAL/DIO.o
- .debug_info    0x00000000      0x367 MCAL/DIO.o
- .debug_abbrev  0x00000000      0x101 MCAL/DIO.o
- .debug_loc     0x00000000       0x6c MCAL/DIO.o
- .debug_aranges
-                0x00000000       0xc0 MCAL/DIO.o
- .debug_ranges  0x00000000       0xb0 MCAL/DIO.o
- .debug_macro   0x00000000       0xcf MCAL/DIO.o
  .debug_macro   0x00000000      0xa78 MCAL/DIO.o
  .debug_macro   0x00000000      0x1c9 MCAL/DIO.o
- .debug_macro   0x00000000       0x88 MCAL/DIO.o
  .debug_macro   0x00000000       0x10 MCAL/DIO.o
  .debug_macro   0x00000000      0x302 MCAL/DIO.o
  .debug_macro   0x00000000       0x9e MCAL/DIO.o
@@ -624,13 +610,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x18 MCAL/DIO.o
  .debug_macro   0x00000000       0x6c MCAL/DIO.o
  .debug_macro   0x00000000      0x291 MCAL/DIO.o
- .debug_macro   0x00000000       0x52 MCAL/DIO.o
  .debug_macro   0x00000000       0x1c MCAL/DIO.o
  .debug_macro   0x00000000       0x10 MCAL/DIO.o
- .debug_line    0x00000000      0x64c MCAL/DIO.o
- .debug_str     0x00000000     0x9880 MCAL/DIO.o
- .comment       0x00000000       0x31 MCAL/DIO.o
- .debug_frame   0x00000000      0x164 MCAL/DIO.o
  .group         0x00000000        0x8 MCAL/Interrupt.o
  .text          0x00000000        0x0 MCAL/Interrupt.o
  .data          0x00000000        0x0 MCAL/Interrupt.o
@@ -674,7 +655,7 @@ Discarded input sections
                 0x00000000       0x30 MCAL/SPI.o
  .debug_ranges  0x00000000       0x20 MCAL/SPI.o
  .debug_macro   0x00000000       0xb6 MCAL/SPI.o
- .debug_macro   0x00000000      0xa72 MCAL/SPI.o
+ .debug_macro   0x00000000      0xa78 MCAL/SPI.o
  .debug_macro   0x00000000      0x1c9 MCAL/SPI.o
  .debug_macro   0x00000000      0x2fc MCAL/SPI.o
  .debug_macro   0x00000000       0xaa MCAL/SPI.o
@@ -688,8 +669,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x69 MCAL/SPI.o
  .debug_macro   0x00000000       0x8e MCAL/SPI.o
  .debug_macro   0x00000000      0x297 MCAL/SPI.o
- .debug_line    0x00000000      0x291 MCAL/SPI.o
- .debug_str     0x00000000     0x98cf MCAL/SPI.o
+ .debug_line    0x00000000      0x2e4 MCAL/SPI.o
+ .debug_str     0x00000000     0x98ed MCAL/SPI.o
  .comment       0x00000000       0x31 MCAL/SPI.o
  .debug_frame   0x00000000       0x50 MCAL/SPI.o
  COMMON         0x00000000        0x1 MCAL/SPI.o
@@ -737,45 +718,33 @@ Discarded input sections
                 0x00000000       0x1c MCAL/UART.o
  .text.UART0_flush
                 0x00000000        0xa MCAL/UART.o
- .text.UART1_init
-                0x00000000       0xaa MCAL/UART.o
- .text.UART1_getc
-                0x00000000       0x40 MCAL/UART.o
  .text.UART1_peek
                 0x00000000       0x3a MCAL/UART.o
- .text.UART1_putc
-                0x00000000       0x32 MCAL/UART.o
  .text.UART1_OutUDec
                 0x00000000       0x3c MCAL/UART.o
  .text.UART1_puts
                 0x00000000       0x1e MCAL/UART.o
  .text.UART1_puts_p
                 0x00000000       0x24 MCAL/UART.o
- .text.UART1_available
-                0x00000000       0x1c MCAL/UART.o
- .text.UART1_flush
-                0x00000000        0xa MCAL/UART.o
- .text.UART2_init
-                0x00000000       0xaa MCAL/UART.o
  .text.UART_Init
                 0x00000000       0x2a MCAL/UART.o
- .text.UART2_getc
-                0x00000000       0x3a MCAL/UART.o
  .text.UART2_peek
                 0x00000000       0x3a MCAL/UART.o
- .text.UART2_putc
-                0x00000000       0x32 MCAL/UART.o
  .text.UART2_OutUDec
                 0x00000000       0x3c MCAL/UART.o
  .text.UART2_puts
                 0x00000000       0x1e MCAL/UART.o
  .text.UART2_puts_p
                 0x00000000       0x24 MCAL/UART.o
- .text.UART2_available
-                0x00000000       0x1c MCAL/UART.o
- .text.UART2_flush
-                0x00000000        0xa MCAL/UART.o
- .debug_macro   0x00000000      0xa72 MCAL/UART.o
+ .text.UART3_peek
+                0x00000000       0x3a MCAL/UART.o
+ .text.UART3_OutUDec
+                0x00000000       0x3c MCAL/UART.o
+ .text.UART3_puts
+                0x00000000       0x1e MCAL/UART.o
+ .text.UART3_puts_p
+                0x00000000       0x24 MCAL/UART.o
+ .debug_macro   0x00000000      0xa78 MCAL/UART.o
  .debug_macro   0x00000000       0x10 MCAL/UART.o
  .debug_macro   0x00000000      0x1c9 MCAL/UART.o
  .debug_macro   0x00000000      0x2fc MCAL/UART.o
@@ -1050,6 +1019,18 @@ Discarded input sections
  .bss           0x00000000        0x0 rtos/hooks.o
  .text.vApplicationMallocFailedHook
                 0x00000000       0x14 rtos/hooks.o
+ .text.vApplicationGetIdleTaskMemory
+                0x00000000       0x20 rtos/hooks.o
+ .text.vApplicationGetTimerTaskMemory
+                0x00000000       0x20 rtos/hooks.o
+ .bss.uxTimerTaskStack.2224
+                0x00000000       0x55 rtos/hooks.o
+ .bss.xTimerTaskTCB.2223
+                0x00000000       0x28 rtos/hooks.o
+ .bss.uxIdleTaskStack.2213
+                0x00000000       0x55 rtos/hooks.o
+ .bss.xIdleTaskTCB.2212
+                0x00000000       0x28 rtos/hooks.o
  .debug_macro   0x00000000      0xa78 rtos/hooks.o
  .debug_macro   0x00000000       0x10 rtos/hooks.o
  .debug_macro   0x00000000      0x1c9 rtos/hooks.o
@@ -1164,6 +1145,8 @@ Discarded input sections
  .text          0x00000000        0x0 rtos/port.o
  .data          0x00000000        0x0 rtos/port.o
  .bss           0x00000000        0x0 rtos/port.o
+ .text.xPortStartScheduler
+                0x00000000       0x78 rtos/port.o
  .text.vPortEndScheduler
                 0x00000000       0x18 rtos/port.o
  .debug_macro   0x00000000      0xa78 rtos/port.o
@@ -1226,14 +1209,32 @@ Discarded input sections
  .text          0x00000000        0x0 rtos/queue.o
  .data          0x00000000        0x0 rtos/queue.o
  .bss           0x00000000        0x0 rtos/queue.o
+ .text.prvIsQueueEmpty
+                0x00000000       0x16 rtos/queue.o
+ .text.prvCopyDataToQueue
+                0x00000000       0xbe rtos/queue.o
+ .text.prvCopyDataFromQueue
+                0x00000000       0x34 rtos/queue.o
+ .text.prvUnlockQueue
+                0x00000000       0x9a rtos/queue.o
+ .text.xQueueGenericReset
+                0x00000000       0x8c rtos/queue.o
+ .text.xQueueGenericCreateStatic
+                0x00000000       0x2c rtos/queue.o
  .text.xQueueCreateCountingSemaphoreStatic
                 0x00000000       0x2a rtos/queue.o
+ .text.xQueueGenericSend
+                0x00000000      0x142 rtos/queue.o
  .text.xQueueCreateMutexStatic
                 0x00000000       0x3e rtos/queue.o
  .text.xQueueGiveMutexRecursive
                 0x00000000       0x46 rtos/queue.o
+ .text.xQueueGenericSendFromISR
+                0x00000000       0x74 rtos/queue.o
  .text.xQueueGiveFromISR
                 0x00000000       0x52 rtos/queue.o
+ .text.xQueueReceive
+                0x00000000      0x132 rtos/queue.o
  .text.xQueueSemaphoreTake
                 0x00000000      0x19a rtos/queue.o
  .text.xQueueTakeMutexRecursive
@@ -1256,10 +1257,21 @@ Discarded input sections
                 0x00000000        0xc rtos/queue.o
  .text.xQueueIsQueueFullFromISR
                 0x00000000        0xe rtos/queue.o
+ .text.vQueueWaitForMessageRestricted
+                0x00000000       0x3a rtos/queue.o
+ .debug_info    0x00000000     0x1a8c rtos/queue.o
+ .debug_abbrev  0x00000000      0x387 rtos/queue.o
+ .debug_loc     0x00000000     0x1ee1 rtos/queue.o
+ .debug_aranges
+                0x00000000       0xe0 rtos/queue.o
+ .debug_ranges  0x00000000      0x160 rtos/queue.o
+ .debug_macro   0x00000000      0x182 rtos/queue.o
  .debug_macro   0x00000000      0xa78 rtos/queue.o
  .debug_macro   0x00000000       0x1c rtos/queue.o
  .debug_macro   0x00000000      0x10e rtos/queue.o
  .debug_macro   0x00000000       0x66 rtos/queue.o
+ .debug_macro   0x00000000       0x16 rtos/queue.o
+ .debug_macro   0x00000000       0x20 rtos/queue.o
  .debug_macro   0x00000000       0x86 rtos/queue.o
  .debug_macro   0x00000000      0x1c9 rtos/queue.o
  .debug_macro   0x00000000       0x10 rtos/queue.o
@@ -1282,6 +1294,11 @@ Discarded input sections
  .debug_macro   0x00000000       0xb5 rtos/queue.o
  .debug_macro   0x00000000       0x8c rtos/queue.o
  .debug_macro   0x00000000       0x10 rtos/queue.o
+ .debug_macro   0x00000000       0x86 rtos/queue.o
+ .debug_line    0x00000000      0xd67 rtos/queue.o
+ .debug_str     0x00000000     0xd14a rtos/queue.o
+ .comment       0x00000000       0x31 rtos/queue.o
+ .debug_frame   0x00000000      0x394 rtos/queue.o
  .group         0x00000000        0x8 rtos/stream_buffer.o
  .group         0x00000000        0x8 rtos/stream_buffer.o
  .group         0x00000000        0x8 rtos/stream_buffer.o
@@ -1391,6 +1408,7 @@ Discarded input sections
  .text          0x00000000        0x0 rtos/tasks.o
  .data          0x00000000        0x0 rtos/tasks.o
  .bss           0x00000000        0x0 rtos/tasks.o
+ .lowtext       0x00000000       0x52 rtos/tasks.o
  .text.vTaskDelete
                 0x00000000       0x9c rtos/tasks.o
  .text.uxTaskPriorityGet
@@ -1403,8 +1421,14 @@ Discarded input sections
                 0x00000000       0x9e rtos/tasks.o
  .text.xTaskResumeFromISR
                 0x00000000       0xae rtos/tasks.o
+ .rodata.str1.1
+                0x00000000        0x5 rtos/tasks.o
+ .text.vTaskStartScheduler
+                0x00000000       0x98 rtos/tasks.o
  .text.vTaskEndScheduler
                 0x00000000        0xe rtos/tasks.o
+ .text.xTaskGetTickCount
+                0x00000000       0x14 rtos/tasks.o
  .text.xTaskGetTickCountFromISR
                 0x00000000        0xa rtos/tasks.o
  .text.uxTaskGetNumberOfTasks
@@ -1415,14 +1439,26 @@ Discarded input sections
                 0x00000000       0x7c rtos/tasks.o
  .text.vTaskSuspend
                 0x00000000       0xa4 rtos/tasks.o
+ .text.vTaskPlaceOnEventList
+                0x00000000       0x24 rtos/tasks.o
  .text.vTaskPlaceOnUnorderedEventList
                 0x00000000       0x32 rtos/tasks.o
+ .text.vTaskPlaceOnEventListRestricted
+                0x00000000       0x32 rtos/tasks.o
+ .text.xTaskRemoveFromEventList
+                0x00000000       0x90 rtos/tasks.o
  .text.vTaskRemoveFromUnorderedEventList
                 0x00000000       0x70 rtos/tasks.o
+ .text.vTaskMissedYield
+                0x00000000        0x8 rtos/tasks.o
  .text.uxTaskGetStackHighWaterMark
                 0x00000000       0x3a rtos/tasks.o
+ .text.xTaskGetSchedulerState
+                0x00000000       0x1c rtos/tasks.o
  .text.xTaskPriorityInherit
                 0x00000000       0xe4 rtos/tasks.o
+ .text.xTaskPriorityDisinherit
+                0x00000000       0x80 rtos/tasks.o
  .text.vTaskPriorityDisinheritAfterTimeout
                 0x00000000       0xa0 rtos/tasks.o
  .text.uxTaskResetEventItemValue
@@ -1435,6 +1471,8 @@ Discarded input sections
                 0x00000000      0x120 rtos/tasks.o
  .text.vTaskNotifyGiveFromISR
                 0x00000000       0xb4 rtos/tasks.o
+ .bss.uxDeletedTasksWaitingCleanUp
+                0x00000000        0x1 rtos/tasks.o
  .debug_macro   0x00000000      0xa78 rtos/tasks.o
  .debug_macro   0x00000000       0x1c rtos/tasks.o
  .debug_macro   0x00000000      0x10e rtos/tasks.o
@@ -1496,8 +1534,22 @@ Discarded input sections
  .text          0x00000000        0x0 rtos/timers.o
  .data          0x00000000        0x0 rtos/timers.o
  .bss           0x00000000        0x0 rtos/timers.o
+ .text.prvInsertTimerInActiveList
+                0x00000000       0x5e rtos/timers.o
+ .text.prvCheckForValidListAndQueue
+                0x00000000       0x5e rtos/timers.o
+ .rodata.str1.1
+                0x00000000        0x8 rtos/timers.o
+ .text.xTimerCreateTimerTask
+                0x00000000       0x92 rtos/timers.o
  .text.xTimerCreateStatic
                 0x00000000       0x64 rtos/timers.o
+ .text.xTimerGenericCommand
+                0x00000000       0x90 rtos/timers.o
+ .text.prvSampleTimeNow
+                0x00000000       0xe0 rtos/timers.o
+ .text.prvTimerTask
+                0x00000000      0x1d0 rtos/timers.o
  .text.xTimerGetTimerDaemonTaskHandle
                 0x00000000        0xa rtos/timers.o
  .text.xTimerGetPeriod
@@ -1512,6 +1564,31 @@ Discarded input sections
                 0x00000000       0x12 rtos/timers.o
  .text.vTimerSetTimerID
                 0x00000000       0x12 rtos/timers.o
+ .bss.xStaticTimerQueue.2438
+                0x00000000       0x1f rtos/timers.o
+ .bss.ucStaticTimerQueueStorage.2439
+                0x00000000       0x32 rtos/timers.o
+ .bss.xActiveTimerList2.2437
+                0x00000000        0x9 rtos/timers.o
+ .bss.xActiveTimerList1.2436
+                0x00000000        0x9 rtos/timers.o
+ .bss.xLastTime.2391
+                0x00000000        0x2 rtos/timers.o
+ .bss.xTimerTaskHandle
+                0x00000000        0x2 rtos/timers.o
+ .bss.xTimerQueue
+                0x00000000        0x2 rtos/timers.o
+ .bss.pxOverflowTimerList
+                0x00000000        0x2 rtos/timers.o
+ .bss.pxCurrentTimerList
+                0x00000000        0x2 rtos/timers.o
+ .debug_info    0x00000000     0x1366 rtos/timers.o
+ .debug_abbrev  0x00000000      0x392 rtos/timers.o
+ .debug_loc     0x00000000      0xc90 rtos/timers.o
+ .debug_aranges
+                0x00000000       0x88 rtos/timers.o
+ .debug_ranges  0x00000000       0xd8 rtos/timers.o
+ .debug_macro   0x00000000      0x14e rtos/timers.o
  .debug_macro   0x00000000      0xa78 rtos/timers.o
  .debug_macro   0x00000000       0x1c rtos/timers.o
  .debug_macro   0x00000000      0x10e rtos/timers.o
@@ -1540,19 +1617,73 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 rtos/timers.o
  .debug_macro   0x00000000       0x86 rtos/timers.o
  .debug_macro   0x00000000       0x97 rtos/timers.o
+ .debug_line    0x00000000      0x6e8 rtos/timers.o
+ .debug_str     0x00000000     0xd5ca rtos/timers.o
+ .comment       0x00000000       0x31 rtos/timers.o
+ .debug_frame   0x00000000      0x1cc rtos/timers.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
+ .group         0x00000000        0x8 Services/Encoder_Tasks.o
  .group         0x00000000        0x8 Services/Encoder_Tasks.o
  .text          0x00000000        0x0 Services/Encoder_Tasks.o
  .data          0x00000000        0x0 Services/Encoder_Tasks.o
  .bss           0x00000000        0x0 Services/Encoder_Tasks.o
- .debug_info    0x00000000       0x21 Services/Encoder_Tasks.o
- .debug_abbrev  0x00000000       0x13 Services/Encoder_Tasks.o
+ .text.Set_conveyor_time
+                0x00000000       0x12 Services/Encoder_Tasks.o
+ .text.Set_drum_time
+                0x00000000       0x12 Services/Encoder_Tasks.o
+ .text.Encoder_init
+                0x00000000       0x42 Services/Encoder_Tasks.o
+ .text.Conveyor_speed
+                0x00000000       0x7a Services/Encoder_Tasks.o
+ .text.Drum_speed
+                0x00000000       0x7a Services/Encoder_Tasks.o
+ .debug_info    0x00000000      0x29f Services/Encoder_Tasks.o
+ .debug_abbrev  0x00000000      0x134 Services/Encoder_Tasks.o
+ .debug_loc     0x00000000      0x131 Services/Encoder_Tasks.o
  .debug_aranges
-                0x00000000       0x18 Services/Encoder_Tasks.o
- .debug_macro   0x00000000       0x11 Services/Encoder_Tasks.o
+                0x00000000       0x40 Services/Encoder_Tasks.o
+ .debug_ranges  0x00000000       0x30 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000      0x107 Services/Encoder_Tasks.o
  .debug_macro   0x00000000      0xa78 Services/Encoder_Tasks.o
- .debug_line    0x00000000       0x39 Services/Encoder_Tasks.o
- .debug_str     0x00000000     0x2b9b Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x10 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x10 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000      0x1c9 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000      0x2fc Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x9e Services/Encoder_Tasks.o
+ .debug_macro   0x00000000     0x1ecb Services/Encoder_Tasks.o
+ .debug_macro   0x00000000      0x100 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000      0x2ea Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0xd9 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x34 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x18 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x6c Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x63 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x8e Services/Encoder_Tasks.o
+ .debug_macro   0x00000000      0x112 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x34 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000       0x10 Services/Encoder_Tasks.o
+ .debug_macro   0x00000000      0x166 Services/Encoder_Tasks.o
+ .debug_line    0x00000000      0x4ae Services/Encoder_Tasks.o
+ .debug_str     0x00000000     0x997b Services/Encoder_Tasks.o
  .comment       0x00000000       0x31 Services/Encoder_Tasks.o
+ .debug_frame   0x00000000       0x98 Services/Encoder_Tasks.o
+ COMMON         0x00000000       0x12 Services/Encoder_Tasks.o
  .group         0x00000000        0x8 Services/LCD_Tasks.o
  .group         0x00000000        0x8 Services/LCD_Tasks.o
  .group         0x00000000        0x8 Services/LCD_Tasks.o
@@ -1621,9 +1752,9 @@ Discarded input sections
  .debug_macro   0x00000000       0xd1 Services/LCD_Tasks.o
  .debug_macro   0x00000000       0x1c Services/LCD_Tasks.o
  .debug_macro   0x00000000       0x94 Services/LCD_Tasks.o
- .debug_macro   0x00000000       0x3a Services/LCD_Tasks.o
+ .debug_macro   0x00000000       0x40 Services/LCD_Tasks.o
  .debug_line    0x00000000      0x3f0 Services/LCD_Tasks.o
- .debug_str     0x00000000     0xce42 Services/LCD_Tasks.o
+ .debug_str     0x00000000     0xce67 Services/LCD_Tasks.o
  .comment       0x00000000       0x31 Services/LCD_Tasks.o
  .debug_frame   0x00000000       0x24 Services/LCD_Tasks.o
  COMMON         0x00000000       0x10 Services/LCD_Tasks.o
@@ -1669,8 +1800,6 @@ Discarded input sections
  .text          0x00000000        0x0 utils/Millis.o
  .data          0x00000000        0x0 utils/Millis.o
  .bss           0x00000000        0x0 utils/Millis.o
- .text.millis_init
-                0x00000000       0x1e utils/Millis.o
  .debug_macro   0x00000000      0xa72 utils/Millis.o
  .debug_macro   0x00000000       0x10 utils/Millis.o
  .debug_macro   0x00000000      0x1c9 utils/Millis.o
@@ -1698,6 +1827,11 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
  .text.avr-libc.fplib
                 0x00000000       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(addsf3x.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
+ .text.avr-libc.fplib
+                0x00000000        0xa c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(cmpsf2.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(divsf3.o)
@@ -1718,6 +1852,11 @@ Discarded input sections
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
  .text.avr-libc.fplib
                 0x00000000       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(floatsisf.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
+ .text.avr-libc.fplib
+                0x00000000       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_inf.o)
@@ -1785,11 +1924,6 @@ Discarded input sections
                 0x00000000       0x74 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(exp.o)
  .progmem.gcc_fplib
                 0x00000000       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(exp.o)
- .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
- .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
- .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
- .text.avr-libc.fplib
-                0x00000000       0x48 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_cmp.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libm.a(fp_mintl.o)
@@ -2058,7 +2192,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x3710
+.text           0x00000000     0x324c
  *(.vectors)
  .vectors       0x00000000       0xe4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
                 0x00000000                __vector_default
@@ -2078,32 +2212,31 @@ END GROUP
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
- .lowtext       0x000000e4       0x52 rtos/tasks.o
  *(.lowtext*)
-                0x00000136                __ctors_start = .
+                0x000000e4                __ctors_start = .
  *(.ctors)
-                0x00000136                __ctors_end = .
-                0x00000136                __dtors_start = .
+                0x000000e4                __ctors_end = .
+                0x000000e4                __dtors_start = .
  *(.dtors)
-                0x00000136                __dtors_end = .
+                0x000000e4                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000136        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
-                0x00000136                __init
+ .init0         0x000000e4        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
+                0x000000e4                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000136       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ .init2         0x000000e4       0x10 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000146       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_copy_data.o)
-                0x00000146                __do_copy_data
- .init4         0x00000160       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
-                0x00000160                __do_clear_bss
+ .init4         0x000000f4       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_copy_data.o)
+                0x000000f4                __do_copy_data
+ .init4         0x0000010e       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_clear_bss.o)
+                0x0000010e                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -2114,305 +2247,308 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000170        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
+ .init9         0x0000011e        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  *(.init9)
  *(.text)
- .text          0x00000178        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
-                0x00000178                __vector_38
-                0x00000178                __vector_22
-                0x00000178                __vector_28
-                0x00000178                __vector_1
-                0x00000178                __vector_34
-                0x00000178                __vector_24
-                0x00000178                __vector_55
-                0x00000178                __vector_46
-                0x00000178                __bad_interrupt
-                0x00000178                __vector_6
-                0x00000178                __vector_31
-                0x00000178                __vector_35
-                0x00000178                __vector_39
-                0x00000178                __vector_3
-                0x00000178                __vector_23
-                0x00000178                __vector_30
-                0x00000178                __vector_45
-                0x00000178                __vector_11
-                0x00000178                __vector_54
-                0x00000178                __vector_19
-                0x00000178                __vector_56
-                0x00000178                __vector_7
-                0x00000178                __vector_49
-                0x00000178                __vector_41
-                0x00000178                __vector_43
-                0x00000178                __vector_27
-                0x00000178                __vector_5
-                0x00000178                __vector_33
-                0x00000178                __vector_4
-                0x00000178                __vector_44
-                0x00000178                __vector_9
-                0x00000178                __vector_2
-                0x00000178                __vector_21
-                0x00000178                __vector_15
-                0x00000178                __vector_40
-                0x00000178                __vector_8
-                0x00000178                __vector_48
-                0x00000178                __vector_14
-                0x00000178                __vector_53
-                0x00000178                __vector_10
-                0x00000178                __vector_50
-                0x00000178                __vector_16
-                0x00000178                __vector_18
-                0x00000178                __vector_20
-                0x0000017a                . = ALIGN (0x2)
+ .text          0x00000126        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
+                0x00000126                __vector_38
+                0x00000126                __vector_22
+                0x00000126                __vector_28
+                0x00000126                __vector_1
+                0x00000126                __vector_34
+                0x00000126                __vector_24
+                0x00000126                __vector_46
+                0x00000126                __bad_interrupt
+                0x00000126                __vector_6
+                0x00000126                __vector_31
+                0x00000126                __vector_35
+                0x00000126                __vector_39
+                0x00000126                __vector_3
+                0x00000126                __vector_23
+                0x00000126                __vector_30
+                0x00000126                __vector_45
+                0x00000126                __vector_11
+                0x00000126                __vector_19
+                0x00000126                __vector_56
+                0x00000126                __vector_7
+                0x00000126                __vector_49
+                0x00000126                __vector_41
+                0x00000126                __vector_43
+                0x00000126                __vector_27
+                0x00000126                __vector_5
+                0x00000126                __vector_33
+                0x00000126                __vector_4
+                0x00000126                __vector_44
+                0x00000126                __vector_9
+                0x00000126                __vector_2
+                0x00000126                __vector_21
+                0x00000126                __vector_15
+                0x00000126                __vector_40
+                0x00000126                __vector_8
+                0x00000126                __vector_48
+                0x00000126                __vector_14
+                0x00000126                __vector_53
+                0x00000126                __vector_10
+                0x00000126                __vector_50
+                0x00000126                __vector_16
+                0x00000126                __vector_18
+                0x00000126                __vector_20
+                0x00000128                . = ALIGN (0x2)
  *(.text.*)
  .text.__vector_17
-                0x0000017a       0xcc ECUAL/Encoder/Encoder.o
-                0x0000017a                __vector_17
+                0x00000128       0xcc ECUAL/Encoder/Encoder.o
+                0x00000128                __vector_17
  .text.__vector_32
-                0x00000246       0xcc ECUAL/Encoder/Encoder.o
-                0x00000246                __vector_32
+                0x000001f4       0xcc ECUAL/Encoder/Encoder.o
+                0x000001f4                __vector_32
  .text.__vector_42
-                0x00000312       0xcc ECUAL/Encoder/Encoder.o
-                0x00000312                __vector_42
+                0x000002c0       0xcc ECUAL/Encoder/Encoder.o
+                0x000002c0                __vector_42
  .text.__vector_47
-                0x000003de       0xd8 ECUAL/Encoder/Encoder.o
-                0x000003de                __vector_47
+                0x0000038c       0xd8 ECUAL/Encoder/Encoder.o
+                0x0000038c                __vector_47
+ .text.LCD_pre_transmission
+                0x00000464        0xa ECUAL/LCD.o
+                0x00000464                LCD_pre_transmission
+ .text.LCD_post_transmission
+                0x0000046e        0xa ECUAL/LCD.o
+                0x0000046e                LCD_post_transmission
+ .text.Lcd_init
+                0x00000478       0x28 ECUAL/LCD.o
+                0x00000478                Lcd_init
+ .text.Lcd_Write
+                0x000004a0       0x1e ECUAL/LCD.o
+                0x000004a0                Lcd_Write
  .text.lcd_set_buzzer
-                0x000004b6       0x16 ECUAL/LCD.o
-                0x000004b6                lcd_set_buzzer
+                0x000004be       0x16 ECUAL/LCD.o
+                0x000004be                lcd_set_buzzer
  .text.Modbus_mster_transaction
-                0x000004cc      0xd02 ECUAL/Modbus/Modbus_master.o
+                0x000004d4      0xd02 ECUAL/Modbus/Modbus_master.o
+ .text.Modbus_init
+                0x000011d6      0x1dc ECUAL/Modbus/Modbus_master.o
+                0x000011d6                Modbus_init
  .text.Modbus_Set_transmit_buffer
-                0x000011ce       0x42 ECUAL/Modbus/Modbus_master.o
-                0x000011ce                Modbus_Set_transmit_buffer
+                0x000013b2       0x42 ECUAL/Modbus/Modbus_master.o
+                0x000013b2                Modbus_Set_transmit_buffer
  .text.Modbus_Write_multiple_coils
-                0x00001210       0x38 ECUAL/Modbus/Modbus_master.o
-                0x00001210                Modbus_Write_multiple_coils
- .text.vTask2   0x00001248       0x6a main.o
- .text.vTask1   0x000012b2       0x84 main.o
- .text.main     0x00001336       0xba main.o
-                0x00001336                main
+                0x000013f4       0x38 ECUAL/Modbus/Modbus_master.o
+                0x000013f4                Modbus_Write_multiple_coils
+ .text.Modbus_Write_multiple_registers
+                0x0000142c       0x38 ECUAL/Modbus/Modbus_master.o
+                0x0000142c                Modbus_Write_multiple_registers
+ .text.vTask2   0x00001464       0x6a main.o
+ .text.vTask1   0x000014ce       0x84 main.o
+ .text.main     0x00001552      0x148 main.o
+                0x00001552                main
  .text.__vector_29
-                0x000013f0       0x3a MCAL/ADC.o
-                0x000013f0                __vector_29
+                0x0000169a       0x3a MCAL/ADC.o
+                0x0000169a                __vector_29
+ .text.DIO_init
+                0x000016d4       0x54 MCAL/DIO.o
+                0x000016d4                DIO_init
+ .text.Modbus_change_state
+                0x00001728       0x3a MCAL/DIO.o
+                0x00001728                Modbus_change_state
  .text.__vector_25
-                0x0000142a       0x72 MCAL/UART.o
-                0x0000142a                __vector_25
+                0x00001762       0x72 MCAL/UART.o
+                0x00001762                __vector_25
  .text.__vector_26
-                0x0000149c       0x6a MCAL/UART.o
-                0x0000149c                __vector_26
+                0x000017d4       0x6a MCAL/UART.o
+                0x000017d4                __vector_26
  .text.UART0_init
-                0x00001506       0xaa MCAL/UART.o
-                0x00001506                UART0_init
+                0x0000183e       0xaa MCAL/UART.o
+                0x0000183e                UART0_init
  .text.UART0_putc
-                0x000015b0       0x32 MCAL/UART.o
-                0x000015b0                UART0_putc
+                0x000018e8       0x32 MCAL/UART.o
+                0x000018e8                UART0_putc
  .text.UART0_OutUDec
-                0x000015e2       0x38 MCAL/UART.o
-                0x000015e2                UART0_OutUDec
+                0x0000191a       0x38 MCAL/UART.o
+                0x0000191a                UART0_OutUDec
  .text.UART0_puts
-                0x0000161a       0x1c MCAL/UART.o
-                0x0000161a                UART0_puts
+                0x00001952       0x1c MCAL/UART.o
+                0x00001952                UART0_puts
  .text.__vector_36
-                0x00001636       0x72 MCAL/UART.o
-                0x00001636                __vector_36
+                0x0000196e       0x72 MCAL/UART.o
+                0x0000196e                __vector_36
  .text.__vector_37
-                0x000016a8       0x6a MCAL/UART.o
-                0x000016a8                __vector_37
+                0x000019e0       0x6a MCAL/UART.o
+                0x000019e0                __vector_37
+ .text.UART1_init
+                0x00001a4a       0xaa MCAL/UART.o
+                0x00001a4a                UART1_init
+ .text.UART1_getc
+                0x00001af4       0x40 MCAL/UART.o
+                0x00001af4                UART1_getc
+ .text.UART1_putc
+                0x00001b34       0x32 MCAL/UART.o
+                0x00001b34                UART1_putc
+ .text.UART1_available
+                0x00001b66       0x1c MCAL/UART.o
+                0x00001b66                UART1_available
+ .text.UART1_flush
+                0x00001b82        0xa MCAL/UART.o
+                0x00001b82                UART1_flush
  .text.__vector_51
-                0x00001712       0x86 MCAL/UART.o
-                0x00001712                __vector_51
+                0x00001b8c       0x72 MCAL/UART.o
+                0x00001b8c                __vector_51
  .text.__vector_52
-                0x00001798       0x6a MCAL/UART.o
-                0x00001798                __vector_52
+                0x00001bfe       0x6a MCAL/UART.o
+                0x00001bfe                __vector_52
+ .text.UART2_init
+                0x00001c68       0xaa MCAL/UART.o
+                0x00001c68                UART2_init
+ .text.UART2_getc
+                0x00001d12       0x3a MCAL/UART.o
+                0x00001d12                UART2_getc
+ .text.UART2_putc
+                0x00001d4c       0x32 MCAL/UART.o
+                0x00001d4c                UART2_putc
+ .text.UART2_available
+                0x00001d7e       0x1c MCAL/UART.o
+                0x00001d7e                UART2_available
+ .text.UART2_flush
+                0x00001d9a        0xa MCAL/UART.o
+                0x00001d9a                UART2_flush
+ .text.__vector_54
+                0x00001da4       0x72 MCAL/UART.o
+                0x00001da4                __vector_54
+ .text.__vector_55
+                0x00001e16       0x6a MCAL/UART.o
+                0x00001e16                __vector_55
+ .text.UART3_init
+                0x00001e80       0xaa MCAL/UART.o
+                0x00001e80                UART3_init
+ .text.UART3_getc
+                0x00001f2a       0x3a MCAL/UART.o
+                0x00001f2a                UART3_getc
+ .text.UART3_putc
+                0x00001f64       0x32 MCAL/UART.o
+                0x00001f64                UART3_putc
+ .text.UART3_available
+                0x00001f96       0x1c MCAL/UART.o
+                0x00001f96                UART3_available
+ .text.UART3_flush
+                0x00001fb2        0xa MCAL/UART.o
+                0x00001fb2                UART3_flush
  .text.vApplicationStackOverflowHook
-                0x00001802       0x1a rtos/hooks.o
-                0x00001802                vApplicationStackOverflowHook
- .text.vApplicationGetIdleTaskMemory
-                0x0000181c       0x20 rtos/hooks.o
-                0x0000181c                vApplicationGetIdleTaskMemory
- .text.vApplicationGetTimerTaskMemory
-                0x0000183c       0x20 rtos/hooks.o
-                0x0000183c                vApplicationGetTimerTaskMemory
+                0x00001fbc       0x1a rtos/hooks.o
+                0x00001fbc                vApplicationStackOverflowHook
  .text.vListInitialise
-                0x0000185c       0x1c rtos/list.o
-                0x0000185c                vListInitialise
+                0x00001fd6       0x1c rtos/list.o
+                0x00001fd6                vListInitialise
  .text.vListInitialiseItem
-                0x00001878        0x8 rtos/list.o
-                0x00001878                vListInitialiseItem
+                0x00001ff2        0x8 rtos/list.o
+                0x00001ff2                vListInitialiseItem
  .text.vListInsertEnd
-                0x00001880       0x42 rtos/list.o
-                0x00001880                vListInsertEnd
+                0x00001ffa       0x42 rtos/list.o
+                0x00001ffa                vListInsertEnd
  .text.vListInsert
-                0x000018c2       0x62 rtos/list.o
-                0x000018c2                vListInsert
+                0x0000203c       0x62 rtos/list.o
+                0x0000203c                vListInsert
  .text.uxListRemove
-                0x00001924       0x4e rtos/list.o
-                0x00001924                uxListRemove
+                0x0000209e       0x4e rtos/list.o
+                0x0000209e                uxListRemove
  .text.pxPortInitialiseStack
-                0x00001972       0xe4 rtos/port.o
-                0x00001972                pxPortInitialiseStack
- .text.xPortStartScheduler
-                0x00001a56       0x78 rtos/port.o
-                0x00001a56                xPortStartScheduler
+                0x000020ec       0xe4 rtos/port.o
+                0x000020ec                pxPortInitialiseStack
  .text.vPortYield
-                0x00001ace       0xc2 rtos/port.o
-                0x00001ace                vPortYield
+                0x000021d0       0xc0 rtos/port.o
+                0x000021d0                vPortYield
  .text.vPortYieldFromTick
-                0x00001b90       0xc8 rtos/port.o
-                0x00001b90                vPortYieldFromTick
+                0x00002290       0xc6 rtos/port.o
+                0x00002290                vPortYieldFromTick
  .text.__vector_12
-                0x00001c58        0x4 rtos/port.o
-                0x00001c58                __vector_12
- .text.prvIsQueueEmpty
-                0x00001c5c       0x16 rtos/queue.o
- .text.prvCopyDataToQueue
-                0x00001c72       0xbe rtos/queue.o
- .text.prvCopyDataFromQueue
-                0x00001d30       0x34 rtos/queue.o
- .text.prvUnlockQueue
-                0x00001d64       0x98 rtos/queue.o
- .text.xQueueGenericReset
-                0x00001dfc       0x84 rtos/queue.o
-                0x00001dfc                xQueueGenericReset
- .text.xQueueGenericCreateStatic
-                0x00001e80       0x2a rtos/queue.o
-                0x00001e80                xQueueGenericCreateStatic
- .text.xQueueGenericSend
-                0x00001eaa      0x124 rtos/queue.o
-                0x00001eaa                xQueueGenericSend
- .text.xQueueGenericSendFromISR
-                0x00001fce       0x70 rtos/queue.o
-                0x00001fce                xQueueGenericSendFromISR
- .text.xQueueReceive
-                0x0000203e      0x112 rtos/queue.o
-                0x0000203e                xQueueReceive
- .text.vQueueWaitForMessageRestricted
-                0x00002150       0x36 rtos/queue.o
-                0x00002150                vQueueWaitForMessageRestricted
+                0x00002356        0x4 rtos/port.o
+                0x00002356                __vector_12
  .text.prvBytesInBuffer
-                0x00002186       0x26 rtos/stream_buffer.o
+                0x0000235a       0x26 rtos/stream_buffer.o
  .text.prvWriteBytesToBuffer
-                0x000021ac       0x92 rtos/stream_buffer.o
+                0x00002380       0x8e rtos/stream_buffer.o
  .text.prvWriteMessageToBuffer
-                0x0000223e       0x80 rtos/stream_buffer.o
+                0x0000240e       0x80 rtos/stream_buffer.o
  .text.prvReadBytesFromBuffer
-                0x000022be       0x9c rtos/stream_buffer.o
+                0x0000248e       0x98 rtos/stream_buffer.o
  .text.xStreamBufferGenericCreateStatic
-                0x0000235a       0x5e rtos/stream_buffer.o
-                0x0000235a                xStreamBufferGenericCreateStatic
+                0x00002526       0x5e rtos/stream_buffer.o
+                0x00002526                xStreamBufferGenericCreateStatic
  .text.xStreamBufferSpacesAvailable
-                0x000023b8       0x24 rtos/stream_buffer.o
-                0x000023b8                xStreamBufferSpacesAvailable
+                0x00002584       0x24 rtos/stream_buffer.o
+                0x00002584                xStreamBufferSpacesAvailable
  .text.xStreamBufferSend
-                0x000023dc      0x130 rtos/stream_buffer.o
-                0x000023dc                xStreamBufferSend
+                0x000025a8      0x130 rtos/stream_buffer.o
+                0x000025a8                xStreamBufferSend
  .text.xStreamBufferReceive
-                0x0000250c      0x134 rtos/stream_buffer.o
-                0x0000250c                xStreamBufferReceive
+                0x000026d8      0x134 rtos/stream_buffer.o
+                0x000026d8                xStreamBufferReceive
  .text.prvResetNextTaskUnblockTime
-                0x00002640       0x3e rtos/tasks.o
+                0x0000280c       0x3e rtos/tasks.o
  .text.prvAddCurrentTaskToDelayedList
-                0x0000267e       0xa8 rtos/tasks.o
+                0x0000284a       0xa8 rtos/tasks.o
  .text.xTaskCreateStatic
-                0x00002726      0x1f6 rtos/tasks.o
-                0x00002726                xTaskCreateStatic
- .text.vTaskStartScheduler
-                0x0000291c       0x92 rtos/tasks.o
-                0x0000291c                vTaskStartScheduler
+                0x000028f2      0x1f4 rtos/tasks.o
+                0x000028f2                xTaskCreateStatic
  .text.vTaskSuspendAll
-                0x000029ae        0xc rtos/tasks.o
-                0x000029ae                vTaskSuspendAll
- .text.xTaskGetTickCount
-                0x000029ba       0x14 rtos/tasks.o
-                0x000029ba                xTaskGetTickCount
+                0x00002ae6        0xc rtos/tasks.o
+                0x00002ae6                vTaskSuspendAll
  .text.xTaskIncrementTick
-                0x000029ce      0x174 rtos/tasks.o
-                0x000029ce                xTaskIncrementTick
+                0x00002af2      0x16e rtos/tasks.o
+                0x00002af2                xTaskIncrementTick
  .text.xTaskResumeAll
-                0x00002b42       0xfa rtos/tasks.o
-                0x00002b42                xTaskResumeAll
+                0x00002c60       0xf2 rtos/tasks.o
+                0x00002c60                xTaskResumeAll
  .text.vTaskDelay
-                0x00002c3c       0x22 rtos/tasks.o
-                0x00002c3c                vTaskDelay
+                0x00002d52       0x20 rtos/tasks.o
+                0x00002d52                vTaskDelay
  .text.vTaskSwitchContext
-                0x00002c5e      0x102 rtos/tasks.o
-                0x00002c5e                vTaskSwitchContext
- .text.vTaskPlaceOnEventList
-                0x00002d60       0x22 rtos/tasks.o
-                0x00002d60                vTaskPlaceOnEventList
- .text.vTaskPlaceOnEventListRestricted
-                0x00002d82       0x30 rtos/tasks.o
-                0x00002d82                vTaskPlaceOnEventListRestricted
- .text.xTaskRemoveFromEventList
-                0x00002db2       0x90 rtos/tasks.o
-                0x00002db2                xTaskRemoveFromEventList
+                0x00002d72      0x100 rtos/tasks.o
+                0x00002d72                vTaskSwitchContext
  .text.vTaskSetTimeOutState
-                0x00002e42       0x20 rtos/tasks.o
-                0x00002e42                vTaskSetTimeOutState
+                0x00002e72       0x20 rtos/tasks.o
+                0x00002e72                vTaskSetTimeOutState
  .text.vTaskInternalSetTimeOutState
-                0x00002e62       0x16 rtos/tasks.o
-                0x00002e62                vTaskInternalSetTimeOutState
+                0x00002e92       0x16 rtos/tasks.o
+                0x00002e92                vTaskInternalSetTimeOutState
  .text.xTaskCheckForTimeOut
-                0x00002e78       0x6a rtos/tasks.o
-                0x00002e78                xTaskCheckForTimeOut
- .text.vTaskMissedYield
-                0x00002ee2        0x8 rtos/tasks.o
-                0x00002ee2                vTaskMissedYield
+                0x00002ea8       0x6a rtos/tasks.o
+                0x00002ea8                xTaskCheckForTimeOut
  .text.xTaskGetCurrentTaskHandle
-                0x00002eea        0xa rtos/tasks.o
-                0x00002eea                xTaskGetCurrentTaskHandle
- .text.xTaskGetSchedulerState
-                0x00002ef4       0x1c rtos/tasks.o
-                0x00002ef4                xTaskGetSchedulerState
- .text.xTaskPriorityDisinherit
-                0x00002f10       0x80 rtos/tasks.o
-                0x00002f10                xTaskPriorityDisinherit
+                0x00002f12        0xa rtos/tasks.o
+                0x00002f12                xTaskGetCurrentTaskHandle
  .text.xTaskNotifyWait
-                0x00002f90      0x106 rtos/tasks.o
-                0x00002f90                xTaskNotifyWait
+                0x00002f1c      0x104 rtos/tasks.o
+                0x00002f1c                xTaskNotifyWait
  .text.xTaskGenericNotify
-                0x00003096       0xfc rtos/tasks.o
-                0x00003096                xTaskGenericNotify
+                0x00003020       0xfa rtos/tasks.o
+                0x00003020                xTaskGenericNotify
  .text.xTaskNotifyStateClear
-                0x00003192       0x28 rtos/tasks.o
-                0x00003192                xTaskNotifyStateClear
- .text.prvInsertTimerInActiveList
-                0x000031ba       0x5e rtos/timers.o
- .text.prvCheckForValidListAndQueue
-                0x00003218       0x5e rtos/timers.o
- .text.xTimerCreateTimerTask
-                0x00003276       0x8e rtos/timers.o
-                0x00003276                xTimerCreateTimerTask
- .text.xTimerGenericCommand
-                0x00003304       0x8e rtos/timers.o
-                0x00003304                xTimerGenericCommand
- .text.prvSampleTimeNow
-                0x00003392       0xdc rtos/timers.o
- .text.prvTimerTask
-                0x0000346e      0x1b6 rtos/timers.o
+                0x0000311a       0x28 rtos/tasks.o
+                0x0000311a                xTaskNotifyStateClear
  .text.crc16_update
-                0x00003624       0x24 utils/CRC16.o
-                0x00003624                crc16_update
+                0x00003142       0x24 utils/CRC16.o
+                0x00003142                crc16_update
+ .text.millis_init
+                0x00003166       0x1e utils/Millis.o
+                0x00003166                millis_init
  .text.Get_millis
-                0x00003648       0x16 utils/Millis.o
-                0x00003648                Get_millis
+                0x00003184       0x16 utils/Millis.o
+                0x00003184                Get_millis
  .text.__vector_13
-                0x0000365e       0x4a utils/Millis.o
-                0x0000365e                __vector_13
+                0x0000319a       0x4a utils/Millis.o
+                0x0000319a                __vector_13
  .text.libgcc.div
-                0x000036a8       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
-                0x000036a8                __udivmodsi4
+                0x000031e4       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_udivmodsi4.o)
+                0x000031e4                __udivmodsi4
  .text.avr-libc
-                0x000036ec       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
-                0x000036ec                memcpy
+                0x00003228       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memcpy.o)
+                0x00003228                memcpy
  .text.avr-libc
-                0x000036fe        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
-                0x000036fe                memset
-                0x0000370c                . = ALIGN (0x2)
+                0x0000323a        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr6\libc.a(memset.o)
+                0x0000323a                memset
+                0x00003248                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x0000370c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
-                0x0000370c                _exit
-                0x0000370c                exit
+ .fini9         0x00003248        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+                0x00003248                _exit
+                0x00003248                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -2431,11 +2567,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x0000370c        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
+ .fini0         0x00003248        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr6\libgcc.a(_exit.o)
  *(.fini0)
-                0x00003710                _etext = .
+                0x0000324c                _etext = .
 
-.data           0x00800200       0x8c load address 0x00003710
+.data           0x00800200       0x80 load address 0x0000324c
                 0x00800200                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -2446,247 +2582,238 @@ END GROUP
                 0x00800200       0x13 ECUAL/Modbus/Modbus_master.o
  .rodata.str1.1
                 0x00800213       0x6c main.o
- .rodata.str1.1
-                0x0080027f        0x5 rtos/tasks.o
- .rodata.str1.1
-                0x00800284        0x8 rtos/timers.o
  *(.gnu.linkonce.r*)
-                0x0080028c                . = ALIGN (0x2)
-                0x0080028c                _edata = .
-                0x0080028c                PROVIDE (__data_end, .)
+                0x00800280                . = ALIGN (0x2)
+ *fill*         0x0080027f        0x1 
+                0x00800280                _edata = .
+                0x00800280                PROVIDE (__data_end, .)
 
-.bss            0x0080028c      0x9ac
-                0x0080028c                PROVIDE (__bss_start, .)
+.bss            0x00800280      0x956
+                0x00800280                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
+ .bss.g_LCD_modbus_config
+                0x00800280        0xa ECUAL/LCD.o
+ .bss.UART3_used.1981
+                0x0080028a        0x1 ECUAL/Modbus/Modbus_master.o
+ .bss.UART2_used.1980
+                0x0080028b        0x1 ECUAL/Modbus/Modbus_master.o
+ .bss.UART1_used.1979
+                0x0080028c        0x1 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_Serial_flush
-                0x0080028c        0x2 ECUAL/Modbus/Modbus_master.o
+                0x0080028d        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_Serial_available
-                0x0080028e        0x2 ECUAL/Modbus/Modbus_master.o
+                0x0080028f        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_Serial_getc
-                0x00800290        0x2 ECUAL/Modbus/Modbus_master.o
+                0x00800291        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_Serial_putc
-                0x00800292        0x2 ECUAL/Modbus/Modbus_master.o
+                0x00800293        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_post_transmission
-                0x00800294        0x2 ECUAL/Modbus/Modbus_master.o
+                0x00800295        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_pre_transmission
-                0x00800296        0x2 ECUAL/Modbus/Modbus_master.o
+                0x00800297        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_idle
-                0x00800298        0x2 ECUAL/Modbus/Modbus_master.o
+                0x00800299        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_response_buffer_length
-                0x0080029a        0x1 ECUAL/Modbus/Modbus_master.o
- .bss.g_mod1_response_buffer_index
                 0x0080029b        0x1 ECUAL/Modbus/Modbus_master.o
- .bss.g_mod1_transmit_buffer_index
+ .bss.g_mod1_response_buffer_index
                 0x0080029c        0x1 ECUAL/Modbus/Modbus_master.o
+ .bss.g_mod1_transmit_buffer_index
+                0x0080029d        0x1 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_transmit_buffer
-                0x0080029d       0x80 ECUAL/Modbus/Modbus_master.o
+                0x0080029e       0x80 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_write_qty
-                0x0080031d        0x2 ECUAL/Modbus/Modbus_master.o
+                0x0080031e        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_write_address
-                0x0080031f        0x2 ECUAL/Modbus/Modbus_master.o
+                0x00800320        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_response_buffer
-                0x00800321       0x80 ECUAL/Modbus/Modbus_master.o
+                0x00800322       0x80 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_read_qty
-                0x008003a1        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003a2        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_read_address
-                0x008003a3        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003a4        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod1_slave
-                0x008003a5        0x1 ECUAL/Modbus/Modbus_master.o
+                0x008003a6        0x1 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_Serial_available
-                0x008003a6        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003a7        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_Serial_flush
-                0x008003a8        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003a9        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_Serial_getc
-                0x008003aa        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003ab        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_Serial_putc
-                0x008003ac        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003ad        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_post_transmission
-                0x008003ae        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003af        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_pre_transmission
-                0x008003b0        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003b1        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_idle
-                0x008003b2        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008003b3        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_response_buffer_length
-                0x008003b4        0x1 ECUAL/Modbus/Modbus_master.o
- .bss.g_mod0_response_buffer_index
                 0x008003b5        0x1 ECUAL/Modbus/Modbus_master.o
- .bss.g_mod0_transmit_buffer_index
+ .bss.g_mod0_response_buffer_index
                 0x008003b6        0x1 ECUAL/Modbus/Modbus_master.o
+ .bss.g_mod0_transmit_buffer_index
+                0x008003b7        0x1 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_transmit_buffer
-                0x008003b7       0x80 ECUAL/Modbus/Modbus_master.o
+                0x008003b8       0x80 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_write_qty
-                0x00800437        0x2 ECUAL/Modbus/Modbus_master.o
+                0x00800438        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_write_address
-                0x00800439        0x2 ECUAL/Modbus/Modbus_master.o
+                0x0080043a        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_response_buffer
-                0x0080043b       0x80 ECUAL/Modbus/Modbus_master.o
+                0x0080043c       0x80 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_read_qty
-                0x008004bb        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008004bc        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_read_address
-                0x008004bd        0x2 ECUAL/Modbus/Modbus_master.o
+                0x008004be        0x2 ECUAL/Modbus/Modbus_master.o
  .bss.g_mod0_slave
-                0x008004bf        0x1 ECUAL/Modbus/Modbus_master.o
+                0x008004c0        0x1 ECUAL/Modbus/Modbus_master.o
  .bss.ucStorageBuffer
-                0x008004c0       0x64 main.o
+                0x008004c1       0x64 main.o
  .bss.g_converted
-                0x00800524        0x1 MCAL/ADC.o
-                0x00800524                g_converted
+                0x00800525        0x1 MCAL/ADC.o
+                0x00800525                g_converted
  .bss.g_analog_data
-                0x00800525        0x2 MCAL/ADC.o
-                0x00800525                g_analog_data
- .bss.count.2060
-                0x00800527        0x1 MCAL/UART.o
- .bss.UART2_Transmission_end
+                0x00800526        0x2 MCAL/ADC.o
+                0x00800526                g_analog_data
+ .bss.UART3_Transmission_end
                 0x00800528        0x1 MCAL/UART.o
- .bss.UART1_Transmission_end
+ .bss.UART2_Transmission_end
                 0x00800529        0x1 MCAL/UART.o
- .bss.UART0_Transmission_end
+ .bss.UART1_Transmission_end
                 0x0080052a        0x1 MCAL/UART.o
- .bss.UART2_LastRxError
+ .bss.UART0_Transmission_end
                 0x0080052b        0x1 MCAL/UART.o
- .bss.UART2_RxTail
+ .bss.UART3_LastRxError
                 0x0080052c        0x1 MCAL/UART.o
- .bss.UART2_RxHead
+ .bss.UART3_RxTail
                 0x0080052d        0x1 MCAL/UART.o
- .bss.UART2_TxTail
+ .bss.UART3_RxHead
                 0x0080052e        0x1 MCAL/UART.o
- .bss.UART2_TxHead
+ .bss.UART3_TxTail
                 0x0080052f        0x1 MCAL/UART.o
- .bss.UART2_RxBuf
-                0x00800530       0x80 MCAL/UART.o
- .bss.UART2_TxBuf
-                0x008005b0       0x80 MCAL/UART.o
- .bss.UART1_LastRxError
-                0x00800630        0x1 MCAL/UART.o
- .bss.UART1_RxTail
+ .bss.UART3_TxHead
+                0x00800530        0x1 MCAL/UART.o
+ .bss.UART3_RxBuf
+                0x00800531       0x80 MCAL/UART.o
+ .bss.UART3_TxBuf
+                0x008005b1       0x80 MCAL/UART.o
+ .bss.UART2_LastRxError
                 0x00800631        0x1 MCAL/UART.o
- .bss.UART1_RxHead
+ .bss.UART2_RxTail
                 0x00800632        0x1 MCAL/UART.o
- .bss.UART1_TxTail
+ .bss.UART2_RxHead
                 0x00800633        0x1 MCAL/UART.o
- .bss.UART1_TxHead
+ .bss.UART2_TxTail
                 0x00800634        0x1 MCAL/UART.o
- .bss.UART1_RxBuf
-                0x00800635       0x80 MCAL/UART.o
- .bss.UART1_TxBuf
-                0x008006b5       0x80 MCAL/UART.o
- .bss.UART_LastRxError
-                0x00800735        0x1 MCAL/UART.o
- .bss.UART_RxTail
+ .bss.UART2_TxHead
+                0x00800635        0x1 MCAL/UART.o
+ .bss.UART2_RxBuf
+                0x00800636       0x80 MCAL/UART.o
+ .bss.UART2_TxBuf
+                0x008006b6       0x80 MCAL/UART.o
+ .bss.UART1_LastRxError
                 0x00800736        0x1 MCAL/UART.o
- .bss.UART_RxHead
+ .bss.UART1_RxTail
                 0x00800737        0x1 MCAL/UART.o
- .bss.UART_TxTail
+ .bss.UART1_RxHead
                 0x00800738        0x1 MCAL/UART.o
- .bss.UART_TxHead
+ .bss.UART1_TxTail
                 0x00800739        0x1 MCAL/UART.o
+ .bss.UART1_TxHead
+                0x0080073a        0x1 MCAL/UART.o
+ .bss.UART1_RxBuf
+                0x0080073b       0x80 MCAL/UART.o
+ .bss.UART1_TxBuf
+                0x008007bb       0x80 MCAL/UART.o
+ .bss.UART_LastRxError
+                0x0080083b        0x1 MCAL/UART.o
+ .bss.UART_RxTail
+                0x0080083c        0x1 MCAL/UART.o
+ .bss.UART_RxHead
+                0x0080083d        0x1 MCAL/UART.o
+ .bss.UART_TxTail
+                0x0080083e        0x1 MCAL/UART.o
+ .bss.UART_TxHead
+                0x0080083f        0x1 MCAL/UART.o
  .bss.UART_RxBuf
-                0x0080073a       0x80 MCAL/UART.o
+                0x00800840       0x80 MCAL/UART.o
  .bss.UART_TxBuf
-                0x008007ba       0x80 MCAL/UART.o
- .bss.uxTimerTaskStack.2223
-                0x0080083a       0x55 rtos/hooks.o
- .bss.xTimerTaskTCB.2222
-                0x0080088f       0x28 rtos/hooks.o
- .bss.uxIdleTaskStack.2212
-                0x008008b7       0x55 rtos/hooks.o
- .bss.xIdleTaskTCB.2211
-                0x0080090c       0x28 rtos/hooks.o
+                0x008008c0       0x80 MCAL/UART.o
  .bss.xDelayedTaskList2.2526
-                0x00800934        0x9 rtos/tasks.o
+                0x00800940        0x9 rtos/tasks.o
  .bss.xDelayedTaskList1.2525
-                0x0080093d        0x9 rtos/tasks.o
+                0x00800949        0x9 rtos/tasks.o
  .bss.uxSchedulerSuspended
-                0x00800946        0x1 rtos/tasks.o
+                0x00800952        0x1 rtos/tasks.o
  .bss.xNextTaskUnblockTime
-                0x00800947        0x2 rtos/tasks.o
+                0x00800953        0x2 rtos/tasks.o
  .bss.uxTaskNumber
-                0x00800949        0x1 rtos/tasks.o
+                0x00800955        0x1 rtos/tasks.o
  .bss.xNumOfOverflows
-                0x0080094a        0x1 rtos/tasks.o
+                0x00800956        0x1 rtos/tasks.o
  .bss.xYieldPending
-                0x0080094b        0x1 rtos/tasks.o
+                0x00800957        0x1 rtos/tasks.o
  .bss.uxPendedTicks
-                0x0080094c        0x1 rtos/tasks.o
+                0x00800958        0x1 rtos/tasks.o
  .bss.xSchedulerRunning
-                0x0080094d        0x1 rtos/tasks.o
+                0x00800959        0x1 rtos/tasks.o
  .bss.uxTopReadyPriority
-                0x0080094e        0x1 rtos/tasks.o
+                0x0080095a        0x1 rtos/tasks.o
  .bss.xTickCount
-                0x0080094f        0x2 rtos/tasks.o
+                0x0080095b        0x2 rtos/tasks.o
  .bss.uxCurrentNumberOfTasks
-                0x00800951        0x1 rtos/tasks.o
+                0x0080095d        0x1 rtos/tasks.o
  .bss.xSuspendedTaskList
-                0x00800952        0x9 rtos/tasks.o
- .bss.uxDeletedTasksWaitingCleanUp
-                0x0080095b        0x1 rtos/tasks.o
+                0x0080095e        0x9 rtos/tasks.o
  .bss.xTasksWaitingTermination
-                0x0080095c        0x9 rtos/tasks.o
+                0x00800967        0x9 rtos/tasks.o
  .bss.xPendingReadyList
-                0x00800965        0x9 rtos/tasks.o
+                0x00800970        0x9 rtos/tasks.o
  .bss.pxOverflowDelayedTaskList
-                0x0080096e        0x2 rtos/tasks.o
+                0x00800979        0x2 rtos/tasks.o
  .bss.pxDelayedTaskList
-                0x00800970        0x2 rtos/tasks.o
+                0x0080097b        0x2 rtos/tasks.o
  .bss.pxReadyTasksLists
-                0x00800972       0x24 rtos/tasks.o
+                0x0080097d       0x24 rtos/tasks.o
  .bss.pxCurrentTCB
-                0x00800996        0x2 rtos/tasks.o
-                0x00800996                pxCurrentTCB
- .bss.xStaticTimerQueue.2438
-                0x00800998       0x1f rtos/timers.o
- .bss.ucStaticTimerQueueStorage.2439
-                0x008009b7       0x32 rtos/timers.o
- .bss.xActiveTimerList2.2437
-                0x008009e9        0x9 rtos/timers.o
- .bss.xActiveTimerList1.2436
-                0x008009f2        0x9 rtos/timers.o
- .bss.xLastTime.2391
-                0x008009fb        0x2 rtos/timers.o
- .bss.xTimerTaskHandle
-                0x008009fd        0x2 rtos/timers.o
- .bss.xTimerQueue
-                0x008009ff        0x2 rtos/timers.o
- .bss.pxOverflowTimerList
-                0x00800a01        0x2 rtos/timers.o
- .bss.pxCurrentTimerList
-                0x00800a03        0x2 rtos/timers.o
+                0x008009a1        0x2 rtos/tasks.o
+                0x008009a1                pxCurrentTCB
  *(COMMON)
- COMMON         0x00800a05       0x2c ECUAL/Encoder/Encoder.o
-                0x00800a05                g_Timer3_old_time
-                0x00800a09                g_timer3_config
-                0x00800a0b                g_Timer1_old_time
-                0x00800a0f                g_Timer5_old_time
-                0x00800a13                g_diff_time
-                0x00800a17                g_Timer4_new_time
-                0x00800a1b                g_timer4_config
-                0x00800a1d                g_Timer5_new_time
-                0x00800a21                g_Timer3_new_time
-                0x00800a25                g_timer1_config
-                0x00800a27                g_Timer4_old_time
-                0x00800a2b                g_Timer1_new_time
-                0x00800a2f                g_timer5_config
- COMMON         0x00800a31      0x203 main.o
-                0x00800a31                xTask1Buffer
-                0x00800a59                xMessageBuffer
-                0x00800a5b                xTask2Buffer
-                0x00800a83                debug_send_lcd
-                0x00800a8e                xStack1
-                0x00800b56                xMessageBufferStruct
-                0x00800b65                xStack2
-                0x00800c2d                debug_rece_lcd
- COMMON         0x00800c34        0x4 utils/Millis.o
-                0x00800c34                timer1_millis
-                0x00800c38                PROVIDE (__bss_end, .)
-                0x00003710                __data_load_start = LOADADDR (.data)
-                0x0000379c                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008009a3       0x2c ECUAL/Encoder/Encoder.o
+                0x008009a3                g_Timer3_old_time
+                0x008009a7                g_timer3_config
+                0x008009a9                g_Timer1_old_time
+                0x008009ad                g_Timer5_old_time
+                0x008009b1                g_diff_time
+                0x008009b5                g_Timer4_new_time
+                0x008009b9                g_timer4_config
+                0x008009bb                g_Timer5_new_time
+                0x008009bf                g_Timer3_new_time
+                0x008009c3                g_timer1_config
+                0x008009c5                g_Timer4_old_time
+                0x008009c9                g_Timer1_new_time
+                0x008009cd                g_timer5_config
+ COMMON         0x008009cf      0x203 main.o
+                0x008009cf                xTask1Buffer
+                0x008009f7                xMessageBuffer
+                0x008009f9                xTask2Buffer
+                0x00800a21                debug_send_lcd
+                0x00800a2c                xStack1
+                0x00800af4                xMessageBufferStruct
+                0x00800b03                xStack2
+                0x00800bcb                debug_rece_lcd
+ COMMON         0x00800bd2        0x4 utils/Millis.o
+                0x00800bd2                timer1_millis
+                0x00800bd6                PROVIDE (__bss_end, .)
+                0x0000324c                __data_load_start = LOADADDR (.data)
+                0x000032cc                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800c38        0x0
+.noinit         0x00800bd6        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800c38                _end = .
+                0x00800bd6                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -2734,14 +2861,13 @@ END GROUP
  .comment       0x00000030       0x31 ECUAL/Modbus/Modbus_master.o
  .comment       0x00000030       0x31 main.o
  .comment       0x00000030       0x31 MCAL/ADC.o
+ .comment       0x00000030       0x31 MCAL/DIO.o
  .comment       0x00000030       0x31 MCAL/UART.o
  .comment       0x00000030       0x31 rtos/hooks.o
  .comment       0x00000030       0x31 rtos/list.o
  .comment       0x00000030       0x31 rtos/port.o
- .comment       0x00000030       0x31 rtos/queue.o
  .comment       0x00000030       0x31 rtos/stream_buffer.o
  .comment       0x00000030       0x31 rtos/tasks.o
- .comment       0x00000030       0x31 rtos/timers.o
  .comment       0x00000030       0x31 utils/CRC16.o
  .comment       0x00000030       0x31 utils/Millis.o
 
@@ -2765,7 +2891,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x7b8
+.debug_aranges  0x00000000      0x768
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x40 ECUAL/Encoder/Encoder.o
@@ -2778,155 +2904,146 @@ END GROUP
  .debug_aranges
                 0x000001a8       0x38 MCAL/ADC.o
  .debug_aranges
-                0x000001e0      0x128 MCAL/UART.o
+                0x000001e0       0xc0 MCAL/DIO.o
  .debug_aranges
-                0x00000308       0x38 rtos/hooks.o
+                0x000002a0      0x180 MCAL/UART.o
  .debug_aranges
-                0x00000340       0x40 rtos/list.o
+                0x00000420       0x38 rtos/hooks.o
  .debug_aranges
-                0x00000380       0x48 rtos/port.o
+                0x00000458       0x40 rtos/list.o
  .debug_aranges
-                0x000003c8       0xe0 rtos/queue.o
+                0x00000498       0x48 rtos/port.o
  .debug_aranges
-                0x000004a8       0xb0 rtos/stream_buffer.o
+                0x000004e0       0xb0 rtos/stream_buffer.o
  .debug_aranges
-                0x00000558      0x188 rtos/tasks.o
+                0x00000590      0x188 rtos/tasks.o
  .debug_aranges
-                0x000006e0       0x88 rtos/timers.o
+                0x00000718       0x20 utils/CRC16.o
  .debug_aranges
-                0x00000768       0x20 utils/CRC16.o
- .debug_aranges
-                0x00000788       0x30 utils/Millis.o
+                0x00000738       0x30 utils/Millis.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xae00
+.debug_info     0x00000000     0x89e5
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_info    0x00000bbc      0x333 ECUAL/Encoder/Encoder.o
- .debug_info    0x00000eef      0x5a3 ECUAL/LCD.o
- .debug_info    0x00001492     0x109b ECUAL/Modbus/Modbus_master.o
- .debug_info    0x0000252d      0x8a8 main.o
- .debug_info    0x00002dd5      0x156 MCAL/ADC.o
- .debug_info    0x00002f2b      0xff1 MCAL/UART.o
- .debug_info    0x00003f1c      0x3f0 rtos/hooks.o
- .debug_info    0x0000430c      0x2e3 rtos/list.o
- .debug_info    0x000045ef      0x288 rtos/port.o
- .debug_info    0x00004877     0x1a8c rtos/queue.o
- .debug_info    0x00006303     0x1465 rtos/stream_buffer.o
- .debug_info    0x00007768     0x210a rtos/tasks.o
- .debug_info    0x00009872     0x1366 rtos/timers.o
- .debug_info    0x0000abd8       0xbe utils/CRC16.o
- .debug_info    0x0000ac96      0x16a utils/Millis.o
+ .debug_info    0x00000eef      0x5a9 ECUAL/LCD.o
+ .debug_info    0x00001498     0x10cb ECUAL/Modbus/Modbus_master.o
+ .debug_info    0x00002563      0xa96 main.o
+ .debug_info    0x00002ff9      0x156 MCAL/ADC.o
+ .debug_info    0x0000314f      0x369 MCAL/DIO.o
+ .debug_info    0x000034b8     0x143b MCAL/UART.o
+ .debug_info    0x000048f3      0x3f0 rtos/hooks.o
+ .debug_info    0x00004ce3      0x2e3 rtos/list.o
+ .debug_info    0x00004fc6      0x288 rtos/port.o
+ .debug_info    0x0000524e     0x1465 rtos/stream_buffer.o
+ .debug_info    0x000066b3     0x210a rtos/tasks.o
+ .debug_info    0x000087bd       0xbe utils/CRC16.o
+ .debug_info    0x0000887b      0x16a utils/Millis.o
 
-.debug_abbrev   0x00000000     0x27d0
+.debug_abbrev   0x00000000     0x21dc
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_abbrev  0x00000b1a       0xfb ECUAL/Encoder/Encoder.o
  .debug_abbrev  0x00000c15      0x17e ECUAL/LCD.o
- .debug_abbrev  0x00000d93      0x2eb ECUAL/Modbus/Modbus_master.o
- .debug_abbrev  0x0000107e      0x1f3 main.o
- .debug_abbrev  0x00001271       0xee MCAL/ADC.o
- .debug_abbrev  0x0000135f      0x1eb MCAL/UART.o
- .debug_abbrev  0x0000154a      0x184 rtos/hooks.o
- .debug_abbrev  0x000016ce      0x102 rtos/list.o
- .debug_abbrev  0x000017d0      0x15b rtos/port.o
- .debug_abbrev  0x0000192b      0x387 rtos/queue.o
- .debug_abbrev  0x00001cb2      0x2ab rtos/stream_buffer.o
- .debug_abbrev  0x00001f5d      0x335 rtos/tasks.o
- .debug_abbrev  0x00002292      0x392 rtos/timers.o
- .debug_abbrev  0x00002624       0x83 utils/CRC16.o
- .debug_abbrev  0x000026a7      0x129 utils/Millis.o
+ .debug_abbrev  0x00000d93      0x2dc ECUAL/Modbus/Modbus_master.o
+ .debug_abbrev  0x0000106f      0x228 main.o
+ .debug_abbrev  0x00001297       0xee MCAL/ADC.o
+ .debug_abbrev  0x00001385      0x101 MCAL/DIO.o
+ .debug_abbrev  0x00001486      0x1e9 MCAL/UART.o
+ .debug_abbrev  0x0000166f      0x184 rtos/hooks.o
+ .debug_abbrev  0x000017f3      0x102 rtos/list.o
+ .debug_abbrev  0x000018f5      0x15b rtos/port.o
+ .debug_abbrev  0x00001a50      0x2ab rtos/stream_buffer.o
+ .debug_abbrev  0x00001cfb      0x335 rtos/tasks.o
+ .debug_abbrev  0x00002030       0x83 utils/CRC16.o
+ .debug_abbrev  0x000020b3      0x129 utils/Millis.o
 
-.debug_line     0x00000000     0x73d7
+.debug_line     0x00000000     0x6a43
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1f9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_line    0x000001f9      0x4d9 ECUAL/Encoder/Encoder.o
  .debug_line    0x000006d2      0x44d ECUAL/LCD.o
- .debug_line    0x00000b1f     0x1233 ECUAL/Modbus/Modbus_master.o
- .debug_line    0x00001d52      0x542 main.o
- .debug_line    0x00002294      0x32e MCAL/ADC.o
- .debug_line    0x000025c2      0xb6c MCAL/UART.o
- .debug_line    0x0000312e      0x448 rtos/hooks.o
- .debug_line    0x00003576      0x3fb rtos/list.o
- .debug_line    0x00003971      0x4ce rtos/port.o
- .debug_line    0x00003e3f      0xd67 rtos/queue.o
- .debug_line    0x00004ba6      0x902 rtos/stream_buffer.o
- .debug_line    0x000054a8     0x13f8 rtos/tasks.o
- .debug_line    0x000068a0      0x6e8 rtos/timers.o
- .debug_line    0x00006f88      0x151 utils/CRC16.o
- .debug_line    0x000070d9      0x2fe utils/Millis.o
+ .debug_line    0x00000b1f     0x1263 ECUAL/Modbus/Modbus_master.o
+ .debug_line    0x00001d82      0x626 main.o
+ .debug_line    0x000023a8      0x381 MCAL/ADC.o
+ .debug_line    0x00002729      0x64c MCAL/DIO.o
+ .debug_line    0x00002d75      0xe74 MCAL/UART.o
+ .debug_line    0x00003be9      0x448 rtos/hooks.o
+ .debug_line    0x00004031      0x3fb rtos/list.o
+ .debug_line    0x0000442c      0x4ce rtos/port.o
+ .debug_line    0x000048fa      0x902 rtos/stream_buffer.o
+ .debug_line    0x000051fc     0x13f8 rtos/tasks.o
+ .debug_line    0x000065f4      0x151 utils/CRC16.o
+ .debug_line    0x00006745      0x2fe utils/Millis.o
 
-.debug_frame    0x00000000     0x19f4
+.debug_frame    0x00000000     0x1734
  *(.debug_frame)
  .debug_frame   0x00000000      0x200 ECUAL/Encoder/Encoder.o
  .debug_frame   0x00000200       0xf8 ECUAL/LCD.o
  .debug_frame   0x000002f8      0x1fc ECUAL/Modbus/Modbus_master.o
  .debug_frame   0x000004f4       0x64 main.o
  .debug_frame   0x00000558       0x70 MCAL/ADC.o
- .debug_frame   0x000005c8      0x3d8 MCAL/UART.o
- .debug_frame   0x000009a0       0x54 rtos/hooks.o
- .debug_frame   0x000009f4       0x88 rtos/list.o
- .debug_frame   0x00000a7c       0x74 rtos/port.o
- .debug_frame   0x00000af0      0x394 rtos/queue.o
- .debug_frame   0x00000e84      0x384 rtos/stream_buffer.o
- .debug_frame   0x00001208      0x598 rtos/tasks.o
- .debug_frame   0x000017a0      0x1cc rtos/timers.o
- .debug_frame   0x0000196c       0x24 utils/CRC16.o
- .debug_frame   0x00001990       0x64 utils/Millis.o
+ .debug_frame   0x000005c8      0x164 MCAL/DIO.o
+ .debug_frame   0x0000072c      0x514 MCAL/UART.o
+ .debug_frame   0x00000c40       0x54 rtos/hooks.o
+ .debug_frame   0x00000c94       0x88 rtos/list.o
+ .debug_frame   0x00000d1c       0x74 rtos/port.o
+ .debug_frame   0x00000d90      0x384 rtos/stream_buffer.o
+ .debug_frame   0x00001114      0x598 rtos/tasks.o
+ .debug_frame   0x000016ac       0x24 utils/CRC16.o
+ .debug_frame   0x000016d0       0x64 utils/Millis.o
 
-.debug_str      0x00000000    0x17e25
+.debug_str      0x00000000    0x16ef4
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_str     0x000003e6     0x98a5 ECUAL/Encoder/Encoder.o
                                0x99f3 (size before relaxing)
- .debug_str     0x00009c8b      0x9bf ECUAL/LCD.o
-                               0x9103 (size before relaxing)
- .debug_str     0x0000a64a      0x827 ECUAL/Modbus/Modbus_master.o
-                               0xa877 (size before relaxing)
- .debug_str     0x0000ae71     0x4136 main.o
-                               0xd4ce (size before relaxing)
- .debug_str     0x0000efa7      0xa5e MCAL/ADC.o
-                               0x9cf6 (size before relaxing)
- .debug_str     0x0000fa05     0x2ece MCAL/UART.o
-                               0xc104 (size before relaxing)
- .debug_str     0x000128d3      0xbe0 rtos/hooks.o
-                               0xd3a3 (size before relaxing)
- .debug_str     0x000134b3      0x2a1 rtos/list.o
+ .debug_str     0x00009c8b      0x9ea ECUAL/LCD.o
+                               0x912e (size before relaxing)
+ .debug_str     0x0000a675      0x83d ECUAL/Modbus/Modbus_master.o
+                               0xa8a3 (size before relaxing)
+ .debug_str     0x0000aeb2     0x412b main.o
+                               0xe277 (size before relaxing)
+ .debug_str     0x0000efdd      0xa56 MCAL/ADC.o
+                               0x9d14 (size before relaxing)
+ .debug_str     0x0000fa33      0x2ed MCAL/DIO.o
+                               0x9880 (size before relaxing)
+ .debug_str     0x0000fd20     0x2fbe MCAL/UART.o
+                               0xc224 (size before relaxing)
+ .debug_str     0x00012cde      0xbe0 rtos/hooks.o
+                               0xd3b3 (size before relaxing)
+ .debug_str     0x000138be      0x2b7 rtos/list.o
                                0xbeba (size before relaxing)
- .debug_str     0x00013754     0x14aa rtos/port.o
+ .debug_str     0x00013b75     0x14aa rtos/port.o
                                0xd7af (size before relaxing)
- .debug_str     0x00014bfe     0x1263 rtos/queue.o
-                               0xd14a (size before relaxing)
- .debug_str     0x00015e61      0xb00 rtos/stream_buffer.o
+ .debug_str     0x0001501f      0xd92 rtos/stream_buffer.o
                                0xcc71 (size before relaxing)
- .debug_str     0x00016961      0xf8b rtos/tasks.o
+ .debug_str     0x00015db1     0x10b5 rtos/tasks.o
                                0xdd0e (size before relaxing)
- .debug_str     0x000178ec      0x4ab rtos/timers.o
-                               0xd5ca (size before relaxing)
- .debug_str     0x00017d97       0x54 utils/CRC16.o
+ .debug_str     0x00016e66       0x54 utils/CRC16.o
                                0x3926 (size before relaxing)
- .debug_str     0x00017deb       0x3a utils/Millis.o
+ .debug_str     0x00016eba       0x3a utils/Millis.o
                                0x94e5 (size before relaxing)
 
-.debug_loc      0x00000000     0xb177
+.debug_loc      0x00000000     0x8d2d
  *(.debug_loc)
  .debug_loc     0x00000000      0x4c9 ECUAL/Encoder/Encoder.o
  .debug_loc     0x000004c9      0x482 ECUAL/LCD.o
- .debug_loc     0x0000094b     0x1f42 ECUAL/Modbus/Modbus_master.o
- .debug_loc     0x0000288d      0x265 main.o
- .debug_loc     0x00002af2       0xbd MCAL/ADC.o
- .debug_loc     0x00002baf     0x1201 MCAL/UART.o
- .debug_loc     0x00003db0      0x120 rtos/hooks.o
- .debug_loc     0x00003ed0      0x145 rtos/list.o
- .debug_loc     0x00004015      0x2af rtos/port.o
- .debug_loc     0x000042c4     0x1ee1 rtos/queue.o
- .debug_loc     0x000061a5     0x1e05 rtos/stream_buffer.o
- .debug_loc     0x00007faa     0x2415 rtos/tasks.o
- .debug_loc     0x0000a3bf      0xc90 rtos/timers.o
- .debug_loc     0x0000b04f       0x79 utils/CRC16.o
- .debug_loc     0x0000b0c8       0xaf utils/Millis.o
+ .debug_loc     0x0000094b     0x1f60 ECUAL/Modbus/Modbus_master.o
+ .debug_loc     0x000028ab      0x33d main.o
+ .debug_loc     0x00002be8       0xbd MCAL/ADC.o
+ .debug_loc     0x00002ca5       0xb1 MCAL/DIO.o
+ .debug_loc     0x00002d56     0x1781 MCAL/UART.o
+ .debug_loc     0x000044d7      0x120 rtos/hooks.o
+ .debug_loc     0x000045f7      0x145 rtos/list.o
+ .debug_loc     0x0000473c      0x2af rtos/port.o
+ .debug_loc     0x000049eb     0x1e05 rtos/stream_buffer.o
+ .debug_loc     0x000067f0     0x2415 rtos/tasks.o
+ .debug_loc     0x00008c05       0x79 utils/CRC16.o
+ .debug_loc     0x00008c7e       0xaf utils/Millis.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -2946,25 +3063,24 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x8d0
+.debug_ranges   0x00000000      0x7b8
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x30 ECUAL/Encoder/Encoder.o
  .debug_ranges  0x00000030       0x68 ECUAL/LCD.o
  .debug_ranges  0x00000098      0x118 ECUAL/Modbus/Modbus_master.o
  .debug_ranges  0x000001b0       0x20 main.o
  .debug_ranges  0x000001d0       0x28 MCAL/ADC.o
- .debug_ranges  0x000001f8      0x160 MCAL/UART.o
- .debug_ranges  0x00000358       0x28 rtos/hooks.o
- .debug_ranges  0x00000380       0x30 rtos/list.o
- .debug_ranges  0x000003b0       0x38 rtos/port.o
- .debug_ranges  0x000003e8      0x160 rtos/queue.o
- .debug_ranges  0x00000548       0xa0 rtos/stream_buffer.o
- .debug_ranges  0x000005e8      0x1e0 rtos/tasks.o
- .debug_ranges  0x000007c8       0xd8 rtos/timers.o
- .debug_ranges  0x000008a0       0x10 utils/CRC16.o
- .debug_ranges  0x000008b0       0x20 utils/Millis.o
+ .debug_ranges  0x000001f8       0xb0 MCAL/DIO.o
+ .debug_ranges  0x000002a8      0x1d0 MCAL/UART.o
+ .debug_ranges  0x00000478       0x28 rtos/hooks.o
+ .debug_ranges  0x000004a0       0x30 rtos/list.o
+ .debug_ranges  0x000004d0       0x38 rtos/port.o
+ .debug_ranges  0x00000508       0xa0 rtos/stream_buffer.o
+ .debug_ranges  0x000005a8      0x1e0 rtos/tasks.o
+ .debug_ranges  0x00000788       0x10 utils/CRC16.o
+ .debug_ranges  0x00000798       0x20 utils/Millis.o
 
-.debug_macro    0x00000000     0x61f8
+.debug_macro    0x00000000     0x6067
  *(.debug_macro)
  .debug_macro   0x00000000       0xfd ECUAL/Encoder/Encoder.o
  .debug_macro   0x000000fd      0xa72 ECUAL/Encoder/Encoder.o
@@ -2991,49 +3107,47 @@ END GROUP
  .debug_macro   0x00003cc5       0xcb ECUAL/LCD.o
  .debug_macro   0x00003d90       0x1c ECUAL/LCD.o
  .debug_macro   0x00003dac       0x94 ECUAL/LCD.o
- .debug_macro   0x00003e40       0x3a ECUAL/LCD.o
- .debug_macro   0x00003e7a       0x10 ECUAL/LCD.o
- .debug_macro   0x00003e8a      0x130 ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x00003fba       0x69 ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x00004023       0x10 ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x00004033      0x1a1 main.o
- .debug_macro   0x000041d4      0x16d main.o
- .debug_macro   0x00004341      0x106 main.o
- .debug_macro   0x00004447       0x52 main.o
- .debug_macro   0x00004499       0x82 main.o
- .debug_macro   0x0000451b       0x16 main.o
- .debug_macro   0x00004531       0x68 main.o
- .debug_macro   0x00004599       0x1f main.o
- .debug_macro   0x000045b8      0x3f3 main.o
- .debug_macro   0x000049ab       0xb5 main.o
- .debug_macro   0x00004a60       0x8c main.o
- .debug_macro   0x00004aec       0x10 main.o
- .debug_macro   0x00004afc       0x18 main.o
- .debug_macro   0x00004b14       0x66 main.o
- .debug_macro   0x00004b7a       0xd1 main.o
- .debug_macro   0x00004c4b       0xde MCAL/ADC.o
- .debug_macro   0x00004d29       0xaa MCAL/ADC.o
- .debug_macro   0x00004dd3      0x291 MCAL/ADC.o
- .debug_macro   0x00005064      0x1c8 MCAL/UART.o
- .debug_macro   0x0000522c       0x10 MCAL/UART.o
- .debug_macro   0x0000523c       0x89 MCAL/UART.o
- .debug_macro   0x000052c5      0x181 MCAL/UART.o
- .debug_macro   0x00005446      0x15c rtos/hooks.o
- .debug_macro   0x000055a2       0x3b rtos/hooks.o
- .debug_macro   0x000055dd       0x10 rtos/hooks.o
- .debug_macro   0x000055ed      0x128 rtos/list.o
- .debug_macro   0x00005715      0x155 rtos/port.o
- .debug_macro   0x0000586a      0x182 rtos/queue.o
- .debug_macro   0x000059ec       0x16 rtos/queue.o
- .debug_macro   0x00005a02       0x20 rtos/queue.o
- .debug_macro   0x00005a22       0x86 rtos/queue.o
- .debug_macro   0x00005aa8      0x166 rtos/stream_buffer.o
- .debug_macro   0x00005c0e       0x97 rtos/stream_buffer.o
- .debug_macro   0x00005ca5       0x16 rtos/stream_buffer.o
- .debug_macro   0x00005cbb       0xf6 rtos/stream_buffer.o
- .debug_macro   0x00005db1      0x1f3 rtos/tasks.o
- .debug_macro   0x00005fa4      0x14e rtos/timers.o
- .debug_macro   0x000060f2       0x3d utils/CRC16.o
- .debug_macro   0x0000612f       0xc9 utils/Millis.o
+ .debug_macro   0x00003e40       0x40 ECUAL/LCD.o
+ .debug_macro   0x00003e80       0x10 ECUAL/LCD.o
+ .debug_macro   0x00003e90      0x130 ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x00003fc0       0x69 ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x00004029       0x10 ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x00004039      0x1ed main.o
+ .debug_macro   0x00004226      0x16d main.o
+ .debug_macro   0x00004393      0x106 main.o
+ .debug_macro   0x00004499       0x52 main.o
+ .debug_macro   0x000044eb       0x82 main.o
+ .debug_macro   0x0000456d       0x16 main.o
+ .debug_macro   0x00004583       0x68 main.o
+ .debug_macro   0x000045eb       0x1f main.o
+ .debug_macro   0x0000460a      0x3f3 main.o
+ .debug_macro   0x000049fd       0xb5 main.o
+ .debug_macro   0x00004ab2       0x8c main.o
+ .debug_macro   0x00004b3e       0x10 main.o
+ .debug_macro   0x00004b4e       0x18 main.o
+ .debug_macro   0x00004b66       0x66 main.o
+ .debug_macro   0x00004bcc       0xd1 main.o
+ .debug_macro   0x00004c9d       0xde MCAL/ADC.o
+ .debug_macro   0x00004d7b       0xaa MCAL/ADC.o
+ .debug_macro   0x00004e25      0x291 MCAL/ADC.o
+ .debug_macro   0x000050b6       0xcf MCAL/DIO.o
+ .debug_macro   0x00005185       0x88 MCAL/DIO.o
+ .debug_macro   0x0000520d       0x52 MCAL/DIO.o
+ .debug_macro   0x0000525f      0x1c8 MCAL/UART.o
+ .debug_macro   0x00005427       0x10 MCAL/UART.o
+ .debug_macro   0x00005437       0x89 MCAL/UART.o
+ .debug_macro   0x000054c0      0x181 MCAL/UART.o
+ .debug_macro   0x00005641      0x15c rtos/hooks.o
+ .debug_macro   0x0000579d       0x3b rtos/hooks.o
+ .debug_macro   0x000057d8       0x10 rtos/hooks.o
+ .debug_macro   0x000057e8      0x128 rtos/list.o
+ .debug_macro   0x00005910      0x155 rtos/port.o
+ .debug_macro   0x00005a65      0x166 rtos/stream_buffer.o
+ .debug_macro   0x00005bcb       0x97 rtos/stream_buffer.o
+ .debug_macro   0x00005c62       0x16 rtos/stream_buffer.o
+ .debug_macro   0x00005c78       0xf6 rtos/stream_buffer.o
+ .debug_macro   0x00005d6e      0x1f3 rtos/tasks.o
+ .debug_macro   0x00005f61       0x3d utils/CRC16.o
+ .debug_macro   0x00005f9e       0xc9 utils/Millis.o
 OUTPUT(blancher.elf elf32-avr)
 LOAD linker stubs
