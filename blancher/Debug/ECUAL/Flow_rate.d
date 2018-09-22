@@ -23,7 +23,15 @@ ECUAL/Flow_rate.d ECUAL/Flow_rate.o: ../ECUAL/Flow_rate.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+<<<<<<< HEAD
  ../ECUAL/../MCAL/DIO.h ../ECUAL/../MCAL/../CONFIG.h
+=======
+ ../ECUAL/../MCAL/DIO.h ../ECUAL/../MCAL/../CONFIG.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ ../ECUAL/../MCAL/UART.h
+>>>>>>> 131ed066d936db6cb82dc024f16de69a40fef126
 
 ../ECUAL/flow_rate.h:
 
@@ -76,3 +84,14 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../ECUAL/../MCAL/DIO.h:
 
 ../ECUAL/../MCAL/../CONFIG.h:
+<<<<<<< HEAD
+=======
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+
+../ECUAL/../MCAL/UART.h:
+>>>>>>> 131ed066d936db6cb82dc024f16de69a40fef126
