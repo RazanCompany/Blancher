@@ -4,7 +4,7 @@
 #include <inttypes.h>
 /*
 * this function will initialize the timer with the right config .
-* it takes the timer number .
+* it takes the callbacks functions  .
 */
 void Flow_rate_init(void (*callback1)() , void (*callback2)()) ;
 
