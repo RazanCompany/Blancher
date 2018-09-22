@@ -72,7 +72,6 @@ C_SRCS +=  \
 ../MCAL/Timer.c \
 ../MCAL/UART.c \
 ../RTE/RTE_encoders.c \
-../RTE/RTE_flowrate.c \
 ../RTE/RTE_invertersetting.c \
 ../RTE/RTE_operations.c \
 ../RTE/RTE_tankslevels.c \
@@ -88,6 +87,7 @@ C_SRCS +=  \
 ../rtos/timers.c \
 ../Services/Encoder_Tasks.c \
 ../Services/LCD_Tasks.c \
+../Services/tank_operation.c \
 ../Tasks.c \
 ../utils/CRC16.c \
 ../utils/Millis.c
@@ -120,7 +120,6 @@ MCAL/SPI.o \
 MCAL/Timer.o \
 MCAL/UART.o \
 RTE/RTE_encoders.o \
-RTE/RTE_flowrate.o \
 RTE/RTE_invertersetting.o \
 RTE/RTE_operations.o \
 RTE/RTE_tankslevels.o \
@@ -136,6 +135,7 @@ rtos/tasks.o \
 rtos/timers.o \
 Services/Encoder_Tasks.o \
 Services/LCD_Tasks.o \
+Services/tank_operation.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -161,7 +161,6 @@ MCAL/SPI.o \
 MCAL/Timer.o \
 MCAL/UART.o \
 RTE/RTE_encoders.o \
-RTE/RTE_flowrate.o \
 RTE/RTE_invertersetting.o \
 RTE/RTE_operations.o \
 RTE/RTE_tankslevels.o \
@@ -177,6 +176,7 @@ rtos/tasks.o \
 rtos/timers.o \
 Services/Encoder_Tasks.o \
 Services/LCD_Tasks.o \
+Services/tank_operation.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -202,7 +202,6 @@ MCAL/SPI.d \
 MCAL/Timer.d \
 MCAL/UART.d \
 RTE/RTE_encoders.d \
-RTE/RTE_flowrate.d \
 RTE/RTE_invertersetting.d \
 RTE/RTE_operations.d \
 RTE/RTE_tankslevels.d \
@@ -218,6 +217,7 @@ rtos/tasks.d \
 rtos/timers.d \
 Services/Encoder_Tasks.d \
 Services/LCD_Tasks.d \
+Services/tank_operation.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -243,7 +243,6 @@ MCAL/SPI.d \
 MCAL/Timer.d \
 MCAL/UART.d \
 RTE/RTE_encoders.d \
-RTE/RTE_flowrate.d \
 RTE/RTE_invertersetting.d \
 RTE/RTE_operations.d \
 RTE/RTE_tankslevels.d \
@@ -259,6 +258,7 @@ rtos/tasks.d \
 rtos/timers.d \
 Services/Encoder_Tasks.d \
 Services/LCD_Tasks.d \
+Services/tank_operation.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -417,13 +417,6 @@ RTE/RTE_encoders.o: ../RTE/RTE_encoders.c
 	@echo Finished building: $<
 	
 
-RTE/RTE_flowrate.o: ../RTE/RTE_flowrate.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
 RTE/RTE_invertersetting.o: ../RTE/RTE_invertersetting.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -523,6 +516,13 @@ Services/Encoder_Tasks.o: ../Services/Encoder_Tasks.c
 	
 
 Services/LCD_Tasks.o: ../Services/LCD_Tasks.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Services/tank_operation.o: ../Services/tank_operation.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

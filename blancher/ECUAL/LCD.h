@@ -23,7 +23,7 @@
 #define  LCD_CURRENT_ENCODER														0x0F02
 #define  LCD_TEMP_DATA																0x0009
 #define	 LCD_START_READ_ADDRESS														0x0003
-#define  LCD_START_WRITE_ADDRESS													0x0007
+#define  LCD_START_WRITE_ADDRESS													0x0F00
 #define  LCD_READ_REGS_NUMBER													    4
 #define  LCD_WRITE_REGS_NUMBER														4
 /***************************************** FUNCTIONS PROTOTYPES ***********************************************/
