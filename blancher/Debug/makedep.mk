@@ -42,8 +42,6 @@ MCAL\UART.c
 
 RTE\RTE_encoders.c
 
-RTE\RTE_flowrate.c
-
 RTE\RTE_invertersetting.c
 
 RTE\RTE_operations.c
@@ -73,6 +71,8 @@ rtos\timers.c
 Services\Encoder_Tasks.c
 
 Services\LCD_Tasks.c
+
+Services\tank_operation.c
 
 Tasks.c
 

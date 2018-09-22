@@ -17,8 +17,8 @@ Services/Encoder_Tasks.d Services/Encoder_Tasks.o: \
  ../Services/../ECUAL/Encoder/../../RAL/RAL_timer.h \
  ../Services/../ECUAL/Encoder/../../utils/Millis.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
- e:\razan\blancher\ code\atmel\ code\blancher\ral\ral_timer.h \
- e:\razan\blancher\ code\atmel\ code\blancher\ral\hw_types.h \
+ ../Services/../ECUAL/Encoder/../../utils/../RAL/RAL_timer.h \
+ ../Services/../ECUAL/Encoder/../../utils/../RAL/HW_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
@@ -60,9 +60,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
 
-e:\razan\blancher\ code\atmel\ code\blancher\ral\ral_timer.h:
+../Services/../ECUAL/Encoder/../../utils/../RAL/RAL_timer.h:
 
-e:\razan\blancher\ code\atmel\ code\blancher\ral\hw_types.h:
+../Services/../ECUAL/Encoder/../../utils/../RAL/HW_types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 

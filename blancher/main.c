@@ -18,7 +18,7 @@
 #include "ECUAL/LCD.h"
 #include "utils/Millis.h"
 #include "MCAL/DIO.h"
-
+#include "Services/LCD_Tasks.h"
 
 #ifdef DEBUG
 uint8_t debug_send_lcd[11];
@@ -52,17 +52,8 @@ int main() {
 	millis_init();
 	DIO_init();
 	Lcd_init(UART3,115200,1);
-// 	lcd_set_buzzer(1);
-// 	_delay_ms(1000);
-// 	lcd_set_buzzer(0);
-// 	_delay_ms(1000);
-// 	Lcd_Write(LCD_TEMP_DATA,50);
-// 	_delay_ms(1000);
-// 	Lcd_Write(LCD_TEMP_DATA,52);
-// 	_delay_ms(1000);
-	
-	TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ;
-	//UART2_init(115200);
+		
+	TaskHandle_t xHandle1 = NULL , xHandle2 = NULL;
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic(
 					vTask1, /* Function that implements the task. */
@@ -82,19 +73,11 @@ int main() {
 				xStack2, /* Array to use as the task's stack. */
 				&xTask2Buffer ); /* Variable to hold the task's data structure. */
 
-
-
-		//
 		xMessageBuffer = xMessageBufferCreateStatic( sizeof( ucStorageBuffer ),
 														ucStorageBuffer, &xMessageBufferStruct );
 
-
-// while(1){
-// 		Lcd_Write(LCD_TEMP_DATA,50);
-// 		_delay_ms(1000);
-// 		Lcd_Write(LCD_TEMP_DATA,52);
-// 		_delay_ms(1000);
-// }
+	//char x=0;
+	//LCD_main(&x);
 
 	  // Start scheduler.
 	  vTaskStartScheduler();

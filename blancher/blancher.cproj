@@ -310,12 +310,6 @@
     <Compile Include="RTE\RTE_encoders.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="RTE\RTE_flowrate.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="RTE\RTE_flowrate.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="RTE\RTE_invertersetting.c">
       <SubType>compile</SubType>
     </Compile>
@@ -431,6 +425,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\LCD_Tasks.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\tank_operation.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\tank_operation.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Tasks.c">
