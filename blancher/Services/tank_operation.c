@@ -15,9 +15,10 @@ static void Tank_out_callback ();
 
 static volatile uint16_t g_feeding_liters_counter = 0; 
 static volatile uint16_t g_out_liters_counter = 0;
-static uint8_t g_tank_out_off = 0;
+
 
 static volatile uint16_t g_feed_liters ;
+static volatile uint16_t g_out_liters ;
 SemaphoreHandle_t  Feeding_Semaphore , outing_Semaphore ;
 StaticSemaphore_t feeding_SemaphoreBuffer , outing_SemaphoreBuffer ;
 
@@ -31,7 +32,7 @@ void Tank_operation_init()
 	outing_Semaphore = xSemaphoreCreateBinaryStatic( &outing_SemaphoreBuffer );
 }
 
-void Tank_feed_operation(uint8_t liters)
+void Tank_feed_operation(uint16_t liters)
 {   
 	xSemaphoreTake(Feeding_Semaphore , 0);
 	g_feeding_liters_counter = 0;
@@ -48,11 +49,12 @@ void Tank_feed_operation(uint8_t liters)
 }
 
 
-void Tank_out_operation_on(void)
+void Tank_out_operation(uint16_t liters)
 {
    	xSemaphoreTake(outing_Semaphore , 0);
 	g_out_liters_counter = 0;
-	// openning the out valvev and punp 
+	g_out_liters = liters * 2 ;
+	// opening the out valve and punp 
 	Tank_valve_2_change_state(HIGH);
 	Pump_change_state(HIGH);
 	// block until the amount of water pass
@@ -66,17 +68,12 @@ void Tank_out_operation_on(void)
 }
 
 
-void Tank_out_operation_off(void)
-{
-	g_tank_out_off = 1; 
-}
-
 static void Tank_feed_callback ()
 {
 	
 	g_feeding_liters_counter ++ ;
 	// keep monitoring the amount of water .
-	if (g_feeding_liters_counter < g_feed_liters )
+	if (g_feeding_liters_counter >= g_feed_liters )
 	{
 		// release the semaphore
 		xSemaphoreGive(Feeding_Semaphore );
@@ -88,11 +85,11 @@ static void Tank_out_callback ()
 {
 	
 	g_out_liters_counter ++ ;
-	if (g_tank_out_off )
+	if (g_out_liters_counter >= g_out_liters )
 	{
 		// release the semaphore
 		xSemaphoreGive(outing_Semaphore );
-		g_tank_out_off = 0;
+		
 	}
 	
 }

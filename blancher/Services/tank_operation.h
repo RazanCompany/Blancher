@@ -16,15 +16,11 @@ void Tank_operation_init();
 *	this function takes the amount of liters you want to pass to the tank .
 *  
 */
-void Tank_feed_operation(uint8_t liters);
+void Tank_feed_operation(uint16_t liters);
 /*
 *	this function let the water goes out from the tank .
 */
-void Tank_out_operation_on(void);
-/*
-*	this function turn the outing process off .
-*/
-void Tank_out_operation_off(void);
+void Tank_out_operation(uint16_t liters);
 
 
 
