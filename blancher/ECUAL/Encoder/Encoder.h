@@ -2,7 +2,7 @@
 #ifndef ENCODER_H_
 #define ENCODER_H
 
-
+#define F_CPU 16000000
 #include <avr/interrupt.h>
 #include "../../RAL/HW_types.h"
 #include "../../RAL/RAL_timer.h"

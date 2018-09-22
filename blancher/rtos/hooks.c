@@ -23,7 +23,7 @@
  * This file is NOT part of the FreeRTOS distribution.
  *
  */
-
+#define  F_CPU 16000000
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <avr/sleep.h>
