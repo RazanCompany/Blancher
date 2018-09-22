@@ -373,6 +373,9 @@ void UART_Init(UART_Modules UART_module, uint32_t baudrate){ //new
 		case UART2:
 			UART2_init(baudrate);
 			break;
+		case UART3:
+			UART3_init(baudrate);
+			break;
 //		default :
 
 

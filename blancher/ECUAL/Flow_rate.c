@@ -7,7 +7,7 @@
  *
  */
 
-#include "flow_rate.h"
+#include "Flow_rate.h"
 #include "Encoder/Encoder.h" 
 #include "../MCAL/DIO.h"
 

@@ -21,9 +21,10 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
  .././rtos/mpu_wrappers.h .././rtos/FreeRTOSBoardDefs.h .././rtos/task.h \
  .././rtos/list.h .././rtos/task.h .././rtos/message_buffer.h \
- .././rtos/stream_buffer.h .././MCAL/UART.h .././ECUAL/LCD.h \
- .././ECUAL/Modbus/Modbus_master.h .././ECUAL/Modbus/../../MCAL/UART.h \
- .././ECUAL/Modbus/../../CONFIG.h .././utils/Millis.h \
+ .././rtos/stream_buffer.h .././rtos/semphr.h .././rtos/queue.h \
+ .././MCAL/UART.h .././ECUAL/LCD.h .././ECUAL/Modbus/Modbus_master.h \
+ .././ECUAL/Modbus/../../MCAL/UART.h .././ECUAL/Modbus/../../CONFIG.h \
+ .././utils/Millis.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
  .././utils/../RAL/RAL_timer.h .././utils/../RAL/HW_types.h \
@@ -88,6 +89,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././rtos/message_buffer.h:
 
 .././rtos/stream_buffer.h:
+
+.././rtos/semphr.h:
+
+.././rtos/queue.h:
 
 .././MCAL/UART.h:
 
