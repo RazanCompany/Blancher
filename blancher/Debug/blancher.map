@@ -874,44 +874,303 @@ Discarded input sections
  .debug_macro   0x00000000       0x34 MCAL/UART.o
  .debug_macro   0x00000000       0xd1 MCAL/UART.o
  .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_encoders.o
  .text          0x00000000        0x0 RTE/RTE_encoders.o
  .data          0x00000000        0x0 RTE/RTE_encoders.o
  .bss           0x00000000        0x0 RTE/RTE_encoders.o
- .debug_info    0x00000000       0x21 RTE/RTE_encoders.o
- .debug_abbrev  0x00000000       0x13 RTE/RTE_encoders.o
+ .text.RTE_get_Conveyor_speed
+                0x00000000        0xa RTE/RTE_encoders.o
+ .text.RTE_set_Conveyor_speed
+                0x00000000        0xa RTE/RTE_encoders.o
+ .text.RTE_get_Drum_speed
+                0x00000000        0xa RTE/RTE_encoders.o
+ .text.RTE_set_Drum_speed
+                0x00000000        0xa RTE/RTE_encoders.o
+ .bss.Drum_speed
+                0x00000000        0x2 RTE/RTE_encoders.o
+ .bss.Conveyor_speed
+                0x00000000        0x2 RTE/RTE_encoders.o
+ .debug_info    0x00000000      0x12f RTE/RTE_encoders.o
+ .debug_abbrev  0x00000000       0x8e RTE/RTE_encoders.o
  .debug_aranges
-                0x00000000       0x18 RTE/RTE_encoders.o
- .debug_macro   0x00000000       0x11 RTE/RTE_encoders.o
+                0x00000000       0x38 RTE/RTE_encoders.o
+ .debug_ranges  0x00000000       0x28 RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x155 RTE/RTE_encoders.o
  .debug_macro   0x00000000      0xa78 RTE/RTE_encoders.o
- .debug_line    0x00000000       0x33 RTE/RTE_encoders.o
- .debug_str     0x00000000     0x2b9e RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x16d RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x1c9 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x302 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x9e RTE/RTE_encoders.o
+ .debug_macro   0x00000000     0x1ecb RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x2ea RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0xd9 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x34 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x6c RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x52 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x82 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x16 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x68 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x1f RTE/RTE_encoders.o
+ .debug_macro   0x00000000      0x3f3 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0xb5 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x8c RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x66 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x86 RTE/RTE_encoders.o
+ .debug_macro   0x00000000       0x78 RTE/RTE_encoders.o
+ .debug_line    0x00000000      0x39f RTE/RTE_encoders.o
+ .debug_str     0x00000000     0xd4f9 RTE/RTE_encoders.o
  .comment       0x00000000       0x31 RTE/RTE_encoders.o
+ .debug_frame   0x00000000       0x54 RTE/RTE_encoders.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_invertersetting.o
  .group         0x00000000        0x8 RTE/RTE_invertersetting.o
  .text          0x00000000        0x0 RTE/RTE_invertersetting.o
  .data          0x00000000        0x0 RTE/RTE_invertersetting.o
  .bss           0x00000000        0x0 RTE/RTE_invertersetting.o
- .debug_info    0x00000000       0x21 RTE/RTE_invertersetting.o
- .debug_abbrev  0x00000000       0x13 RTE/RTE_invertersetting.o
+ .text.RTE_invertersetting_init
+                0x00000000       0x68 RTE/RTE_invertersetting.o
+ .text.RTE_set_Gear_ratio
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_get_Gear_ratio
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_set_RPM_max
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_get_RPM_max
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_set_Conveyor_length
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_get_Conveyor_length
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_set_Driver_diameter
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_get_Driver_diameter
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_set_Time_minute
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_get_Time_minute
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_set_Time_second
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .text.RTE_get_Time_second
+                0x00000000        0xa RTE/RTE_invertersetting.o
+ .bss.Time_second
+                0x00000000        0x2 RTE/RTE_invertersetting.o
+ .bss.Sema_Time_second_Buffer
+                0x00000000       0x1f RTE/RTE_invertersetting.o
+ .bss.Time_minute
+                0x00000000        0x2 RTE/RTE_invertersetting.o
+ .bss.Sema_Time_minute_Buffer
+                0x00000000       0x1f RTE/RTE_invertersetting.o
+ .bss.Driver_diameter
+                0x00000000        0x2 RTE/RTE_invertersetting.o
+ .bss.Sema_Driver_diameter_Buffer
+                0x00000000       0x1f RTE/RTE_invertersetting.o
+ .bss.Conveyor_length
+                0x00000000        0x2 RTE/RTE_invertersetting.o
+ .bss.Sema_Conveyor_length_Buffer
+                0x00000000       0x1f RTE/RTE_invertersetting.o
+ .bss.RPM_max   0x00000000        0x2 RTE/RTE_invertersetting.o
+ .bss.Sema_RPM_max_Buffer
+                0x00000000       0x1f RTE/RTE_invertersetting.o
+ .bss.Gear_ratio
+                0x00000000        0x2 RTE/RTE_invertersetting.o
+ .bss.Sema_Gear_ratio_Buffer
+                0x00000000       0x1f RTE/RTE_invertersetting.o
+ .debug_info    0x00000000      0x645 RTE/RTE_invertersetting.o
+ .debug_abbrev  0x00000000      0x16a RTE/RTE_invertersetting.o
+ .debug_loc     0x00000000       0x22 RTE/RTE_invertersetting.o
  .debug_aranges
-                0x00000000       0x18 RTE/RTE_invertersetting.o
- .debug_macro   0x00000000       0x11 RTE/RTE_invertersetting.o
+                0x00000000       0x80 RTE/RTE_invertersetting.o
+ .debug_ranges  0x00000000       0x70 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x155 RTE/RTE_invertersetting.o
  .debug_macro   0x00000000      0xa78 RTE/RTE_invertersetting.o
- .debug_line    0x00000000       0x3a RTE/RTE_invertersetting.o
- .debug_str     0x00000000     0x2ba5 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x16d RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x1c9 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x302 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x9e RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000     0x1ecb RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x2ea RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0xd9 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x34 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x6c RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x52 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x82 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x16 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x68 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x1f RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000      0x3f3 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0xb5 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x8c RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x66 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x86 RTE/RTE_invertersetting.o
+ .debug_macro   0x00000000       0x78 RTE/RTE_invertersetting.o
+ .debug_line    0x00000000      0x4a0 RTE/RTE_invertersetting.o
+ .debug_str     0x00000000     0xd86b RTE/RTE_invertersetting.o
  .comment       0x00000000       0x31 RTE/RTE_invertersetting.o
+ .debug_frame   0x00000000       0xec RTE/RTE_invertersetting.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
+ .group         0x00000000        0x8 RTE/RTE_operations.o
  .group         0x00000000        0x8 RTE/RTE_operations.o
  .text          0x00000000        0x0 RTE/RTE_operations.o
  .data          0x00000000        0x0 RTE/RTE_operations.o
  .bss           0x00000000        0x0 RTE/RTE_operations.o
- .debug_info    0x00000000       0x21 RTE/RTE_operations.o
- .debug_abbrev  0x00000000       0x13 RTE/RTE_operations.o
+ .text.RTE_operations_init
+                0x00000000       0x48 RTE/RTE_operations.o
+ .text.RTE_set_System_on
+                0x00000000        0xa RTE/RTE_operations.o
+ .text.RTE_get_System_on
+                0x00000000        0xa RTE/RTE_operations.o
+ .text.RTE_set_Start_blancher_Operation
+                0x00000000        0xa RTE/RTE_operations.o
+ .text.RTE_get_Start_blancher_Operation
+                0x00000000        0xa RTE/RTE_operations.o
+ .text.RTE_set_Wash_Operation
+                0x00000000        0xa RTE/RTE_operations.o
+ .text.RTE_get_Wash_Operation
+                0x00000000        0xa RTE/RTE_operations.o
+ .text.RTE_set_Tank_Calibration_Operation
+                0x00000000        0xa RTE/RTE_operations.o
+ .text.RTE_get_Tank_Calibration_Operation
+                0x00000000        0xa RTE/RTE_operations.o
+ .bss.Tank_Calibration_Operation
+                0x00000000        0x2 RTE/RTE_operations.o
+ .bss.Sema_Tank_Calibration_Operation_Buffer
+                0x00000000       0x1f RTE/RTE_operations.o
+ .bss.Wash_Operation
+                0x00000000        0x2 RTE/RTE_operations.o
+ .bss.Sema_Wash_Operation_Buffer
+                0x00000000       0x1f RTE/RTE_operations.o
+ .bss.Start_blancher_Operation
+                0x00000000        0x2 RTE/RTE_operations.o
+ .bss.Sema_Start_blancher_Operation_Buffer
+                0x00000000       0x1f RTE/RTE_operations.o
+ .bss.System_on
+                0x00000000        0x2 RTE/RTE_operations.o
+ .bss.Sema_System_on_Buffer
+                0x00000000       0x1f RTE/RTE_operations.o
+ .debug_info    0x00000000      0x4f1 RTE/RTE_operations.o
+ .debug_abbrev  0x00000000      0x16a RTE/RTE_operations.o
+ .debug_loc     0x00000000       0x22 RTE/RTE_operations.o
  .debug_aranges
-                0x00000000       0x18 RTE/RTE_operations.o
- .debug_macro   0x00000000       0x11 RTE/RTE_operations.o
+                0x00000000       0x60 RTE/RTE_operations.o
+ .debug_ranges  0x00000000       0x50 RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x155 RTE/RTE_operations.o
  .debug_macro   0x00000000      0xa78 RTE/RTE_operations.o
- .debug_line    0x00000000       0x35 RTE/RTE_operations.o
- .debug_str     0x00000000     0x2ba0 RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x16d RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x1c9 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x302 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x9e RTE/RTE_operations.o
+ .debug_macro   0x00000000     0x1ecb RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x2ea RTE/RTE_operations.o
+ .debug_macro   0x00000000       0xd9 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x34 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x6c RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x52 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x82 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x16 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x68 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x1f RTE/RTE_operations.o
+ .debug_macro   0x00000000      0x3f3 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0xb5 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x8c RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x66 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x86 RTE/RTE_operations.o
+ .debug_macro   0x00000000       0x78 RTE/RTE_operations.o
+ .debug_line    0x00000000      0x42d RTE/RTE_operations.o
+ .debug_str     0x00000000     0xd818 RTE/RTE_operations.o
  .comment       0x00000000       0x31 RTE/RTE_operations.o
+ .debug_frame   0x00000000       0xac RTE/RTE_operations.o
  .group         0x00000000        0x8 RTE/RTE_tankslevels.o
  .text          0x00000000        0x0 RTE/RTE_tankslevels.o
  .data          0x00000000        0x0 RTE/RTE_tankslevels.o
@@ -926,18 +1185,120 @@ Discarded input sections
  .debug_str     0x00000000     0x2ba1 RTE/RTE_tankslevels.o
  .comment       0x00000000       0x31 RTE/RTE_tankslevels.o
  .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
+ .group         0x00000000        0x8 RTE/RTE_temperature.o
  .text          0x00000000        0x0 RTE/RTE_temperature.o
  .data          0x00000000        0x0 RTE/RTE_temperature.o
  .bss           0x00000000        0x0 RTE/RTE_temperature.o
- .debug_info    0x00000000       0x21 RTE/RTE_temperature.o
- .debug_abbrev  0x00000000       0x13 RTE/RTE_temperature.o
+ .text.RTE_temperature_init
+                0x00000000       0x58 RTE/RTE_temperature.o
+ .text.RTE_set_Sleep_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_get_Sleep_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_set_set_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_get_set_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_set_threshold_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_get_threshold_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_set_positive_offset_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_get_positive_offset_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_set_negative_offset_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_get_negative_offset_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_set_Current_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_get_Current_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .bss.Current_temperature
+                0x00000000        0x2 RTE/RTE_temperature.o
+ .bss.Negative_offset_temp
+                0x00000000        0x2 RTE/RTE_temperature.o
+ .bss.Sema_Negative_offset_temp_Buffer
+                0x00000000       0x1f RTE/RTE_temperature.o
+ .bss.Positive_offset_temp
+                0x00000000        0x2 RTE/RTE_temperature.o
+ .bss.Sema_Positive_offset_temp_Buffer
+                0x00000000       0x1f RTE/RTE_temperature.o
+ .bss.Threshold_temp
+                0x00000000        0x2 RTE/RTE_temperature.o
+ .bss.Sema_threshold_temp_Buffer
+                0x00000000       0x1f RTE/RTE_temperature.o
+ .bss.Set_temp  0x00000000        0x2 RTE/RTE_temperature.o
+ .bss.Sema_Set_temp_Buffer
+                0x00000000       0x1f RTE/RTE_temperature.o
+ .bss.Sleep_temp
+                0x00000000        0x2 RTE/RTE_temperature.o
+ .bss.Sema_Sleep_temp_Buffer
+                0x00000000       0x1f RTE/RTE_temperature.o
+ .debug_info    0x00000000      0x5f3 RTE/RTE_temperature.o
+ .debug_abbrev  0x00000000      0x16a RTE/RTE_temperature.o
+ .debug_loc     0x00000000       0x22 RTE/RTE_temperature.o
  .debug_aranges
-                0x00000000       0x18 RTE/RTE_temperature.o
- .debug_macro   0x00000000       0x11 RTE/RTE_temperature.o
+                0x00000000       0x80 RTE/RTE_temperature.o
+ .debug_ranges  0x00000000       0x70 RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x155 RTE/RTE_temperature.o
  .debug_macro   0x00000000      0xa78 RTE/RTE_temperature.o
- .debug_line    0x00000000       0x36 RTE/RTE_temperature.o
- .debug_str     0x00000000     0x2ba1 RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x16d RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x1c9 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x302 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x9e RTE/RTE_temperature.o
+ .debug_macro   0x00000000     0x1ecb RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x2ea RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0xd9 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x34 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x6c RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x100 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x52 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x82 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x16 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x68 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x1f RTE/RTE_temperature.o
+ .debug_macro   0x00000000      0x3f3 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0xb5 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x8c RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x10 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x18 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x66 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x86 RTE/RTE_temperature.o
+ .debug_macro   0x00000000       0x78 RTE/RTE_temperature.o
+ .debug_line    0x00000000      0x492 RTE/RTE_temperature.o
+ .debug_str     0x00000000     0xd8e0 RTE/RTE_temperature.o
  .comment       0x00000000       0x31 RTE/RTE_temperature.o
+ .debug_frame   0x00000000       0xec RTE/RTE_temperature.o
  .group         0x00000000        0x8 rtos/croutine.o
  .group         0x00000000        0x8 rtos/croutine.o
  .group         0x00000000        0x8 rtos/croutine.o
