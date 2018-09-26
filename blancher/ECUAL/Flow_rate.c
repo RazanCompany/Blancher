@@ -22,14 +22,14 @@ static void flowrate_feeding_callback (uint32_t time );
 static void flowrate_outing_callback (uint32_t time );
 
 // pointer to function for the callbacks of the operation layer .
-void (*feeding_operation_callback)() ; 
-void (*out_operation_callback)() ;
+void (*feeding_operation_callback)(void) ; 
+void (*out_operation_callback)(void) ;
 
 // structs to hold the timers config .
 g_Timer_Config feeding_configeration;
 g_Timer_Config outing_configeration;
 
-void Flow_rate_init(void (*callback1)() , void (*callback2)()) 
+void Flow_rate_init(void (*callback1)(void) , void (*callback2)(void)) 
 {
 	
 	feeding_configeration.ticks = TICKS_FOR_HALF_LITER ;

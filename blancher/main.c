@@ -46,7 +46,7 @@ static uint8_t ucStorageBuffer[ STORAGE_SIZE_BYTES ];
 StaticMessageBuffer_t xMessageBufferStruct;
 MessageBufferHandle_t xMessageBuffer;
 
-int main() {
+int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600);
 	millis_init();

@@ -123,7 +123,7 @@ The CRC in the response does not match the one calculated.*/
 #define READ_WRITE_MULTIPLE_REGISTERS 	(0x17)			 ///< Modbus function 0x17 Read Write Multiple Registers
 #define RESPONCE_TIME_OUT				 2000			     //< Modbus timeout [milliseconds]
 
-// static const uint8_t ku8MaxBufferSize                = 64;   ///< size of response/transmit buffers
+// static const uint8_t ku8MaxBufferSize  = 64;   ///< size of response/transmit buffers
 #define MAX_BUFFER_SIZE					64
 
 // Modbus initail struct
@@ -131,8 +131,8 @@ typedef struct{
 	uint8_t slave_address;
 	UART_Modules uart_num;
 	uint32_t baud_rate;
-	void (*pre_transmission)();
-	void (*post_transmission)();
+	void (*pre_transmission)(void);
+	void (*post_transmission)(void);
 } modbus_config;
 
 
@@ -147,7 +147,7 @@ void Modbus_Send_8(uint8_t device, uint8_t data);
 void Modbus_Send_32(uint8_t device, uint32_t data);
 uint8_t Modbus_Available(uint8_t device);
 uint16_t Modbus_Receive(uint8_t device);
-void Modbus_Idle(uint8_t device, void (*idle)());
+void Modbus_Idle(uint8_t device, void (*idle)(void));
 uint16_t Modbus_Get_response_buffer(uint8_t device, uint8_t u8Index);
 void Modbus_Clear_response_buffer(uint8_t device);
 uint8_t Modbus_Set_transmit_buffer(uint8_t device, uint8_t u8Index, uint16_t u16Value);

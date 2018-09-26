@@ -4,14 +4,14 @@
 #include "../CONFIG.h"
 
 // _______ init function _____//
-void DIO_init();
+void DIO_init(void);
 
 //___________ input devices _________//
 uint8_t Get_tank_level_state (uint8_t sensor_num);
 uint8_t Get_blancher_level_state (void);
 uint8_t Get_light_state (void);
 uint8_t Get_gas_state (void);
-uint8_t Salt_exist ();
+uint8_t Salt_exist(void);
 
 
 

@@ -15,21 +15,21 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 00000898  00000000  00000000  00003158  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000b210  00000000  00000000  000039f0  2**0
+  6 .debug_info   0000b1fe  00000000  00000000  000039f0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000282a  00000000  00000000  0000ec00  2**0
+  7 .debug_abbrev 00002824  00000000  00000000  0000ebee  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00007c11  00000000  00000000  0001142a  2**0
+  8 .debug_line   00007c11  00000000  00000000  00011412  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00001bcc  00000000  00000000  0001903c  2**2
+  9 .debug_frame  00001bcc  00000000  00000000  00019024  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0001884b  00000000  00000000  0001ac08  2**0
+ 10 .debug_str    0001884b  00000000  00000000  0001abf0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000b2e1  00000000  00000000  00033453  2**0
+ 11 .debug_loc    0000b2e1  00000000  00000000  0003343b  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000009c8  00000000  00000000  0003e734  2**0
+ 12 .debug_ranges 000009c8  00000000  00000000  0003e71c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  000056b9  00000000  00000000  0003f0fc  2**0
+ 13 .debug_macro  000056b9  00000000  00000000  0003f0e4  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -698,12 +698,12 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
      4c6:	41 30       	cpi	r20, 0x01	; 1
      4c8:	09 f5       	brne	.+66     	; 0x50c <Modbus_init+0x84>
 			if(0 == UART1_used){//uart1 not used
-     4ca:	20 91 86 02 	lds	r18, 0x0286	; 0x800286 <UART1_used.1979>
+     4ca:	20 91 86 02 	lds	r18, 0x0286	; 0x800286 <UART1_used.1994>
      4ce:	21 11       	cpse	r18, r1
      4d0:	c8 c0       	rjmp	.+400    	; 0x662 <Modbus_init+0x1da>
 				UART1_used = 1;
      4d2:	21 e0       	ldi	r18, 0x01	; 1
-     4d4:	20 93 86 02 	sts	0x0286, r18	; 0x800286 <UART1_used.1979>
+     4d4:	20 93 86 02 	sts	0x0286, r18	; 0x800286 <UART1_used.1994>
 				UART1_init(g_mod0_baud_rate);
      4d8:	64 d3       	rcall	.+1736   	; 0xba2 <UART1_init>
 				g_mod0_Serial_available = UART1_available;
@@ -738,12 +738,12 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
      50c:	42 30       	cpi	r20, 0x02	; 2
      50e:	09 f5       	brne	.+66     	; 0x552 <Modbus_init+0xca>
 			if(0 == UART2_used){//uart2 not used
-     510:	20 91 85 02 	lds	r18, 0x0285	; 0x800285 <UART2_used.1980>
+     510:	20 91 85 02 	lds	r18, 0x0285	; 0x800285 <UART2_used.1995>
      514:	21 11       	cpse	r18, r1
      516:	a5 c0       	rjmp	.+330    	; 0x662 <Modbus_init+0x1da>
 				UART2_used = 1;
      518:	21 e0       	ldi	r18, 0x01	; 1
-     51a:	20 93 85 02 	sts	0x0285, r18	; 0x800285 <UART2_used.1980>
+     51a:	20 93 85 02 	sts	0x0285, r18	; 0x800285 <UART2_used.1995>
 				UART2_init(g_mod0_baud_rate);
      51e:	50 d4       	rcall	.+2208   	; 0xdc0 <UART2_init>
 				g_mod0_Serial_available = UART2_available;
@@ -779,12 +779,12 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
      554:	09 f0       	breq	.+2      	; 0x558 <Modbus_init+0xd0>
      556:	85 c0       	rjmp	.+266    	; 0x662 <Modbus_init+0x1da>
 			if(0 == UART3_used){//uart2 not used
-     558:	20 91 84 02 	lds	r18, 0x0284	; 0x800284 <UART3_used.1981>
+     558:	20 91 84 02 	lds	r18, 0x0284	; 0x800284 <UART3_used.1996>
      55c:	21 11       	cpse	r18, r1
      55e:	81 c0       	rjmp	.+258    	; 0x662 <Modbus_init+0x1da>
 				UART3_used = 1;
      560:	21 e0       	ldi	r18, 0x01	; 1
-     562:	20 93 84 02 	sts	0x0284, r18	; 0x800284 <UART3_used.1981>
+     562:	20 93 84 02 	sts	0x0284, r18	; 0x800284 <UART3_used.1996>
 				UART3_init(g_mod0_baud_rate);
      566:	38 d5       	rcall	.+2672   	; 0xfd8 <UART3_init>
 				g_mod0_Serial_available = UART3_available;
@@ -852,12 +852,12 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
      5d8:	41 30       	cpi	r20, 0x01	; 1
      5da:	09 f5       	brne	.+66     	; 0x61e <Modbus_init+0x196>
 			if(0 == UART1_used){//uart1 not used
-     5dc:	20 91 86 02 	lds	r18, 0x0286	; 0x800286 <UART1_used.1979>
+     5dc:	20 91 86 02 	lds	r18, 0x0286	; 0x800286 <UART1_used.1994>
      5e0:	21 11       	cpse	r18, r1
      5e2:	3f c0       	rjmp	.+126    	; 0x662 <Modbus_init+0x1da>
 				UART1_used = 1;
      5e4:	21 e0       	ldi	r18, 0x01	; 1
-     5e6:	20 93 86 02 	sts	0x0286, r18	; 0x800286 <UART1_used.1979>
+     5e6:	20 93 86 02 	sts	0x0286, r18	; 0x800286 <UART1_used.1994>
 				UART1_init(g_mod1_baud_rate);
      5ea:	db d2       	rcall	.+1462   	; 0xba2 <UART1_init>
 				g_mod1_Serial_available = UART1_available;
@@ -892,12 +892,12 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
      61e:	42 30       	cpi	r20, 0x02	; 2
      620:	01 f5       	brne	.+64     	; 0x662 <Modbus_init+0x1da>
 			if(0 == UART2_used){//uart2 not used
-     622:	20 91 85 02 	lds	r18, 0x0285	; 0x800285 <UART2_used.1980>
+     622:	20 91 85 02 	lds	r18, 0x0285	; 0x800285 <UART2_used.1995>
      626:	21 11       	cpse	r18, r1
 				UART2_used = 1;
      628:	1c c0       	rjmp	.+56     	; 0x662 <Modbus_init+0x1da>
      62a:	21 e0       	ldi	r18, 0x01	; 1
-     62c:	20 93 85 02 	sts	0x0285, r18	; 0x800285 <UART2_used.1980>
+     62c:	20 93 85 02 	sts	0x0285, r18	; 0x800285 <UART2_used.1995>
 				UART2_init(g_mod1_baud_rate);
      630:	c7 d3       	rcall	.+1934   	; 0xdc0 <UART2_init>
 				g_mod1_Serial_available = UART2_available;
@@ -1138,7 +1138,7 @@ static void vTask1(void* pvParameters)
 StaticMessageBuffer_t xMessageBufferStruct;
 MessageBufferHandle_t xMessageBuffer;
 
-int main() {
+int main(void) {
 	DDRE = 0xFF;
      754:	8d b9       	out	0x0d, r24	; 13
 	UART0_init(9600);

@@ -10,7 +10,7 @@
 #define TANK_OPERATION_H_
 #include <inttypes.h>
 
-void Tank_operation_init();
+void Tank_operation_init(void);
 
 /*
 *	this function takes the amount of liters you want to pass to the tank .
