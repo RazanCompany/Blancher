@@ -9,12 +9,6 @@
 #include "../../utils/Millis.h"
 #include "../../RAL/HW_types.h"
 #include <stdint.h>
-
-//debug
-#include "../../DEBUG.h"
-#ifndef F_CPU
-#define F_CPU 16000000
-#endif
 #include <util/delay.h>
 #include <util/atomic.h>
 
@@ -28,21 +22,10 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction);
 
 #define lowByte(w) ((uint8_t) ((w) & 0xff)) // GET_LOW_BYTE
 #define highByte(w) ((uint8_t) ((w) >> 8))	// GET_HIGH_BYTE
-
-//#define MAKE_WORD(high, low) ((high << 8) | low)
-//
-//#define GET_HIGH_WORD(ww)	(uint16_t)((ww) >> 16)
-//#define GET_LOW_WORD(ww)	(uint16_t)((ww) & 0xFFFF)
-//************************************************************************
 /*_______________________________________ Global Variables  _____________________________________________*/
 
 
 //______________________________ MOD_0 parameters _______________________________________
-
-
-//Stream* _serial;                                             ///< reference to serial port object
-
-
 
 static uint8_t  g_mod0_slave;                                  ///< Modbus slave (1..255) initialized in begin()
 static UART_Modules  g_mod0_uart_no;
@@ -61,8 +44,6 @@ static uint16_t g_mod0_transmit_buffer_length;
 static uint8_t g_mod0_response_buffer_index;
 static uint8_t g_mod0_response_buffer_length;
 
-//uint16_t* txBuffer; 											// from Wire.h -- need to clean this up Rx
-//uint16_t* rxBuffer; 		    							    // from Wire.h -- need to clean this up Rx
 
 // idle callback function; gets called during idle time between TX and RX
 static void (*g_mod0_idle)(void);
@@ -99,8 +80,7 @@ static uint16_t g_mod1_transmit_buffer_length;
 static uint8_t g_mod1_response_buffer_index;
 static uint8_t g_mod1_response_buffer_length;
 
-//uint16_t* txBuffer; 											// from Wire.h -- need to clean this up Rx
-//uint16_t* rxBuffer; 		    							    // from Wire.h -- need to clean this up Rx
+
 
 // idle callback function; gets called during idle time between TX and RX
 static void (*g_mod1_idle)(void);
@@ -271,59 +251,6 @@ void Modbus_Begin_transmission(uint8_t device, uint16_t address)
 	}
 
 }
-
-// Unused
-// eliminate this function in favor of using existing MB request functions
-//uint8_t Modbus_Request_from(uint8_t device, uint16_t address, uint16_t quantity)
-//{
-//
-//	if(DEVICE_0 == device){
-//
-//		uint8_t read;
-//		// clamp to buffer length
-//		if (quantity > MAX_BUFFER_SIZE)
-//		{
-//			quantity = MAX_BUFFER_SIZE;
-//		}
-//		// set rx buffer iterator vars
-//		g_mod0_response_buffer_index = 0;
-//		g_mod0_response_buffer_length = read;
-//
-//		return read;
-//	}
-//	else if(DEVICE_1 == device){
-//
-//		uint8_t read;
-//		// clamp to buffer length
-//		if (quantity > MAX_BUFFER_SIZE)
-//		{
-//			quantity = MAX_BUFFER_SIZE;
-//		}
-//		// set rx buffer iterator vars
-//		g_mod1_response_buffer_index = 0;
-//		g_mod1_response_buffer_length = read;
-//
-//		return read;
-//
-//	}
-//}
-
-
-//void ModbusMaster::sendBit(bool data)
-//{
-//  uint8_t txBitIndex = g_mod0_transmit_buffer_length % 16;
-//  if ((g_mod0_transmit_buffer_length >> 4) < MAX_BUFFER_SIZE)
-//  {
-//    if (0 == txBitIndex)
-//    {
-//      g_mod0_transmit_buffer[g_mod0_transmit_buffer_index] = 0;
-//    }
-//    bitWrite(g_mod0_transmit_buffer[g_mod0_transmit_buffer_index], txBitIndex, data);
-//    g_mod0_transmit_buffer_length++;
-//    g_mod0_transmit_buffer_index = g_mod0_transmit_buffer_length >> 4;
-//  }
-//}
-
 
 void Modbus_Send_16(uint8_t device, uint16_t data)
 {
@@ -817,19 +744,6 @@ uint8_t Modbus_Our_write_multiple_coils(uint8_t device, uint16_t u16WriteAddress
 	return INVALID_DEVICE; //error
 }
 
-
-//mohab edit
-/*uint8_t Modbus_Write_multiple_coils(uint8_t device)
-{
-	if(DEVICE_0 == device){
-		  g_mod0_write_qty = g_mod0_transmit_buffer_length;
-		  return ModbusMasterTransaction(WRITE_MULTIPLE_COILS);
-	}
-	else if(DEVICE_1 == device){
-		
-	}
-}*/ // repeated function  => nagah said :not used
-
 //mohab add
 /**
 Modbus function 0x10 Write Multiple Registers.
@@ -860,13 +774,6 @@ uint8_t Modbus_Write_multiple_registers(uint8_t device,uint16_t u16WriteAddress,
 	}
 	return  INVALID_DEVICE;
 }
-
-/*// new version based on Wire.h
-uint8_t ModbusMaster::writeMultipleRegisters()
-{
-  g_mod0_write_qty = g_mod0_transmit_buffer_index;
-  return ModbusMasterTransaction(WRITE_MULTIPLE_REGISTERS);
-}*/ //not used same approach
 
 
 
@@ -953,15 +860,6 @@ uint8_t Modbus_Read_write_multiple_registers(uint8_t device, uint16_t u16ReadAdd
 	return INVALID_DEVICE;//error
 }
 
-/*uint8_t ModbusMaster::readWriteMultipleRegisters(uint16_t u16ReadAddress,
-  uint16_t u16ReadQty)
-{
-  _u16ReadAddress = u16ReadAddress;
-  _u16ReadQty = u16ReadQty;
-  g_mod0_write_qty = g_mod0_transmit_buffer_index;
-  return Modbus_mster_transaction();//READ_WRITE_MULTIPLE_REGISTERS
-}*/ //unused nagah
-
 
 
 
@@ -995,25 +893,12 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		/*------------------------------------------------------------------------------------------*/
 		// assemble Modbus Request Application Data Unit
 		u8_mod0_ADU[u8_mod0_ADU_size++] = g_mod0_slave;
-
-#ifdef DEBUG_RECE
-//		UART0_puts("Trans :u8_mod0_ADU[0]");
-//		UART0_OutUDec(u8_mod0_ADU[0]);
-//		UART0_putc('\n');
-#endif
-
 		if(u8MBFunction == 0xFF){
 			u8_mod0_ADU[u8_mod0_ADU_size++] = 0x0F;
 		}
 		else{
 			u8_mod0_ADU[u8_mod0_ADU_size++] = u8MBFunction;
 		}
-
-#ifdef DEBUG_RECE
-//		UART0_puts("Trans :u8_mod0_ADU[1]");
-//		UART0_OutUDec(u8_mod0_ADU[1]);
-//		UART0_putc('\n');
-#endif
 
 		switch(u8MBFunction)
 		{
@@ -1111,7 +996,6 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		u8_mod0_ADU[u8_mod0_ADU_size] = 0;
 
 		// flush receive buffer before transmitting request
-		// while (_serial->read() != -1);
 		// mohab add
 
 		while( g_mod0_Serial_getc() != UART_NO_DATA  );
@@ -1124,24 +1008,14 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 			g_mod0_pre_transmission();
 		}
 
-#ifdef DEBUG_RECE
-//		UART0_puts("u8_mod0_ADU_size : ");
-//		UART0_OutUDec(u8_mod0_ADU_size);
-//		UART0_putc('\n');
-#endif
+
 
 		for (mod0_i = 0; mod0_i < u8_mod0_ADU_size; mod0_i++)
 		{
-			//_serial->write(u8_mod0_ADU[i]);
 			g_mod0_Serial_putc(u8_mod0_ADU[mod0_i]);
-//			UART0_puts("Trans :u8_mod0_ADU[]");
-//				UART0_OutUDec(u8_mod0_ADU[mod0_i]);
-//				UART0_putc('\n');
-
 		}
 
 		u8_mod0_ADU_size = 0;
-		//_serial->flush();    // flush transmit buffer
 		g_mod0_Serial_flush();		   // flush transmit buffer
 		_delay_us(100);
 		if (g_mod0_post_transmission)
@@ -1158,50 +1032,17 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 
 			if ( g_mod0_Serial_available() ) // _serial->available()
 			{
-
-				//UART0_puts("Serial_available");
-				//UART0_putc('\n');
-
-
-				#if __MODBUSMASTER_DEBUG__
-				digitalWrite(__MODBUSMASTER_DEBUG_PIN_A__, true);
-				#endif
-
-				u8_mod0_ADU[u8_mod0_ADU_size++] = g_mod0_Serial_getc();//_serial->read()
-//				_delay_us(100);
+				u8_mod0_ADU[u8_mod0_ADU_size++] = g_mod0_Serial_getc();
 				u8_mod0_bytes_left--;
-#ifdef DEBUG_RECE
-		//	ATOMIC_BLOCK(ATOMIC_FORCEON){
-// 				UART0_puts("trans receive []___ ");
-// 				UART0_OutUDec(u8_mod0_ADU_size-1);
-// 				UART0_puts(" = ");
-// 				UART0_OutUDec(u8_mod0_ADU[u8_mod0_ADU_size-1]);
-// 				UART0_putc('\n');
-
-		//	}
-
-#endif
-
-				#if __MODBUSMASTER_DEBUG__
-				digitalWrite(__MODBUSMASTER_DEBUG_PIN_A__, false);
-				#endif
 			}
 			else
 			{
-//				UART0_puts(" NOTSerial_available");
-//				UART0_putc('\n');
-				#if __MODBUSMASTER_DEBUG__
-				digitalWrite(__MODBUSMASTER_DEBUG_PIN_B__, true);
-				#endif
 				if (g_mod0_idle)
 				{
 					//UART0_putc('I');
 					//UART0_putc('\n');
 					g_mod0_idle();
 				}
-				#if __MODBUSMASTER_DEBUG__
-				digitalWrite(__MODBUSMASTER_DEBUG_PIN_B__, false);
-				#endif
 			}
 
 			// evaluate slave ID, function code once enough bytes have been read
@@ -1237,9 +1078,6 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 				case READ_HOLDING_REGISTERS:
 				case READ_WRITE_MULTIPLE_REGISTERS:
 					u8_mod0_bytes_left = u8_mod0_ADU[2];
-				//	UART0_puts("byte left ====  ");
-					//UART0_OutUDec(u8_mod0_bytes_left);
-					//UART0_putc('\n');
 					break;
 
 				case WRITE_SINGLE_COIL:
@@ -1257,20 +1095,11 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 			}
 			if ((millis() - u32_mod0_start_time) > RESPONCE_TIME_OUT)
 			{
-#ifdef DEBUG_RECE
-				//UART0_puts("START Time : ");
-				//UART0_OutUDec(millis());
-				//UART0_putc('\n');
-#endif
 				UART0_puts("RESPONCE_TIMED_OUT");
 				UART0_putc('\n');
 				u8MB_mod0_status = RESPONCE_TIMED_OUT;
 			}
-#ifdef DEBUG_RECE
-			//UART0_puts("WHILE : u8_mod0_bytes_left ");
-			//UART0_OutUDec(u8_mod0_bytes_left);
-			//UART0_putc('\n');
-#endif
+
 		}// end_of_while
 
 
@@ -1289,14 +1118,11 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 			  highByte(u16_mod0_CRC) != u8_mod0_ADU[u8_mod0_ADU_size - 1]))
 			{
 			  u8MB_mod0_status = INVALID_CRC;
-			 // UART0_puts("INVALID_CRC");
+			 
 			}
 		}
 
 		// disassemble ADU into words'
-		//UART0_puts("u8MB_mod0_status = ");
-		//UART0_OutUDec(u8MB_mod0_status );
-		//UART0_putc('\n');
 		if (!u8MB_mod0_status)
 		{
 		// evaluate returned Modbus function code
@@ -1309,15 +1135,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 				{
 				  if (mod0_i < MAX_BUFFER_SIZE)
 				  {
-					g_mod0_response_buffer[mod0_i] = MAKE_WORD(u8_mod0_ADU[2 * mod0_i + 4], u8_mod0_ADU[2 * mod0_i + 3]);
-					// print uart0
-#ifdef DEBUG_RECE
-				//	UART0_puts("RECE : ");
-				//	UART0_OutUDec(mod0_i);
-				//	UART0_puts(" = ");
-					//UART0_OutUDec(g_mod0_response_buffer[mod0_i]);
-					//UART0_putc('\n');
-#endif
+						g_mod0_response_buffer[mod0_i] = MAKE_WORD(u8_mod0_ADU[2 * mod0_i + 4], u8_mod0_ADU[2 * mod0_i + 3]);
 				  }
 
 				  g_mod0_response_buffer_length = mod0_i;
@@ -1329,14 +1147,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 				  if (mod0_i < MAX_BUFFER_SIZE)
 				  {
 					g_mod0_response_buffer[mod0_i] = MAKE_WORD(0, u8_mod0_ADU[2 * mod0_i + 3]);
-					// print uart0
-#ifdef DEBUG_RECE
-					//UART0_puts("RECE : ");
-					//UART0_OutUDec(mod0_i);
-					//UART0_puts(" = ");
-					//UART0_OutUDec(g_mod0_response_buffer[mod0_i]);
-					//UART0_putc('\n');
-#endif
+
 				  }
 
 				  g_mod0_response_buffer_length = mod0_i + 1;
@@ -1351,15 +1162,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 				{
 				  if (mod0_i < MAX_BUFFER_SIZE)
 				  {
-					g_mod0_response_buffer[mod0_i] = MAKE_WORD(u8_mod0_ADU[2 * mod0_i + 3], u8_mod0_ADU[2 * mod0_i + 4]);
-					// print uart0
-#ifdef DEBUG_RECE
-				//	UART0_puts("RECE : ");
-					//UART0_OutUDec(mod0_i);
-					//UART0_puts(" = ");
-// 					UART0_OutUDec(g_mod0_response_buffer[mod0_i]);
-// 					UART0_putc('\n');
-#endif
+					 g_mod0_response_buffer[mod0_i] = MAKE_WORD(u8_mod0_ADU[2 * mod0_i + 3], u8_mod0_ADU[2 * mod0_i + 4]);
 				  }
 
 				  g_mod0_response_buffer_length = mod0_i;
@@ -1521,35 +1324,17 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		{
 		if ( g_mod1_Serial_available() ) // _serial->available()
 		{
-
-		#if __MODBUSMASTER_DEBUG__
-		  digitalWrite(__MODBUSMASTER_DEBUG_PIN_A__, true);
-		#endif
-
-
-
 		  u8_mod1_ADU[u8_mod1_ADU_size++] = g_mod1_Serial_getc();//_serial->read()
-
-
-
-
 		  u8_mod1_bytes_left--;
-		#if __MODBUSMASTER_DEBUG__
-		  digitalWrite(__MODBUSMASTER_DEBUG_PIN_A__, false);
-		#endif
 		}
 		else
 		{
-		#if __MODBUSMASTER_DEBUG__
-		  digitalWrite(__MODBUSMASTER_DEBUG_PIN_B__, true);
-		#endif
+
 		  if (g_mod1_idle)
 		  {
 			  g_mod1_idle();
 		  }
-		#if __MODBUSMASTER_DEBUG__
-		  digitalWrite(__MODBUSMASTER_DEBUG_PIN_B__, false);
-		#endif
+
 		}
 
 		// evaluate slave ID, function code once enough bytes have been read

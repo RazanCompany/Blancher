@@ -2218,7 +2218,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 Services/TEMP_Task.o
  .debug_macro   0x00000000      0x166 Services/TEMP_Task.o
  .debug_line    0x00000000      0x3a8 Services/TEMP_Task.o
- .debug_str     0x00000000     0x9377 Services/TEMP_Task.o
+ .debug_str     0x00000000     0x9376 Services/TEMP_Task.o
  .comment       0x00000000       0x31 Services/TEMP_Task.o
  .debug_frame   0x00000000       0x24 Services/TEMP_Task.o
  .group         0x00000000        0x8 System.o
@@ -3741,86 +3741,86 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0xbdc0
+.debug_info     0x00000000     0xbdba
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0xbbc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_info    0x00000bbc      0x330 ECUAL/Encoder/Encoder.o
  .debug_info    0x00000eec      0x5a2 ECUAL/LCD.o
- .debug_info    0x0000148e     0x10ad ECUAL/Modbus/Modbus_master.o
- .debug_info    0x0000253b      0x56c main.o
- .debug_info    0x00002aa7      0x158 MCAL/ADC.o
- .debug_info    0x00002bff      0x36a MCAL/DIO.o
- .debug_info    0x00002f69     0x144e MCAL/UART.o
- .debug_info    0x000043b7       0xed RTE/RTE_encoders.o
- .debug_info    0x000044a4      0x7ec RTE/RTE_invertersetting.o
- .debug_info    0x00004c90      0x443 RTE/RTE_levels.o
- .debug_info    0x000050d3       0xef RTE/RTE_main.o
- .debug_info    0x000051c2      0x618 RTE/RTE_operations.o
- .debug_info    0x000057da      0x844 RTE/RTE_temperature.o
- .debug_info    0x0000601e      0x3f0 rtos/hooks.o
- .debug_info    0x0000640e      0x2e3 rtos/list.o
- .debug_info    0x000066f1      0x288 rtos/port.o
- .debug_info    0x00006979     0x1a8c rtos/queue.o
- .debug_info    0x00008405     0x1e37 rtos/tasks.o
- .debug_info    0x0000a23c     0x1366 rtos/timers.o
- .debug_info    0x0000b5a2      0x49c Services/LCD_Tasks.o
- .debug_info    0x0000ba3e      0x158 System.o
- .debug_info    0x0000bb96       0xbe utils/CRC16.o
- .debug_info    0x0000bc54      0x16c utils/Millis.o
+ .debug_info    0x0000148e     0x10a7 ECUAL/Modbus/Modbus_master.o
+ .debug_info    0x00002535      0x56c main.o
+ .debug_info    0x00002aa1      0x158 MCAL/ADC.o
+ .debug_info    0x00002bf9      0x36a MCAL/DIO.o
+ .debug_info    0x00002f63     0x144e MCAL/UART.o
+ .debug_info    0x000043b1       0xed RTE/RTE_encoders.o
+ .debug_info    0x0000449e      0x7ec RTE/RTE_invertersetting.o
+ .debug_info    0x00004c8a      0x443 RTE/RTE_levels.o
+ .debug_info    0x000050cd       0xef RTE/RTE_main.o
+ .debug_info    0x000051bc      0x618 RTE/RTE_operations.o
+ .debug_info    0x000057d4      0x844 RTE/RTE_temperature.o
+ .debug_info    0x00006018      0x3f0 rtos/hooks.o
+ .debug_info    0x00006408      0x2e3 rtos/list.o
+ .debug_info    0x000066eb      0x288 rtos/port.o
+ .debug_info    0x00006973     0x1a8c rtos/queue.o
+ .debug_info    0x000083ff     0x1e37 rtos/tasks.o
+ .debug_info    0x0000a236     0x1366 rtos/timers.o
+ .debug_info    0x0000b59c      0x49c Services/LCD_Tasks.o
+ .debug_info    0x0000ba38      0x158 System.o
+ .debug_info    0x0000bb90       0xbe utils/CRC16.o
+ .debug_info    0x0000bc4e      0x16c utils/Millis.o
 
-.debug_abbrev   0x00000000     0x2e64
+.debug_abbrev   0x00000000     0x2e73
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0xb1a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_abbrev  0x00000b1a      0x120 ECUAL/Encoder/Encoder.o
  .debug_abbrev  0x00000c3a      0x191 ECUAL/LCD.o
- .debug_abbrev  0x00000dcb      0x2c7 ECUAL/Modbus/Modbus_master.o
- .debug_abbrev  0x00001092      0x184 main.o
- .debug_abbrev  0x00001216       0xf2 MCAL/ADC.o
- .debug_abbrev  0x00001308      0x103 MCAL/DIO.o
- .debug_abbrev  0x0000140b      0x1da MCAL/UART.o
- .debug_abbrev  0x000015e5       0xa6 RTE/RTE_encoders.o
- .debug_abbrev  0x0000168b      0x15f RTE/RTE_invertersetting.o
- .debug_abbrev  0x000017ea      0x173 RTE/RTE_levels.o
- .debug_abbrev  0x0000195d       0x66 RTE/RTE_main.o
- .debug_abbrev  0x000019c3      0x15f RTE/RTE_operations.o
- .debug_abbrev  0x00001b22      0x188 RTE/RTE_temperature.o
- .debug_abbrev  0x00001caa      0x184 rtos/hooks.o
- .debug_abbrev  0x00001e2e      0x102 rtos/list.o
- .debug_abbrev  0x00001f30      0x15b rtos/port.o
- .debug_abbrev  0x0000208b      0x387 rtos/queue.o
- .debug_abbrev  0x00002412      0x335 rtos/tasks.o
- .debug_abbrev  0x00002747      0x392 rtos/timers.o
- .debug_abbrev  0x00002ad9      0x115 Services/LCD_Tasks.o
- .debug_abbrev  0x00002bee       0xc6 System.o
- .debug_abbrev  0x00002cb4       0x83 utils/CRC16.o
- .debug_abbrev  0x00002d37      0x12d utils/Millis.o
+ .debug_abbrev  0x00000dcb      0x2d6 ECUAL/Modbus/Modbus_master.o
+ .debug_abbrev  0x000010a1      0x184 main.o
+ .debug_abbrev  0x00001225       0xf2 MCAL/ADC.o
+ .debug_abbrev  0x00001317      0x103 MCAL/DIO.o
+ .debug_abbrev  0x0000141a      0x1da MCAL/UART.o
+ .debug_abbrev  0x000015f4       0xa6 RTE/RTE_encoders.o
+ .debug_abbrev  0x0000169a      0x15f RTE/RTE_invertersetting.o
+ .debug_abbrev  0x000017f9      0x173 RTE/RTE_levels.o
+ .debug_abbrev  0x0000196c       0x66 RTE/RTE_main.o
+ .debug_abbrev  0x000019d2      0x15f RTE/RTE_operations.o
+ .debug_abbrev  0x00001b31      0x188 RTE/RTE_temperature.o
+ .debug_abbrev  0x00001cb9      0x184 rtos/hooks.o
+ .debug_abbrev  0x00001e3d      0x102 rtos/list.o
+ .debug_abbrev  0x00001f3f      0x15b rtos/port.o
+ .debug_abbrev  0x0000209a      0x387 rtos/queue.o
+ .debug_abbrev  0x00002421      0x335 rtos/tasks.o
+ .debug_abbrev  0x00002756      0x392 rtos/timers.o
+ .debug_abbrev  0x00002ae8      0x115 Services/LCD_Tasks.o
+ .debug_abbrev  0x00002bfd       0xc6 System.o
+ .debug_abbrev  0x00002cc3       0x83 utils/CRC16.o
+ .debug_abbrev  0x00002d46      0x12d utils/Millis.o
 
-.debug_line     0x00000000     0x9665
+.debug_line     0x00000000     0x9658
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x1f9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_line    0x000001f9      0x534 ECUAL/Encoder/Encoder.o
  .debug_line    0x0000072d      0x44e ECUAL/LCD.o
- .debug_line    0x00000b7b     0x1263 ECUAL/Modbus/Modbus_master.o
- .debug_line    0x00001dde      0x63a main.o
- .debug_line    0x00002418      0x381 MCAL/ADC.o
- .debug_line    0x00002799      0x64c MCAL/DIO.o
- .debug_line    0x00002de5      0xe80 MCAL/UART.o
- .debug_line    0x00003c65      0x383 RTE/RTE_encoders.o
- .debug_line    0x00003fe8      0x4e8 RTE/RTE_invertersetting.o
- .debug_line    0x000044d0      0x3d5 RTE/RTE_levels.o
- .debug_line    0x000048a5      0x1b6 RTE/RTE_main.o
- .debug_line    0x00004a5b      0x45d RTE/RTE_operations.o
- .debug_line    0x00004eb8      0x50f RTE/RTE_temperature.o
- .debug_line    0x000053c7      0x448 rtos/hooks.o
- .debug_line    0x0000580f      0x3fb rtos/list.o
- .debug_line    0x00005c0a      0x4ce rtos/port.o
- .debug_line    0x000060d8      0xd67 rtos/queue.o
- .debug_line    0x00006e3f     0x124d rtos/tasks.o
- .debug_line    0x0000808c      0x6e8 rtos/timers.o
- .debug_line    0x00008774      0x5cd Services/LCD_Tasks.o
- .debug_line    0x00008d41      0x482 System.o
- .debug_line    0x000091c3      0x151 utils/CRC16.o
- .debug_line    0x00009314      0x351 utils/Millis.o
+ .debug_line    0x00000b7b     0x1256 ECUAL/Modbus/Modbus_master.o
+ .debug_line    0x00001dd1      0x63a main.o
+ .debug_line    0x0000240b      0x381 MCAL/ADC.o
+ .debug_line    0x0000278c      0x64c MCAL/DIO.o
+ .debug_line    0x00002dd8      0xe80 MCAL/UART.o
+ .debug_line    0x00003c58      0x383 RTE/RTE_encoders.o
+ .debug_line    0x00003fdb      0x4e8 RTE/RTE_invertersetting.o
+ .debug_line    0x000044c3      0x3d5 RTE/RTE_levels.o
+ .debug_line    0x00004898      0x1b6 RTE/RTE_main.o
+ .debug_line    0x00004a4e      0x45d RTE/RTE_operations.o
+ .debug_line    0x00004eab      0x50f RTE/RTE_temperature.o
+ .debug_line    0x000053ba      0x448 rtos/hooks.o
+ .debug_line    0x00005802      0x3fb rtos/list.o
+ .debug_line    0x00005bfd      0x4ce rtos/port.o
+ .debug_line    0x000060cb      0xd67 rtos/queue.o
+ .debug_line    0x00006e32     0x124d rtos/tasks.o
+ .debug_line    0x0000807f      0x6e8 rtos/timers.o
+ .debug_line    0x00008767      0x5cd Services/LCD_Tasks.o
+ .debug_line    0x00008d34      0x482 System.o
+ .debug_line    0x000091b6      0x151 utils/CRC16.o
+ .debug_line    0x00009307      0x351 utils/Millis.o
 
 .debug_frame    0x00000000     0x1c1c
  *(.debug_frame)
@@ -3848,54 +3848,54 @@ END GROUP
  .debug_frame   0x00001b94       0x24 utils/CRC16.o
  .debug_frame   0x00001bb8       0x64 utils/Millis.o
 
-.debug_str      0x00000000    0x18988
+.debug_str      0x00000000    0x1897e
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
  .debug_str     0x000003e6     0x9cb9 ECUAL/Encoder/Encoder.o
                                0x9e07 (size before relaxing)
  .debug_str     0x0000a09f      0x5bd ECUAL/LCD.o
                                0x9138 (size before relaxing)
- .debug_str     0x0000a65c      0x832 ECUAL/Modbus/Modbus_master.o
-                               0xa8ac (size before relaxing)
- .debug_str     0x0000ae8e     0x4edf main.o
+ .debug_str     0x0000a65c      0x828 ECUAL/Modbus/Modbus_master.o
+                               0xa8a2 (size before relaxing)
+ .debug_str     0x0000ae84     0x4edf main.o
                                0xef99 (size before relaxing)
- .debug_str     0x0000fd6d      0xa56 MCAL/ADC.o
+ .debug_str     0x0000fd63      0xa56 MCAL/ADC.o
                                0x9d1d (size before relaxing)
- .debug_str     0x000107c3      0x2f6 MCAL/DIO.o
+ .debug_str     0x000107b9      0x2f6 MCAL/DIO.o
                                0x9889 (size before relaxing)
- .debug_str     0x00010ab9     0x2fb8 MCAL/UART.o
+ .debug_str     0x00010aaf     0x2fb8 MCAL/UART.o
                                0xc227 (size before relaxing)
- .debug_str     0x00013a71       0x5d RTE/RTE_encoders.o
+ .debug_str     0x00013a67       0x5d RTE/RTE_encoders.o
                                0xd4b9 (size before relaxing)
- .debug_str     0x00013ace      0x3a5 RTE/RTE_invertersetting.o
+ .debug_str     0x00013ac4      0x3a5 RTE/RTE_invertersetting.o
                                0xd89c (size before relaxing)
- .debug_str     0x00013e73      0x110 RTE/RTE_levels.o
+ .debug_str     0x00013e69      0x110 RTE/RTE_levels.o
                                0xd6ba (size before relaxing)
- .debug_str     0x00013f83       0x66 RTE/RTE_main.o
+ .debug_str     0x00013f79       0x66 RTE/RTE_main.o
                                0x33a6 (size before relaxing)
- .debug_str     0x00013fe9      0x245 RTE/RTE_operations.o
+ .debug_str     0x00013fdf      0x245 RTE/RTE_operations.o
                                0xd849 (size before relaxing)
- .debug_str     0x0001422e      0x3f4 RTE/RTE_temperature.o
+ .debug_str     0x00014224      0x3f4 RTE/RTE_temperature.o
                                0xd9dd (size before relaxing)
- .debug_str     0x00014622      0xbd0 rtos/hooks.o
+ .debug_str     0x00014618      0xbd0 rtos/hooks.o
                                0xd3bb (size before relaxing)
- .debug_str     0x000151f2      0x2a1 rtos/list.o
+ .debug_str     0x000151e8      0x2a1 rtos/list.o
                                0xbec3 (size before relaxing)
- .debug_str     0x00015493     0x14aa rtos/port.o
+ .debug_str     0x00015489     0x14aa rtos/port.o
                                0xd7b8 (size before relaxing)
- .debug_str     0x0001693d      0xa19 rtos/queue.o
+ .debug_str     0x00016933      0xa19 rtos/queue.o
                                0xd153 (size before relaxing)
- .debug_str     0x00017356      0xfcf rtos/tasks.o
+ .debug_str     0x0001734c      0xfcf rtos/tasks.o
                                0xdca4 (size before relaxing)
- .debug_str     0x00018325      0x4ab rtos/timers.o
+ .debug_str     0x0001831b      0x4ab rtos/timers.o
                                0xd5d3 (size before relaxing)
- .debug_str     0x000187d0      0x146 Services/LCD_Tasks.o
+ .debug_str     0x000187c6      0x146 Services/LCD_Tasks.o
                                0xe46a (size before relaxing)
- .debug_str     0x00018916       0x27 System.o
+ .debug_str     0x0001890c       0x27 System.o
                                0x9d13 (size before relaxing)
- .debug_str     0x0001893d       0x11 utils/CRC16.o
+ .debug_str     0x00018933       0x11 utils/CRC16.o
                                0x391d (size before relaxing)
- .debug_str     0x0001894e       0x3a utils/Millis.o
+ .debug_str     0x00018944       0x3a utils/Millis.o
                                0x950c (size before relaxing)
 
 .debug_loc      0x00000000     0x98bf
@@ -3965,7 +3965,7 @@ END GROUP
  .debug_ranges  0x00000ae0       0x10 utils/CRC16.o
  .debug_ranges  0x00000af0       0x20 utils/Millis.o
 
-.debug_macro    0x00000000     0x5eca
+.debug_macro    0x00000000     0x5ec0
  *(.debug_macro)
  .debug_macro   0x00000000      0x106 ECUAL/Encoder/Encoder.o
  .debug_macro   0x00000106       0x10 ECUAL/Encoder/Encoder.o
@@ -3991,55 +3991,55 @@ END GROUP
  .debug_macro   0x0000302b       0xcb ECUAL/LCD.o
  .debug_macro   0x000030f6       0x94 ECUAL/LCD.o
  .debug_macro   0x0000318a       0x40 ECUAL/LCD.o
- .debug_macro   0x000031ca      0x130 ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x000032fa       0x69 ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x00003363       0x10 ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x00003373      0x249 main.o
- .debug_macro   0x000035bc      0x16d main.o
- .debug_macro   0x00003729      0x106 main.o
- .debug_macro   0x0000382f       0x52 main.o
- .debug_macro   0x00003881       0x82 main.o
- .debug_macro   0x00003903       0x16 main.o
- .debug_macro   0x00003919       0x68 main.o
- .debug_macro   0x00003981       0x1f main.o
- .debug_macro   0x000039a0      0x3f3 main.o
- .debug_macro   0x00003d93       0xb5 main.o
- .debug_macro   0x00003e48       0x8c main.o
- .debug_macro   0x00003ed4       0x10 main.o
- .debug_macro   0x00003ee4       0x18 main.o
- .debug_macro   0x00003efc       0x66 main.o
- .debug_macro   0x00003f62       0x86 main.o
- .debug_macro   0x00003fe8       0x78 main.o
- .debug_macro   0x00004060       0xdd MCAL/ADC.o
- .debug_macro   0x0000413d      0x291 MCAL/ADC.o
- .debug_macro   0x000043ce       0xcf MCAL/DIO.o
- .debug_macro   0x0000449d       0x88 MCAL/DIO.o
- .debug_macro   0x00004525       0x52 MCAL/DIO.o
- .debug_macro   0x00004577      0x1c8 MCAL/UART.o
- .debug_macro   0x0000473f       0x10 MCAL/UART.o
- .debug_macro   0x0000474f       0x89 MCAL/UART.o
- .debug_macro   0x000047d8      0x181 MCAL/UART.o
- .debug_macro   0x00004959      0x155 RTE/RTE_encoders.o
- .debug_macro   0x00004aae      0x100 RTE/RTE_encoders.o
- .debug_macro   0x00004bae      0x155 RTE/RTE_invertersetting.o
- .debug_macro   0x00004d03      0x155 RTE/RTE_levels.o
- .debug_macro   0x00004e58       0x69 RTE/RTE_main.o
- .debug_macro   0x00004ec1       0x10 RTE/RTE_main.o
- .debug_macro   0x00004ed1      0x155 RTE/RTE_operations.o
- .debug_macro   0x00005026      0x155 RTE/RTE_temperature.o
- .debug_macro   0x0000517b      0x15c rtos/hooks.o
- .debug_macro   0x000052d7       0x3b rtos/hooks.o
- .debug_macro   0x00005312       0x10 rtos/hooks.o
- .debug_macro   0x00005322      0x128 rtos/list.o
- .debug_macro   0x0000544a      0x155 rtos/port.o
- .debug_macro   0x0000559f      0x182 rtos/queue.o
- .debug_macro   0x00005721       0x16 rtos/queue.o
- .debug_macro   0x00005737       0x20 rtos/queue.o
- .debug_macro   0x00005757      0x1f3 rtos/tasks.o
- .debug_macro   0x0000594a      0x14e rtos/timers.o
- .debug_macro   0x00005a98      0x1db Services/LCD_Tasks.o
- .debug_macro   0x00005c73      0x151 System.o
- .debug_macro   0x00005dc4       0x3d utils/CRC16.o
- .debug_macro   0x00005e01       0xc9 utils/Millis.o
+ .debug_macro   0x000031ca      0x126 ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x000032f0       0x69 ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x00003359       0x10 ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x00003369      0x249 main.o
+ .debug_macro   0x000035b2      0x16d main.o
+ .debug_macro   0x0000371f      0x106 main.o
+ .debug_macro   0x00003825       0x52 main.o
+ .debug_macro   0x00003877       0x82 main.o
+ .debug_macro   0x000038f9       0x16 main.o
+ .debug_macro   0x0000390f       0x68 main.o
+ .debug_macro   0x00003977       0x1f main.o
+ .debug_macro   0x00003996      0x3f3 main.o
+ .debug_macro   0x00003d89       0xb5 main.o
+ .debug_macro   0x00003e3e       0x8c main.o
+ .debug_macro   0x00003eca       0x10 main.o
+ .debug_macro   0x00003eda       0x18 main.o
+ .debug_macro   0x00003ef2       0x66 main.o
+ .debug_macro   0x00003f58       0x86 main.o
+ .debug_macro   0x00003fde       0x78 main.o
+ .debug_macro   0x00004056       0xdd MCAL/ADC.o
+ .debug_macro   0x00004133      0x291 MCAL/ADC.o
+ .debug_macro   0x000043c4       0xcf MCAL/DIO.o
+ .debug_macro   0x00004493       0x88 MCAL/DIO.o
+ .debug_macro   0x0000451b       0x52 MCAL/DIO.o
+ .debug_macro   0x0000456d      0x1c8 MCAL/UART.o
+ .debug_macro   0x00004735       0x10 MCAL/UART.o
+ .debug_macro   0x00004745       0x89 MCAL/UART.o
+ .debug_macro   0x000047ce      0x181 MCAL/UART.o
+ .debug_macro   0x0000494f      0x155 RTE/RTE_encoders.o
+ .debug_macro   0x00004aa4      0x100 RTE/RTE_encoders.o
+ .debug_macro   0x00004ba4      0x155 RTE/RTE_invertersetting.o
+ .debug_macro   0x00004cf9      0x155 RTE/RTE_levels.o
+ .debug_macro   0x00004e4e       0x69 RTE/RTE_main.o
+ .debug_macro   0x00004eb7       0x10 RTE/RTE_main.o
+ .debug_macro   0x00004ec7      0x155 RTE/RTE_operations.o
+ .debug_macro   0x0000501c      0x155 RTE/RTE_temperature.o
+ .debug_macro   0x00005171      0x15c rtos/hooks.o
+ .debug_macro   0x000052cd       0x3b rtos/hooks.o
+ .debug_macro   0x00005308       0x10 rtos/hooks.o
+ .debug_macro   0x00005318      0x128 rtos/list.o
+ .debug_macro   0x00005440      0x155 rtos/port.o
+ .debug_macro   0x00005595      0x182 rtos/queue.o
+ .debug_macro   0x00005717       0x16 rtos/queue.o
+ .debug_macro   0x0000572d       0x20 rtos/queue.o
+ .debug_macro   0x0000574d      0x1f3 rtos/tasks.o
+ .debug_macro   0x00005940      0x14e rtos/timers.o
+ .debug_macro   0x00005a8e      0x1db Services/LCD_Tasks.o
+ .debug_macro   0x00005c69      0x151 System.o
+ .debug_macro   0x00005dba       0x3d utils/CRC16.o
+ .debug_macro   0x00005df7       0xc9 utils/Millis.o
 OUTPUT(blancher.elf elf32-avr)
 LOAD linker stubs

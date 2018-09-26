@@ -4,9 +4,7 @@
  *  Created on: ??þ/??þ/????
  *      Author: ENG
  */
-#ifndef F_CPU
 #define F_CPU 16000000
-#endif
 #include "ADC.h"
 #include "../RAL/RAL.h"
 #include "../RAL/HW_types.h"

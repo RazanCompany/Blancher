@@ -4,6 +4,7 @@
  * Created: 9/22/2018 4:24:23 PM
  *  Author: M.nagah
  */ 
+#define  F_CPU 16000000
 #include "TEMP_Task.h"
 #include "../ECUAL/Temperature.h"
 #include "../ECUAL/LCD.h"
