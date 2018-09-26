@@ -41,6 +41,7 @@ void Modbus_change_state(uint8_t device ,uint8_t state);
 
 void Electrical_heater_change_state(uint8_t state);
 void Pre_heater_change_state(uint8_t state);
+void Blower_change_state(uint8_t state);
 
 
 
