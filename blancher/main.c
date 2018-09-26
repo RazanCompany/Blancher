@@ -42,13 +42,9 @@ StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ];
 TaskHandle_t xHandle1 = NULL , xHandle2 = NULL;
 
 
-static SemaphoreHandle_t Sema_Test_handle;
-static StaticSemaphore_t Sema_Test_Buffer;
-static uint16_t Test;
-
 int main(void) {
 	DDRE = 0xFF;
-	UART0_init(9600);
+	UART0_init(9600); //for debug
     System_init();
 		
 	
@@ -69,9 +65,8 @@ int main(void) {
 				NULL, /* Parameter passed into the task. */
 				2,/* Priority at which the task is created. */
 				xStack2, /* Array to use as the task's stack. */
-				&xTask2Buffer ); /* Variable to hold the task's data structure. */
+				&xTask2Buffer); /* Variable to hold the task's data structure. */
 
-	Sema_Test_handle = xSemaphoreCreateBinaryStatic(&Sema_Test_Buffer);
 
 // 	char x=0;
 // 	uint8_t xy=0;
@@ -126,27 +121,35 @@ int main(void) {
 
 static void vTask1(void* pvParameters)
 {
-
+	char x=0;
+	LCD_main(&x);
 	
-	while(1)
-	{
-		UART0_puts("Vtask1 receives data \n");
-		xSemaphoreTake(Sema_Test_handle,portMAX_DELAY);
-		UART0_puts("Vtask1 Released data= ");
-		UART0_OutUDec(Test);
-		UART0_putc('\n');
-	}
+// 	while(1)
+// 	{
+// 		UART0_puts("Vtask1 receives data \n");
+// 		xSemaphoreTake(Sema_Test_handle,portMAX_DELAY);
+// 		UART0_puts("Vtask1 Released data= ");
+// 		UART0_OutUDec(Test);
+// 		UART0_putc('\n');
+// 	}
 }
 static void vTask2(void* pvParameters)
 {
+	uint8_t x=0;
+	uint16_t RTE_data=0;
+	UART0_puts("Enter Task2");
 	while(1){
-		Test++;
-		UART0_puts("Vtask2 sends data = ");
-		UART0_OutUDec(Test);
+		UART0_puts("Task2 set current temp with =");
+		UART0_OutUDec(x);
 		UART0_putc('\n');
-		xSemaphoreGive(Sema_Test_handle);
-		UART0_puts("Vtask2 Gives the semaphore\n");
-		vTaskDelay(4000/portTICK_PERIOD_MS);
+		RTE_set_Current_temperature(++x);
+		UART0_puts("Task2 Requires ");
+		RTE_data = RTE_get_RPM_max();
+		UART0_puts("Task2 RTE_data = ");
+		UART0_OutUDec(RTE_data);
+		UART0_putc('\n');
+		
+		
 	}
 	
 }

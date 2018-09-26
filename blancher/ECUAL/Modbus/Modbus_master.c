@@ -417,7 +417,7 @@ serial ports, etc. is permitted within callback function.
 
 @see ModbusMaster::ModbusMasterTransaction()
 */
-void Modbus_Idle(uint8_t device, void (*idle)())
+void Modbus_Idle(uint8_t device, void (*idle)(void))
 {
 	if(DEVICE_0 == device){
 		g_mod0_idle = idle;

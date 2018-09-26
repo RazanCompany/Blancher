@@ -8,9 +8,10 @@
 
 #ifndef TANK_LEVEL_H_
 #define TANK_LEVEL_H_
+#include <stdint.h>
 
- uint8_t Get_tank_level(void);
- uint8_t Get_blancher_level(void);
+uint8_t Get_tank_level(void);
+uint8_t Get_blancher_level(void);
 
 
 #endif /* LEVEL_TASK_H_ */

@@ -120,7 +120,7 @@ void LCD_main(void* pvParameters){
 				
 			}
 		#endif
-		vTaskDelay(200/portTICK_PERIOD_MS);
+		vTaskDelay(4000/portTICK_PERIOD_MS);
 		//_delay_ms(2000);
 	}
 }

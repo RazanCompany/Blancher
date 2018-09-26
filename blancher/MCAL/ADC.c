@@ -40,13 +40,13 @@ void ADC_init(uint8_t channel)
 
 }
 
- void ADC_enable_reading ()
+void ADC_enable_reading(void)
 {
 	// restart the conversion .
 	SET_BIT(ADC_CONTROL_STATUS_A_REG , ADC_START_CONVERSION_bit);
 }
 
-uint16_t ADC_read()
+uint16_t ADC_read(void)
 {
 	// re-start the conversion .
 	ADC_enable_reading();

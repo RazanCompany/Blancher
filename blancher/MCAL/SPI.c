@@ -15,7 +15,7 @@
 
 //initialize the SPI bus
 uint8_t g_recieved_data ;
-void spi_init(){
+void spi_init(void){
     //set outputs
 	SET_BIT(SPI_DIRECTION_REG , MOSI_PIN);
 	SET_BIT(SPI_DIRECTION_REG , SCK_PIN);

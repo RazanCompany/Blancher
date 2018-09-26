@@ -18,7 +18,7 @@
 	return g_tank_sensor ;
  }
  
-uint8_t Get_blabcher_level(void)
+uint8_t Get_blancher_level(void)
 {
 	g_blancher_level = Get_blancher_level_state();
 	return g_blancher_level ;

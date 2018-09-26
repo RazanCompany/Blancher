@@ -16,7 +16,7 @@ void temp_init(uint8_t channal)
 	ADC_init(channal);
 }
 
-uint16_t temp_read ()
+uint16_t temp_read(void)
 {
 	// this function returns the temperature sensor reading
 	double Temp ,  vout, rt, a = 0.0039083 , r0 =100, y, b = -0.000000577,x ;

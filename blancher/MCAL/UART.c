@@ -997,27 +997,15 @@ Function: UART2 Receive Complete interrupt
 Purpose:  called when the UART2 has received a character
 **************************************************************************/
 {
-	static uint8_t count=0;
-
-
-	uint16_t tmphead;
+		uint16_t tmphead;
 	uint8_t data;
 	uint8_t usr;
 	uint8_t lastRxError;
 
-	//UART1_puts("RECEIVER interrupt \n");
 	/* read UART status register and UART data register */
 	usr  = UART2_STATUS;
 	data = UART2_DATA;
-//#ifdef DEBUG_UART2_RECE
-//	//ATOMIC_BLOCK(ATOMIC_FORCEON){
-		//UART0_OutUDec(data);
-		//UART0_putc('\n');
-	//}
-//#endif
-	/* */
-//	debug_rece_lcd[count]=data;
-//	count++;
+
 	lastRxError = (usr & (_BV(FE2)|_BV(DOR2)));
 
 	/* calculate buffer index */

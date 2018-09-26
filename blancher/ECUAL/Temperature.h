@@ -8,7 +8,7 @@
 #define TEMP_SENSOR_TEMP_H_
 
 void temp_init(uint8_t);
-uint16_t temp_read ();
+uint16_t temp_read(void);
 
 
 

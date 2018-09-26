@@ -11,7 +11,7 @@
 
 //initialize the SPI bus
 
-void spi_init();
+void spi_init(void);
 
 //shifts out 8 bits of data
 //  uint8_t data - the data to be shifted out
