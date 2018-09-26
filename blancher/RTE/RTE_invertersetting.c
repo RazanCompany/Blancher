@@ -50,11 +50,11 @@ void RTE_invertersetting_init(void){
 
 void RTE_set_Gear_ratio(uint16_t u16GearRatio){
 	Gear_ratio = u16GearRatio;
-	//xSemaphoreGive(Sema_Gear_ratio_handle);
+	xSemaphoreGive(Sema_Gear_ratio_handle);
 }
 
 uint16_t RTE_get_Gear_ratio(void){
-	//xSemaphoreTake(Sema_Gear_ratio_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_Gear_ratio_handle,portMAX_DELAY);
 	return Gear_ratio;
 }
 
@@ -63,32 +63,32 @@ uint16_t RTE_get_Gear_ratio(void){
 
 void RTE_set_RPM_max(uint16_t u16RPMmax){
 	RPM_max = u16RPMmax;
-	//xSemaphoreGive(Sema_RPM_max_handle);
+	xSemaphoreGive(Sema_RPM_max_handle);
 }
 
 uint16_t RTE_get_RPM_max(void){
-	//xSemaphoreTake(Sema_RPM_max_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_RPM_max_handle,portMAX_DELAY);
 	return RPM_max;
 }
 
 
 void RTE_set_Conveyor_length(uint16_t u16ConveyorLength){
 	Conveyor_length = u16ConveyorLength;
-	//xSemaphoreGive(Sema_Conveyor_length_handle);
+	xSemaphoreGive(Sema_Conveyor_length_handle);
 }
 uint16_t RTE_get_Conveyor_length(void){
-	//xSemaphoreTake(Sema_Conveyor_length_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_Conveyor_length_handle,portMAX_DELAY);
 	return Conveyor_length;
 }
 
 
 void RTE_set_Driver_diameter(uint16_t u16Driverdiameter){
 	Driver_diameter = u16Driverdiameter;
-	//xSemaphoreGive(Sema_Driver_diameter_handle);
+	xSemaphoreGive(Sema_Driver_diameter_handle);
 }
 
 uint16_t RTE_get_Driver_diameter(void){
-	//xSemaphoreTake(Sema_Driver_diameter_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_Driver_diameter_handle,portMAX_DELAY);
 	return Driver_diameter;
 }
 
@@ -96,20 +96,20 @@ uint16_t RTE_get_Driver_diameter(void){
 
 void RTE_set_Time_minute(uint16_t u16Timeminute){
 	Time_minute = u16Timeminute;
-	//xSemaphoreGive(Sema_Time_minute_handle);
+	xSemaphoreGive(Sema_Time_minute_handle);
 }
 
 uint16_t RTE_get_Time_minute(void){
-	//xSemaphoreTake(Sema_Time_minute_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_Time_minute_handle,portMAX_DELAY);
 	return Time_minute;
 }
 
 void RTE_set_Time_second(uint16_t u16Timesecond){
 	Time_second = u16Timesecond;
-	//xSemaphoreGive(Sema_Time_second_handle);
+	xSemaphoreGive(Sema_Time_second_handle);
 }
 
 uint16_t RTE_get_Time_second(void){
-	//xSemaphoreTake(Sema_Time_second_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_Time_second_handle,portMAX_DELAY);
 	return Time_second;
 }

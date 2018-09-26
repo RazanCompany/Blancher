@@ -28,24 +28,24 @@ void RTE_levels_init(void){
 void RTE_set_tank_level(uint16_t u16tank_level)
 {
 	tank_level = u16tank_level ;
-    //xSemaphoreGive(Sema_tank_level_handle);
+    xSemaphoreGive(Sema_tank_level_handle);
 }
 
 uint16_t RTE_get_tank_level(void)
 {
-	//xSemaphoreTake(Sema_tank_level_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_tank_level_handle,portMAX_DELAY);
 	return tank_level ;
 }
 
 void RTE_set_blancher_level(uint16_t u16blancher_level)
 {
 	tank_level = u16blancher_level ;
-	//xSemaphoreGive(Sema_blancher_level_handle);
+	xSemaphoreGive(Sema_blancher_level_handle);
 }
 
 uint16_t RTE_get_blancher_level(void)
 {
-	//xSemaphoreTake(Sema_blancher_level_handle,portMAX_DELAY);
+	xSemaphoreTake(Sema_blancher_level_handle,portMAX_DELAY);
 	return blancher_level ;
 }
 

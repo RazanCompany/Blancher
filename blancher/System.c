@@ -14,7 +14,7 @@
 
 gSystemError System_init(void){
 	
-	gSystemError res=E_OK;
+	gSystemError res = E_OK;
 	DIO_init();
 	millis_init();	
 	Lcd_init(UART3,115200,1);
