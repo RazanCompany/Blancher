@@ -6,9 +6,14 @@
  */ 
 // sleep temp r
 // set temp r
+<<<<<<< HEAD
 // set temp threshold r
 // sleep temp threshold r   
 // offset+ r
+=======
+// threshold r
+// offest+ r
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
 // offset- r
 // current temp w
 #include "../RTOS_Includes.h"
@@ -22,6 +27,7 @@ static SemaphoreHandle_t Sema_Set_temp_handle;
 static StaticSemaphore_t Sema_Set_temp_Buffer;
 static uint16_t Set_temp;
 
+<<<<<<< HEAD
 static SemaphoreHandle_t Sema_threshold_set_temp_handle;
 static StaticSemaphore_t Sema_threshold_set_temp_Buffer;
 static uint16_t Threshold_set_temp;
@@ -29,6 +35,11 @@ static uint16_t Threshold_set_temp;
 static SemaphoreHandle_t Sema_threshold_sleep_temp_handle;
 static StaticSemaphore_t Sema_threshold_sleep_temp_Buffer;
 static uint16_t Threshold_sleep_temp;
+=======
+static SemaphoreHandle_t Sema_threshold_temp_handle;
+static StaticSemaphore_t Sema_threshold_temp_Buffer;
+static uint16_t Threshold_temp;
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
 
 static SemaphoreHandle_t Sema_Positive_offset_temp_handle;
 static StaticSemaphore_t Sema_Positive_offset_temp_Buffer;
@@ -45,8 +56,12 @@ static uint16_t Current_temperature;
 void RTE_temperature_init(void){
 	Sema_Sleep_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_Sleep_temp_Buffer);
 	Sema_Set_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_Set_temp_Buffer);
+<<<<<<< HEAD
 	Sema_threshold_set_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_threshold_set_temp_Buffer);
 	Sema_threshold_sleep_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_threshold_sleep_temp_Buffer);
+=======
+	Sema_threshold_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_threshold_temp_Buffer);
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
 	Sema_Positive_offset_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_Positive_offset_temp_Buffer);
 	Sema_Negative_offset_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_Negative_offset_temp_Buffer);
 }
@@ -78,6 +93,7 @@ uint16_t RTE_get_set_temperature(void){
 
 
 
+<<<<<<< HEAD
 void RTE_set_threshold_set_temperature(uint16_t u16thresholdsetTemp){
 	Threshold_set_temp = u16thresholdsetTemp;
 	//xSemaphoreGive(Sema_threshold_set_temp_handle);
@@ -102,6 +118,19 @@ uint16_t RTE_get_threshold_sleep_temperature(void){
 
 
 
+=======
+void RTE_set_threshold_temperature(uint16_t u16thresholdTemp){
+	Threshold_temp = u16thresholdTemp;
+	//xSemaphoreGive(Sema_threshold_temp_handle);
+}
+
+uint16_t RTE_get_threshold_temperature(void){
+	//xSemaphoreTake(Sema_threshold_temp_handle,portMAX_DELAY);
+	return Threshold_temp;
+}
+
+
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
 void RTE_set_positive_offset_temperature(uint16_t u16positiveOffsetTemp){
 	Positive_offset_temp = u16positiveOffsetTemp;
 	//xSemaphoreGive(Sema_Positive_offset_temp_handle);

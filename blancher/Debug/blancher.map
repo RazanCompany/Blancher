@@ -1215,7 +1215,11 @@ Discarded input sections
  .data          0x00000000        0x0 RTE/RTE_temperature.o
  .bss           0x00000000        0x0 RTE/RTE_temperature.o
  .text.RTE_temperature_init
+<<<<<<< HEAD
                 0x00000000       0x68 RTE/RTE_temperature.o
+=======
+                0x00000000       0x58 RTE/RTE_temperature.o
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
  .text.RTE_set_Sleep_temperature
                 0x00000000        0xa RTE/RTE_temperature.o
  .text.RTE_get_Sleep_temperature
@@ -1224,6 +1228,7 @@ Discarded input sections
                 0x00000000        0xa RTE/RTE_temperature.o
  .text.RTE_get_set_temperature
                 0x00000000        0xa RTE/RTE_temperature.o
+<<<<<<< HEAD
  .text.RTE_set_threshold_set_temperature
                 0x00000000        0xa RTE/RTE_temperature.o
  .text.RTE_get_threshold_set_temperature
@@ -1231,6 +1236,11 @@ Discarded input sections
  .text.RTE_set_threshold_sleep_temperature
                 0x00000000        0xa RTE/RTE_temperature.o
  .text.RTE_get_threshold_sleep_temperature
+=======
+ .text.RTE_set_threshold_temperature
+                0x00000000        0xa RTE/RTE_temperature.o
+ .text.RTE_get_threshold_temperature
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
                 0x00000000        0xa RTE/RTE_temperature.o
  .text.RTE_set_positive_offset_temperature
                 0x00000000        0xa RTE/RTE_temperature.o
@@ -1254,6 +1264,7 @@ Discarded input sections
                 0x00000000        0x2 RTE/RTE_temperature.o
  .bss.Sema_Positive_offset_temp_Buffer
                 0x00000000       0x1f RTE/RTE_temperature.o
+<<<<<<< HEAD
  .bss.Threshold_sleep_temp
                 0x00000000        0x2 RTE/RTE_temperature.o
  .bss.Sema_threshold_sleep_temp_Buffer
@@ -1261,6 +1272,11 @@ Discarded input sections
  .bss.Threshold_set_temp
                 0x00000000        0x2 RTE/RTE_temperature.o
  .bss.Sema_threshold_set_temp_Buffer
+=======
+ .bss.Threshold_temp
+                0x00000000        0x2 RTE/RTE_temperature.o
+ .bss.Sema_threshold_temp_Buffer
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
                 0x00000000       0x1f RTE/RTE_temperature.o
  .bss.Set_temp  0x00000000        0x2 RTE/RTE_temperature.o
  .bss.Sema_Set_temp_Buffer
@@ -1269,12 +1285,21 @@ Discarded input sections
                 0x00000000        0x2 RTE/RTE_temperature.o
  .bss.Sema_Sleep_temp_Buffer
                 0x00000000       0x1f RTE/RTE_temperature.o
+<<<<<<< HEAD
  .debug_info    0x00000000      0x69d RTE/RTE_temperature.o
  .debug_abbrev  0x00000000      0x16a RTE/RTE_temperature.o
  .debug_loc     0x00000000       0x22 RTE/RTE_temperature.o
  .debug_aranges
                 0x00000000       0x90 RTE/RTE_temperature.o
  .debug_ranges  0x00000000       0x80 RTE/RTE_temperature.o
+=======
+ .debug_info    0x00000000      0x5f3 RTE/RTE_temperature.o
+ .debug_abbrev  0x00000000      0x16a RTE/RTE_temperature.o
+ .debug_loc     0x00000000       0x22 RTE/RTE_temperature.o
+ .debug_aranges
+                0x00000000       0x80 RTE/RTE_temperature.o
+ .debug_ranges  0x00000000       0x70 RTE/RTE_temperature.o
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
  .debug_macro   0x00000000      0x155 RTE/RTE_temperature.o
  .debug_macro   0x00000000      0xa78 RTE/RTE_temperature.o
  .debug_macro   0x00000000      0x16d RTE/RTE_temperature.o
@@ -1303,10 +1328,17 @@ Discarded input sections
  .debug_macro   0x00000000       0x66 RTE/RTE_temperature.o
  .debug_macro   0x00000000       0x86 RTE/RTE_temperature.o
  .debug_macro   0x00000000       0x78 RTE/RTE_temperature.o
+<<<<<<< HEAD
  .debug_line    0x00000000      0x4c7 RTE/RTE_temperature.o
  .debug_str     0x00000000     0xd9ac RTE/RTE_temperature.o
  .comment       0x00000000       0x31 RTE/RTE_temperature.o
  .debug_frame   0x00000000      0x10c RTE/RTE_temperature.o
+=======
+ .debug_line    0x00000000      0x492 RTE/RTE_temperature.o
+ .debug_str     0x00000000     0xd8e0 RTE/RTE_temperature.o
+ .comment       0x00000000       0x31 RTE/RTE_temperature.o
+ .debug_frame   0x00000000       0xec RTE/RTE_temperature.o
+>>>>>>> 2cfa8f94ddee05b00035ed77776a8a72486e1974
  .group         0x00000000        0x8 rtos/croutine.o
  .group         0x00000000        0x8 rtos/croutine.o
  .group         0x00000000        0x8 rtos/croutine.o
