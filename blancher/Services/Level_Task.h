@@ -8,6 +8,7 @@
 
 #ifndef LEVEL_TASK_H_
 #define LEVEL_TASK_H_
+#include <inttypes.h>
 
 void Level_task (void* pvParameters );
 static uint8_t Check_for_sensor_error(void);

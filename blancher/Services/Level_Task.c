@@ -24,7 +24,7 @@ void Level_task (void* pvParameters )
 		g_blancher_level = Get_blancher_level();
 		if (Check_for_sensor_error())
 		{
-			RTE_set_tank_levels(INVALID_DATA);
+			RTE_set_tank_level(INVALID_DATA);
 		}
 		RTE_set_tank_level(g_tank_level);
 		RTE_set_blancher_level(g_blancher_level);
