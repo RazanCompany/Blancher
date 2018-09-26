@@ -41,14 +41,7 @@ StackType_t variables. The size of StackType_t is dependent on the RTOS port. */
 StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ];
 
 
-#define STORAGE_SIZE_BYTES 100
-/* Defines the memory that will actually hold the messages within the message
-buffer. Should be one more than the value passed in the xBufferSizeBytes
-parameter. */
-static uint8_t ucStorageBuffer[ STORAGE_SIZE_BYTES ];
-/* The variable used to hold the message buffer structure. */
-StaticMessageBuffer_t xMessageBufferStruct;
-MessageBufferHandle_t xMessageBuffer;
+TaskHandle_t xHandle1 = NULL , xHandle2 = NULL;
 
 
 static SemaphoreHandle_t Sema_Test_handle;
@@ -62,7 +55,7 @@ int main(void) {
 	DIO_init();
 	Lcd_init(UART3,115200,1);
 		
-	TaskHandle_t xHandle1 = NULL , xHandle2 = NULL;
+	
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic(
 					vTask1, /* Function that implements the task. */
