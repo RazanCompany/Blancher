@@ -2092,9 +2092,9 @@ Discarded input sections
  .data          0x00000000        0x0 Services/LCD_Tasks.o
  .bss           0x00000000        0x0 Services/LCD_Tasks.o
  .text.LCD_main
-                0x00000000       0xca Services/LCD_Tasks.o
- .debug_info    0x00000000      0x4e5 Services/LCD_Tasks.o
- .debug_abbrev  0x00000000      0x172 Services/LCD_Tasks.o
+                0x00000000       0xc0 Services/LCD_Tasks.o
+ .debug_info    0x00000000      0x49b Services/LCD_Tasks.o
+ .debug_abbrev  0x00000000      0x115 Services/LCD_Tasks.o
  .debug_loc     0x00000000       0x26 Services/LCD_Tasks.o
  .debug_aranges
                 0x00000000       0x20 Services/LCD_Tasks.o
@@ -2133,8 +2133,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x78 Services/LCD_Tasks.o
  .debug_macro   0x00000000       0x10 Services/LCD_Tasks.o
  .debug_macro   0x00000000      0x166 Services/LCD_Tasks.o
- .debug_line    0x00000000      0x5d0 Services/LCD_Tasks.o
- .debug_str     0x00000000     0xe496 Services/LCD_Tasks.o
+ .debug_line    0x00000000      0x5cd Services/LCD_Tasks.o
+ .debug_str     0x00000000     0xe46a Services/LCD_Tasks.o
  .comment       0x00000000       0x31 Services/LCD_Tasks.o
  .debug_frame   0x00000000       0x24 Services/LCD_Tasks.o
  COMMON         0x00000000       0x24 Services/LCD_Tasks.o
