@@ -13,6 +13,7 @@ Must init modbus for the LCD
 #include "../RTOS_Includes.h"
 #include "../ECUAL/LCD.h"
 #include <util/delay.h>
+#include "LCD_Tasks.h"
 /*************** LCD_READ_Parameters ************************/
 /*
 	Read multiple registers from the LCD .. saves this parameters 
@@ -78,6 +79,8 @@ void LCD_main(void* pvParameters){
 			
 		#endif
 		LCD_READ_Parameters();
+// 		LCD_RTE_FEED();
+// 		LCD_RTE_COLLECT();
 		LCD_WRITE_Parameters();
 		#ifdef __DEBUG
 		Debug_read=(uint16_t*)&s_Lcd_data_read;

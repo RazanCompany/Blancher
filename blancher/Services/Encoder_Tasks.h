@@ -11,20 +11,20 @@
  * parameters@ Nothing
  * return@ Nothing
  */
-void Encoder_init();
+void Encoder_init(void);
 /*
  * To calculate the RPM oF conveyor 
  * parameters@ Nothing
  * return@ RPM for Conveyor
  */
 
-uint16_t Conveyor_speed();
+uint16_t Conveyor_speed(void);
 /*
  * To calculate the RPM oF Drum
  * parameters@ Nothing
  * return@ RPM for Drum
  */
-uint16_t Drum_speed();
+uint16_t Drum_speed(void);
 
 
 #endif /* ENCODER_TASK_H_ */

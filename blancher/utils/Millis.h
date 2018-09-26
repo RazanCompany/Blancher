@@ -25,10 +25,10 @@
 
 
 //init the timer on ctc mode to calvulate millis
-void millis_init();
+void millis_init(void);
 
 //return the millis sec
-unsigned long Get_millis();
+unsigned long Get_millis(void);
 
 
 

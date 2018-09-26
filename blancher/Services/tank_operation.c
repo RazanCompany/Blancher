@@ -10,8 +10,8 @@
 #include "../RTOS_Includes.h"
 
 
-static void Tank_feed_callback ();
-static void Tank_out_callback ();
+static void Tank_feed_callback (void);
+static void Tank_out_callback (void);
 
 static volatile uint16_t g_feeding_liters_counter = 0; 
 static volatile uint16_t g_out_liters_counter = 0;
@@ -25,7 +25,7 @@ StaticSemaphore_t feeding_SemaphoreBuffer , outing_SemaphoreBuffer ;
 
 
 
-void Tank_operation_init()
+void Tank_operation_init(void)
 {
 	Flow_rate_init( Tank_feed_callback , Tank_out_callback);	
 	Feeding_Semaphore = xSemaphoreCreateBinaryStatic( &feeding_SemaphoreBuffer );
@@ -68,7 +68,7 @@ void Tank_out_operation(uint16_t liters)
 }
 
 
-static void Tank_feed_callback ()
+static void Tank_feed_callback (void)
 {
 	
 	g_feeding_liters_counter ++ ;
@@ -76,12 +76,12 @@ static void Tank_feed_callback ()
 	if (g_feeding_liters_counter >= g_feed_liters )
 	{
 		// release the semaphore
-		xSemaphoreGive(Feeding_Semaphore );
+		xSemaphoreGive(Feeding_Semaphore);
 	}
 	
 }
 
-static void Tank_out_callback ()
+static void Tank_out_callback(void)
 {
 	
 	g_out_liters_counter ++ ;

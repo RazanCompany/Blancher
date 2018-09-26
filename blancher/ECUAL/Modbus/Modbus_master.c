@@ -65,17 +65,17 @@ static uint8_t g_mod0_response_buffer_length;
 //uint16_t* rxBuffer; 		    							    // from Wire.h -- need to clean this up Rx
 
 // idle callback function; gets called during idle time between TX and RX
-static void (*g_mod0_idle)();
+static void (*g_mod0_idle)(void);
 // preTransmission callback function; gets called before writing a Modbus message
-static void (*g_mod0_pre_transmission)();
+static void (*g_mod0_pre_transmission)(void);
 // postTransmission callback function; gets called after a Modbus message has been sent
-static void (*g_mod0_post_transmission)();
+static void (*g_mod0_post_transmission)(void);
 //serial functions
 static void (*g_mod0_Serial_putc)(uint8_t);
-static uint16_t (*g_mod0_Serial_getc)();
-static void (*g_mod0_Serial_flush)();
-static uint16_t (*g_mod0_Serial_peek)();
-static uint16_t (*g_mod0_Serial_available)();
+static uint16_t (*g_mod0_Serial_getc)(void);
+static void (*g_mod0_Serial_flush)(void);
+static uint16_t (*g_mod0_Serial_peek)(void);
+static uint16_t (*g_mod0_Serial_available)(void);
 static void (*g_mod0_Serial_puts)(const char*);
 static void (*g_mod0_Serial_puts_p)(const char*);
 //______________________________ MOD_1 parameters _______________________________________
@@ -103,11 +103,11 @@ static uint8_t g_mod1_response_buffer_length;
 //uint16_t* rxBuffer; 		    							    // from Wire.h -- need to clean this up Rx
 
 // idle callback function; gets called during idle time between TX and RX
-static void (*g_mod1_idle)();
+static void (*g_mod1_idle)(void);
 // preTransmission callback function; gets called before writing a Modbus message
-static void (*g_mod1_pre_transmission)();
+static void (*g_mod1_pre_transmission)(void);
 // postTransmission callback function; gets called after a Modbus message has been sent
-static void (*g_mod1_post_transmission)();
+static void (*g_mod1_post_transmission)(void);
 //serial functions
 static void (*g_mod1_Serial_putc)(uint8_t);
 static uint16_t (*g_mod1_Serial_getc)(void);
