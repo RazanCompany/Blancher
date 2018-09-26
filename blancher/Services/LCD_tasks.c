@@ -10,15 +10,14 @@ Must init modbus for the LCD
 
 */
 #define  F_CPU 16000000
-#include "../RTOS_Includes.h"
-#include "../ECUAL/LCD.h"
-#include <util/delay.h>
 #include "LCD_Tasks.h"
+#include "../RTOS_Includes.h"
 #include "../RTE/RTE_encoders.h" //drum speed w
 #include "../RTE/RTE_invertersetting.h"
 #include "../RTE/RTE_temperature.h"
 #include "../RTE/RTE_operations.h"
 
+#include <util/delay.h>
 /*************** LCD_READ_Parameters ************************/
 /*
 	Read multiple registers from the LCD .. saves this parameters 

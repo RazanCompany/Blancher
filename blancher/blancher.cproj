@@ -319,16 +319,22 @@
     <Compile Include="RTE\RTE_invertersetting.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="RTE\RTE_levels.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_levels.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_main.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="RTE\RTE_operations.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="RTE\RTE_operations.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="RTE\RTE_tankslevels.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="RTE\RTE_tankslevels.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="RTE\RTE_temperature.c">
@@ -430,6 +436,9 @@
     <Compile Include="Services\LCD_Tasks.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Services\Level_Task.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Services\Level_Task.h">
       <SubType>compile</SubType>
     </Compile>
@@ -443,6 +452,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\TEMP_Task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="System.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="System.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Tasks.c">

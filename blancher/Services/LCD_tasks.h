@@ -9,7 +9,7 @@
 #ifndef LCD_TASKS_H_
 #define LCD_TASKS_H_
 
-
+#include "../ECUAL/LCD.h"
 
 void LCD_main(void* pvParameters);
 

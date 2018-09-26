@@ -44,9 +44,11 @@ RTE\RTE_encoders.c
 
 RTE\RTE_invertersetting.c
 
-RTE\RTE_operations.c
+RTE\RTE_levels.c
 
-RTE\RTE_tankslevels.c
+RTE\RTE_main.c
+
+RTE\RTE_operations.c
 
 RTE\RTE_temperature.c
 
@@ -72,9 +74,13 @@ Services\Encoder_Tasks.c
 
 Services\LCD_Tasks.c
 
+Services\Level_Task.c
+
 Services\tank_operation.c
 
 Services\TEMP_Task.c
+
+System.c
 
 Tasks.c
 

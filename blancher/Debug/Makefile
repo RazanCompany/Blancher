@@ -73,8 +73,9 @@ C_SRCS +=  \
 ../MCAL/UART.c \
 ../RTE/RTE_encoders.c \
 ../RTE/RTE_invertersetting.c \
+../RTE/RTE_levels.c \
+../RTE/RTE_main.c \
 ../RTE/RTE_operations.c \
-../RTE/RTE_tankslevels.c \
 ../RTE/RTE_temperature.c \
 ../rtos/croutine.c \
 ../rtos/event_groups.c \
@@ -87,8 +88,10 @@ C_SRCS +=  \
 ../rtos/timers.c \
 ../Services/Encoder_Tasks.c \
 ../Services/LCD_Tasks.c \
+../Services/Level_Task.c \
 ../Services/tank_operation.c \
 ../Services/TEMP_Task.c \
+../System.c \
 ../Tasks.c \
 ../utils/CRC16.c \
 ../utils/Millis.c
@@ -122,8 +125,9 @@ MCAL/Timer.o \
 MCAL/UART.o \
 RTE/RTE_encoders.o \
 RTE/RTE_invertersetting.o \
+RTE/RTE_levels.o \
+RTE/RTE_main.o \
 RTE/RTE_operations.o \
-RTE/RTE_tankslevels.o \
 RTE/RTE_temperature.o \
 rtos/croutine.o \
 rtos/event_groups.o \
@@ -136,8 +140,10 @@ rtos/tasks.o \
 rtos/timers.o \
 Services/Encoder_Tasks.o \
 Services/LCD_Tasks.o \
+Services/Level_Task.o \
 Services/tank_operation.o \
 Services/TEMP_Task.o \
+System.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -164,8 +170,9 @@ MCAL/Timer.o \
 MCAL/UART.o \
 RTE/RTE_encoders.o \
 RTE/RTE_invertersetting.o \
+RTE/RTE_levels.o \
+RTE/RTE_main.o \
 RTE/RTE_operations.o \
-RTE/RTE_tankslevels.o \
 RTE/RTE_temperature.o \
 rtos/croutine.o \
 rtos/event_groups.o \
@@ -178,8 +185,10 @@ rtos/tasks.o \
 rtos/timers.o \
 Services/Encoder_Tasks.o \
 Services/LCD_Tasks.o \
+Services/Level_Task.o \
 Services/tank_operation.o \
 Services/TEMP_Task.o \
+System.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -206,8 +215,9 @@ MCAL/Timer.d \
 MCAL/UART.d \
 RTE/RTE_encoders.d \
 RTE/RTE_invertersetting.d \
+RTE/RTE_levels.d \
+RTE/RTE_main.d \
 RTE/RTE_operations.d \
-RTE/RTE_tankslevels.d \
 RTE/RTE_temperature.d \
 rtos/croutine.d \
 rtos/event_groups.d \
@@ -220,8 +230,10 @@ rtos/tasks.d \
 rtos/timers.d \
 Services/Encoder_Tasks.d \
 Services/LCD_Tasks.d \
+Services/Level_Task.d \
 Services/tank_operation.d \
 Services/TEMP_Task.d \
+System.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -248,8 +260,9 @@ MCAL/Timer.d \
 MCAL/UART.d \
 RTE/RTE_encoders.d \
 RTE/RTE_invertersetting.d \
+RTE/RTE_levels.d \
+RTE/RTE_main.d \
 RTE/RTE_operations.d \
-RTE/RTE_tankslevels.d \
 RTE/RTE_temperature.d \
 rtos/croutine.d \
 rtos/event_groups.d \
@@ -262,8 +275,10 @@ rtos/tasks.d \
 rtos/timers.d \
 Services/Encoder_Tasks.d \
 Services/LCD_Tasks.d \
+Services/Level_Task.d \
 Services/tank_operation.d \
 Services/TEMP_Task.d \
+System.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -429,14 +444,21 @@ RTE/RTE_invertersetting.o: ../RTE/RTE_invertersetting.c
 	@echo Finished building: $<
 	
 
-RTE/RTE_operations.o: ../RTE/RTE_operations.c
+RTE/RTE_levels.o: ../RTE/RTE_levels.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-RTE/RTE_tankslevels.o: ../RTE/RTE_tankslevels.c
+RTE/RTE_main.o: ../RTE/RTE_main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+RTE/RTE_operations.o: ../RTE/RTE_operations.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -527,6 +549,13 @@ Services/LCD_Tasks.o: ../Services/LCD_Tasks.c
 	@echo Finished building: $<
 	
 
+Services/Level_Task.o: ../Services/Level_Task.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 Services/tank_operation.o: ../Services/tank_operation.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -535,6 +564,13 @@ Services/tank_operation.o: ../Services/tank_operation.c
 	
 
 Services/TEMP_Task.o: ../Services/TEMP_Task.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./System.o: .././System.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

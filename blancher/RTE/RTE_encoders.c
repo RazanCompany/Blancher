@@ -13,11 +13,12 @@
 /*static uint16_t Conveyor_speed;*/
 static uint16_t Drum_speed;
 
-// void RTE_encoder_init(void){
+void RTE_encoder_init(void){
 // 	Sema_Conveyor_speed_handle = xSemaphoreCreateBinaryStatic(&Sema_Conveyor_speed_Buffer);
 // 	Sema_Drum_speed_handle = xSemaphoreCreateBinaryStatic(&Sema_Drum_speed_Buffer);
-// }
-// 
+}
+
+
 // uint16_t RTE_get_Conveyor_speed(void){ //LCD_main call //no blocking
 // 	return Conveyor_speed;
 // }

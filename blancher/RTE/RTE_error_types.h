@@ -9,7 +9,7 @@
 #ifndef RTE_TYPES_H_
 #define RTE_TYPES_H_
 
-#include INVALID_DATA   0xAFFA     // error occured in tank  
+#define INVALID_DATA   0xAFFA     // error occured in tank  
 
 
 

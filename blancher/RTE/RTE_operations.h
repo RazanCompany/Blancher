@@ -10,6 +10,7 @@
 #define RTE_OPERATIONS_H_
 
 void RTE_operations_init(void);
+
 void RTE_set_System_on(uint16_t u16System_on);
 uint16_t RTE_get_System_on(void);
 void RTE_set_Start_blancher_Operation(uint16_t u16Start_blancher_Operation);

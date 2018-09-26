@@ -1,9 +1,9 @@
-Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
- ../Services/LCD_Tasks.h ../Services/../ECUAL/LCD.h \
+RTE/RTE_levels.d RTE/RTE_levels.o: ../RTE/RTE_levels.c \
+ ../RTE/../RTOS_Includes.h ../RTE/../rtos/FreeRTOS.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- ../Services/../ECUAL/Modbus/Modbus_master.h \
- ../Services/../ECUAL/Modbus/../../MCAL/UART.h \
+ ../RTE/../rtos/FreeRTOSConfig.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -14,35 +14,25 @@ Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../Services/../ECUAL/Modbus/../../CONFIG.h \
- ../Services/../RTOS_Includes.h ../Services/../rtos/FreeRTOS.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- ../Services/../rtos/FreeRTOSConfig.h ../Services/../rtos/projdefs.h \
- ../Services/../rtos/portmacro.h ../Services/../rtos/portable.h \
+ ../RTE/../rtos/projdefs.h ../RTE/../rtos/portmacro.h \
+ ../RTE/../rtos/portable.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
- ../Services/../rtos/mpu_wrappers.h \
- ../Services/../rtos/FreeRTOSBoardDefs.h ../Services/../rtos/task.h \
- ../Services/../rtos/list.h ../Services/../rtos/task.h \
- ../Services/../rtos/message_buffer.h ../Services/../rtos/stream_buffer.h \
- ../Services/../rtos/semphr.h ../Services/../rtos/queue.h \
- ../Services/../RTE/RTE_encoders.h \
- ../Services/../RTE/RTE_invertersetting.h \
- ../Services/../RTE/RTE_temperature.h ../Services/../RTE/RTE_operations.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+ ../RTE/../rtos/mpu_wrappers.h ../RTE/../rtos/FreeRTOSBoardDefs.h \
+ ../RTE/../rtos/task.h ../RTE/../rtos/list.h ../RTE/../rtos/task.h \
+ ../RTE/../rtos/message_buffer.h ../RTE/../rtos/stream_buffer.h \
+ ../RTE/../rtos/semphr.h ../RTE/../rtos/queue.h ../RTE/RTE_levels.h
 
-../Services/LCD_Tasks.h:
+../RTE/../RTOS_Includes.h:
 
-../Services/../ECUAL/LCD.h:
+../RTE/../rtos/FreeRTOS.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
-../Services/../ECUAL/Modbus/Modbus_master.h:
-
-../Services/../ECUAL/Modbus/../../MCAL/UART.h:
+../RTE/../rtos/FreeRTOSConfig.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -64,52 +54,30 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../Services/../ECUAL/Modbus/../../CONFIG.h:
+../RTE/../rtos/projdefs.h:
 
-../Services/../RTOS_Includes.h:
+../RTE/../rtos/portmacro.h:
 
-../Services/../rtos/FreeRTOS.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
-
-../Services/../rtos/FreeRTOSConfig.h:
-
-../Services/../rtos/projdefs.h:
-
-../Services/../rtos/portmacro.h:
-
-../Services/../rtos/portable.h:
+../RTE/../rtos/portable.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h:
 
-../Services/../rtos/mpu_wrappers.h:
+../RTE/../rtos/mpu_wrappers.h:
 
-../Services/../rtos/FreeRTOSBoardDefs.h:
+../RTE/../rtos/FreeRTOSBoardDefs.h:
 
-../Services/../rtos/task.h:
+../RTE/../rtos/task.h:
 
-../Services/../rtos/list.h:
+../RTE/../rtos/list.h:
 
-../Services/../rtos/task.h:
+../RTE/../rtos/task.h:
 
-../Services/../rtos/message_buffer.h:
+../RTE/../rtos/message_buffer.h:
 
-../Services/../rtos/stream_buffer.h:
+../RTE/../rtos/stream_buffer.h:
 
-../Services/../rtos/semphr.h:
+../RTE/../rtos/semphr.h:
 
-../Services/../rtos/queue.h:
+../RTE/../rtos/queue.h:
 
-../Services/../RTE/RTE_encoders.h:
-
-../Services/../RTE/RTE_invertersetting.h:
-
-../Services/../RTE/RTE_temperature.h:
-
-../Services/../RTE/RTE_operations.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+../RTE/RTE_levels.h:

@@ -19,11 +19,9 @@
 #include "utils/Millis.h"
 #include "MCAL/DIO.h"
 #include "Services/LCD_Tasks.h"
+#include "RTE/RTE_main.h"
+#include "System.h"
 
-#include "RTE/RTE_encoders.h" //drum speed w
-#include "RTE/RTE_invertersetting.h"
-#include "RTE/RTE_temperature.h"
-#include "RTE/RTE_operations.h"
 #ifdef DEBUG
 uint8_t debug_send_lcd[11];
 uint8_t debug_rece_lcd[7];
@@ -51,9 +49,7 @@ static uint16_t Test;
 int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600);
-	millis_init();
-	DIO_init();
-	Lcd_init(UART3,115200,1);
+    System_init();
 		
 	
 	/* Create the task without using any dynamic memory allocation. */

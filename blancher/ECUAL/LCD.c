@@ -1,18 +1,23 @@
 #include "LCD.h"
 #include "../MCAL/DIO.h"
 
+
+
+/************ Function prototyping ******************************************************/
+static void LCD_pre_transmission(void);
+static void LCD_post_transmission(void);
+
 //Configuration global struct
 static modbus_config g_LCD_modbus_config;
 
 
 
 /* _____callback functions_____________________________________________________ */
-void LCD_pre_transmission(void) {
-	/*Mode_bus_1_change_state*/
+static void LCD_pre_transmission(void) {
 	Modbus_change_state(LCD,HIGH);
 }
 
-void LCD_post_transmission(void) {
+static void LCD_post_transmission(void) {
 	Modbus_change_state(LCD,LOW);
 }
 
