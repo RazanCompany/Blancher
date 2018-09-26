@@ -58,10 +58,10 @@ C_SRCS +=  \
 ../ECUAL/Gas.c \
 ../ECUAL/Inverter.c \
 ../ECUAL/LCD.c \
+../ECUAL/levels.c \
 ../ECUAL/Modbus/Modbus_master.c \
 ../ECUAL/PowderIF.c \
 ../ECUAL/Pumb.c \
-../ECUAL/Tank_level.c \
 ../ECUAL/Temperature.c \
 ../GLOBAL.c \
 ../main.c \
@@ -88,6 +88,7 @@ C_SRCS +=  \
 ../Services/Encoder_Tasks.c \
 ../Services/LCD_Tasks.c \
 ../Services/tank_operation.c \
+../Services/TEMP_Task.c \
 ../Tasks.c \
 ../utils/CRC16.c \
 ../utils/Millis.c
@@ -106,10 +107,10 @@ ECUAL/Flow_rate.o \
 ECUAL/Gas.o \
 ECUAL/Inverter.o \
 ECUAL/LCD.o \
+ECUAL/levels.o \
 ECUAL/Modbus/Modbus_master.o \
 ECUAL/PowderIF.o \
 ECUAL/Pumb.o \
-ECUAL/Tank_level.o \
 ECUAL/Temperature.o \
 GLOBAL.o \
 main.o \
@@ -136,6 +137,7 @@ rtos/timers.o \
 Services/Encoder_Tasks.o \
 Services/LCD_Tasks.o \
 Services/tank_operation.o \
+Services/TEMP_Task.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -147,10 +149,10 @@ ECUAL/Flow_rate.o \
 ECUAL/Gas.o \
 ECUAL/Inverter.o \
 ECUAL/LCD.o \
+ECUAL/levels.o \
 ECUAL/Modbus/Modbus_master.o \
 ECUAL/PowderIF.o \
 ECUAL/Pumb.o \
-ECUAL/Tank_level.o \
 ECUAL/Temperature.o \
 GLOBAL.o \
 main.o \
@@ -177,6 +179,7 @@ rtos/timers.o \
 Services/Encoder_Tasks.o \
 Services/LCD_Tasks.o \
 Services/tank_operation.o \
+Services/TEMP_Task.o \
 Tasks.o \
 utils/CRC16.o \
 utils/Millis.o
@@ -188,10 +191,10 @@ ECUAL/Flow_rate.d \
 ECUAL/Gas.d \
 ECUAL/Inverter.d \
 ECUAL/LCD.d \
+ECUAL/levels.d \
 ECUAL/Modbus/Modbus_master.d \
 ECUAL/PowderIF.d \
 ECUAL/Pumb.d \
-ECUAL/Tank_level.d \
 ECUAL/Temperature.d \
 GLOBAL.d \
 main.d \
@@ -218,6 +221,7 @@ rtos/timers.d \
 Services/Encoder_Tasks.d \
 Services/LCD_Tasks.d \
 Services/tank_operation.d \
+Services/TEMP_Task.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -229,10 +233,10 @@ ECUAL/Flow_rate.d \
 ECUAL/Gas.d \
 ECUAL/Inverter.d \
 ECUAL/LCD.d \
+ECUAL/levels.d \
 ECUAL/Modbus/Modbus_master.d \
 ECUAL/PowderIF.d \
 ECUAL/Pumb.d \
-ECUAL/Tank_level.d \
 ECUAL/Temperature.d \
 GLOBAL.d \
 main.d \
@@ -259,6 +263,7 @@ rtos/timers.d \
 Services/Encoder_Tasks.d \
 Services/LCD_Tasks.d \
 Services/tank_operation.d \
+Services/TEMP_Task.d \
 Tasks.d \
 utils/CRC16.d \
 utils/Millis.d
@@ -319,6 +324,13 @@ ECUAL/LCD.o: ../ECUAL/LCD.c
 	@echo Finished building: $<
 	
 
+ECUAL/levels.o: ../ECUAL/levels.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 ECUAL/Modbus/Modbus_master.o: ../ECUAL/Modbus/Modbus_master.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -334,13 +346,6 @@ ECUAL/PowderIF.o: ../ECUAL/PowderIF.c
 	
 
 ECUAL/Pumb.o: ../ECUAL/Pumb.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-ECUAL/Tank_level.o: ../ECUAL/Tank_level.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -523,6 +528,13 @@ Services/LCD_Tasks.o: ../Services/LCD_Tasks.c
 	
 
 Services/tank_operation.o: ../Services/tank_operation.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Services/TEMP_Task.o: ../Services/TEMP_Task.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

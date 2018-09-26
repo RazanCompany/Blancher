@@ -217,6 +217,12 @@
     <Compile Include="ECUAL\LCD.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ECUAL\levels.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\levels.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\Modbus\Modbus_master.c">
       <SubType>compile</SubType>
     </Compile>
@@ -233,12 +239,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="ECUAL\Pumb.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ECUAL\Tank_level.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ECUAL\Tank_level.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="ECUAL\Temperature.c">
@@ -308,6 +308,9 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="RTE\RTE_encoders.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_error_types.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="RTE\RTE_invertersetting.c">
@@ -427,10 +430,19 @@
     <Compile Include="Services\LCD_Tasks.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Services\Level_Task.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Services\tank_operation.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\tank_operation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\TEMP_Task.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\TEMP_Task.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Tasks.c">

@@ -14,13 +14,13 @@ ECUAL\Inverter.c
 
 ECUAL\LCD.c
 
+ECUAL\levels.c
+
 ECUAL\Modbus\Modbus_master.c
 
 ECUAL\PowderIF.c
 
 ECUAL\Pumb.c
-
-ECUAL\Tank_level.c
 
 ECUAL\Temperature.c
 
@@ -73,6 +73,8 @@ Services\Encoder_Tasks.c
 Services\LCD_Tasks.c
 
 Services\tank_operation.c
+
+Services\TEMP_Task.c
 
 Tasks.c
 

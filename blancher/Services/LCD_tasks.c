@@ -104,8 +104,7 @@ void LCD_main(void* pvParameters){
 	#ifdef __DEBUG
 	uint16_t *Debug_read;
 	#endif
-	//while(1){
-		
+	while(1){
 		LCD_READ_Parameters();
  		LCD_RTE_FEED();
  		LCD_RTE_COLLECT();
@@ -124,8 +123,7 @@ void LCD_main(void* pvParameters){
 		#endif
 		//vTaskDelay(200/portTICK_PERIOD_MS);
 		_delay_ms(2000);
-		
-	//}
+	}
 }
 
 

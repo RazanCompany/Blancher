@@ -7,6 +7,7 @@
 #include "TEMP_Task.h"
 #include "../ECUAL/Temperature.h"
 #include "../ECUAL/LCD.h"
+#include <util/delay.h>
 static uint16_t s_current_temp;
 /*
 *Set the Temperatur on RTE
