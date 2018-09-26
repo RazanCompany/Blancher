@@ -6,8 +6,8 @@
  */ 
 // gear ratio r
 // rpm max  r
-// distance  r //Conveyor_length
-// diameter  r
+// Conveyor_length  r //
+// Driver diameter  r
 // time minute r
 // time second  r
 #include "../RTOS_Includes.h"

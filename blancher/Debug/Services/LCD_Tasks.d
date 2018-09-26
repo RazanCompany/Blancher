@@ -28,7 +28,9 @@ Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../Services/LCD_Tasks.h
+ ../Services/LCD_Tasks.h ../Services/../RTE/RTE_encoders.h \
+ ../Services/../RTE/RTE_invertersetting.h \
+ ../Services/../RTE/RTE_temperature.h ../Services/../RTE/RTE_operations.h
 
 ../Services/../RTOS_Includes.h:
 
@@ -103,3 +105,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
 ../Services/LCD_Tasks.h:
+
+../Services/../RTE/RTE_encoders.h:
+
+../Services/../RTE/RTE_invertersetting.h:
+
+../Services/../RTE/RTE_temperature.h:
+
+../Services/../RTE/RTE_operations.h:

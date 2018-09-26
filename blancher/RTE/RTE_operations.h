@@ -19,10 +19,7 @@ uint16_t RTE_get_Wash_Operation(void);
 void RTE_set_Tank_Calibration_Operation(uint16_t u16Tank_Calibration_Operation);
 uint16_t RTE_get_Tank_Calibration_Operation(void);
 
-  
-  
-  
-   
+
 
 
 #endif /* RTE_OPERATIONS_H_ */
