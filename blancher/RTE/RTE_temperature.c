@@ -65,12 +65,12 @@ uint16_t RTE_get_Sleep_temperature(void){
 
 
 
-void RTE_set_set_temperature(uint16_t u16setTemp){
+void RTE_set_Set_temperature(uint16_t u16setTemp){
 	Set_temp = u16setTemp;
 	//xSemaphoreGive(Sema_Set_temp_handle);
 }
 
-uint16_t RTE_get_set_temperature(void){
+uint16_t RTE_get_Set_temperature(void){
 	//xSemaphoreTake(Sema_Set_temp_handle,portMAX_DELAY);
 	return Set_temp;
 }
@@ -78,47 +78,47 @@ uint16_t RTE_get_set_temperature(void){
 
 
 
-void RTE_set_threshold_set_temperature(uint16_t u16thresholdsetTemp){
+void RTE_set_Threshold_set_temperature(uint16_t u16thresholdsetTemp){
 	Threshold_set_temp = u16thresholdsetTemp;
 	//xSemaphoreGive(Sema_threshold_set_temp_handle);
 }
 
-uint16_t RTE_get_threshold_set_temperature(void){
+uint16_t RTE_get_Threshold_set_temperature(void){
 	//xSemaphoreTake(Sema_threshold_set_temp_handle,portMAX_DELAY);
 	return Threshold_set_temp;
 }
 
 
 
-void RTE_set_threshold_sleep_temperature(uint16_t u16thresholdsleepTemp){
+void RTE_set_Threshold_sleep_temperature(uint16_t u16thresholdsleepTemp){
 	Threshold_sleep_temp = u16thresholdsleepTemp;
 	//xSemaphoreGive(Sema_threshold_sleep_temp_handle);
 }
 
-uint16_t RTE_get_threshold_sleep_temperature(void){
+uint16_t RTE_get_Threshold_sleep_temperature(void){
 	//xSemaphoreTake(Sema_threshold_sleep_temp_handle,portMAX_DELAY);
 	return Threshold_sleep_temp;
 }
 
 
 
-void RTE_set_positive_offset_temperature(uint16_t u16positiveOffsetTemp){
+void RTE_set_Positive_offset_temperature(uint16_t u16positiveOffsetTemp){
 	Positive_offset_temp = u16positiveOffsetTemp;
 	//xSemaphoreGive(Sema_Positive_offset_temp_handle);
 }
 
-uint16_t RTE_get_positive_offset_temperature(void){
+uint16_t RTE_get_Positive_offset_temperature(void){
 	//xSemaphoreTake(Sema_Positive_offset_temp_handle,portMAX_DELAY);
 	return Positive_offset_temp;
 }
 
 
-void RTE_set_negative_offset_temperature(uint16_t u16negativeOffsetTemp){
+void RTE_set_Negative_offset_temperature(uint16_t u16negativeOffsetTemp){
 	Negative_offset_temp = u16negativeOffsetTemp;
 	//xSemaphoreGive(Sema_Negative_offset_temp_handle);
 }
 
-uint16_t RTE_get_negative_offset_temperature(void){
+uint16_t RTE_get_Negative_offset_temperature(void){
 	//xSemaphoreTake(Sema_Negative_offset_temp_handle,portMAX_DELAY);
 	return Negative_offset_temp;
 }

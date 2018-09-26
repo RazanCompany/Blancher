@@ -14,16 +14,16 @@ void RTE_temperature_init(void);
 
 void RTE_set_Sleep_temperature(uint16_t u16sleepTemp);
 uint16_t RTE_get_Sleep_temperature(void);
-void RTE_set_set_temperature(uint16_t u16setTemp);
-uint16_t RTE_get_set_temperature(void);
-void RTE_set_threshold_set_temperature(uint16_t u16thresholdsetTemp);
-uint16_t RTE_get_threshold_set_temperature(void);
-void RTE_set_threshold_sleep_temperature(uint16_t u16thresholdsleepTemp);
-uint16_t RTE_get_threshold_sleep_temperature(void);
-void RTE_set_positive_offset_temperature(uint16_t u16positiveOffsetTemp);
-uint16_t RTE_get_positive_offset_temperature(void);
-void RTE_set_negative_offset_temperature(uint16_t u16negativeOffsetTemp);
-uint16_t RTE_get_negative_offset_temperature(void);
+void RTE_set_Set_temperature(uint16_t u16setTemp);
+uint16_t RTE_get_Set_temperature(void);
+void RTE_set_Threshold_set_temperature(uint16_t u16thresholdsetTemp);
+uint16_t RTE_get_Threshold_set_temperature(void);
+void RTE_set_Threshold_sleep_temperature(uint16_t u16thresholdsleepTemp);
+uint16_t RTE_get_Threshold_sleep_temperature(void);
+void RTE_set_Positive_offset_temperature(uint16_t u16positiveOffsetTemp);
+uint16_t RTE_get_Positive_offset_temperature(void);
+void RTE_set_Negative_offset_temperature(uint16_t u16negativeOffsetTemp);
+uint16_t RTE_get_Negative_offset_temperature(void);
 void RTE_set_Current_temperature(uint16_t u16Currenttemp);
 uint16_t RTE_get_Current_temperature(void);
 
