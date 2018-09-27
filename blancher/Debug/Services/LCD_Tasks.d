@@ -1,6 +1,6 @@
 Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
  ../Services/LCD_Tasks.h ../Services/../ECUAL/LCD.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  ../Services/../ECUAL/Modbus/Modbus_master.h \
  ../Services/../ECUAL/Modbus/../../MCAL/UART.h \
@@ -16,7 +16,7 @@ Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../Services/../ECUAL/Modbus/../../CONFIG.h \
  ../Services/../RTOS_Includes.h ../Services/../rtos/FreeRTOS.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  ../Services/../rtos/FreeRTOSConfig.h ../Services/../rtos/projdefs.h \
  ../Services/../rtos/portmacro.h ../Services/../rtos/portable.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
@@ -36,7 +36,7 @@ Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
 
 ../Services/../ECUAL/LCD.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
@@ -70,7 +70,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../Services/../rtos/FreeRTOS.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
 ../Services/../rtos/FreeRTOSConfig.h:
 
