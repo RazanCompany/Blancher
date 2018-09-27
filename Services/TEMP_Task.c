@@ -4,11 +4,12 @@
  * Created: 9/22/2018 4:24:23 PM
  *  Author: M.nagah
  */ 
-#define  F_CPU 16000000
+
 #include "TEMP_Task.h"
 #include "../ECUAL/Temperature.h"
 #include "../ECUAL/LCD.h"
-#include <util/delay.h>
+#include "../RTOS_Includes.h"
+#include "../RTE/RTE_temperature.h"
 static uint16_t s_current_temp;
 /*
 *Set the Temperatur on RTE
@@ -20,9 +21,11 @@ void Temp_main(void* pvParameters){
 	while (1)
 	{
 		s_current_temp = temp_read();
-		//set on RTE
-		//vTaskDelay()
-		_delay_ms(1000);
+		// set temp for LCD 
+		RTE_set_Current_temperature(s_current_temp);
+		// set the temp for the application .
+		RTE_set_app_Current_temperature(s_current_temp);
+		vTaskDelay(200/portTICK_PERIOD_MS) ;
 	}
 
 }

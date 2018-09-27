@@ -1,1 +1,0 @@
-GLOBAL.d GLOBAL.o: .././GLOBAL.c
