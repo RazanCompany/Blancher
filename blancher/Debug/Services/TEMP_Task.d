@@ -15,9 +15,17 @@ Services/TEMP_Task.d Services/TEMP_Task.o: ../Services/TEMP_Task.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../Services/../ECUAL/Modbus/../../CONFIG.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+ ../Services/../RTOS_Includes.h ../Services/../rtos/FreeRTOS.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ ../Services/../rtos/FreeRTOSConfig.h ../Services/../rtos/projdefs.h \
+ ../Services/../rtos/portmacro.h ../Services/../rtos/portable.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
+ ../Services/../rtos/mpu_wrappers.h \
+ ../Services/../rtos/FreeRTOSBoardDefs.h ../Services/../rtos/task.h \
+ ../Services/../rtos/list.h ../Services/../rtos/task.h \
+ ../Services/../rtos/message_buffer.h ../Services/../rtos/stream_buffer.h \
+ ../Services/../rtos/semphr.h ../Services/../rtos/queue.h \
+ ../Services/../RTE/RTE_temperature.h
 
 ../Services/TEMP_Task.h:
 
@@ -55,8 +63,38 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../Services/../ECUAL/Modbus/../../CONFIG.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
+../Services/../RTOS_Includes.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+../Services/../rtos/FreeRTOS.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+
+../Services/../rtos/FreeRTOSConfig.h:
+
+../Services/../rtos/projdefs.h:
+
+../Services/../rtos/portmacro.h:
+
+../Services/../rtos/portable.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h:
+
+../Services/../rtos/mpu_wrappers.h:
+
+../Services/../rtos/FreeRTOSBoardDefs.h:
+
+../Services/../rtos/task.h:
+
+../Services/../rtos/list.h:
+
+../Services/../rtos/task.h:
+
+../Services/../rtos/message_buffer.h:
+
+../Services/../rtos/stream_buffer.h:
+
+../Services/../rtos/semphr.h:
+
+../Services/../rtos/queue.h:
+
+../Services/../RTE/RTE_temperature.h:

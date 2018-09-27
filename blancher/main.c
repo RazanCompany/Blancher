@@ -41,13 +41,22 @@ StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ];
 
 TaskHandle_t xHandle1 = NULL , xHandle2 = NULL;
 
+/******* LCD callback functions for errors ***********************************************/
+static void LCD_readTimeout(void){
+	
+}
+
+static void LCD_writeTimeout(void){
+	
+}
+
 
 int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600); //for debug
     System_init();
 		
-	
+	LCD_main_Init(LCD_readTimeout,LCD_writeTimeout);
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic(
 					vTask1, /* Function that implements the task. */

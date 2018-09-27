@@ -9,7 +9,7 @@
 Must init modbus for the LCD
 
 */
-#define  F_CPU 16000000
+#define  F_CPU		16000000
 #include "LCD_Tasks.h"
 #include "../RTOS_Includes.h"
 #include "../RTE/RTE_encoders.h" //drum speed w
@@ -25,8 +25,8 @@ Must init modbus for the LCD
 
 
 */
-#define LCD_DATA_READ_ELEMENTS_NUMBER   15
-#define LCD_DATA_WRITE_ELEMENTS_NUMBER   3
+#define  LCD_DATA_READ_ELEMENTS_NUMBER			 15
+#define  LCD_DATA_WRITE_ELEMENTS_NUMBER			 3
 typedef struct LCD_DATA_READ{
 	uint16_t System_on; //system on
 	uint16_t Start_blancher_operation; //blancher start
@@ -57,6 +57,15 @@ typedef struct LCD_DATA_WRITE{
 
 s_LCD_DATA_READ_t   s_Lcd_data_read;
 s_LCD_DATA_WRITE_t   s_Lcd_data_write;
+
+void (*g_callback_read_timeout)(void);
+void (*g_callback_write_timeout)(void);
+
+void LCD_main_Init( void(*callback_read_timeout)(void) , void(*callback_write_timeout)(void)){
+	g_callback_read_timeout = callback_read_timeout;
+	g_callback_write_timeout = callback_write_timeout;
+}
+
 
 static uint8_t LCD_READ_Parameters(void){
 	//call LCD_read_mutliple regs (fill the struct) and check for the errors //s_Lcd_data_read
@@ -103,30 +112,38 @@ void LCD_main(void* pvParameters){
 	#ifdef __DEBUG
 	uint16_t *Debug_read;
 	#endif
-	static uint8_t err_counter =0 ;
-	
+	static uint8_t read_err_counter = 0 ,write_err_counter = 0 ;
+
 	while(1){
 		
 		uint8_t r_err =  LCD_READ_Parameters();
  		if(LCD_RESPONCE_TIMED_OUT == r_err)
  		{
-			 err_counter++;
-			 if(LCD_TIMEOUT_MATURE == err_counter){
-				//  
+			 read_err_counter++;
+			 if(LCD_READING_TIMEOUT_MATURE == read_err_counter){
+				//  callback error notification for reading timeout
+				g_callback_read_timeout();
 			 
 			 }
 			 
  		}
 	    else{
 			LCD_RTE_FEED();	
-			err_counter = 0;
+			read_err_counter = 0;
 		}
 		
  		LCD_RTE_COLLECT();
 		uint8_t w_err = LCD_WRITE_Parameters();
 		if(LCD_RESPONCE_TIMED_OUT == w_err)
 		{
-			
+			write_err_counter++;
+			if( LCD_WRITING_TIMEOUT_MATURE == write_err_counter){
+				//callback error notification for writing timeout
+				g_callback_write_timeout();
+			}	
+		}
+		else{
+			write_err_counter = 0;
 		}
 		
 		#ifdef __DEBUG

@@ -16,7 +16,7 @@
 #define  LCD_OK																			0
 #define	 LCD_READ_ERROR																    0x09
 #define  LCD_RESPONCE_TIMED_OUT															RESPONCE_TIMED_OUT
-#define  LCD_TIMEOUT_MATURE																5	
+
 
 /*****************************************  LCD ADDRESSES ******************************************************/
 #define  LCD_BUZZER_REG       													    0x0002
