@@ -22,8 +22,9 @@ void Level_task (void* pvParameters )
 	{
 		g_tank_level = Get_tank_level();
 		g_blancher_level = Get_blancher_level();
-		if (Check_for_sensor_error())
+		if (LEVEL_ERROR == Check_for_sensor_error() )
 		{
+			// sensors error 
 			RTE_set_tank_level(INVALID_DATA);
 		}
 		RTE_set_tank_level(g_tank_level);
@@ -35,11 +36,12 @@ void Level_task (void* pvParameters )
 
 static uint8_t Check_for_sensor_error(void)
 {
+	// check if level sensors are not in the normal ordre .
    if (g_tank_level != 0 || g_tank_level != 1 || g_tank_level != 3 || g_tank_level != 7  )	
    {
-	   return 1 ;
+	   return LEVEL_ERROR ;
    }
-   return 0 ;
+   return LEVEL_OK ;
 }
 
 
