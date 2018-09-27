@@ -26,6 +26,9 @@ void RTE_set_Negative_offset_temperature(uint16_t u16negativeOffsetTemp);
 uint16_t RTE_get_Negative_offset_temperature(void);
 void RTE_set_Current_temperature(uint16_t u16Currenttemp);
 uint16_t RTE_get_Current_temperature(void);
+void RTE_set_app_Current_temperature(uint16_t u16Currenttemp);
+uint16_t RTE_get_app_Current_temperature(void);
+
 
 
 
