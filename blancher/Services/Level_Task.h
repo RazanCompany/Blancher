@@ -10,10 +10,8 @@
 #define LEVEL_TASK_H_
 #include <inttypes.h>
 
-#define LEVEL_OK 1 
-#define LEVEL_ERROR 0
+
 void Level_task (void* pvParameters );
-static uint8_t Check_for_sensor_error(void);
 
 
 #endif /* LEVEL_TASK_H_ */

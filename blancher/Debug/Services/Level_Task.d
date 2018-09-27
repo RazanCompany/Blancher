@@ -24,7 +24,8 @@ Services/Level_Task.d Services/Level_Task.o: ../Services/Level_Task.c \
  ../Services/../rtos/message_buffer.h ../Services/../rtos/stream_buffer.h \
  ../Services/../rtos/semphr.h ../Services/../rtos/queue.h \
  ../Services/tank_operation.h ../Services/../ECUAL/levels.h \
- ../Services/../RTE/RTE_levels.h ../Services/../RTE/RTE_error_types.h
+ ../Services/../RTE/RTE_levels.h ../Services/../RTE/RTE_error_types.h \
+ ../Services/../MCAL/UART.h
 
 ../Services/Level_Task.h:
 
@@ -93,3 +94,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Services/../RTE/RTE_levels.h:
 
 ../Services/../RTE/RTE_error_types.h:
+
+../Services/../MCAL/UART.h:

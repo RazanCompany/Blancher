@@ -13,37 +13,33 @@
 #include "../RTE/RTE_levels.h"
 #include "../RTE/RTE_error_types.h"
 
-static uint8_t g_tank_level = 0;
-static uint8_t g_blancher_level = 0;
+#include "../MCAL/UART.h"
+ 
 
 void Level_task (void* pvParameters )
 {
+	uint8_t Tank_level = 0;
+	uint8_t Blancher_level = 0;
 	while (1)
 	{
-		g_tank_level = Get_tank_level();
-		g_blancher_level = Get_blancher_level();
-		if (LEVEL_ERROR == Check_for_sensor_error() )
+		Tank_level = Get_tank_level();
+		Blancher_level = Get_blancher_level();
+		if (LEVEL_ERROR == Tank_level)
 		{
 			// sensors error 
 			RTE_set_tank_level(INVALID_DATA);
 			// callback error function .
+			UART0_puts("level error !!!");
 		}
-		RTE_set_tank_level(g_tank_level);
-		RTE_set_blancher_level(g_blancher_level);
-		
+		else 
+		{
+			RTE_set_tank_level(Tank_level);
+			RTE_set_blancher_level(Blancher_level);
+		}
 		vTaskDelay(200/portTICK_PERIOD_MS) ;
 	}
 }
 
-static uint8_t Check_for_sensor_error(void)
-{
-	// check if level sensors are not in the normal order.
-   if (g_tank_level != 0 || g_tank_level != 1 || g_tank_level != 3 || g_tank_level != 7  )	
-   {
-	   return LEVEL_ERROR ;
-   }
-   return LEVEL_OK ;
-}
 
 
 

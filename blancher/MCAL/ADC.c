@@ -10,6 +10,7 @@
 #include "../RAL/HW_types.h"
 #include <avr/interrupt.h>
 #include <util/delay.h>
+#include "UART.h"
 
 
  volatile uint16_t  g_analog_data = 0;
@@ -63,6 +64,7 @@ ISR(ADC_vect)
 	   uint8_t The_low_adc_reg = ADC_DATA_REG_LOW ;
 	  // get 10 bits out of the high and low register .
 	  g_analog_data =  The_low_adc_reg | (ADC_DATA_REG_HIGH <<8);
+	  UART0_OutUDec(g_analog_data);
 	  g_converted = 1 ;
 }
 

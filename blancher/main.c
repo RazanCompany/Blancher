@@ -22,7 +22,13 @@
 #include "RTE/RTE_main.h"
 #include "System.h"
 
+
+
+#include "ECUAL/levels.h"
+#include "Services/Level_Task.h"
+#include "Services/TEMP_Task.h"
 #ifdef DEBUG
+
 uint8_t debug_send_lcd[11];
 uint8_t debug_rece_lcd[7];
 
@@ -31,7 +37,7 @@ uint8_t debug_rece_lcd[7];
 static void vTask1(void* pvParameters);
 static void vTask2(void* pvParameters);
 
-#define STACK_SIZE 200
+#define STACK_SIZE 400
 /* Structure that will hold the TCB of the task being created. */
 StaticTask_t xTask1Buffer,xTask2Buffer;
 /* Buffer that the task being created will use as its stack. Note this is an array of
@@ -43,10 +49,11 @@ TaskHandle_t xHandle1 = NULL , xHandle2 = NULL;
 
 /******* LCD callback functions for errors ***********************************************/
 static void LCD_readTimeout(void){
-	
+	UART0_puts("LCD_READ_TIMEOUT \n");
 }
 
 static void LCD_writeTimeout(void){
+	UART0_puts("LCD_WRITE_TIMEOUT \n");
 	
 }
 
@@ -63,7 +70,7 @@ int main(void) {
 					"Task1", /* Text name for the task. */
 					STACK_SIZE, /* The number of indexes in the xStack array. */
 					NULL, /* Parameter passed into the task. */
-					2,/* Priority at which the task is created. */
+					3,/* Priority at which the task is created. */
 					xStack1, /* Array to use as the task's stack. */
 					&xTask1Buffer); /* Variable to hold the task's data structure. */
 	
@@ -131,7 +138,8 @@ int main(void) {
 static void vTask1(void* pvParameters)
 {
 	char x=0;
-	LCD_main(&x);
+	UART0_puts("Enter Task1 \n");
+	Temp_main(&x);
 	
 // 	while(1)
 // 	{
@@ -148,16 +156,16 @@ static void vTask2(void* pvParameters)
 	uint16_t RTE_data=0;
 	UART0_puts("Enter Task2");
 	while(1){
-		UART0_puts("Task2 set current temp with =");
-		UART0_OutUDec(x);
-		UART0_putc('\n');
-		RTE_set_Current_temperature(++x);
-		UART0_puts("Task2 Requires ");
-		RTE_data = RTE_get_RPM_max();
-		UART0_puts("Task2 RTE_data = ");
-		UART0_OutUDec(RTE_data);
-		UART0_putc('\n');
-		
+		UART0_puts("Task2 working \n");
+// 		UART0_OutUDec(x);
+// 		UART0_putc('\n');
+// 		RTE_set_Current_temperature(++x);
+// 		UART0_puts("Task2 Requires ");
+// 		RTE_data = RTE_get_RPM_max();
+// 		UART0_puts("Task2 RTE_data = ");
+// 		UART0_OutUDec(RTE_data);
+// 		UART0_putc('\n');
+		vTaskDelay(600/portTICK_PERIOD_MS);
 		
 	}
 	

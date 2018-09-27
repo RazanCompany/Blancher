@@ -112,11 +112,12 @@ void LCD_main(void* pvParameters){
 	#ifdef __DEBUG
 	uint16_t *Debug_read;
 	#endif
+	uint8_t r_err, w_err;
 	static uint8_t read_err_counter = 0 ,write_err_counter = 0 ;
 
 	while(1){
-		
-		uint8_t r_err =  LCD_READ_Parameters();
+		UART0_puts("TASK1 alive \n");
+		r_err =  LCD_READ_Parameters();
  		if(LCD_RESPONCE_TIMED_OUT == r_err)
  		{
 			 read_err_counter++;
@@ -128,12 +129,12 @@ void LCD_main(void* pvParameters){
 			 
  		}
 	    else{
-			LCD_RTE_FEED();	
+ 			//LCD_RTE_FEED();	
 			read_err_counter = 0;
-		}
-		
- 		LCD_RTE_COLLECT();
-		uint8_t w_err = LCD_WRITE_Parameters();
+ 		}
+ 		
+  		LCD_RTE_COLLECT();
+ 		w_err = LCD_WRITE_Parameters();
 		if(LCD_RESPONCE_TIMED_OUT == w_err)
 		{
 			write_err_counter++;

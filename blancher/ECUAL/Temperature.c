@@ -36,7 +36,7 @@ uint16_t temp_read(void)
     // the average of ADC readings
 	 vout = (double)sum / (double)30;
 
-	 vout *= 3.29;
+	 vout *= 2.50;
 	 vout /= 1024.0;
 
 	 rt = vout * 1000 / 10  ;

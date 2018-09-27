@@ -13,22 +13,22 @@
 
 
 //___________TANK LOW LEVEL SENSOR _________//
-#define TANK_LEVEL_1_DIRECTION_REG  DDRD
-#define TANK_LEVEL_1_DATA_REG       PORTD
-#define TANK_LEVEL_1_STATUS_REG     PIND
-#define TANK_LEVEL_1_PIN            0
+#define TANK_LEVEL_1_DIRECTION_REG  DDRL
+#define TANK_LEVEL_1_DATA_REG       PORTL
+#define TANK_LEVEL_1_STATUS_REG     PINL
+#define TANK_LEVEL_1_PIN            5
 
 //___________TANK MEDILLE LEVEL SENSOR______//
-#define TANK_LEVEL_2_DIRECTION_REG  DDRD
-#define TANK_LEVEL_2_DATA_REG       PORTD
-#define TANK_LEVEL_2_STATUS_REG     PIND
-#define TANK_LEVEL_2_PIN            1
+#define TANK_LEVEL_2_DIRECTION_REG  DDRL
+#define TANK_LEVEL_2_DATA_REG       PORTL
+#define TANK_LEVEL_2_STATUS_REG     PINL
+#define TANK_LEVEL_2_PIN            6
 
 //___________TANK HIGH LEVEL SENSOR _______//
-#define TANK_LEVEL_3_DIRECTION_REG  DDRE
-#define TANK_LEVEL_3_DATA_REG       PORTD
-#define TANK_LEVEL_3_STATUS_REG     PIND
-#define TANK_LEVEL_3_PIN            2
+#define TANK_LEVEL_3_DIRECTION_REG  DDRL
+#define TANK_LEVEL_3_DATA_REG       PORTL
+#define TANK_LEVEL_3_STATUS_REG     PINL
+#define TANK_LEVEL_3_PIN            4
 
 //__________ BLANCHER LEVEL SENSOR_________//
 #define BLANCHER_LEVEL_DIRECTION_REG  DDRD

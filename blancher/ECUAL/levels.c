@@ -9,19 +9,24 @@
 #include "levels.h"
 #include "../MCAL/DIO.h"
 
- static uint8_t g_tank_sensor = 0 ;
- static uint8_t g_blancher_level =0;
  
  uint8_t Get_tank_level(void)
  {
-	g_tank_sensor = Get_tank_level_state(1) | (Get_tank_level_state(2) << 1) | (Get_tank_level_state(3) << 2) ;
-	return g_tank_sensor ;
+	uint8_t Tank_sensor = 0 ;
+	Tank_sensor = Get_tank_level_state(1) | (Get_tank_level_state(2) << 1) | (Get_tank_level_state(3) << 2) ;
+	if (Tank_sensor == 2 || Tank_sensor == 4 || Tank_sensor == 5 || Tank_sensor == 6  )
+	{
+		return LEVEL_ERROR ;
+	}
+	
+	return Tank_sensor ;
  }
  
 uint8_t Get_blancher_level(void)
 {
-	g_blancher_level = Get_blancher_level_state();
-	return g_blancher_level ;
+	uint8_t Blancher_level =0;
+	Blancher_level = Get_blancher_level_state();
+	return Blancher_level ;
 }
 
 

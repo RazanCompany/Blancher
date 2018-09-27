@@ -19,12 +19,12 @@
 
 
 // initialize input / output devices .
-void DIO_init()
+void DIO_init(void)
 {
 	// 3 tank level sensors as input .
 	CLR_BIT(TANK_LEVEL_1_DIRECTION_REG , TANK_LEVEL_1_PIN);
 	CLR_BIT(TANK_LEVEL_2_DIRECTION_REG , TANK_LEVEL_2_PIN);
-	CLR_BIT(TANK_LEVEL_2_DIRECTION_REG , TANK_LEVEL_2_PIN);
+	CLR_BIT(TANK_LEVEL_3_DIRECTION_REG , TANK_LEVEL_3_PIN);
 
 	// blancher level sensor as input
 	CLR_BIT(BLANCHER_LEVEL_DIRECTION_REG , BLANCHER_LEVEL_PIN);
@@ -95,11 +95,11 @@ uint8_t Get_tank_level_state (uint8_t sensor_num)
 	 * 1 ->> low   ,  2 ->> med   3 ->> high
 	 */
 	if(1 == sensor_num )
-		return  GET_BIT( TANK_LEVEL_1_STATUS_REG , TANK_LEVEL_1_PIN ) ;
+		return  !GET_BIT( TANK_LEVEL_1_STATUS_REG , TANK_LEVEL_1_PIN ) ;
 	else if (2 == sensor_num)
-		return  GET_BIT( TANK_LEVEL_2_STATUS_REG , TANK_LEVEL_2_PIN ) ;
+		return  !GET_BIT( TANK_LEVEL_2_STATUS_REG , TANK_LEVEL_2_PIN ) ;
 	else if (3 == sensor_num)
-		return  GET_BIT( TANK_LEVEL_3_STATUS_REG , TANK_LEVEL_3_PIN ) ;
+		return  !GET_BIT( TANK_LEVEL_3_STATUS_REG , TANK_LEVEL_3_PIN ) ;
 	return -1;
 }
 

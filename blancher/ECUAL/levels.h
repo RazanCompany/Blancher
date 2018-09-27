@@ -10,6 +10,10 @@
 #define TANK_LEVEL_H_
 #include <stdint.h>
 
+
+#define LEVEL_OK 1
+#define LEVEL_ERROR 0x55
+
 uint8_t Get_tank_level(void);
 uint8_t Get_blancher_level(void);
 

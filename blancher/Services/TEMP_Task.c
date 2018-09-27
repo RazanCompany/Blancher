@@ -21,6 +21,8 @@ void Temp_main(void* pvParameters){
 	while (1)
 	{
 		s_current_temp = temp_read();
+		UART0_OutUDec(s_current_temp);
+		UART0_putc('\n');
 		// set temp for LCD 
 		RTE_set_Current_temperature(s_current_temp);
 		// set the temp for the application .
