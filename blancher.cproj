@@ -1,0 +1,586 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+  <PropertyGroup>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>7.0</ProjectVersion>
+    <ToolchainName>com.Atmel.AVRGCC8.C</ToolchainName>
+    <ProjectGuid>dce6c7e3-ee26-4d79-826b-08594b9ad897</ProjectGuid>
+    <avrdevice>ATmega2560</avrdevice>
+    <avrdeviceseries>mega</avrdeviceseries>
+    <OutputType>Executable</OutputType>
+    <Language>C</Language>
+    <OutputFileName>$(MSBuildProjectName)</OutputFileName>
+    <OutputFileExtension>.elf</OutputFileExtension>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <AssemblyName>blancher</AssemblyName>
+    <Name>blancher</Name>
+    <RootNamespace>blancher</RootNamespace>
+    <ToolchainFlavour>Native</ToolchainFlavour>
+    <KeepTimersRunning>true</KeepTimersRunning>
+    <OverrideVtor>false</OverrideVtor>
+    <CacheFlash>true</CacheFlash>
+    <ProgFlashFromRam>true</ProgFlashFromRam>
+    <RamSnippetAddress>0x20000000</RamSnippetAddress>
+    <UncachedRange />
+    <preserveEEPROM>true</preserveEEPROM>
+    <OverrideVtorValue>exception_table</OverrideVtorValue>
+    <BootSegment>2</BootSegment>
+    <eraseonlaunchrule>0</eraseonlaunchrule>
+    <AsfFrameworkConfig>
+      <framework-data>
+        <options>
+          <option id="common.applications.user_application" value="Add" config="" content-id="Atmel.ASF" />
+          <option id="common.boards" value="Add" config="" content-id="Atmel.ASF" />
+        </options>
+        <configurations />
+        <files>
+          <file path="src/config/conf_board.h" framework="" version="" source="common/applications/user_application/atmega2560_stk600-mega/config/conf_board.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/main.c" framework="" version="" source="common/applications/user_application/main.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/boards/board.h" framework="" version="" source="common/boards/board.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/interrupt.h" framework="" version="" source="common/utils/interrupt.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/interrupt/interrupt_avr8.h" framework="" version="" source="common/utils/interrupt/interrupt_avr8.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/make/Makefile.avr.in" framework="" version="" source="common/utils/make/Makefile.avr.in" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/common/utils/parts.h" framework="" version="" source="common/utils/parts.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/boards/stk600/rcx_x/init.c" framework="" version="" source="mega/boards/stk600/rcx_x/init.c" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/assembler.h" framework="" version="" source="mega/utils/assembler.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/assembler/gas.h" framework="" version="" source="mega/utils/assembler/gas.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/compiler.h" framework="" version="" source="mega/utils/compiler.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/preprocessor/mrepeat.h" framework="" version="" source="mega/utils/preprocessor/mrepeat.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/preprocessor/preprocessor.h" framework="" version="" source="mega/utils/preprocessor/preprocessor.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/preprocessor/stringz.h" framework="" version="" source="mega/utils/preprocessor/stringz.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/preprocessor/tpaste.h" framework="" version="" source="mega/utils/preprocessor/tpaste.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/progmem.h" framework="" version="" source="mega/utils/progmem.h" changed="False" content-id="Atmel.ASF" />
+          <file path="src/ASF/mega/utils/status_codes.h" framework="" version="" source="mega/utils/status_codes.h" changed="False" content-id="Atmel.ASF" />
+        </files>
+        <documentation help="http://asf.atmel.com/docs/3.34.1/common.applications.user_application.stk600-mega.atmega2560/html/index.html" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.34.1" />
+        </dependencies>
+        <project id="common.applications.user_application.stk600-mega.atmega2560" value="Add" config="" content-id="Atmel.ASF" />
+        <board id="board.stk600-mega.atmega2560" value="Add" config="" content-id="Atmel.ASF" />
+      </framework-data>
+    </AsfFrameworkConfig>
+    <ResetRule>0</ResetRule>
+    <EraseKey />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.Device>-mmcu=atmega2560 -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560"</avrgcc.common.Device>
+        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>NDEBUG</Value>
+            <Value>BOARD=STK600_MEGA</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/mega/utils/preprocessor</Value>
+            <Value>../src/ASF/mega/utils</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize for size (-Os)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.OtherFlags>-fdata-sections</avrgcc.compiler.optimization.OtherFlags>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax</avrgcc.compiler.miscellaneous.OtherFlags>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.linker.miscellaneous.LinkerFlags>-Wl,--relax</avrgcc.linker.miscellaneous.LinkerFlags>
+        <avrgcc.assembler.general.AssemblerFlags>-mrelax -DBOARD=STK600_MEGA</avrgcc.assembler.general.AssemblerFlags>
+        <avrgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/mega/utils/preprocessor</Value>
+            <Value>../src/ASF/mega/utils</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avrgcc.assembler.general.IncludePaths>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <ToolchainSettings>
+      <AvrGcc>
+        <avrgcc.common.Device>-mmcu=atmega2560 -B "%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560"</avrgcc.common.Device>
+        <avrgcc.common.optimization.RelaxBranches>True</avrgcc.common.optimization.RelaxBranches>
+        <avrgcc.common.outputfiles.hex>True</avrgcc.common.outputfiles.hex>
+        <avrgcc.common.outputfiles.lss>True</avrgcc.common.outputfiles.lss>
+        <avrgcc.common.outputfiles.eep>True</avrgcc.common.outputfiles.eep>
+        <avrgcc.common.outputfiles.srec>True</avrgcc.common.outputfiles.srec>
+        <avrgcc.common.outputfiles.usersignatures>False</avrgcc.common.outputfiles.usersignatures>
+        <avrgcc.compiler.symbols.DefSymbols>
+          <ListValues>
+            <Value>DEBUG</Value>
+            <Value>BOARD=STK600_MEGA</Value>
+          </ListValues>
+        </avrgcc.compiler.symbols.DefSymbols>
+        <avrgcc.compiler.directories.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/mega/utils/preprocessor</Value>
+            <Value>../src/ASF/mega/utils</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avrgcc.compiler.directories.IncludePaths>
+        <avrgcc.compiler.optimization.level>Optimize (-O1)</avrgcc.compiler.optimization.level>
+        <avrgcc.compiler.optimization.OtherFlags>-fdata-sections</avrgcc.compiler.optimization.OtherFlags>
+        <avrgcc.compiler.optimization.PackStructureMembers>True</avrgcc.compiler.optimization.PackStructureMembers>
+        <avrgcc.compiler.optimization.AllocateBytesNeededForEnum>True</avrgcc.compiler.optimization.AllocateBytesNeededForEnum>
+        <avrgcc.compiler.optimization.DebugLevel>Maximum (-g3)</avrgcc.compiler.optimization.DebugLevel>
+        <avrgcc.compiler.warnings.AllWarnings>True</avrgcc.compiler.warnings.AllWarnings>
+        <avrgcc.compiler.miscellaneous.OtherFlags>-std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax</avrgcc.compiler.miscellaneous.OtherFlags>
+        <avrgcc.linker.libraries.Libraries>
+          <ListValues>
+            <Value>libm</Value>
+          </ListValues>
+        </avrgcc.linker.libraries.Libraries>
+        <avrgcc.linker.miscellaneous.LinkerFlags>-Wl,--relax</avrgcc.linker.miscellaneous.LinkerFlags>
+        <avrgcc.assembler.general.AssemblerFlags>-mrelax -DBOARD=STK600_MEGA</avrgcc.assembler.general.AssemblerFlags>
+        <avrgcc.assembler.general.IncludePaths>
+          <ListValues>
+            <Value>%24(PackRepoDir)\atmel\ATmega_DFP\1.1.130\include</Value>
+            <Value>../src/ASF/common/boards</Value>
+            <Value>../src/ASF/mega/utils/preprocessor</Value>
+            <Value>../src/ASF/mega/utils</Value>
+            <Value>../src/ASF/common/utils</Value>
+            <Value>../src</Value>
+            <Value>../src/config</Value>
+          </ListValues>
+        </avrgcc.assembler.general.IncludePaths>
+        <avrgcc.assembler.debugging.DebugLevel>Default (-Wa,-g)</avrgcc.assembler.debugging.DebugLevel>
+      </AvrGcc>
+    </ToolchainSettings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CONFIG.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="DEBUG.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Blancher_level.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Blancher_level.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Encoder\Encoder.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Encoder\Encoder.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Flow_rate.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Flow_rate.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Gas.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Gas.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Inverter.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Inverter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\levels.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\levels.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Modbus\Modbus_master.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Modbus\Modbus_master.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\PowderIF.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\PowderIF.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Pumb.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Pumb.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Temperature.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Temperature.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="GLOBAL.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="GLOBAL.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\DIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RAL\HW_types.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RAL\RAL.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RAL\RAL_timer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RAL\UART_RAL.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_encoders.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_encoders.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_error_types.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_invertersetting.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_invertersetting.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_levels.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_levels.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_main.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_operations.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_operations.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_temperature.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTE\RTE_temperature.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\croutine.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\croutine.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\event_groups.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\event_groups.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\FreeRTOS.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\FreeRTOSBoardDefs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\FreeRTOSConfig.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\hooks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\list.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\list.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\message_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\mpu_wrappers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\port.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\portable.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\portmacro.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\projdefs.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\queue.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\queue.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\semphr.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\stack_macros.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\stream_buffer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\stream_buffer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\timers.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="rtos\timers.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS_Includes.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Encoder_Tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Encoder_Tasks.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\LCD_Tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\LCD_Tasks.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Level_Task.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Level_Task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\tank_operation.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\tank_operation.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\TEMP_Task.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\TEMP_Task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="System.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="System.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Tasks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Tasks.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\CRC16.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\CRC16.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\Millis.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="utils\Millis.h">
+      <SubType>compile</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Debug\" />
+    <Folder Include="Debug\ECUAL\" />
+    <Folder Include="Debug\ECUAL\Encoder\" />
+    <Folder Include="Debug\ECUAL\Modbus\" />
+    <Folder Include="Debug\MCAL\" />
+    <Folder Include="Debug\utils\" />
+    <Folder Include="ECUAL\" />
+    <Folder Include="ECUAL\Encoder\" />
+    <Folder Include="ECUAL\Modbus\" />
+    <Folder Include="MCAL\" />
+    <Folder Include="RTE" />
+    <Folder Include="RAL\" />
+    <Folder Include="rtos\" />
+    <Folder Include="Services\" />
+    <Folder Include="utils\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug\Blancher_code.lss">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\Blancher_code.map">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\ECUAL\Encoder\subdir.mk">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\ECUAL\Modbus\Modbus_master.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\ECUAL\Modbus\subdir.mk">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\ECUAL\subdir.mk">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\makefile">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\ADC.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\ADC.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\DIO.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\DIO.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\Interrupt.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\Interrupt.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\SPI.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\SPI.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\subdir.mk">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\Timer.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\Timer.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\UART.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\MCAL\UART.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\objects.mk">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\sources.mk">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\subdir.mk">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\utils\CRC16.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\utils\CRC16.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\utils\Millis.d">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\utils\Millis.o">
+      <SubType>compile</SubType>
+    </None>
+    <None Include="Debug\utils\subdir.mk">
+      <SubType>compile</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
+</Project>
