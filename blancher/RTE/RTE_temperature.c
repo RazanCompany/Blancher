@@ -38,8 +38,13 @@ static SemaphoreHandle_t Sema_Negative_offset_temp_handle;
 static StaticSemaphore_t Sema_Negative_offset_temp_Buffer;
 static uint16_t Negative_offset_temp;
 
+static SemaphoreHandle_t Sema_APP_current_temp_handle;
+static StaticSemaphore_t Sema_APP_current_temp_Buffer;
+static uint16_t APP_current_temp;
+
 
 static uint16_t Current_temperature;
+
 
 
 void RTE_temperature_init(void){
@@ -49,7 +54,8 @@ void RTE_temperature_init(void){
 	Sema_threshold_sleep_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_threshold_sleep_temp_Buffer);
 	Sema_Positive_offset_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_Positive_offset_temp_Buffer);
 	Sema_Negative_offset_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_Negative_offset_temp_Buffer);
-	
+	Sema_APP_current_temp_handle = xSemaphoreCreateBinaryStatic(&Sema_APP_current_temp_Buffer);
+
 }
 
 
@@ -133,4 +139,14 @@ void RTE_set_Current_temperature(uint16_t u16Currenttemp){
 
 uint16_t RTE_get_Current_temperature(void){
 	return Current_temperature;
+}
+
+void RTE_set_app_Current_temperature(uint16_t u16Currenttemp){
+	APP_current_temp = u16Currenttemp;
+	xSemaphoreGive(Sema_APP_current_temp_handle);
+}
+
+uint16_t RTE_get_app_Current_temperature(void){
+	xSemaphoreTake(Sema_APP_current_temp_handle,portMAX_DELAY);
+	return APP_current_temp;
 }
