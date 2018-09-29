@@ -7,8 +7,7 @@
 
 #ifndef POWDER_H_
 #define POWDER_H_
-#include "Encoder/Encoder.h"
-#include "../MCAL/DIO.h"
+
 
 /*
  * init the powder gm for each ticks

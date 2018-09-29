@@ -10,24 +10,45 @@
 #include "../ECUAL/LCD.h"
 #include "../RTOS_Includes.h"
 #include "../RTE/RTE_temperature.h"
-static uint16_t s_current_temp;
+/*static uint16_t s_current_temp;*/
 /*
 *Set the Temperatur on RTE
 *Parameters @ Nothing
 *return Nothing 
 */
+void (*over_temp_callback)(void) = NULL;
+void Temp_main_err_init( void (*callback_over_temp) (void) ){
+	over_temp_callback = callback_over_temp;
+}
+
 void Temp_main(void* pvParameters){
+	uint16_t current_temp=0;
+	uint8_t count=0;
 	temp_init(0);
 	while (1)
 	{
-		s_current_temp = temp_read();
-		UART0_OutUDec(s_current_temp);
-		UART0_putc('\n');
+		UART0_puts("Temp task alive\n");
+		current_temp = temp_read();
+// 		UART0_OutUDec(s_current_temp);
+// 		UART0_putc('\n');
+		if(current_temp > TEMP_OVER_TEMP){
+			count++;
+			if(count >= TEMP_OVER_TEMP_STILL_TIME){
+				//callback
+				if(over_temp_callback == NULL){
+					
+				}
+				else
+				{
+					 over_temp_callback();
+				}
+			}
+		}
 		// set temp for LCD 
-		RTE_set_Current_temperature(s_current_temp);
+		RTE_set_Current_temperature(current_temp);
 		// set the temp for the application .
-		RTE_set_app_Current_temperature(s_current_temp);
-		vTaskDelay(200/portTICK_PERIOD_MS) ;
+		RTE_set_app_Current_temperature(current_temp);
+		vTaskDelay(50/portTICK_PERIOD_MS) ;
 	}
 
 }

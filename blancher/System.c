@@ -9,7 +9,9 @@
 #include "RTE/RTE_main.h"
 #include "utils/Millis.h"
 #include "MCAL/DIO.h"
-#include "Services/LCD_Tasks.h"
+#include "Services/Service_main.h"
+#include "error_callbacks.h"
+
 
 
 gSystemError System_init(void){
@@ -17,8 +19,10 @@ gSystemError System_init(void){
 	gSystemError res = E_OK;
 	DIO_init();
 	millis_init();	
-	Lcd_init(UART3,115200,1);
+	Service_error_init();
+	Service_init();
 	RTE_init();
+	//App_init();
 	return res;
 
 }

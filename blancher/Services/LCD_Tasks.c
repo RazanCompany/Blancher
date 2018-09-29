@@ -16,6 +16,7 @@ Must init modbus for the LCD
 #include "../RTE/RTE_invertersetting.h"
 #include "../RTE/RTE_temperature.h"
 #include "../RTE/RTE_operations.h"
+#include "../ECUAL/LCD.h"
 
 #include <util/delay.h>
 /*************** LCD_READ_Parameters ************************/
@@ -58,10 +59,10 @@ typedef struct LCD_DATA_WRITE{
 s_LCD_DATA_READ_t   s_Lcd_data_read;
 s_LCD_DATA_WRITE_t   s_Lcd_data_write;
 
-void (*g_callback_read_timeout)(void);
-void (*g_callback_write_timeout)(void);
+void (*g_callback_read_timeout)(void) = NULL;
+void (*g_callback_write_timeout)(void) = NULL;
 
-void LCD_main_Init( void(*callback_read_timeout)(void) , void(*callback_write_timeout)(void)){
+void LCD_main_err_Init( void(*callback_read_timeout)(void) , void(*callback_write_timeout)(void)){
 	g_callback_read_timeout = callback_read_timeout;
 	g_callback_write_timeout = callback_write_timeout;
 }
@@ -114,7 +115,7 @@ void LCD_main(void* pvParameters){
 	#endif
 	uint8_t r_err, w_err;
 	static uint8_t read_err_counter = 0 ,write_err_counter = 0 ;
-
+    Lcd_init(UART3,115200,1);
 	while(1){
 		UART0_puts("TASK1 alive \n");
 		r_err =  LCD_READ_Parameters();
@@ -123,13 +124,20 @@ void LCD_main(void* pvParameters){
 			 read_err_counter++;
 			 if(LCD_READING_TIMEOUT_MATURE == read_err_counter){
 				//  callback error notification for reading timeout
-				g_callback_read_timeout();
+				if(g_callback_read_timeout == NULL){
+					//no entry
+				}
+				else
+				{
+					g_callback_read_timeout();
+				}
+				
 			 
 			 }
 			 
  		}
 	    else{
- 			//LCD_RTE_FEED();	
+ 			LCD_RTE_FEED();	
 			read_err_counter = 0;
  		}
  		
@@ -140,8 +148,13 @@ void LCD_main(void* pvParameters){
 			write_err_counter++;
 			if( LCD_WRITING_TIMEOUT_MATURE == write_err_counter){
 				//callback error notification for writing timeout
-				g_callback_write_timeout();
-			}	
+				if(g_callback_write_timeout == NULL){
+					//no entry
+				}
+				else{
+					g_callback_write_timeout();
+				}	
+			}
 		}
 		else{
 			write_err_counter = 0;

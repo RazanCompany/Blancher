@@ -8,6 +8,12 @@
 
 #ifndef TEMP_TASK_H_
 #define TEMP_TASK_H_
+
+
+#define TEMP_OVER_TEMP					60
+#define TEMP_OVER_TEMP_STILL_TIME		6
+
+void Temp_main_err_init( void(*callback_over_temp)(void) );
 void Temp_main(void* pvParameters);
 
 

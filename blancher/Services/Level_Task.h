@@ -11,7 +11,8 @@
 #include <inttypes.h>
 
 
-void Level_task (void* pvParameters );
+ void Level_main_err_init( void (*callback_level_sensor_fail) (void) );
+void Level_main(void* pvParameters );
 
 
 #endif /* LEVEL_TASK_H_ */

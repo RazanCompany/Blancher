@@ -29,7 +29,7 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
  .././utils/../RAL/RAL_timer.h .././utils/../RAL/HW_types.h \
  .././MCAL/DIO.h .././MCAL/../CONFIG.h .././Services/LCD_Tasks.h \
- .././Services/../ECUAL/LCD.h .././RTE/RTE_main.h .././RTE/RTE_encoders.h \
+ .././RTE/RTE_main.h .././RTE/RTE_encoders.h \
  .././RTE/RTE_invertersetting.h .././RTE/RTE_temperature.h \
  .././RTE/RTE_operations.h .././System.h .././ECUAL/levels.h \
  .././Services/Level_Task.h .././Services/TEMP_Task.h
@@ -123,8 +123,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././MCAL/../CONFIG.h:
 
 .././Services/LCD_Tasks.h:
-
-.././Services/../ECUAL/LCD.h:
 
 .././RTE/RTE_main.h:
 

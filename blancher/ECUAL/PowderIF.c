@@ -5,12 +5,14 @@
  *      Author: M.nagah
  */
 #include "PowderIF.h"
+#include "Encoder/Encoder.h"
+#include "../MCAL/DIO.h"
 /********************************Variables ***********************************/
-g_Timer_Config *g_Powder_config;
+g_Timer_Config g_Powder_config;
 
 volatile float g_GM_target ;
 
-float g_gram_for_one_ticks;
+float g_gram_for_one_ticks = 0;
 /*****************************************************************************/
 
 /************************** Functions Prototypes *****************************/
@@ -25,18 +27,21 @@ void Powder_ISR(uint32_t dif_time);
 void Powder_init(float Gram_for_one_ticks ,int Timer_number )
 {
 	// interrupt ever ticks
-	g_Powder_config->ticks = 1; //
+	g_Powder_config.ticks = 1; //
 	//timer number
-	g_Powder_config->timer_number = Timer_number;
+	g_Powder_config.timer_number = Timer_number;
 	// the isr call back function
-	g_Powder_config->isr_call_back = Powder_ISR;
+	g_Powder_config.isr_call_back = Powder_ISR;
 	// the gram for each ticks value
+	
+	timers_init(&g_Powder_config); //edit ?
+	
 	g_gram_for_one_ticks = Gram_for_one_ticks;
 
 }
 /*
  * using to Drop salt into the tank u
- * polling Fuction using Interrupt to Exit polling
+ * polling Function using Interrupt to Exit polling
  * @parameter the amount of salt by Gram
  * @Return Nothing
  */
@@ -44,7 +49,7 @@ void Powder_drop(float Gram)
 {
 	//the desire amount of salt by Gram
 	g_GM_target = Gram;
-	//Tutn on the Powder Motor
+	//Turn on the Powder Motor
 	Powder_motor_change_state(1);
 	// wait until Put the Whole amount of the salt
 	while(g_GM_target > 0.1);

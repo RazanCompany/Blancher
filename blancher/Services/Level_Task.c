@@ -15,28 +15,41 @@
 
 #include "../MCAL/UART.h"
  
-
-void Level_task (void* pvParameters )
+void (*g_callback_level_sensor_fail) (void) = NULL;
+void Level_main_err_init( void (*callback_level_sensor_fail) (void) ){
+	 g_callback_level_sensor_fail = callback_level_sensor_fail;
+ }
+ 
+//must sure that DIO_init() called
+void Level_main (void* pvParameters )
 {
 	uint8_t Tank_level = 0;
 	uint8_t Blancher_level = 0;
+	
 	while (1)
 	{
 		Tank_level = Get_tank_level();
 		Blancher_level = Get_blancher_level();
 		if (LEVEL_ERROR == Tank_level)
 		{
-			// sensors error 
+		
+			if(g_callback_level_sensor_fail == NULL){
+				
+			}
+			else{
+				// callback error function .
+				g_callback_level_sensor_fail();
+			}
 			RTE_set_tank_level(INVALID_DATA);
-			// callback error function .
-			UART0_puts("level error !!!");
+			
+			//UART0_puts("level error !!!");
 		}
 		else 
 		{
 			RTE_set_tank_level(Tank_level);
 			RTE_set_blancher_level(Blancher_level);
 		}
-		vTaskDelay(200/portTICK_PERIOD_MS) ;
+		vTaskDelay(500/portTICK_PERIOD_MS) ;
 	}
 }
 

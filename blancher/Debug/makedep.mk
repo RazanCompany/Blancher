@@ -24,6 +24,8 @@ ECUAL\Pumb.c
 
 ECUAL\Temperature.c
 
+error_callbacks.c
+
 GLOBAL.c
 
 main.c
@@ -75,6 +77,8 @@ Services\Encoder_Tasks.c
 Services\LCD_Tasks.c
 
 Services\Level_Task.c
+
+Services\Service_main.c
 
 Services\tank_operation.c
 

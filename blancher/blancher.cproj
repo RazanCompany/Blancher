@@ -247,6 +247,12 @@
     <Compile Include="ECUAL\Temperature.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="error_callbacks.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="error_callbacks.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="GLOBAL.c">
       <SubType>compile</SubType>
     </Compile>
@@ -440,6 +446,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\Level_Task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Service_main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Service_main.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\tank_operation.c">

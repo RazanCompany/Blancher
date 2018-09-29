@@ -40,7 +40,7 @@ uint32_t g_diff_time;      // to save the different between new time and old tim
  */
 uint8_t timers_init(g_Timer_Config *config)
 {
-	millis_init(); //start this timer to get the time between ticks
+	//millis_init(); //start this timer to get the time between ticks
 
 	// choose the timer number depend on the config timer_number
 	if(config->timer_number == 1){

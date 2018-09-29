@@ -36,34 +36,28 @@ uint8_t debug_rece_lcd[7];
 
 static void vTask1(void* pvParameters);
 static void vTask2(void* pvParameters);
+static void vTask3(void* pvParameters);
+static void vTask4(void* pvParameters);
 
 #define STACK_SIZE 400
 /* Structure that will hold the TCB of the task being created. */
-StaticTask_t xTask1Buffer,xTask2Buffer;
+StaticTask_t xTask1Buffer,xTask2Buffer,xTask3Buffer,xTask4Buffer;
 /* Buffer that the task being created will use as its stack. Note this is an array of
 StackType_t variables. The size of StackType_t is dependent on the RTOS port. */
-StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ];
+StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ],xStack3[ STACK_SIZE ],xStack4[ STACK_SIZE ];
 
 
-TaskHandle_t xHandle1 = NULL , xHandle2 = NULL;
+TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ,xHandle3 = NULL , xHandle4 = NULL ;
 
-/******* LCD callback functions for errors ***********************************************/
-static void LCD_readTimeout(void){
-	UART0_puts("LCD_READ_TIMEOUT \n");
-}
 
-static void LCD_writeTimeout(void){
-	UART0_puts("LCD_WRITE_TIMEOUT \n");
-	
-}
 
 
 int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600); //for debug
     System_init();
-		
-	LCD_main_Init(LCD_readTimeout,LCD_writeTimeout);
+
+	//Temp_main_init();
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic(
 					vTask1, /* Function that implements the task. */
@@ -82,6 +76,24 @@ int main(void) {
 				2,/* Priority at which the task is created. */
 				xStack2, /* Array to use as the task's stack. */
 				&xTask2Buffer); /* Variable to hold the task's data structure. */
+				
+	xHandle3 = xTaskCreateStatic(
+				vTask3, /* Function that implements the task. */
+				"Task3", /* Text name for the task. */
+				STACK_SIZE, /* The number of indexes in the xStack array. */
+				NULL, /* Parameter passed into the task. */
+				3,/* Priority at which the task is created. */
+				xStack3, /* Array to use as the task's stack. */
+				&xTask3Buffer); /* Variable to hold the task's data structure. */
+	
+	xHandle4 = xTaskCreateStatic(
+				vTask4, /* Function that implements the task. */
+				"Task4", /* Text name for the task. */
+				STACK_SIZE, /* The number of indexes in the xStack array. */
+				NULL, /* Parameter passed into the task. */
+				2,/* Priority at which the task is created. */
+				xStack4, /* Array to use as the task's stack. */
+				&xTask4Buffer); /* Variable to hold the task's data structure. */
 
 
 // 	char x=0;
@@ -138,7 +150,7 @@ int main(void) {
 static void vTask1(void* pvParameters)
 {
 	char x=0;
-	UART0_puts("Enter Task1 \n");
+	UART0_puts("Temperature Task1 \n");
 	Temp_main(&x);
 	
 // 	while(1)
@@ -152,22 +164,64 @@ static void vTask1(void* pvParameters)
 }
 static void vTask2(void* pvParameters)
 {
-	uint8_t x=0;
-	uint16_t RTE_data=0;
-	UART0_puts("Enter Task2");
-	while(1){
-		UART0_puts("Task2 working \n");
-// 		UART0_OutUDec(x);
-// 		UART0_putc('\n');
-// 		RTE_set_Current_temperature(++x);
-// 		UART0_puts("Task2 Requires ");
-// 		RTE_data = RTE_get_RPM_max();
-// 		UART0_puts("Task2 RTE_data = ");
-// 		UART0_OutUDec(RTE_data);
-// 		UART0_putc('\n');
-		vTaskDelay(600/portTICK_PERIOD_MS);
-		
-	}
+	char x=0;
+// 	uint16_t RTE_data=0;
+	UART0_puts("LCD Task2\n");
+// 	while(1){
+// 		UART0_puts("Task2 working \n");
+// // 		UART0_OutUDec(x);
+// // 		UART0_putc('\n');
+// // 		RTE_set_Current_temperature(++x);
+// // 		UART0_puts("Task2 Requires ");
+// // 		RTE_data = RTE_get_RPM_max();
+// // 		UART0_puts("Task2 RTE_data = ");
+// // 		UART0_OutUDec(RTE_data);
+// // 		UART0_putc('\n');
+// 		vTaskDelay(600/portTICK_PERIOD_MS);
+// 		
+// 	}
+
+	LCD_main(&x);
+}
+
+
+static void vTask3(void* pvParameters)
+{
+	char x=0;
+	UART0_puts("LEVEL Task3 \n");
+	Level_main(&x);
+	
+	// 	while(1)
+	// 	{
+	// 		UART0_puts("Vtask1 receives data \n");
+	// 		xSemaphoreTake(Sema_Test_handle,portMAX_DELAY);
+	// 		UART0_puts("Vtask1 Released data= ");
+	// 		UART0_OutUDec(Test);
+	// 		UART0_putc('\n');
+	// 	}
+}
+static void vTask4(void* pvParameters)
+{
+// 	uint8_t x=0;
+// 	uint16_t RTE_data=0;
+	UART0_puts("Enter Task4\n");
+// 	while(1){
+// 		UART0_puts("Task4 working \n");
+// 		// 		UART0_OutUDec(x);
+// 		// 		UART0_putc('\n');
+// 		// 		RTE_set_Current_temperature(++x);
+// 		// 		UART0_puts("Task2 Requires ");
+// 		// 		RTE_data = RTE_get_RPM_max();
+// 		// 		UART0_puts("Task2 RTE_data = ");
+// 		// 		UART0_OutUDec(RTE_data);
+// 		// 		UART0_putc('\n');
+// 		vTaskDelay(600/portTICK_PERIOD_MS);
+// 		
+// 	}
+		while (1)
+		{
+			UART0_puts("vTask4 Exist\n");
+		}
 	
 }
 

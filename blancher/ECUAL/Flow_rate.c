@@ -39,7 +39,7 @@ void Flow_rate_init(void (*callback1)(void) , void (*callback2)(void))
 	// initialize the needed timer with the previous config .
     timers_init(&feeding_configeration);
 	
-	// initialize other timer for the seconde flowrate .
+	// initialize other timer for the second flow rate .
 	feeding_configeration.ticks = TICKS_FOR_HALF_LITER ;
 	feeding_configeration.timer_number = 3 ;
 	feeding_configeration.isr_call_back = flowrate_outing_callback ;
