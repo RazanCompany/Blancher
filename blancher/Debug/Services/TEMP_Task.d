@@ -25,7 +25,11 @@ Services/TEMP_Task.d Services/TEMP_Task.o: ../Services/TEMP_Task.c \
  ../Services/../rtos/list.h ../Services/../rtos/task.h \
  ../Services/../rtos/message_buffer.h ../Services/../rtos/stream_buffer.h \
  ../Services/../rtos/semphr.h ../Services/../rtos/queue.h \
- ../Services/../RTE/RTE_temperature.h
+ ../Services/../RTE/RTE_temperature.h ../Services/../utils/Millis.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
+ ../Services/../utils/../RAL/RAL_timer.h \
+ ../Services/../utils/../RAL/HW_types.h
 
 ../Services/TEMP_Task.h:
 
@@ -98,3 +102,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Services/../rtos/queue.h:
 
 ../Services/../RTE/RTE_temperature.h:
+
+../Services/../utils/Millis.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
+
+../Services/../utils/../RAL/RAL_timer.h:
+
+../Services/../utils/../RAL/HW_types.h:

@@ -27,7 +27,6 @@
 
 #ifndef INC_FREERTOS_H
 #define INC_FREERTOS_H
-
 /*
  * Include the generic headers required for the FreeRTOS port being used.
  */
@@ -188,7 +187,7 @@ extern "C" {
 #endif
 
 #ifndef configUSE_APPLICATION_TASK_TAG
-    #define configUSE_APPLICATION_TASK_TAG 0
+    #define configUSE_APPLICATION_TASK_TAG 1
 #endif
 
 #ifndef configNUM_THREAD_LOCAL_STORAGE_POINTERS
@@ -327,7 +326,7 @@ extern "C" {
 #ifndef traceTASK_SWITCHED_OUT
     /* Called before a task has been selected to run.  pxCurrentTCB holds a pointer
     to the task control block of the task being switched out. */
-    #define traceTASK_SWITCHED_OUT()
+    #define traceTASK_SWITCHED_OUT()		//xTaskCallApplicationTaskHook( pxCurrentTCB , 0 )
 #endif
 
 #ifndef traceTASK_PRIORITY_INHERIT

@@ -6,6 +6,8 @@
  */
 #include "Temperature.h"
 #include "../MCAL/ADC.h"
+#include "../MCAL/UART.h"
+#include "../RTOS_Includes.h"
 #include <math.h>
 
 
@@ -26,20 +28,26 @@ uint16_t temp_read(void)
 	unsigned char sample_count = 0;
 
     // read 30 values of ADC and take their average.
-	while (sample_count < 30)
+ 	while (sample_count < 15)
 	{
-	       double x  = ADC_read();
-	       sum += x;
-	       sample_count++;
+	      uint16_t xx  = ADC_read();
+	      sum += xx;
+	      sample_count++;
+		  vTaskDelay(1/portTICK_PERIOD_MS);
 	}
-
+     
     // the average of ADC readings
-	 vout = (double)sum / (double)30;
+	 vout = (double)sum / (double)15;
+	 //UART0_puts("volt :");
 
-	 vout *= 2.50;
+     
+	 vout  = vout * 2.484;
 	 vout /= 1024.0;
-
-	 rt = vout * 1000 / 10  ;
+// 	 UART0_OutUDec((uint16_t) vout);
+// 	 UART0_putc('\n');
+      
+	  
+	 rt = vout * 1000 / 7.5636 ;
 
 
 	 // some math equations to Get The temperature value from ADC reading.

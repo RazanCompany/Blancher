@@ -49,7 +49,7 @@ void Level_main (void* pvParameters )
 			RTE_set_tank_level(Tank_level);
 			RTE_set_blancher_level(Blancher_level);
 		}
-		vTaskDelay(500/portTICK_PERIOD_MS) ;
+		vTaskDelay(50/portTICK_PERIOD_MS) ;
 	}
 }
 

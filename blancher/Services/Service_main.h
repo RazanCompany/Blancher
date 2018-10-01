@@ -9,11 +9,6 @@
 #ifndef SERVICE_MAIN_H_
 #define SERVICE_MAIN_H_
 
-typedef struct callback{
-
-	
-}t_Service_Callback;
-
 void Service_init(void);
 
 

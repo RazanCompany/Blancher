@@ -1,6 +1,6 @@
 #include "LCD.h"
 #include "../MCAL/DIO.h"
-
+#include "../RTOS_Includes.h"
 
 
 /************ Function prototyping ******************************************************/
@@ -21,6 +21,10 @@ static void LCD_post_transmission(void) {
 	Modbus_change_state(LCD,LOW);
 }
 
+static void Modbus_idle_task(void){
+	vTaskDelay(1/portTICK_PERIOD_MS);
+}
+
 
 /* _____initialization Global_____________________________________________________ */
 void Lcd_init(UART_Modules uart_n,uint32_t baudrate,uint8_t slaveID){
@@ -30,6 +34,7 @@ void Lcd_init(UART_Modules uart_n,uint32_t baudrate,uint8_t slaveID){
 	g_LCD_modbus_config.baud_rate= baudrate;
 	g_LCD_modbus_config.pre_transmission = LCD_pre_transmission;
 	g_LCD_modbus_config.post_transmission = LCD_post_transmission;
+	g_LCD_modbus_config.modbus_idle_task = Modbus_idle_task;
 	Modbus_init(LCD , &(g_LCD_modbus_config));
 
 }//end Lcd_init

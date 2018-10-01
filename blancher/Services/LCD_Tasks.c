@@ -18,6 +18,8 @@ Must init modbus for the LCD
 #include "../RTE/RTE_operations.h"
 #include "../ECUAL/LCD.h"
 
+#include "../utils/Millis.h"
+
 #include <util/delay.h>
 /*************** LCD_READ_Parameters ************************/
 /*
@@ -116,8 +118,11 @@ void LCD_main(void* pvParameters){
 	uint8_t r_err, w_err;
 	static uint8_t read_err_counter = 0 ,write_err_counter = 0 ;
     Lcd_init(UART3,115200,1);
+	unsigned int x_time = 0;
 	while(1){
-		UART0_puts("TASK1 alive \n");
+		
+		x_time = Get_millis();
+		//UART0_puts("LCD alive \n");
 		r_err =  LCD_READ_Parameters();
  		if(LCD_RESPONCE_TIMED_OUT == r_err)
  		{
@@ -172,7 +177,12 @@ void LCD_main(void* pvParameters){
 				
 			}
 		#endif
-		vTaskDelay(200/portTICK_PERIOD_MS);
+		x_time =  Get_millis() - x_time;
+		UART0_puts("LCD Exe time = ");
+		UART0_OutUDec(x_time);
+		UART0_putc('\n');
+		_delay_ms(1000);
+		vTaskDelay(40/portTICK_PERIOD_MS);
 		//_delay_ms(2000);
 	}
 }

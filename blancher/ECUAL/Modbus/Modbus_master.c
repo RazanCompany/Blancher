@@ -121,7 +121,7 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
 		g_mod0_pre_transmission = mod->pre_transmission;
 		g_mod0_post_transmission = mod->post_transmission;
 
-		g_mod0_idle = 0;
+		g_mod0_idle = mod->modbus_idle_task;
 		g_mod0_response_buffer_index = 0;
 		g_mod0_response_buffer_length = 0;
 		if(UART1 == g_mod0_uart_no){
@@ -189,7 +189,7 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
 		g_mod1_pre_transmission = mod->pre_transmission;
 		g_mod1_post_transmission = mod->post_transmission;
 
-		g_mod1_idle = 0;
+		g_mod1_idle = mod->modbus_idle_task;
 		g_mod1_response_buffer_index = 0;
 		g_mod1_response_buffer_length = 0;
 		if(UART1 == g_mod1_uart_no){
@@ -1024,7 +1024,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		}
 
 		// loop until we run out of time or bytes, or an error occurs
-		_delay_ms(1000);
+		/*_delay_ms(1000);*/
 		u32_mod0_start_time = millis();
 
 		while (u8_mod0_bytes_left && !u8MB_mod0_status)
@@ -1095,8 +1095,8 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 			}
 			if ((millis() - u32_mod0_start_time) > RESPONCE_TIME_OUT)
 			{
-				UART0_puts("RESPONCE_TIMED_OUT");
-				UART0_putc('\n');
+ 				UART0_puts("RESPONCE_TIMED_OUT");
+ 				UART0_putc('\n');
 				u8MB_mod0_status = RESPONCE_TIMED_OUT;
 			}
 

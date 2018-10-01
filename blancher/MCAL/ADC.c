@@ -55,7 +55,7 @@ uint16_t ADC_read(void)
 	uint16_t time_out = 4800 ;
 	while(!g_converted && 0 != time_out ){time_out --; }
 	returned_data = g_analog_data ;
-	return returned_data ;
+		return returned_data ;
 }
 
 
@@ -64,7 +64,8 @@ ISR(ADC_vect)
 	   uint8_t The_low_adc_reg = ADC_DATA_REG_LOW ;
 	  // get 10 bits out of the high and low register .
 	  g_analog_data =  The_low_adc_reg | (ADC_DATA_REG_HIGH <<8);
-	  UART0_OutUDec(g_analog_data);
+	//  UART0_OutUDec(g_analog_data);
+	 // UART0_putc('\n');
 	  g_converted = 1 ;
 }
 
