@@ -11,11 +11,11 @@
 #include "TEMP_Task.h"
 #include "Level_Task.h"
 #include "tank_operation.h"
-#include "Encoder_Tasks.h"
+#include "Drum_speed_Tasks.h"
 
 void Service_init(void){
 	
-	Encoder_init(); //fixed here because no main task
+	Drum_speed_Tasks_init(); //fixed here because no main task
 	Tank_operation_init();
 	
 }

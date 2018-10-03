@@ -16,19 +16,19 @@
 #define TANK_LEVEL_1_DIRECTION_REG  DDRL
 #define TANK_LEVEL_1_DATA_REG       PORTL
 #define TANK_LEVEL_1_STATUS_REG     PINL
-#define TANK_LEVEL_1_PIN            5
+#define TANK_LEVEL_1_PIN            4
 
 //___________TANK MEDILLE LEVEL SENSOR______//
 #define TANK_LEVEL_2_DIRECTION_REG  DDRL
 #define TANK_LEVEL_2_DATA_REG       PORTL
 #define TANK_LEVEL_2_STATUS_REG     PINL
-#define TANK_LEVEL_2_PIN            6
+#define TANK_LEVEL_2_PIN            5
 
 //___________TANK HIGH LEVEL SENSOR _______//
 #define TANK_LEVEL_3_DIRECTION_REG  DDRL
 #define TANK_LEVEL_3_DATA_REG       PORTL
 #define TANK_LEVEL_3_STATUS_REG     PINL
-#define TANK_LEVEL_3_PIN            4
+#define TANK_LEVEL_3_PIN            6
 
 //__________ BLANCHER LEVEL SENSOR_________//
 #define BLANCHER_LEVEL_DIRECTION_REG  DDRD
@@ -50,10 +50,10 @@
 #define GAS_PIN            4
 
 //_________ LIGHT SENSOR ________________//
-#define LIGHT_DIRECTION_REG  DDRD
-#define LIGHT_DATA_REG       PORTD
-#define LIGHT_STATUS_REG     PIND
-#define LIGHT_PIN            5
+#define LIGHT_DIRECTION_REG  DDRC
+#define LIGHT_DATA_REG       PORTC
+#define LIGHT_STATUS_REG     PINC
+#define LIGHT_PIN            2
 
 //_________PUMP _________________________//
 #define PUMP_DIRECTION_REG  DDRD
@@ -68,7 +68,7 @@
 #define POWDER_PIN            7
 
 // ________CONVOYER MOTOR _____________//
-#define CONVEYOR_DIRECTION_REG  DDRC
+#define CONVEYOR_DIRECTION_REG        DDRC
 #define CONVEYOR_DATA_REG             PORTC
 #define CONVEYOR_STATUS_REG           PINC
 #define CONVEYOR_PIN                  0
@@ -86,7 +86,7 @@
 #define GAS_VALVE_PIN                  1
 
 //_______main gas ____________________//
-#define MAIN_GAS_VALVE_DIRECTION_REG  DDRC
+#define MAIN_GAS_VALVE_DIRECTION_REG        DDRC
 #define MAIN_GAS_VALVE_DATA_REG             PORTC
 #define MAIN_GAS_VALVE_STATUS_REG           PINC
 #define MAIN_GAS_VALVE_PIN                  2

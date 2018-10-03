@@ -2,7 +2,7 @@ ECUAL/Flow_rate.d ECUAL/Flow_rate.o: ../ECUAL/Flow_rate.c \
  ../ECUAL/Flow_rate.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- ../ECUAL/Encoder/Encoder.h \
+ ../ECUAL/../MCAL/Timer.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -14,12 +14,11 @@ ECUAL/Flow_rate.d ECUAL/Flow_rate.o: ../ECUAL/Flow_rate.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../ECUAL/Encoder/../../RAL/HW_types.h \
- ../ECUAL/Encoder/../../RAL/RAL_timer.h \
- ../ECUAL/Encoder/../../utils/Millis.h \
+ ../ECUAL/../MCAL/../RAL/HW_types.h ../ECUAL/../MCAL/../RAL/RAL_timer.h \
+ ../ECUAL/../MCAL/../utils/Millis.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
- ../ECUAL/Encoder/../../utils/../RAL/RAL_timer.h \
- ../ECUAL/Encoder/../../utils/../RAL/HW_types.h \
+ ../ECUAL/../MCAL/../utils/../RAL/RAL_timer.h \
+ ../ECUAL/../MCAL/../utils/../RAL/HW_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
@@ -31,7 +30,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
-../ECUAL/Encoder/Encoder.h:
+../ECUAL/../MCAL/Timer.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
@@ -55,17 +54,17 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../ECUAL/Encoder/../../RAL/HW_types.h:
+../ECUAL/../MCAL/../RAL/HW_types.h:
 
-../ECUAL/Encoder/../../RAL/RAL_timer.h:
+../ECUAL/../MCAL/../RAL/RAL_timer.h:
 
-../ECUAL/Encoder/../../utils/Millis.h:
+../ECUAL/../MCAL/../utils/Millis.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
 
-../ECUAL/Encoder/../../utils/../RAL/RAL_timer.h:
+../ECUAL/../MCAL/../utils/../RAL/RAL_timer.h:
 
-../ECUAL/Encoder/../../utils/../RAL/HW_types.h:
+../ECUAL/../MCAL/../utils/../RAL/HW_types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 

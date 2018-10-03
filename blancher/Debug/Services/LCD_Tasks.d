@@ -23,8 +23,7 @@ Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
  ../Services/../rtos/list.h ../Services/../rtos/task.h \
  ../Services/../rtos/message_buffer.h ../Services/../rtos/stream_buffer.h \
  ../Services/../rtos/semphr.h ../Services/../rtos/queue.h \
- ../Services/../RTE/RTE_encoders.h \
- ../Services/../RTE/RTE_invertersetting.h \
+ ../Services/../RTE/RTE_drum.h ../Services/../RTE/RTE_invertersetting.h \
  ../Services/../RTE/RTE_temperature.h ../Services/../RTE/RTE_operations.h \
  ../Services/../ECUAL/LCD.h ../Services/../ECUAL/Modbus/Modbus_master.h \
  ../Services/../ECUAL/Modbus/../../MCAL/UART.h \
@@ -97,7 +96,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../Services/../rtos/queue.h:
 
-../Services/../RTE/RTE_encoders.h:
+../Services/../RTE/RTE_drum.h:
 
 ../Services/../RTE/RTE_invertersetting.h:
 

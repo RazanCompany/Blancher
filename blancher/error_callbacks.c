@@ -9,17 +9,17 @@
 #include "Services/TEMP_Task.h"
 #include "Services/Level_Task.h"
 #include "Services/tank_operation.h"
-#include "Services/Encoder_Tasks.h"
+#include "Services/Drum_speed_Tasks.h"
 
 //debug
 #include "MCAL/UART.h"
 /******* LCD callback functions for errors callbacks ***********************************************/
 static void LCD_readTimeout(void){
-	UART0_puts("LCD_READ_TIMEOUT \n");
+	UART0_puts("LCD_READ_TIMEOUT ---------------------------- \n");
 }
 
 static void LCD_writeTimeout(void){
-	UART0_puts("LCD_WRITE_TIMEOUT \n");
+	UART0_puts("LCD_WRITE_TIMEOUT ++++++++++++++++++++++++++++ \n");
 	
 }
 

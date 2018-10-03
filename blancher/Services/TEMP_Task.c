@@ -25,16 +25,16 @@ void Temp_main_err_init( void (*callback_over_temp) (void) ){
 void Temp_main(void* pvParameters){
 	uint16_t current_temp=0;
 	uint8_t count=0;
-	uint16_t x_time = 0;
+	//uint16_t x_time = 0;
 	temp_init(0);
 	while (1)
 	{
 		UART0_puts("Temp task alive\n");
-		x_time = Get_millis();
+		//x_time = Get_millis();
 		current_temp = temp_read();
-		UART0_puts("current temp = ");
- 		UART0_OutUDec(current_temp);
- 		UART0_putc('\n');
+		//UART0_puts("current temp = ");
+ 		//UART0_OutUDec(current_temp);
+ 		//UART0_putc('\n');
 		if(current_temp > TEMP_OVER_TEMP){
 			count++;
 			if(count >= TEMP_OVER_TEMP_STILL_TIME){
@@ -52,10 +52,10 @@ void Temp_main(void* pvParameters){
 		RTE_set_Current_temperature(current_temp);
 		// set the temp for the application .
 		RTE_set_app_Current_temperature(current_temp);
-		x_time =  Get_millis() - x_time ;
-		UART0_puts("temp ex time = ");
-		UART0_OutUDec(x_time);
-		UART0_putc('\n');
+		//x_time =  Get_millis() - x_time ;
+		//UART0_puts("temp ex time = ");
+		//UART0_OutUDec(x_time);
+		//UART0_putc('\n');
 		vTaskDelay(50/portTICK_PERIOD_MS) ;
 	}
 

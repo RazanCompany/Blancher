@@ -12,7 +12,7 @@ Must init modbus for the LCD
 #define  F_CPU		16000000
 #include "LCD_Tasks.h"
 #include "../RTOS_Includes.h"
-#include "../RTE/RTE_encoders.h" //drum speed w
+#include "../RTE/RTE_drum.h" //drum speed w
 #include "../RTE/RTE_invertersetting.h"
 #include "../RTE/RTE_temperature.h"
 #include "../RTE/RTE_operations.h"
@@ -52,8 +52,9 @@ typedef struct LCD_DATA_READ{
 }s_LCD_DATA_READ_t;
 
 typedef struct LCD_DATA_WRITE{
-	uint16_t Drum_speed; //drum speed 
 	uint16_t Current_temperature; //current temperature
+	uint16_t Drum_speed; //drum speed 9
+	
 
 	//no padding !!
 }s_LCD_DATA_WRITE_t;
@@ -118,11 +119,11 @@ void LCD_main(void* pvParameters){
 	uint8_t r_err, w_err;
 	static uint8_t read_err_counter = 0 ,write_err_counter = 0 ;
     Lcd_init(UART3,115200,1);
-	unsigned int x_time = 0;
+	//unsigned int x_time = 0;
 	while(1){
 		
-		x_time = Get_millis();
-		//UART0_puts("LCD alive \n");
+		//x_time = Get_millis();
+		UART0_puts("LCD alive task \n");
 		r_err =  LCD_READ_Parameters();
  		if(LCD_RESPONCE_TIMED_OUT == r_err)
  		{
@@ -177,12 +178,12 @@ void LCD_main(void* pvParameters){
 				
 			}
 		#endif
-		x_time =  Get_millis() - x_time;
-		UART0_puts("LCD Exe time = ");
-		UART0_OutUDec(x_time);
-		UART0_putc('\n');
-		_delay_ms(1000);
-		vTaskDelay(40/portTICK_PERIOD_MS);
+		//x_time =  Get_millis() - x_time;
+		//UART0_puts("LCD Exe time = ");
+		//UART0_OutUDec(x_time);
+		//UART0_putc('\n');
+		//_delay_ms(1000);
+		vTaskDelay(200/portTICK_PERIOD_MS);
 		//_delay_ms(2000);
 	}
 }

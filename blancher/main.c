@@ -6,19 +6,11 @@
 #include <avr/io.h>
 #include <util/delay.h>
 
-
-// #include "ECUAL/Modbus/Modbus_master.h"
-// #include "RAL/HW_types.h"
-// #include "utils/Millis.h"
-// #include "ECUAL/LCD.h"
-// #include "DEBUG.h"
-// #include <string.h>
-
-
-
 #include "RTOS_Includes.h"
 #include "MCAL/UART.h"
 #include "ECUAL/LCD.h"
+#include "ECUAl/Drum.h"
+#include "ECUAL/Inverter.h"
 #include "utils/Millis.h"
 #include "MCAL/DIO.h"
 #include "Services/LCD_Tasks.h"
@@ -58,8 +50,16 @@ int main(void) {
 	UART0_init(9600); //for debug
     System_init();
 	 //Lcd_init(UART3,115200,1);
-	
+	UART0_puts("HELLO \n");
+	Inverter_init(UART1,38400,3);
 
+	uint16_t x=0;
+while (1)
+{
+	//UART0_puts("Hello \n");
+	Inverter_set_Freq(x+=3);
+	_delay_ms(1000);
+}
 	//Temp_main_init();
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic( //print LCD data from RTE lowest priority
@@ -85,7 +85,7 @@ int main(void) {
 				"Task3", /* Text name for the task. */
 				STACK_SIZE, /* The number of indexes in the xStack array. */
 				NULL, /* Parameter passed into the task. */
-				3,/* Priority at which the task is created. */
+				2,/* Priority at which the task is created. */
 				xStack3, /* Array to use as the task's stack. */
 				&xTask3Buffer); /* Variable to hold the task's data structure. */
 // 	
@@ -196,7 +196,7 @@ static void vTask2(void* pvParameters)
 {
 	char x=0;
 // 	uint16_t RTE_data=0;
-	UART0_puts("LCD Task2\n");
+//	UART0_puts("LCD Task2\n");
 // 	while(1){
 // 		UART0_puts("Task2 working \n");
 // // 		UART0_OutUDec(x);

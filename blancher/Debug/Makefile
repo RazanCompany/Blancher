@@ -53,6 +53,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../ECUAL/Blancher_level.c \
+../ECUAL/Drum.c \
 ../ECUAL/Encoder/Encoder.c \
 ../ECUAL/Flow_rate.c \
 ../ECUAL/Gas.c \
@@ -72,7 +73,7 @@ C_SRCS +=  \
 ../MCAL/SPI.c \
 ../MCAL/Timer.c \
 ../MCAL/UART.c \
-../RTE/RTE_encoders.c \
+../RTE/RTE_drum.c \
 ../RTE/RTE_invertersetting.c \
 ../RTE/RTE_levels.c \
 ../RTE/RTE_main.c \
@@ -87,7 +88,7 @@ C_SRCS +=  \
 ../rtos/stream_buffer.c \
 ../rtos/tasks.c \
 ../rtos/timers.c \
-../Services/Encoder_Tasks.c \
+../Services/Drum_speed_Tasks.c \
 ../Services/LCD_Tasks.c \
 ../Services/Level_Task.c \
 ../Services/Service_main.c \
@@ -107,6 +108,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 ECUAL/Blancher_level.o \
+ECUAL/Drum.o \
 ECUAL/Encoder/Encoder.o \
 ECUAL/Flow_rate.o \
 ECUAL/Gas.o \
@@ -126,7 +128,7 @@ MCAL/Interrupt.o \
 MCAL/SPI.o \
 MCAL/Timer.o \
 MCAL/UART.o \
-RTE/RTE_encoders.o \
+RTE/RTE_drum.o \
 RTE/RTE_invertersetting.o \
 RTE/RTE_levels.o \
 RTE/RTE_main.o \
@@ -141,7 +143,7 @@ rtos/queue.o \
 rtos/stream_buffer.o \
 rtos/tasks.o \
 rtos/timers.o \
-Services/Encoder_Tasks.o \
+Services/Drum_speed_Tasks.o \
 Services/LCD_Tasks.o \
 Services/Level_Task.o \
 Services/Service_main.o \
@@ -154,6 +156,7 @@ utils/Millis.o
 
 OBJS_AS_ARGS +=  \
 ECUAL/Blancher_level.o \
+ECUAL/Drum.o \
 ECUAL/Encoder/Encoder.o \
 ECUAL/Flow_rate.o \
 ECUAL/Gas.o \
@@ -173,7 +176,7 @@ MCAL/Interrupt.o \
 MCAL/SPI.o \
 MCAL/Timer.o \
 MCAL/UART.o \
-RTE/RTE_encoders.o \
+RTE/RTE_drum.o \
 RTE/RTE_invertersetting.o \
 RTE/RTE_levels.o \
 RTE/RTE_main.o \
@@ -188,7 +191,7 @@ rtos/queue.o \
 rtos/stream_buffer.o \
 rtos/tasks.o \
 rtos/timers.o \
-Services/Encoder_Tasks.o \
+Services/Drum_speed_Tasks.o \
 Services/LCD_Tasks.o \
 Services/Level_Task.o \
 Services/Service_main.o \
@@ -201,6 +204,7 @@ utils/Millis.o
 
 C_DEPS +=  \
 ECUAL/Blancher_level.d \
+ECUAL/Drum.d \
 ECUAL/Encoder/Encoder.d \
 ECUAL/Flow_rate.d \
 ECUAL/Gas.d \
@@ -220,7 +224,7 @@ MCAL/Interrupt.d \
 MCAL/SPI.d \
 MCAL/Timer.d \
 MCAL/UART.d \
-RTE/RTE_encoders.d \
+RTE/RTE_drum.d \
 RTE/RTE_invertersetting.d \
 RTE/RTE_levels.d \
 RTE/RTE_main.d \
@@ -235,7 +239,7 @@ rtos/queue.d \
 rtos/stream_buffer.d \
 rtos/tasks.d \
 rtos/timers.d \
-Services/Encoder_Tasks.d \
+Services/Drum_speed_Tasks.d \
 Services/LCD_Tasks.d \
 Services/Level_Task.d \
 Services/Service_main.d \
@@ -248,6 +252,7 @@ utils/Millis.d
 
 C_DEPS_AS_ARGS +=  \
 ECUAL/Blancher_level.d \
+ECUAL/Drum.d \
 ECUAL/Encoder/Encoder.d \
 ECUAL/Flow_rate.d \
 ECUAL/Gas.d \
@@ -267,7 +272,7 @@ MCAL/Interrupt.d \
 MCAL/SPI.d \
 MCAL/Timer.d \
 MCAL/UART.d \
-RTE/RTE_encoders.d \
+RTE/RTE_drum.d \
 RTE/RTE_invertersetting.d \
 RTE/RTE_levels.d \
 RTE/RTE_main.d \
@@ -282,7 +287,7 @@ rtos/queue.d \
 rtos/stream_buffer.d \
 rtos/tasks.d \
 rtos/timers.d \
-Services/Encoder_Tasks.d \
+Services/Drum_speed_Tasks.d \
 Services/LCD_Tasks.d \
 Services/Level_Task.d \
 Services/Service_main.d \
@@ -308,6 +313,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 ECUAL/Blancher_level.o: ../ECUAL/Blancher_level.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+ECUAL/Drum.o: ../ECUAL/Drum.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -447,7 +459,7 @@ MCAL/UART.o: ../MCAL/UART.c
 	@echo Finished building: $<
 	
 
-RTE/RTE_encoders.o: ../RTE/RTE_encoders.c
+RTE/RTE_drum.o: ../RTE/RTE_drum.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -552,7 +564,7 @@ rtos/timers.o: ../rtos/timers.c
 	@echo Finished building: $<
 	
 
-Services/Encoder_Tasks.o: ../Services/Encoder_Tasks.c
+Services/Drum_speed_Tasks.o: ../Services/Drum_speed_Tasks.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -187,6 +187,12 @@
     <Compile Include="ECUAL\Blancher_level.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ECUAL\Drum.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECUAL\Drum.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECUAL\Encoder\Encoder.c">
       <SubType>compile</SubType>
     </Compile>
@@ -310,10 +316,10 @@
     <Compile Include="RAL\UART_RAL.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="RTE\RTE_encoders.c">
+    <Compile Include="RTE\RTE_drum.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="RTE\RTE_encoders.h">
+    <Compile Include="RTE\RTE_drum.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="RTE\RTE_error_types.h">
@@ -430,10 +436,10 @@
     <Compile Include="RTOS_Includes.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Services\Encoder_Tasks.c">
+    <Compile Include="Services\Drum_speed_Tasks.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Services\Encoder_Tasks.h">
+    <Compile Include="Services\Drum_speed_Tasks.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\LCD_Tasks.c">

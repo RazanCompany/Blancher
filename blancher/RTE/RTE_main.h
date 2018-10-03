@@ -8,7 +8,7 @@
 
 #ifndef RTE_MAIN_H_
 #define RTE_MAIN_H_
-#include "RTE_encoders.h" 
+#include "RTE_drum.h" 
 #include "RTE_invertersetting.h"
 #include "RTE_temperature.h"
 #include "RTE_operations.h"

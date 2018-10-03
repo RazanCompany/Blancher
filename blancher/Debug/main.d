@@ -24,15 +24,15 @@ main.d main.o: .././main.c \
  .././rtos/stream_buffer.h .././rtos/semphr.h .././rtos/queue.h \
  .././MCAL/UART.h .././ECUAL/LCD.h .././ECUAL/Modbus/Modbus_master.h \
  .././ECUAL/Modbus/../../MCAL/UART.h .././ECUAL/Modbus/../../CONFIG.h \
+ .././ECUAl/Drum.h .././ECUAL/Inverter.h .././ECUAL/../CONFIG.h \
  .././utils/Millis.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
  .././utils/../RAL/RAL_timer.h .././utils/../RAL/HW_types.h \
  .././MCAL/DIO.h .././MCAL/../CONFIG.h .././Services/LCD_Tasks.h \
- .././RTE/RTE_main.h .././RTE/RTE_encoders.h \
- .././RTE/RTE_invertersetting.h .././RTE/RTE_temperature.h \
- .././RTE/RTE_operations.h .././System.h .././ECUAL/levels.h \
- .././Services/Level_Task.h .././Services/TEMP_Task.h
+ .././RTE/RTE_main.h .././RTE/RTE_drum.h .././RTE/RTE_invertersetting.h \
+ .././RTE/RTE_temperature.h .././RTE/RTE_operations.h .././System.h \
+ .././ECUAL/levels.h .././Services/Level_Task.h .././Services/TEMP_Task.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -108,6 +108,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././ECUAL/Modbus/../../CONFIG.h:
 
+.././ECUAl/Drum.h:
+
+.././ECUAL/Inverter.h:
+
+.././ECUAL/../CONFIG.h:
+
 .././utils/Millis.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
@@ -126,7 +132,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././RTE/RTE_main.h:
 
-.././RTE/RTE_encoders.h:
+.././RTE/RTE_drum.h:
 
 .././RTE/RTE_invertersetting.h:
 

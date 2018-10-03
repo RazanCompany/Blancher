@@ -18,7 +18,8 @@
 	{
 		return LEVEL_ERROR ;
 	}
-	
+	if(Tank_sensor == 3) Tank_sensor =2;
+	if(Tank_sensor == 7) Tank_sensor =3;
 	return Tank_sensor ;
  }
  

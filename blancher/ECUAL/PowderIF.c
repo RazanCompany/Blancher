@@ -5,7 +5,7 @@
  *      Author: M.nagah
  */
 #include "PowderIF.h"
-#include "Encoder/Encoder.h"
+#include "../MCAL/Timer.h"
 #include "../MCAL/DIO.h"
 /********************************Variables ***********************************/
 g_Timer_Config g_Powder_config;

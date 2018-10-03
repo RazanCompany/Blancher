@@ -1,8 +1,9 @@
-ECUAL/Encoder/Encoder.d ECUAL/Encoder/Encoder.o: \
- ../ECUAL/Encoder/Encoder.c ../ECUAL/Encoder/Encoder.h \
+RTE/RTE_drum.d RTE/RTE_drum.o: ../RTE/RTE_drum.c \
+ ../RTE/../RTOS_Includes.h ../RTE/../rtos/FreeRTOS.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
+ ../RTE/../rtos/FreeRTOSConfig.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -13,24 +14,25 @@ ECUAL/Encoder/Encoder.d ECUAL/Encoder/Encoder.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../ECUAL/Encoder/../../MCAL/UART.h ../ECUAL/Encoder/../../MCAL/Timer.h \
- ../ECUAL/Encoder/../../MCAL/../RAL/HW_types.h \
- ../ECUAL/Encoder/../../MCAL/../RAL/RAL_timer.h \
- ../ECUAL/Encoder/../../MCAL/../utils/Millis.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
- ../ECUAL/Encoder/../../MCAL/../utils/../RAL/RAL_timer.h \
- ../ECUAL/Encoder/../../MCAL/../utils/../RAL/HW_types.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+ ../RTE/../rtos/projdefs.h ../RTE/../rtos/portmacro.h \
+ ../RTE/../rtos/portable.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
+ ../RTE/../rtos/mpu_wrappers.h ../RTE/../rtos/FreeRTOSBoardDefs.h \
+ ../RTE/../rtos/task.h ../RTE/../rtos/list.h ../RTE/../rtos/task.h \
+ ../RTE/../rtos/message_buffer.h ../RTE/../rtos/stream_buffer.h \
+ ../RTE/../rtos/semphr.h ../RTE/../rtos/queue.h ../RTE/RTE_drum.h
 
-../ECUAL/Encoder/Encoder.h:
+../RTE/../RTOS_Includes.h:
+
+../RTE/../rtos/FreeRTOS.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
+../RTE/../rtos/FreeRTOSConfig.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -52,24 +54,30 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../ECUAL/Encoder/../../MCAL/UART.h:
+../RTE/../rtos/projdefs.h:
 
-../ECUAL/Encoder/../../MCAL/Timer.h:
+../RTE/../rtos/portmacro.h:
 
-../ECUAL/Encoder/../../MCAL/../RAL/HW_types.h:
+../RTE/../rtos/portable.h:
 
-../ECUAL/Encoder/../../MCAL/../RAL/RAL_timer.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h:
 
-../ECUAL/Encoder/../../MCAL/../utils/Millis.h:
+../RTE/../rtos/mpu_wrappers.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
+../RTE/../rtos/FreeRTOSBoardDefs.h:
 
-../ECUAL/Encoder/../../MCAL/../utils/../RAL/RAL_timer.h:
+../RTE/../rtos/task.h:
 
-../ECUAL/Encoder/../../MCAL/../utils/../RAL/HW_types.h:
+../RTE/../rtos/list.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
+../RTE/../rtos/task.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
+../RTE/../rtos/message_buffer.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+../RTE/../rtos/stream_buffer.h:
+
+../RTE/../rtos/semphr.h:
+
+../RTE/../rtos/queue.h:
+
+../RTE/RTE_drum.h:

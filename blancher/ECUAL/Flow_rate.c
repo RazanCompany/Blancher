@@ -8,7 +8,7 @@
  */
 
 #include "Flow_rate.h"
-#include "Encoder/Encoder.h" 
+#include "../MCAL/Timer.h" 
 #include "../MCAL/DIO.h"
 
 

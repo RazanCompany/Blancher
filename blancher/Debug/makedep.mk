@@ -4,6 +4,8 @@
 
 ECUAL\Blancher_level.c
 
+ECUAL\Drum.c
+
 ECUAL\Encoder\Encoder.c
 
 ECUAL\Flow_rate.c
@@ -42,7 +44,7 @@ MCAL\Timer.c
 
 MCAL\UART.c
 
-RTE\RTE_encoders.c
+RTE\RTE_drum.c
 
 RTE\RTE_invertersetting.c
 
@@ -72,7 +74,7 @@ rtos\tasks.c
 
 rtos\timers.c
 
-Services\Encoder_Tasks.c
+Services\Drum_speed_Tasks.c
 
 Services\LCD_Tasks.c
 
