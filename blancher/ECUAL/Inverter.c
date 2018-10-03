@@ -45,21 +45,31 @@ void Inverter_init( UART_Modules uart_n, uint32_t baudrate, uint8_t slave_id )
 	s_inv_mod_confg.slave_address = slave_id;
 	s_inv_mod_confg.post_transmission = Inverter_post_transmition;
 	s_inv_mod_confg.pre_transmission = Inverter_pre_transmition;
+// 	UART0_puts("Inverter init \n");
+// 	UART0_puts("UART num = ");
+// 	UART0_OutUDec(uart_n);
+// 	UART0_puts("  baud rate = ");
+// 	UART0_OutUDec(baudrate);
+// 	UART0_puts("slave id ");
+// 	UART0_OutUDec(slave_id);
 
 	// init the mod bus on Mod Bus
+	
 	Modbus_init(INVERTER, &s_inv_mod_confg);
 }// End Init
 
 /*
- * claculate the setting Frequancy From the Motor Parameter 
+ * Calculate the setting Frequency From the Motor Parameter 
  * parameters  struct of Motor configration of RPm and distance, diameter gear ratio 
  * return Nothing
  */
 
-
 void Inverter_set_Freq(g_Inveter_Config *In_cofig )
 {
-	Motor_config = In_cofig; // tranform our data to global struct
+	
+	
+	//Modbus_Write_single_register(INVERTER,0x2001,5000);// Motor speed on address 0x2001 
+	Motor_config = In_cofig; // transform our data to global struct
 	// calculated the whole timer
 	float time_user =(float)(Motor_config->time_user_S/60) + (Motor_config->time_user_M);
 	 // calculated the Rpm required For motor
@@ -76,7 +86,7 @@ void Inverter_set_Freq(g_Inveter_Config *In_cofig )
 	    }// END IF
 	// Put the value of RPM To Global Value
     g_rpm_Motor = (float)(rpm_required)/(Motor_config->gear_ratio);
-	// calculate tthe settings Frequancy
+	// calculate the settings Frequency
     uint16_t sitting_freq = rpm_required * 5000  / (Motor_config->motor_rpm_max);
 	    // Manual limitation for motor speed
 	if(sitting_freq > 5000){
@@ -86,13 +96,15 @@ void Inverter_set_Freq(g_Inveter_Config *In_cofig )
 		    sitting_freq = 2500;
 	}// End IF
     //set new value 
+	
+	//sitting_freq-=10;
     Modbus_Write_single_register(INVERTER,INVERTER_FRE_ADD,sitting_freq);// Motor speed on address 0x2001 
 		  	
 }// End Function
 void Inverter_change_state(uint8_t stat)
 {
 	if(stat == 0){
-		      Modbus_Write_single_register(INVERTER,INVERTER_StART_ADD,5);  // Motor off
+		 Modbus_Write_single_register(INVERTER,INVERTER_StART_ADD,5);  // Motor off
 	}
 	else if(stat == 1){
 		 Modbus_Write_single_register(INVERTER,INVERTER_StART_ADD,1);    // Motor On

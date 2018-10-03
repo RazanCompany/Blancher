@@ -127,6 +127,7 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
 		if(UART1 == g_mod0_uart_no){
 			if(0 == UART1_used){//uart1 not used
 				UART1_used = 1;
+				
 				UART1_init(g_mod0_baud_rate);
 				g_mod0_Serial_available = UART1_available;
 				g_mod0_Serial_peek = UART1_peek;
@@ -195,6 +196,12 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
 		if(UART1 == g_mod1_uart_no){
 			if(0 == UART1_used){//uart1 not used
 				UART1_used = 1;
+				UART0_puts("UART1_init \n");
+				// 	UART0_puts("Inverter init \n");
+
+				UART0_puts("  baud rate = ");
+				UART0_OutUDec(g_mod1_baud_rate);
+				UART0_putc('\n');				
 				UART1_init(g_mod1_baud_rate);
 				g_mod1_Serial_available = UART1_available;
 				g_mod1_Serial_peek = UART1_peek;
@@ -652,13 +659,13 @@ uint8_t Modbus_Write_single_coil(uint8_t device, uint16_t u16WriteAddress, uint8
 	if(DEVICE_0 == device){
 		g_mod0_write_address = u16WriteAddress;
 		g_mod0_write_qty = (u8State ? 0xFF00 : 0x0000);
-		return Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
+		return Modbus_mster_transaction(device, WRITE_SINGLE_COIL);
 
 	}
 	else if(DEVICE_1 == device){
 		g_mod1_write_address = u16WriteAddress;
 		g_mod1_write_qty = (u8State ? 0xFF00 : 0x0000);
-		return Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
+		return Modbus_mster_transaction(device, WRITE_SINGLE_COIL);
 	}
 	return INVALID_DEVICE; //error
 }
@@ -690,7 +697,17 @@ uint8_t Modbus_Write_single_register(uint8_t device, uint16_t u16WriteAddress, u
 		g_mod1_write_address = u16WriteAddress;
 		g_mod1_write_qty = 0;
 		g_mod1_transmit_buffer[0] = u16WriteValue;
-		return Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
+		UART0_puts("g_mod1_write_address = ");
+		UART0_OutUDec(u16WriteAddress);
+		UART0_puts("g_mod1_transmit_buffer[0] = ");
+		UART0_OutUDec(u16WriteValue);
+		UART0_putc('\n');
+		uint32_t x  = Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
+		UART0_puts("x = ");
+		UART0_OutUDec(x);
+		UART0_putc('\n');
+		return x;
+		//return Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
 	}
 	return INVALID_DEVICE; //error
 }
@@ -874,7 +891,7 @@ Sequence:
   - evaluate/disassemble response
   - return status (success/exception)
 
-@param u8MBFunction Modbus function (0x01..0xFF)
+@param u8MBFunction Mod bus function (0x01..0xFF)
 @return 0 on success; exception number on failure
 */
 
@@ -891,7 +908,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		uint8_t u8MB_mod0_status = SUCCESS;
 
 		/*------------------------------------------------------------------------------------------*/
-		// assemble Modbus Request Application Data Unit
+		// assemble Mod bus Request Application Data Unit
 		u8_mod0_ADU[u8_mod0_ADU_size++] = g_mod0_slave;
 		if(u8MBFunction == 0xFF){
 			u8_mod0_ADU[u8_mod0_ADU_size++] = 0x0F;
@@ -1190,7 +1207,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		uint8_t u8MB_mod1_status = SUCCESS;
 
 		/*------------------------------------------------------------------------------------------*/
-		// assemble Modbus Request Application Data Unit
+		// assemble Mod bus Request Application Data Unit
 		u8_mod1_ADU[u8_mod1_ADU_size++] = g_mod1_slave;
 		if(u8MBFunction == 0xFF){
 			u8_mod1_ADU[u8_mod1_ADU_size++] = 0x0F;
@@ -1313,6 +1330,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		u8_mod1_ADU_size = 0;
 		//_serial->flush();    // flush transmit buffer
 		g_mod1_Serial_flush();		   // flush transmit buffer
+		_delay_us(450);
 		if (g_mod1_post_transmission)
 		{
 			g_mod1_post_transmission();
@@ -1357,6 +1375,9 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		  // check whether Modbus exception occurred; return Modbus Exception Code
 		  if (GET_BIT(u8_mod1_ADU[1], 7))
 		  {
+			UART0_puts("Error = ");
+			UART0_OutUDec(u8_mod1_ADU[2]);
+			UART0_putc('\n');
 			u8MB_mod1_status = u8_mod1_ADU[2];
 			break;
 		  }
@@ -1388,7 +1409,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		if ((millis() - u32_mod1_start_time) > RESPONCE_TIME_OUT)
 		{
 		  u8MB_mod1_status = RESPONCE_TIMED_OUT;
-		 // UART0_puts("RESPONCE_TIMED_OUT");
+		  UART0_puts("RESPONCE_TIMED_OUT\n");
 		}
 		}
 

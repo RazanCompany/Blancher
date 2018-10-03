@@ -21,17 +21,17 @@ typedef struct inv_configration
 	uint16_t time_user_S ; // time of Inverter to boil by minutes
 }g_Inveter_Config;
  
-#define INVERTER_FRE_ADD 0x2001
-#define INVERTER_StART_ADD 0x2000
+#define INVERTER_FRE_ADD   0x2001
+#define INVERTER_StART_ADD   0x2000
 
 /*
- * set the enbable pin for modbus to start send
+ * set the enable pin for mod bus to start send
  * parameters  Nothing
  * return Nothing
  */
 void Inverter_pre_transmition(void);
 /*
- * Clear the enbale pin for modbus to start send
+ * Clear the enable pin for mod bus to start send
  * parameters  Nothing
  * return Nothing
  */
@@ -43,7 +43,7 @@ void Inverter_post_transmition(void);
  */
 void Inverter_init( UART_Modules uart_n, uint32_t baudrate, uint8_t slave_id);
 /*
- * claculate the setting Frequancy From the Motor Parameter 
+ * calculate the setting Frequency From the Motor Parameter 
  * parameters  struct of Motor configration of RPm and distance, diameter gear ratio 
  * return Nothing
  */

@@ -116,10 +116,10 @@
 #define DEVICE_0_MODBUS_PIN                  2
 
 //_______  MODE BUS 2 ____________________//
-#define DEVICE_1_MODBUS_DIRECTION_REG        DDRC
-#define DEVICE_1_MODBUS_DATA_REG             PORTC
-#define DEVICE_1_MODBUS_STATUS_REG           PINC
-#define DEVICE_1_MODBUS_PIN                  7
+#define DEVICE_1_MODBUS_DIRECTION_REG        DDRD
+#define DEVICE_1_MODBUS_DATA_REG             PORTD
+#define DEVICE_1_MODBUS_STATUS_REG           PIND
+#define DEVICE_1_MODBUS_PIN                  4
 
 //_______  electrical_heater ____________________//
 #define ELECTRICAL_HEATER_DIRECTION_REG        DDRC
