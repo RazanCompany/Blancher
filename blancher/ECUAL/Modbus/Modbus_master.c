@@ -195,13 +195,7 @@ void Modbus_init(uint8_t device_num, modbus_config* mod){
 		g_mod1_response_buffer_length = 0;
 		if(UART1 == g_mod1_uart_no){
 			if(0 == UART1_used){//uart1 not used
-				UART1_used = 1;
-				UART0_puts("UART1_init \n");
-				// 	UART0_puts("Inverter init \n");
-
-				UART0_puts("  baud rate = ");
-				UART0_OutUDec(g_mod1_baud_rate);
-				UART0_putc('\n');				
+				UART1_used = 1;		
 				UART1_init(g_mod1_baud_rate);
 				g_mod1_Serial_available = UART1_available;
 				g_mod1_Serial_peek = UART1_peek;
@@ -697,17 +691,7 @@ uint8_t Modbus_Write_single_register(uint8_t device, uint16_t u16WriteAddress, u
 		g_mod1_write_address = u16WriteAddress;
 		g_mod1_write_qty = 0;
 		g_mod1_transmit_buffer[0] = u16WriteValue;
-		UART0_puts("g_mod1_write_address = ");
-		UART0_OutUDec(u16WriteAddress);
-		UART0_puts("g_mod1_transmit_buffer[0] = ");
-		UART0_OutUDec(u16WriteValue);
-		UART0_putc('\n');
-		uint32_t x  = Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
-		UART0_puts("x = ");
-		UART0_OutUDec(x);
-		UART0_putc('\n');
-		return x;
-		//return Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
+		return Modbus_mster_transaction(device, WRITE_SINGLE_REGISTER);
 	}
 	return INVALID_DEVICE; //error
 }
@@ -1056,8 +1040,6 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 			{
 				if (g_mod0_idle)
 				{
-					//UART0_putc('I');
-					//UART0_putc('\n');
 					g_mod0_idle();
 				}
 			}
@@ -1112,8 +1094,8 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 			}
 			if ((millis() - u32_mod0_start_time) > RESPONCE_TIME_OUT)
 			{
- 				UART0_puts("RESPONCE_TIMED_OUT");
- 				UART0_putc('\n');
+ 				UART0_puts("RESPONCE_TIMED_OUT\n");
+ 			
 				u8MB_mod0_status = RESPONCE_TIMED_OUT;
 			}
 
@@ -1375,9 +1357,9 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		  // check whether Modbus exception occurred; return Modbus Exception Code
 		  if (GET_BIT(u8_mod1_ADU[1], 7))
 		  {
-			UART0_puts("Error = ");
-			UART0_OutUDec(u8_mod1_ADU[2]);
-			UART0_putc('\n');
+// 			UART0_puts("Error = ");
+// 			UART0_OutUDec(u8_mod1_ADU[2]);
+// 			UART0_putc('\n');
 			u8MB_mod1_status = u8_mod1_ADU[2];
 			break;
 		  }
