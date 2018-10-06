@@ -1,7 +1,7 @@
 #define F_CPU 16000000UL
 
-#define LCD			DEVICE_0
-#define INVERTER	DEVICE_1
+#define  LCD			DEVICE_0
+#define  INVERTER   	DEVICE_1
 
 #include <avr/io.h>
 #include <util/delay.h>
@@ -49,28 +49,28 @@ int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600); //for debug
     System_init();
-	 //Lcd_init(UART3,115200,1);
+	//Lcd_init(UART3,115200,1);
 	UART0_puts("HELLO \n");
 	Inverter_init(UART1,38400,3);
 
-	uint16_t x=0;
-	g_Inveter_Config confg ;
-	confg.gear_diameter =6;
+	/*uint16_t x=0;*/
+	g_Inveter_Config confg;
+	confg.gear_diameter = 6;
 	confg.gear_ratio = 80;
-	confg.distance=210;
-	confg.motor_rpm_max=900;
-	confg.time_user_M=1;
-	confg.time_user_S=3;
- while (1)
- {
- 	UART0_puts("Hello \n");
-    Inverter_set_Freq(&confg);
- 
-   Inverter_change_state(1);
-//  	_delay_ms(1000);
-//    Inverter_change_state(0);
-   _delay_ms(3000);
-}
+	confg.distance = 210;
+	confg.motor_rpm_max = 900;
+	confg.time_user_M = 1;
+	confg.time_user_S = 3;
+//  while (1)
+//  {
+//  	UART0_puts("Hello \n");
+//     Inverter_set_Freq(&confg);
+//  
+//    Inverter_change_state(1);
+// // _delay_ms(1000);
+// // Inverter_change_state(0);
+//    _delay_ms(3000);
+// }
 	//Temp_main_init();
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic( //print LCD data from RTE lowest priority
@@ -267,15 +267,4 @@ static void vTask4(void* pvParameters)
 		}
 	
 }
-
-// 
-// uint16_t x=0;
-// void vApplicationIdleHook(void){
-// 	UART0_putc('y');	
-// 	UART0_putc('\n');
-// }
-// 
-
-
-
 
