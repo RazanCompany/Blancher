@@ -53,7 +53,6 @@ int main(void) {
 	Tank_operation_init();
 	//Lcd_init(UART3,115200,1);
 	UART0_puts("HELLO \n");
-	Inverter_init(UART1,38400,3);
 // 	g_Inveter_Config confg;
 // 	confg.gear_diameter = 6;
 // 	confg.gear_ratio = 80;

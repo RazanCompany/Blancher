@@ -1,15 +1,12 @@
-Services/tank_operation.d Services/tank_operation.o: \
- ../Services/tank_operation.c ../Services/tank_operation.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
+RTOS_sync.d RTOS_sync.o: .././RTOS_sync.c .././RTOS_sync.h \
+ .././RTOS_Includes.h .././rtos/FreeRTOS.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- ../Services/../System.h ../Services/../MCAL/DIO.h \
- ../Services/../MCAL/../CONFIG.h ../Services/../ECUAL/Flow_rate.h \
- ../Services/../RTOS_Includes.h ../Services/../rtos/FreeRTOS.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
- ../Services/../rtos/FreeRTOSConfig.h \
+ .././rtos/FreeRTOSConfig.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include/avr/iom2560.h \
  C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include/avr/iomxx0_1.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
@@ -17,43 +14,31 @@ Services/tank_operation.d Services/tank_operation.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../Services/../rtos/projdefs.h ../Services/../rtos/portmacro.h \
- ../Services/../rtos/portable.h \
+ .././rtos/projdefs.h .././rtos/portmacro.h .././rtos/portable.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
- ../Services/../rtos/mpu_wrappers.h \
- ../Services/../rtos/FreeRTOSBoardDefs.h ../Services/../rtos/task.h \
- ../Services/../rtos/list.h ../Services/../rtos/task.h \
- ../Services/../rtos/message_buffer.h ../Services/../rtos/stream_buffer.h \
- ../Services/../rtos/semphr.h ../Services/../rtos/queue.h \
- ../Services/../CONFIG.h
+ .././rtos/mpu_wrappers.h .././rtos/FreeRTOSBoardDefs.h .././rtos/task.h \
+ .././rtos/list.h .././rtos/task.h .././rtos/message_buffer.h \
+ .././rtos/stream_buffer.h .././rtos/semphr.h .././rtos/queue.h
 
-../Services/tank_operation.h:
+.././RTOS_sync.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
+.././RTOS_Includes.h:
+
+.././rtos/FreeRTOS.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
-../Services/../System.h:
-
-../Services/../MCAL/DIO.h:
-
-../Services/../MCAL/../CONFIG.h:
-
-../Services/../ECUAL/Flow_rate.h:
-
-../Services/../RTOS_Includes.h:
-
-../Services/../rtos/FreeRTOS.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
-
-../Services/../rtos/FreeRTOSConfig.h:
+.././rtos/FreeRTOSConfig.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
 
 C:\Program\ Files\ (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include/avr/iom2560.h:
 
@@ -69,30 +54,28 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-../Services/../rtos/projdefs.h:
+.././rtos/projdefs.h:
 
-../Services/../rtos/portmacro.h:
+.././rtos/portmacro.h:
 
-../Services/../rtos/portable.h:
+.././rtos/portable.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h:
 
-../Services/../rtos/mpu_wrappers.h:
+.././rtos/mpu_wrappers.h:
 
-../Services/../rtos/FreeRTOSBoardDefs.h:
+.././rtos/FreeRTOSBoardDefs.h:
 
-../Services/../rtos/task.h:
+.././rtos/task.h:
 
-../Services/../rtos/list.h:
+.././rtos/list.h:
 
-../Services/../rtos/task.h:
+.././rtos/task.h:
 
-../Services/../rtos/message_buffer.h:
+.././rtos/message_buffer.h:
 
-../Services/../rtos/stream_buffer.h:
+.././rtos/stream_buffer.h:
 
-../Services/../rtos/semphr.h:
+.././rtos/semphr.h:
 
-../Services/../rtos/queue.h:
-
-../Services/../CONFIG.h:
+.././rtos/queue.h:

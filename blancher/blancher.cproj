@@ -175,6 +175,30 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="application\errors.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="application\errors.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="application\Level_monitor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="application\Level_monitor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="application\sequance.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="application\sequance.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="application\Temp_monitor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="application\Temp_monitor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="CONFIG.h">
       <SubType>compile</SubType>
     </Compile>
@@ -430,6 +454,12 @@
     <Compile Include="RTOS_Includes.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="RTOS_sync.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="RTOS_sync.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Services\Drum_speed_Tasks.c">
       <SubType>compile</SubType>
     </Compile>
@@ -446,12 +476,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\Level_Task.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Services\Service_main.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="Services\Service_main.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\tank_operation.c">
@@ -502,6 +526,7 @@
     <Folder Include="ECUAL\Encoder\" />
     <Folder Include="ECUAL\Modbus\" />
     <Folder Include="MCAL\" />
+    <Folder Include="application" />
     <Folder Include="RTE" />
     <Folder Include="RAL\" />
     <Folder Include="rtos\" />

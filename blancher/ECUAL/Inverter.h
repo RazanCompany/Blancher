@@ -9,6 +9,7 @@
 #ifndef INVERTER_H_
 #define INVERTER_H_
 #include "../CONFIG.h"
+#include "../MCAL/UART.h"
 /**********************Declaration*******************************************/
 //Inveter  configration parameters that contain the gear ratio , diameter,distance ,MAXRpm 
 typedef struct inv_configration

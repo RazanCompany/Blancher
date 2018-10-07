@@ -1,6 +1,6 @@
 Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
- ../Services/LCD_Tasks.h ../Services/../RTOS_Includes.h \
- ../Services/../rtos/FreeRTOS.h \
+ ../Services/LCD_Tasks.h ../Services/../RTOS_sync.h \
+ ../Services/../RTOS_Includes.h ../Services/../rtos/FreeRTOS.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
@@ -37,6 +37,8 @@ Services/LCD_Tasks.d Services/LCD_Tasks.o: ../Services/LCD_Tasks.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
 ../Services/LCD_Tasks.h:
+
+../Services/../RTOS_sync.h:
 
 ../Services/../RTOS_Includes.h:
 

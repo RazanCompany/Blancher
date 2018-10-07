@@ -12,7 +12,13 @@
 
 typedef enum{
 	E_OK=0,
-	E_Fail
+	E_Fail,
+	E_SALT_fail,
+	E_INLET_FLOW_fail , 
+	E_OUTLET_FLOW_fail,
+	E_DRUM_ENCODER_fail,
+	E_CONVOYER_ENCODER_fail,
+	E_SALT_MOTER_ENCODER_fail
 
 }gSystemError;
 

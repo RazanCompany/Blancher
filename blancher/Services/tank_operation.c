@@ -10,6 +10,7 @@
 #include "../RTOS_Includes.h"
 #include "../CONFIG.h"
 
+
 static void Tank_feed_callback (void);
 static void Tank_out_callback (void);
 
@@ -32,39 +33,45 @@ void Tank_operation_init(void)
 	//outing_Semaphore = xSemaphoreCreateBinaryStatic( &outing_SemaphoreBuffer );
 }
 
-void Tank_feed_operation(uint16_t liters)
+gSystemError Tank_feed_operation(uint16_t liters)
 {   
-//	xSemaphoreTake(Feeding_Semaphore , 0);
 	g_feeding_liters_counter = 0;
 	g_feed_liters = liters * 2 ;
 	
 	// start the feeding valve to fill the tank.
 	Tank_valve_1_change_state(HIGH);
 	// wait until the tank feed operation ends 
-// 	xSemaphoreTake(Feeding_Semaphore ,  portMAX_DELAY );
+	if(xSemaphoreTake(Feeding_Semaphore , ( TickType_t ) (liters * 2000) ) == pdFALSE  )
+	{
+		Tank_valve_1_change_state(LOW);
+		return E_Fail ;
+	}
 	// turn the feeding valve when the proper amount pass.
 	Tank_valve_1_change_state(LOW);
-//	xSemaphoreGive( Feeding_Semaphore) ;
-	
+	return E_OK ;
 }
 
 
-void Tank_out_operation(uint16_t liters)
+gSystemError Tank_out_operation(uint16_t liters)
 {
-   //xSemaphoreTake(outing_Semaphore , 0);
+  
 	g_out_liters_counter = 0;
 	g_out_liters = liters * 2 ;
 	// opening the out valve and pump 
 	Tank_valve_2_change_state(HIGH);
 	Pump_change_state(HIGH);
 	// block until the amount of water pass
-//	xSemaphoreTake(outing_Semaphore , portMAX_DELAY);
+	if(xSemaphoreTake(outing_Semaphore , ( TickType_t )(liters * 2000)) == pdFALSE  )
+	{
+		Pump_change_state(LOW);
+		Tank_valve_2_change_state(LOW);
+		return E_Fail ;
+	}
+	 
 	// turn the pump and valve off .
 	Pump_change_state(LOW);
 	Tank_valve_2_change_state(LOW);
-	// release the semaphore 
-//	xSemaphoreGive(outing_Semaphore);
-	
+	return E_OK ;
 }
 
 

@@ -14,7 +14,8 @@ ECUAL/Inverter.d ECUAL/Inverter.o: ../ECUAL/Inverter.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../ECUAL/Modbus/../../CONFIG.h ../ECUAL/Inverter.h ../ECUAL/../CONFIG.h \
- ../ECUAL/../MCAL/DIO.h ../ECUAL/../MCAL/../CONFIG.h
+ ../ECUAL/../MCAL/UART.h ../ECUAL/../MCAL/DIO.h \
+ ../ECUAL/../MCAL/../CONFIG.h
 
 ../ECUAL/Modbus/Modbus_master.h:
 
@@ -49,6 +50,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../ECUAL/Inverter.h:
 
 ../ECUAL/../CONFIG.h:
+
+../ECUAL/../MCAL/UART.h:
 
 ../ECUAL/../MCAL/DIO.h:
 

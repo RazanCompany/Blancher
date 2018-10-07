@@ -7,6 +7,7 @@
 #include "PowderIF.h"
 #include "../MCAL/Timer.h"
 #include "../MCAL/DIO.h"
+#include "../System.h"
 /********************************Variables ***********************************/
 g_Timer_Config g_Powder_config;
 
@@ -45,14 +46,21 @@ void Powder_init(float Gram_for_one_ticks ,int Timer_number )
  * @parameter the amount of salt by Gram
  * @Return Nothing
  */
-void Powder_drop(float Gram)
+gSystemError Powder_drop(float Gram)
 {
 	//the desire amount of salt by Gram
 	g_GM_target = Gram;
 	//Turn on the Powder Motor
 	Powder_motor_change_state(1);
+	uint16_t gram_timeout = Gram  ;
 	// wait until Put the Whole amount of the salt
-	while(g_GM_target > 0.1);
+	while(g_GM_target > 0.1)
+	{
+		gram_timeout -- ; 
+		_delay_ms(5000);
+		if (gram_timeout== 0)  break;
+	}
+     if	(gram_timeout == 0 && g_GM_target > 0.1 ) return E_Fail ;
 	// close the Motor after put the desire salt
 	Powder_motor_change_state(0);
 
@@ -67,4 +75,6 @@ void Powder_ISR(uint32_t dif_time)
 	//decrease the amount of salt with one Ticks amount
 	g_GM_target -=g_gram_for_one_ticks ;
 }
+
+
 

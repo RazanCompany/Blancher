@@ -2,6 +2,14 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+application\errors.c
+
+application\Level_monitor.c
+
+application\sequance.c
+
+application\Temp_monitor.c
+
 ECUAL\Blancher_level.c
 
 ECUAL\Drum.c
@@ -72,13 +80,13 @@ rtos\tasks.c
 
 rtos\timers.c
 
+RTOS_sync.c
+
 Services\Drum_speed_Tasks.c
 
 Services\LCD_Tasks.c
 
 Services\Level_Task.c
-
-Services\Service_main.c
 
 Services\tank_operation.c
 

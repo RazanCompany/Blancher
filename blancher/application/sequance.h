@@ -9,6 +9,9 @@
 #ifndef SEQUANCE_H_
 #define SEQUANCE_H_
 
+void Sequance_task (void* pvParameters);
+gSystemError System_check (void);
+
 
 
 

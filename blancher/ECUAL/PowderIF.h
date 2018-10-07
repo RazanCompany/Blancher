@@ -8,7 +8,7 @@
 #ifndef POWDER_H_
 #define POWDER_H_
 
-
+#include "../System.h"
 /*
  * init the powder gm for each ticks
  * and the timer for powder encoder
@@ -22,8 +22,7 @@ void Powder_init(float Gram_for_one_ticks ,int Timer_number );
  * @parameter the amount of salt by Gram
  * @Return Nothing
  */
-void Powder_drop(float Gram);
-
+gSystemError Powder_drop(float Gram);
 // /*
 //  * ISR call Back function
 //  * @parameter different time between each ticks

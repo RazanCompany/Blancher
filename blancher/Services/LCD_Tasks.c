@@ -11,7 +11,7 @@ Must init modbus for the LCD
 */
 #define  F_CPU		16000000
 #include "LCD_Tasks.h"
-#include "../RTOS_Includes.h"
+#include "../RTOS_sync.h"
 #include "../RTE/RTE_drum.h" //drum speed w
 #include "../RTE/RTE_invertersetting.h"
 #include "../RTE/RTE_temperature.h"
@@ -118,13 +118,15 @@ void LCD_main(void* pvParameters){
 	#endif
 	uint8_t r_err, w_err;
 	static uint8_t read_err_counter = 0 ,write_err_counter = 0 ;
-    Lcd_init(UART3,115200,1);
 	//unsigned int x_time = 0;
 	while(1){
 		
 		//x_time = Get_millis();
-		UART0_puts("LCD alive task \n");
+		//UART0_puts("LCD alive task \n");
+		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
 		r_err =  LCD_READ_Parameters();
+		xSemaphoreGive(LCD_mutex_handle ) ;
+		
  		if(LCD_RESPONCE_TIMED_OUT == r_err)
  		{
 			 read_err_counter++;
@@ -148,7 +150,10 @@ void LCD_main(void* pvParameters){
  		}
  		
   		LCD_RTE_COLLECT();
+		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
  		w_err = LCD_WRITE_Parameters();
+		xSemaphoreGive(LCD_mutex_handle ) ; 
+		
 		if(LCD_RESPONCE_TIMED_OUT == w_err)
 		{
 			write_err_counter++;

@@ -17,6 +17,16 @@
 #define	 LCD_READ_ERROR																    0x09
 #define  LCD_RESPONCE_TIMED_OUT															RESPONCE_TIMED_OUT
 
+#define SALT_ERROR_PIC  21
+#define SALT_MOTOR_ERROR_PIC   22 
+#define DRUM_MOTOR_ERROR_PIC    23  
+#define CONVEYOR_MOTOR_ERROR_PIC    24
+#define INLET_FLOW_ERROR_PIC    25
+#define OUTLET_FLOW_ERROR_PIC    26
+
+
+
+
 
 /*****************************************  LCD ADDRESSES ******************************************************/
 #define  LCD_BUZZER_REG       													    0x0002

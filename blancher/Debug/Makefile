@@ -43,6 +43,7 @@ SUBDIRS :=  \
 ../ECUAL/Encoder/ \
 ../ECUAL/Modbus/ \
 ../MCAL/ \
+../application \
 ../RTE \
 ../RAL/ \
 ../rtos/ \
@@ -52,6 +53,10 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../application/errors.c \
+../application/Level_monitor.c \
+../application/sequance.c \
+../application/Temp_monitor.c \
 ../ECUAL/Blancher_level.c \
 ../ECUAL/Drum.c \
 ../ECUAL/Encoder/Encoder.c \
@@ -87,10 +92,10 @@ C_SRCS +=  \
 ../rtos/stream_buffer.c \
 ../rtos/tasks.c \
 ../rtos/timers.c \
+../RTOS_sync.c \
 ../Services/Drum_speed_Tasks.c \
 ../Services/LCD_Tasks.c \
 ../Services/Level_Task.c \
-../Services/Service_main.c \
 ../Services/tank_operation.c \
 ../Services/TEMP_Task.c \
 ../System.c \
@@ -106,6 +111,10 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+application/errors.o \
+application/Level_monitor.o \
+application/sequance.o \
+application/Temp_monitor.o \
 ECUAL/Blancher_level.o \
 ECUAL/Drum.o \
 ECUAL/Encoder/Encoder.o \
@@ -141,10 +150,10 @@ rtos/queue.o \
 rtos/stream_buffer.o \
 rtos/tasks.o \
 rtos/timers.o \
+RTOS_sync.o \
 Services/Drum_speed_Tasks.o \
 Services/LCD_Tasks.o \
 Services/Level_Task.o \
-Services/Service_main.o \
 Services/tank_operation.o \
 Services/TEMP_Task.o \
 System.o \
@@ -153,6 +162,10 @@ utils/CRC16.o \
 utils/Millis.o
 
 OBJS_AS_ARGS +=  \
+application/errors.o \
+application/Level_monitor.o \
+application/sequance.o \
+application/Temp_monitor.o \
 ECUAL/Blancher_level.o \
 ECUAL/Drum.o \
 ECUAL/Encoder/Encoder.o \
@@ -188,10 +201,10 @@ rtos/queue.o \
 rtos/stream_buffer.o \
 rtos/tasks.o \
 rtos/timers.o \
+RTOS_sync.o \
 Services/Drum_speed_Tasks.o \
 Services/LCD_Tasks.o \
 Services/Level_Task.o \
-Services/Service_main.o \
 Services/tank_operation.o \
 Services/TEMP_Task.o \
 System.o \
@@ -200,6 +213,10 @@ utils/CRC16.o \
 utils/Millis.o
 
 C_DEPS +=  \
+application/errors.d \
+application/Level_monitor.d \
+application/sequance.d \
+application/Temp_monitor.d \
 ECUAL/Blancher_level.d \
 ECUAL/Drum.d \
 ECUAL/Encoder/Encoder.d \
@@ -235,10 +252,10 @@ rtos/queue.d \
 rtos/stream_buffer.d \
 rtos/tasks.d \
 rtos/timers.d \
+RTOS_sync.d \
 Services/Drum_speed_Tasks.d \
 Services/LCD_Tasks.d \
 Services/Level_Task.d \
-Services/Service_main.d \
 Services/tank_operation.d \
 Services/TEMP_Task.d \
 System.d \
@@ -247,6 +264,10 @@ utils/CRC16.d \
 utils/Millis.d
 
 C_DEPS_AS_ARGS +=  \
+application/errors.d \
+application/Level_monitor.d \
+application/sequance.d \
+application/Temp_monitor.d \
 ECUAL/Blancher_level.d \
 ECUAL/Drum.d \
 ECUAL/Encoder/Encoder.d \
@@ -282,10 +303,10 @@ rtos/queue.d \
 rtos/stream_buffer.d \
 rtos/tasks.d \
 rtos/timers.d \
+RTOS_sync.d \
 Services/Drum_speed_Tasks.d \
 Services/LCD_Tasks.d \
 Services/Level_Task.d \
-Services/Service_main.d \
 Services/tank_operation.d \
 Services/TEMP_Task.d \
 System.d \
@@ -397,6 +418,21 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+
+
+
+
+
+
+application/%.o: ../application/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 4.9.2
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
 
 ECUAL/%.o: ../ECUAL/%.c
 	@echo Building file: $<
