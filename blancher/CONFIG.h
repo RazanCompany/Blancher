@@ -6,3 +6,6 @@
 
 #define  LCD					         DEVICE_0
 #define  INVERTER					     DEVICE_1
+
+#define  FLOWRATE_SENSOR_1_TIMER_NUMBER    1
+#define  FLOWRATE_SENSOR_2_TIMER_NUMBER    3

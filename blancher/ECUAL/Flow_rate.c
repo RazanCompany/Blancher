@@ -25,15 +25,15 @@ static void flowrate_outing_callback (uint32_t time );
 void (*feeding_operation_callback)(void) ; 
 void (*out_operation_callback)(void) ;
 
-// structs to hold the timers config .
+// struts to hold the timers config .
 g_Timer_Config feeding_configeration;
 g_Timer_Config outing_configeration;
 
-void Flow_rate_init(void (*callback1)(void) , void (*callback2)(void)) 
+void Flow_rate_init(uint8_t flowrate1_timer_number,uint8_t flowrate2_timer_number,void (*callback1)(void) , void (*callback2)(void)) 
 {
 	
 	feeding_configeration.ticks = TICKS_FOR_HALF_LITER ;
-	feeding_configeration.timer_number = 1 ;
+	feeding_configeration.timer_number = 1 ;//flowrate1_timer_number
 	feeding_configeration.isr_call_back = flowrate_feeding_callback ;
 	
 	// initialize the needed timer with the previous config .
@@ -41,7 +41,7 @@ void Flow_rate_init(void (*callback1)(void) , void (*callback2)(void))
 	
 	// initialize other timer for the second flow rate .
 	feeding_configeration.ticks = TICKS_FOR_HALF_LITER ;
-	feeding_configeration.timer_number = 3 ;
+	feeding_configeration.timer_number = 3 ;//flowrate2_timer_number
 	feeding_configeration.isr_call_back = flowrate_outing_callback ;
 	
 	// initialize the needed timer with the previous config .

@@ -22,8 +22,6 @@ ECUAL\Modbus\Modbus_master.c
 
 ECUAL\PowderIF.c
 
-ECUAL\Pumb.c
-
 ECUAL\Temperature.c
 
 error_callbacks.c

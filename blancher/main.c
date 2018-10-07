@@ -16,6 +16,7 @@
 #include "Services/LCD_Tasks.h"
 #include "RTE/RTE_main.h"
 #include "System.h"
+#include "Services/tank_operation.h"
 
 #include "ECUAL/levels.h"
 #include "Services/Level_Task.h"
@@ -49,18 +50,17 @@ int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600); //for debug
     System_init();
+	Tank_operation_init();
 	//Lcd_init(UART3,115200,1);
 	UART0_puts("HELLO \n");
 	Inverter_init(UART1,38400,3);
-
-	/*uint16_t x=0;*/
-	g_Inveter_Config confg;
-	confg.gear_diameter = 6;
-	confg.gear_ratio = 80;
-	confg.distance = 210;
-	confg.motor_rpm_max = 900;
-	confg.time_user_M = 1;
-	confg.time_user_S = 3;
+// 	g_Inveter_Config confg;
+// 	confg.gear_diameter = 6;
+// 	confg.gear_ratio = 80;
+// 	confg.distance = 210;
+// 	confg.motor_rpm_max = 900;
+// 	confg.time_user_M = 1;
+// 	confg.time_user_S = 3;
 //  while (1)
 //  {
 //  	UART0_puts("Hello \n");
@@ -99,15 +99,15 @@ int main(void) {
 				2,/* Priority at which the task is created. */
 				xStack3, /* Array to use as the task's stack. */
 				&xTask3Buffer); /* Variable to hold the task's data structure. */
-// 	
-// 	xHandle4 = xTaskCreateStatic(
-// 				vTask4, /* Function that implements the task. */
-// 				"Task4", /* Text name for the task. */
-// 				STACK_SIZE, /* The number of indexes in the xStack array. */
-// 				NULL, /* Parameter passed into the task. */
-// 				2,/* Priority at which the task is created. */
-// 				xStack4, /* Array to use as the task's stack. */
-// 				&xTask4Buffer); /* Variable to hold the task's data structure. */
+	
+	xHandle4 = xTaskCreateStatic(
+				vTask4, /* Function that implements the task. */
+				"Task4", /* Text name for the task. */
+				STACK_SIZE, /* The number of indexes in the xStack array. */
+				NULL, /* Parameter passed into the task. */
+				2,/* Priority at which the task is created. */
+				xStack4, /* Array to use as the task's stack. */
+				&xTask4Buffer); /* Variable to hold the task's data structure. */
 
 
 	//char x=0;
@@ -170,58 +170,11 @@ static void vTask1(void* pvParameters)
 	char x=0;
 	UART0_puts("Level Task1 \n");
 	Level_main(&x);
-// 	uint16_t DEBUG_array[16];
-// 	while(1)
-// 	{
-// 		DEBUG_array[0]=RTE_get_Threshold_set_temperature();
-// 		DEBUG_array[1]=RTE_get_Threshold_sleep_temperature();
-// 		DEBUG_array[2]=RTE_get_Positive_offset_temperature();
-// 		DEBUG_array[3]=RTE_get_Negative_offset_temperature();
-// 		DEBUG_array[4]=RTE_get_Conveyor_length();
-// 		DEBUG_array[5]=RTE_get_Set_temperature();
-// 		DEBUG_array[6]=RTE_get_Sleep_temperature();
-// 		DEBUG_array[7]=RTE_get_Wash_Operation();
-// 		DEBUG_array[8]=RTE_get_System_on();
-// 		DEBUG_array[9]=RTE_get_Tank_Calibration_Operation();
-// 		DEBUG_array[10]=RTE_get_Start_blancher_Operation();
-// 		DEBUG_array[11]=RTE_get_Gear_ratio();
-// 		DEBUG_array[12]=RTE_get_Driver_diameter();
-// 		DEBUG_array[13]=RTE_get_RPM_max();
-// 		DEBUG_array[14]=RTE_get_Time_minute();
-// 		DEBUG_array[15]=RTE_get_Time_second();
-// 		
-// 		
-// 		for (uint8_t i=0;i<16;i++)
-// 		{
-// 			UART0_puts("DEBUG_array[");
-// 			UART0_OutUDec(i);
-// 			UART0_puts("] = ");
-// 			UART0_OutUDec(DEBUG_array[i]);
-// 			UART0_putc('\n');
-// 		}
-// 		vTaskDelay(500/portTICK_PERIOD_MS);
-// 		
-// 	}
+
 }
 static void vTask2(void* pvParameters)
 {
 	char x=0;
-// 	uint16_t RTE_data=0;
-//	UART0_puts("LCD Task2\n");
-// 	while(1){
-// 		UART0_puts("Task2 working \n");
-// // 		UART0_OutUDec(x);
-// // 		UART0_putc('\n');
-// // 		RTE_set_Current_temperature(++x);
-// // 		UART0_puts("Task2 Requires ");
-// // 		RTE_data = RTE_get_RPM_max();
-// // 		UART0_puts("Task2 RTE_data = ");
-// // 		UART0_OutUDec(RTE_data);
-// // 		UART0_putc('\n');
-// 		vTaskDelay(600/portTICK_PERIOD_MS);
-// 		
-// 	}
-
 	LCD_main(&x);
 }
 
@@ -230,41 +183,51 @@ static void vTask3(void* pvParameters)
 {
 	char x=0;
 	UART0_puts("LEVEL Task3 \n");
-	
 	Temp_main(&x);
-	// 	while(1)
-	// 	{
-	// 		UART0_puts("Vtask1 receives data \n");
-	// 		xSemaphoreTake(Sema_Test_handle,portMAX_DELAY);
-	// 		UART0_puts("Vtask1 Released data= ");
-	// 		UART0_OutUDec(Test);
-	// 		UART0_putc('\n');
-	// 	}
 }
+
 static void vTask4(void* pvParameters)
 {
-// 	uint8_t x=0;
-// 	uint16_t RTE_data=0;
 	UART0_puts("Enter Task4\n");
-// 	while(1){
-// 		UART0_puts("Task4 working \n");
-// 		// 		UART0_OutUDec(x);
-// 		// 		UART0_putc('\n');
-// 		// 		RTE_set_Current_temperature(++x);
-// 		// 		UART0_puts("Task2 Requires ");
-// 		// 		RTE_data = RTE_get_RPM_max();
-// 		// 		UART0_puts("Task2 RTE_data = ");
-// 		// 		UART0_OutUDec(RTE_data);
-// 		// 		UART0_putc('\n');
-// 		vTaskDelay(600/portTICK_PERIOD_MS);
-// 		
-// 	}
 		while (1)
 		{
 			UART0_puts("vTask4 Exist\n");
 			_delay_ms(1000);
 			vTaskDelay(500/portTICK_PERIOD_MS);
 		}
+	// 	uint16_t DEBUG_array[16];
+	// 	while(1)
+	// 	{
+	// 		DEBUG_array[0]=RTE_get_Threshold_set_temperature();
+	// 		DEBUG_array[1]=RTE_get_Threshold_sleep_temperature();
+	// 		DEBUG_array[2]=RTE_get_Positive_offset_temperature();
+	// 		DEBUG_array[3]=RTE_get_Negative_offset_temperature();
+	// 		DEBUG_array[4]=RTE_get_Conveyor_length();
+	// 		DEBUG_array[5]=RTE_get_Set_temperature();
+	// 		DEBUG_array[6]=RTE_get_Sleep_temperature();
+	// 		DEBUG_array[7]=RTE_get_Wash_Operation();
+	// 		DEBUG_array[8]=RTE_get_System_on();
+	// 		DEBUG_array[9]=RTE_get_Tank_Calibration_Operation();
+	// 		DEBUG_array[10]=RTE_get_Start_blancher_Operation();
+	// 		DEBUG_array[11]=RTE_get_Gear_ratio();
+	// 		DEBUG_array[12]=RTE_get_Driver_diameter();
+	// 		DEBUG_array[13]=RTE_get_RPM_max();
+	// 		DEBUG_array[14]=RTE_get_Time_minute();
+	// 		DEBUG_array[15]=RTE_get_Time_second();
+	//
+	//
+	// 		for (uint8_t i=0;i<16;i++)
+	// 		{
+	// 			UART0_puts("DEBUG_array[");
+	// 			UART0_OutUDec(i);
+	// 			UART0_puts("] = ");
+	// 			UART0_OutUDec(DEBUG_array[i]);
+	// 			UART0_putc('\n');
+	// 		}
+	// 		vTaskDelay(500/portTICK_PERIOD_MS);
+	//
+	// 	}
+	
 	
 }
 

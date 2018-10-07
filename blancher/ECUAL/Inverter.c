@@ -64,6 +64,12 @@ void Inverter_init( UART_Modules uart_n, uint32_t baudrate, uint8_t slave_id )
  * return Nothing
  */
 
+
+
+void Inverter_DEBUG_set_Freq(uint16_t sitting_freq){
+	Modbus_Write_single_register(INVERTER,INVERTER_FRE_ADD,sitting_freq);
+}
+
 void Inverter_set_Freq(g_Inveter_Config *In_cofig )
 {
 	

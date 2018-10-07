@@ -241,12 +241,6 @@
     <Compile Include="ECUAL\PowderIF.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\Pumb.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ECUAL\Pumb.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="ECUAL\Temperature.c">
       <SubType>compile</SubType>
     </Compile>

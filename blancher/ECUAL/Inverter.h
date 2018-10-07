@@ -51,7 +51,7 @@ void Inverter_init( UART_Modules uart_n, uint32_t baudrate, uint8_t slave_id);
 void Inverter_set_Freq(g_Inveter_Config *In_cofig );
 void Inverter_change_state(uint8_t stat);
 
-
+void Inverter_DEBUG_set_Freq(uint16_t sitting_freq); //max 5000
 
 
 #endif /* INVERTER_H_ */

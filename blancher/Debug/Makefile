@@ -62,7 +62,6 @@ C_SRCS +=  \
 ../ECUAL/levels.c \
 ../ECUAL/Modbus/Modbus_master.c \
 ../ECUAL/PowderIF.c \
-../ECUAL/Pumb.c \
 ../ECUAL/Temperature.c \
 ../error_callbacks.c \
 ../GLOBAL.c \
@@ -117,7 +116,6 @@ ECUAL/LCD.o \
 ECUAL/levels.o \
 ECUAL/Modbus/Modbus_master.o \
 ECUAL/PowderIF.o \
-ECUAL/Pumb.o \
 ECUAL/Temperature.o \
 error_callbacks.o \
 GLOBAL.o \
@@ -165,7 +163,6 @@ ECUAL/LCD.o \
 ECUAL/levels.o \
 ECUAL/Modbus/Modbus_master.o \
 ECUAL/PowderIF.o \
-ECUAL/Pumb.o \
 ECUAL/Temperature.o \
 error_callbacks.o \
 GLOBAL.o \
@@ -213,7 +210,6 @@ ECUAL/LCD.d \
 ECUAL/levels.d \
 ECUAL/Modbus/Modbus_master.d \
 ECUAL/PowderIF.d \
-ECUAL/Pumb.d \
 ECUAL/Temperature.d \
 error_callbacks.d \
 GLOBAL.d \
@@ -261,7 +257,6 @@ ECUAL/LCD.d \
 ECUAL/levels.d \
 ECUAL/Modbus/Modbus_master.d \
 ECUAL/PowderIF.d \
-ECUAL/Pumb.d \
 ECUAL/Temperature.d \
 error_callbacks.d \
 GLOBAL.d \
@@ -376,13 +371,6 @@ ECUAL/Modbus/Modbus_master.o: ../ECUAL/Modbus/Modbus_master.c
 	
 
 ECUAL/PowderIF.o: ../ECUAL/PowderIF.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-ECUAL/Pumb.o: ../ECUAL/Pumb.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

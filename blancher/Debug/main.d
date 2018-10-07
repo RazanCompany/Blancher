@@ -32,7 +32,8 @@ main.d main.o: .././main.c \
  .././MCAL/DIO.h .././MCAL/../CONFIG.h .././Services/LCD_Tasks.h \
  .././RTE/RTE_main.h .././RTE/RTE_drum.h .././RTE/RTE_invertersetting.h \
  .././RTE/RTE_temperature.h .././RTE/RTE_operations.h .././System.h \
- .././ECUAL/levels.h .././Services/Level_Task.h .././Services/TEMP_Task.h
+ .././Services/tank_operation.h .././ECUAL/levels.h \
+ .././Services/Level_Task.h .././Services/TEMP_Task.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -141,6 +142,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././RTE/RTE_operations.h:
 
 .././System.h:
+
+.././Services/tank_operation.h:
 
 .././ECUAL/levels.h:
 

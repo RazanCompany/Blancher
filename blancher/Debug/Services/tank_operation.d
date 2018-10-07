@@ -24,7 +24,8 @@ Services/tank_operation.d Services/tank_operation.o: \
  ../Services/../rtos/FreeRTOSBoardDefs.h ../Services/../rtos/task.h \
  ../Services/../rtos/list.h ../Services/../rtos/task.h \
  ../Services/../rtos/message_buffer.h ../Services/../rtos/stream_buffer.h \
- ../Services/../rtos/semphr.h ../Services/../rtos/queue.h
+ ../Services/../rtos/semphr.h ../Services/../rtos/queue.h \
+ ../Services/../CONFIG.h
 
 ../Services/tank_operation.h:
 
@@ -91,3 +92,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Services/../rtos/semphr.h:
 
 ../Services/../rtos/queue.h:
+
+../Services/../CONFIG.h:

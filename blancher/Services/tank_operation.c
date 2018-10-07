@@ -8,7 +8,7 @@
 #include "../MCAL/DIO.h"
 #include "../ECUAL/Flow_rate.h"
 #include "../RTOS_Includes.h"
-
+#include "../CONFIG.h"
 
 static void Tank_feed_callback (void);
 static void Tank_out_callback (void);
@@ -27,43 +27,43 @@ StaticSemaphore_t feeding_SemaphoreBuffer , outing_SemaphoreBuffer ;
 
 void Tank_operation_init(void)
 {
-	Flow_rate_init( Tank_feed_callback , Tank_out_callback);	
-	Feeding_Semaphore = xSemaphoreCreateBinaryStatic( &feeding_SemaphoreBuffer );
-	outing_Semaphore = xSemaphoreCreateBinaryStatic( &outing_SemaphoreBuffer );
+	Flow_rate_init(FLOWRATE_SENSOR_1_TIMER_NUMBER ,FLOWRATE_SENSOR_2_TIMER_NUMBER, Tank_feed_callback , Tank_out_callback);	
+	//Feeding_Semaphore = xSemaphoreCreateBinaryStatic( &feeding_SemaphoreBuffer );
+	//outing_Semaphore = xSemaphoreCreateBinaryStatic( &outing_SemaphoreBuffer );
 }
 
 void Tank_feed_operation(uint16_t liters)
 {   
-	xSemaphoreTake(Feeding_Semaphore , 0);
+//	xSemaphoreTake(Feeding_Semaphore , 0);
 	g_feeding_liters_counter = 0;
 	g_feed_liters = liters * 2 ;
 	
 	// start the feeding valve to fill the tank.
 	Tank_valve_1_change_state(HIGH);
 	// wait until the tank feed operation ends 
-	xSemaphoreTake(Feeding_Semaphore ,  portMAX_DELAY );
+// 	xSemaphoreTake(Feeding_Semaphore ,  portMAX_DELAY );
 	// turn the feeding valve when the proper amount pass.
 	Tank_valve_1_change_state(LOW);
-	xSemaphoreGive( Feeding_Semaphore) ;
+//	xSemaphoreGive( Feeding_Semaphore) ;
 	
 }
 
 
 void Tank_out_operation(uint16_t liters)
 {
-   	xSemaphoreTake(outing_Semaphore , 0);
+   //	xSemaphoreTake(outing_Semaphore , 0);
 	g_out_liters_counter = 0;
 	g_out_liters = liters * 2 ;
-	// opening the out valve and punp 
+	// opening the out valve and pump 
 	Tank_valve_2_change_state(HIGH);
 	Pump_change_state(HIGH);
 	// block until the amount of water pass
-	xSemaphoreTake(outing_Semaphore , portMAX_DELAY);
+//	xSemaphoreTake(outing_Semaphore , portMAX_DELAY);
 	// turn the pump and valve off .
 	Pump_change_state(LOW);
 	Tank_valve_2_change_state(LOW);
 	// release the semaphore 
-	xSemaphoreGive(outing_Semaphore);
+//	xSemaphoreGive(outing_Semaphore);
 	
 }
 
