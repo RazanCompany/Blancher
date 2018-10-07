@@ -51,7 +51,7 @@ void Tank_feed_operation(uint16_t liters)
 
 void Tank_out_operation(uint16_t liters)
 {
-   //	xSemaphoreTake(outing_Semaphore , 0);
+   //xSemaphoreTake(outing_Semaphore , 0);
 	g_out_liters_counter = 0;
 	g_out_liters = liters * 2 ;
 	// opening the out valve and pump 
@@ -89,7 +89,6 @@ static void Tank_out_callback(void)
 	{
 		// release the semaphore
 		xSemaphoreGive(outing_Semaphore );
-		
 	}
 	
 }
