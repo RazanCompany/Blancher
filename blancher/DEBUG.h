@@ -12,5 +12,11 @@
 
 //#define DEBUG
 
+ //#define SALT_EXIST_CHECK			  
+//#define POWDER_DROP_CHECK			  
+// #define TANK_FEED_CHECK				  
+// #define TANK_OUT_CHECK			 	  
+#define DRUM_CONVEYOR_CHECK			  
+
 
 #endif /* DEBUG_H_ */

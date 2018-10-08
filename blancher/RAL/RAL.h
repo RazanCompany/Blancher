@@ -68,10 +68,10 @@
 #define POWDER_PIN            7
 
 // ________CONVOYER MOTOR _____________//
-#define CONVEYOR_DIRECTION_REG        DDRC
-#define CONVEYOR_DATA_REG             PORTC
-#define CONVEYOR_STATUS_REG           PINC
-#define CONVEYOR_PIN                  0
+#define CONVEYOR_DIRECTION_REG        DDRK
+#define CONVEYOR_DATA_REG             PORTK
+#define CONVEYOR_STATUS_REG           PINK
+#define CONVEYOR_PIN                  7
 
 // _______CONVEROR STATE SENSOR ________//
 #define CONVEYOR_STATE_DIRECTION_REG        DDRC

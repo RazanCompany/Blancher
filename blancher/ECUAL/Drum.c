@@ -8,6 +8,8 @@
 #include <stdint.h>
 #include <math.h>
 #include "Encoder/Encoder.h"
+#include "../MCAL/UART.h"
+#include "../CONFIG.h"
 /*Drum struct parameter*/
 
 
@@ -28,7 +30,7 @@ static void Set_drum_time_callback(uint32_t dif_time);
  * return@ Nothing
  */
 void Drum_speed_init(void){
-	Encoder_init(Set_drum_time_callback, 5, 16);
+	Encoder_init(Set_drum_time_callback,DRUM_SPEED_ENCODER_TIMER_NUMBER, 16);
 	
 }
 static void Set_drum_time_callback(uint32_t dif_time)
@@ -49,6 +51,9 @@ uint16_t Drum_speed(void)
 		s = 1 / s ;
 	}
 	val = round(s);
+	UART0_puts("SP");
+	UART0_OutUDec(val);
+	UART0_putc('\n');
 	return val;
 	
 }

@@ -1094,7 +1094,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 			}
 			if ((millis() - u32_mod0_start_time) > RESPONCE_TIME_OUT)
 			{
- 				UART0_puts("RESPONCE_TIMED_OUT\n");
+ 				UART0_puts("MOD0 RESPONCE_TIMED_OUT\n");
  			
 				u8MB_mod0_status = RESPONCE_TIMED_OUT;
 			}
@@ -1391,7 +1391,7 @@ static uint8_t Modbus_mster_transaction(uint8_t device, uint8_t u8MBFunction){
 		if ((millis() - u32_mod1_start_time) > RESPONCE_TIME_OUT)
 		{
 		  u8MB_mod1_status = RESPONCE_TIMED_OUT;
-		  UART0_puts("RESPONCE_TIMED_OUT\n");
+		  UART0_puts("Mod1 RESPONCE_TIMED_OUT\n");
 		}
 		}
 

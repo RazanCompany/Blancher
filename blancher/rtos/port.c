@@ -497,7 +497,7 @@ void prvSetupTimerInterrupt( void )
 {
 	//reset watchdog
 	wdt_reset();
-
+	
 	//set up WDT Interrupt (rather than the WDT Reset).
 	wdt_interrupt_enable( portUSE_WDTO );
 }

@@ -16,6 +16,7 @@
 #include "Services/LCD_Tasks.h"
 #include "RTE/RTE_main.h"
 #include "System.h"
+#include "application/sequance.h"
 #include "Services/tank_operation.h"
 
 #include "ECUAL/levels.h"
@@ -52,20 +53,20 @@ int main(void) {
     System_init();
 	Tank_operation_init();
 	//Lcd_init(UART3,115200,1);
-	UART0_puts("HELLO \n");
+	UART0_puts("start \n");
 // 	g_Inveter_Config confg;
 // 	confg.gear_diameter = 6;
 // 	confg.gear_ratio = 80;
 // 	confg.distance = 210;
 // 	confg.motor_rpm_max = 900;
-// 	confg.time_user_M = 1;
-// 	confg.time_user_S = 3;
+// 	confg.time_user_M = 0;
+// 	confg.time_user_S = 5;
 //  while (1)
 //  {
 //  	UART0_puts("Hello \n");
 //     Inverter_set_Freq(&confg);
-//  
-//    Inverter_change_state(1);
+//     _delay_ms(1000);
+//    Inverter_change_state(0);
 // // _delay_ms(1000);
 // // Inverter_change_state(0);
 //    _delay_ms(3000);
@@ -81,24 +82,24 @@ int main(void) {
 					xStack1, /* Array to use as the task's stack. */
 					&xTask1Buffer); /* Variable to hold the task's data structure. */
 	
-	xHandle2 = xTaskCreateStatic( //LCD highest priority
-				vTask2, /* Function that implements the task. */
-				"Task2", /* Text name for the task. */
-				STACK_SIZE, /* The number of indexes in the xStack array. */
-				NULL, /* Parameter passed into the task. */
-				2,/* Priority at which the task is created. */
-				xStack2, /* Array to use as the task's stack. */
-				&xTask2Buffer); /* Variable to hold the task's data structure. */
-				
-	xHandle3 = xTaskCreateStatic( //temp mid priority
-				vTask3, /* Function that implements the task. */
-				"Task3", /* Text name for the task. */
-				STACK_SIZE, /* The number of indexes in the xStack array. */
-				NULL, /* Parameter passed into the task. */
-				2,/* Priority at which the task is created. */
-				xStack3, /* Array to use as the task's stack. */
-				&xTask3Buffer); /* Variable to hold the task's data structure. */
-	
+// 	xHandle2 = xTaskCreateStatic( //LCD highest priority
+// 				vTask2, /* Function that implements the task. */
+// 				"Task2", /* Text name for the task. */
+// 				STACK_SIZE, /* The number of indexes in the xStack array. */
+// 				NULL, /* Parameter passed into the task. */
+// 				2,/* Priority at which the task is created. */
+// 				xStack2, /* Array to use as the task's stack. */
+// 				&xTask2Buffer); /* Variable to hold the task's data structure. */
+// 				
+// 	xHandle3 = xTaskCreateStatic( //temp mid priority
+// 				vTask3, /* Function that implements the task. */
+// 				"Task3", /* Text name for the task. */
+// 				STACK_SIZE, /* The number of indexes in the xStack array. */
+// 				NULL, /* Parameter passed into the task. */
+// 				2,/* Priority at which the task is created. */
+// 				xStack3, /* Array to use as the task's stack. */
+// 				&xTask3Buffer); /* Variable to hold the task's data structure. */
+// 	
 	xHandle4 = xTaskCreateStatic(
 				vTask4, /* Function that implements the task. */
 				"Task4", /* Text name for the task. */
@@ -167,8 +168,13 @@ int main(void) {
 static void vTask1(void* pvParameters)
 {
 	char x=0;
-	UART0_puts("Level Task1 \n");
-	Level_main(&x);
+	UART0_puts("Sequance Task1 \n");
+//	Level_main(&x);
+    Sequance_task(&x);
+//   while (1)
+//   {
+// 	   UART0_puts("task1 alive\n");
+//   }
 
 }
 static void vTask2(void* pvParameters)
@@ -191,7 +197,7 @@ static void vTask4(void* pvParameters)
 		while (1)
 		{
 			UART0_puts("vTask4 Exist\n");
-			_delay_ms(1000);
+			//_delay_ms(1000);
 			vTaskDelay(500/portTICK_PERIOD_MS);
 		}
 	// 	uint16_t DEBUG_array[16];

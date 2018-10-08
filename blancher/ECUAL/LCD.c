@@ -50,9 +50,8 @@ uint16_t Lcd_Read(uint16_t address,uint16_t *pData){
     int err_4 = Modbus_Read_holding_registers(LCD,address, 1);
     if(!err_4){
         *pData=Modbus_Get_response_buffer(LCD,0);
-		UART0_puts("RECEEEEEEVIVING \n ");
-		
-    }
+		//UART0_puts("RECEEEEEEVIVING \n ");
+	}
      return LCD_READ_ERROR;
 }
 
