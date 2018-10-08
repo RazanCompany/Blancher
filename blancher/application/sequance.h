@@ -8,6 +8,7 @@
 
 #ifndef SEQUANCE_H_
 #define SEQUANCE_H_
+#include "../System.h"
 
 void Sequance_task (void* pvParameters);
 gSystemError System_check (void);

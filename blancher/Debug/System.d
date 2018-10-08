@@ -1,6 +1,6 @@
 System.d System.o: .././System.c .././System.h .././RTE/RTE_main.h \
  .././RTE/RTE_drum.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  .././RTE/RTE_invertersetting.h .././RTE/RTE_temperature.h \
  .././RTE/RTE_operations.h .././utils/Millis.h \
@@ -19,7 +19,7 @@ System.d System.o: .././System.c .././System.h .././RTE/RTE_main.h \
  .././utils/../RAL/RAL_timer.h .././utils/../RAL/HW_types.h \
  .././MCAL/DIO.h .././MCAL/../CONFIG.h .././error_callbacks.h \
  .././RTOS_sync.h .././RTOS_Includes.h .././rtos/FreeRTOS.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  .././rtos/FreeRTOSConfig.h .././rtos/projdefs.h .././rtos/portmacro.h \
  .././rtos/portable.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
@@ -38,7 +38,7 @@ System.d System.o: .././System.c .././System.h .././RTE/RTE_main.h \
 
 .././RTE/RTE_drum.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
@@ -90,7 +90,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 .././rtos/FreeRTOS.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 .././rtos/FreeRTOSConfig.h:
 

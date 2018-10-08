@@ -5,15 +5,18 @@
  *  Author: ENG
  */ 
 #define  F_CPU 16000000
-#include "../System.h"
+#include "sequance.h"
 #include "../GLOBAL.h"
 #include "../MCAL/DIO.h"
-#include "sequance.h"
+
 #include "../Services/tank_operation.h"
 #include "../ECUAL/Inverter.h"
 #include "../ECUAL/Drum.h"
 #include "../ECUAL/PowderIF.h"
 #include "util/delay.h"
+#include "../ECUAL/LCD.h"
+#include "../RTOS_Includes.h"
+#include "../RTOS_sync.h"
 
 
 g_Inveter_Config Inverter_check_config ;
@@ -23,11 +26,17 @@ void Sequance_task (void* pvParameters)
 {
 	errors = System_check();
 	
-	if (errors.E_CONVOYER_ENCODER_fail)
+	if (errors == E_CONVOYER_ENCODER_fail)
 	{
-		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY ) ;
+		uint16_t response ;
+		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
 		lcd_Jump_to(CONVEYOR_MOTOR_ERROR_PIC);
-		Lcd_Read()
+		Lcd_Read(CONVEYOR_MOTOR_ERROR_RESPONSE,&response);
+		
+		
+		/* complete the code here */
+		
+		
 		xSemaphoreGive(LCD_mutex_handle);
 	}
 	
