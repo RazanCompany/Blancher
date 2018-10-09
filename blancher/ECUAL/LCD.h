@@ -20,7 +20,7 @@
 
 /**** Addresses for Error PICs *************************************/
 #define SALT_ERROR_PIC  8
-#define SALT_MOTOR_ERROR_PIC   22 
+#define SALT_MOTOR_ERROR_PIC   7 
 #define DRUM_MOTOR_ERROR_PIC    12  
 #define CONVEYOR_MOTOR_ERROR_PIC    11
 #define INLET_FLOW_ERROR_PIC    9
@@ -29,7 +29,7 @@
 
 /**** Addresses for reply on error PICs *******************************/
 #define SALT_ERROR_RESPONSE    0x0A00
-#define SALT_MOTOR_ERROR_RESPONSE   31
+#define SALT_MOTOR_ERROR_RESPONSE   0x0A05
 #define DRUM_MOTOR_ERROR_RESPONSE    0x0A04
 #define CONVEYOR_MOTOR_ERROR_RESPONSE    0x0A03
 #define INLET_FLOW_ERROR_RESPONSE    0x0A01
