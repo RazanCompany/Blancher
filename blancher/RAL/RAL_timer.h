@@ -27,6 +27,7 @@
 /*********************************************************************************/
 /******************Timer1 config Register ***************************************/
 
+
 #define TIMER2_CONGFIG_A		TCCR2A
 #define TIMER2_CONGFIG_B		TCCR2B
 #define TIMER2_COUNT		    TCNT2

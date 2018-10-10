@@ -84,9 +84,13 @@ RTOS_sync.c
 
 Services\Drum_speed_Tasks.c
 
+Services\Ignition_operation.c
+
 Services\LCD_Tasks.c
 
 Services\Level_Task.c
+
+Services\NVM_Task.c
 
 Services\tank_operation.c
 

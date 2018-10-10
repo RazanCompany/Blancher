@@ -3,7 +3,7 @@
 #include "Timer.h"
 
 
-#include "UART.h"
+//#include "UART.h"
 /*************************Variable*******************************************/
 // Timer 1 configration parameters
 g_Timer_Config *g_timer1_config;
@@ -33,6 +33,8 @@ uint8_t timers_init(g_Timer_Config *config)
 	if(config->timer_number == 1){
 
 		// off all the modes of  first config register on timer
+		DDRD &= ~ (1<<6);
+		PORTD |=(1<<6);
 		TIMER1_CONGFIG_A = 0X00;
 		// External counter on T1 and set the Top vale is OCRnA
 		TIMER1_CONGFIG_B = 0x0E;
@@ -40,7 +42,7 @@ uint8_t timers_init(g_Timer_Config *config)
 		TIMER1_COMPARE = config->ticks - 1;
 		// Enable interrupt Bit on the timer Mask
 		SET_BIT(TIMER1_INTERUPT, TIMER1_COMPARE_INT);
-		// copy the config parameter to Timer stuct
+		// copy the config parameter to Timer struct
 		g_timer1_config = config;
 		// set the time before get ticks ISR time
 		//g_Timer1_old_time = Get_millis();
@@ -48,7 +50,9 @@ uint8_t timers_init(g_Timer_Config *config)
 
 	else if(config->timer_number == 3)
 	{
-		UART0_puts("calllllllllllllllllllll\n");
+		//UART0_puts("calllllllllllllllllllll\n");
+		DDRE &=~ (1<<6);
+		PORTE |=(1<<6);
 		// off all the modes of  first config register on timer
 		TIMER3_CONGFIG_A = 0X00;
 		//External counter on T1 and set the Top vale is OCRnA
@@ -57,13 +61,15 @@ uint8_t timers_init(g_Timer_Config *config)
 		TIMER3_COMPARE = config->ticks - 1;
 		// Enable interrupt Bit on the timer Mask
 		SET_BIT(TIMER3_INTERUPT, TIMER3_COMPARE_INT);
-		// copy the config parameter to Timer stuct
+		// copy the config parameter to Timer struct
 		g_timer3_config = config;
 		// set the time before get ticks ISR time
 		//g_Timer3_old_time = Get_millis();
 	}//timer_number = 3
 	else if(config->timer_number == 4){
-		UART0_puts("cassssssssssssssssssssssssssss\n");
+		//UART0_puts("cassssssssssssssssssssssssssss\n");
+		DDRH &= ~ (1<<7);
+		PORTH |=(1<<7);
 		// off all the modes of  first config register on timer
 		TIMER4_CONGFIG_A = 0X00;
 		// External counter on T1 and set the Top vale is OCRnA
@@ -72,13 +78,16 @@ uint8_t timers_init(g_Timer_Config *config)
 		TIMER4_COMPARE = config->ticks - 1;
 		// Enable interrupt Bit on the timer Mask
 		SET_BIT(TIMER4_INTERUPT, TIMER4_COMPARE_INT);
-		// copy the config parameter to Timer stuct
+		// copy the config parameter to Timer struct
 		g_timer4_config = config;
 		// set the time before get ticks ISR time
 		//g_Timer4_old_time = Get_millis();
 	}//timer_number = 4
 
 	else if(config->timer_number == 5){
+		
+		DDRL &=~(1<<2);
+		PORTL |=(1<<2);
 		// off all the modes of  first config register on timer
 		TIMER5_CONGFIG_A = 0X00;
 		//  External counter on T1 and set the Top vale is OCRnA
@@ -113,7 +122,7 @@ ISR(TIMER1_COMPA_vect)
 	volatile static uint32_t s_Timer1_new_time;
 	// get the time now
 	s_Timer1_new_time = Get_millis();
-	UART0_puts("blaaaaa\n");
+	//UART0_puts("blaaaaa\n");
 	// calculate the diff between now and last interrupt
 	diff_time = s_Timer1_new_time - s_Timer1_old_time;
 	// save the to the old time to next interrupt
@@ -128,7 +137,7 @@ ISR(TIMER3_COMPA_vect)
 	volatile static uint32_t s_Timer3_old_time;
 	volatile static uint32_t s_Timer3_new_time;
 	// get the time now
-	UART0_puts("ISR3333333333333333333333333333333333333\n");
+	//UART0_puts("ISR3333333333333333333333333333333333333\n");
 	s_Timer3_new_time = Get_millis();
 	// calculate the diff between now and last interrupt
 	diff_time = s_Timer3_new_time - s_Timer3_old_time;
@@ -144,7 +153,7 @@ ISR(TIMER4_COMPA_vect)
 	volatile static uint32_t s_Timer4_old_time;
 	volatile static uint32_t s_Timer4_new_time;
 	// get the time now
-	UART0_puts("ISR444444444444444444444444444444444444\n");
+	//UART0_puts("ISR444444444444444444444444444444444444\n");
 	s_Timer4_new_time = Get_millis();
 	// calculate the diff between now and last interrupt
 	diff_time = s_Timer4_new_time - s_Timer4_old_time;
@@ -160,7 +169,7 @@ ISR(TIMER5_COMPA_vect)
 	volatile static uint32_t s_Timer5_old_time;
 	volatile static uint32_t s_Timer5_new_time;
 	//TOG_BIT(PORTB,0);
-	UART0_puts("TIMER55555555555555555\n");
+	//UART0_puts("TIMER55555555555555555\n");
 	// get the time now
 	s_Timer5_new_time = Get_millis();
 	// calculate the difference between now and last interrupt

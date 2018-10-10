@@ -1,7 +1,8 @@
 
+
 /* _____PROJECT INCLUDES_____________________________________________________ */
 #include "Modbus_master.h"
-
+#define  F_CPU 16000000
 // functions to calculate Modbus Application Data Unit CRC
 #include "../../utils/CRC16.h"
 

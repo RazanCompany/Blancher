@@ -6,49 +6,51 @@
  */ 
 
 
-#ifndef IGNITION_H_
-#define IGNITION_H_
+#ifndef IGNITION_OPERATION_H_
+#define IGNITION_OPERATION_H_
+#include "../GLOBAL.h"
 /*
  * start the ignition process  
  * parameters@ ignition type (GAS - Electric)
  * return@ ok or Error
  */
-uint8_t Start_ignition(void);
+gSystemError Start_ignition(void);
 /*
  * stop the ignition process  
  * parameters@ ignition type (GAS - Electric)
  * return@ ok or Error
  */
-uint8_t Stop_ignition(void);
+gSystemError Stop_ignition(void);
 /*
  * start the ignition process  For GAS Frying
  * parameters@ Nothing
  * return@ ok or Error
  */
 
-uint8_t start_gas__igintion(void) ;
+gSystemError start_gas__igintion(void);
 
 /*
  * start the ignition process  For Electric Frying
  * parameters@ Nothing
  * return@ ok or Error
  */
-uint8_t Start_electric_igintion(void); 
+gSystemError Start_electric_igintion(void);
 /*
  * stop the ignition process  For GAS Frying
  * parameters@ Nothing
  * return@ ok or Error
  */
 
-uint8_t close_gas__igintion (void);
+gSystemError close_gas__igintion(void);
+ //0x0f
 /*
  * stop the ignition process  For GAS Frying
  * parameters@ Nothing
  * return@ ok or Error
  */
-uint8_t close_electric__igintion(void);
+gSystemError close_electric__igintion(void);
 
 
 
 
-#endif /* IGNITION_H_ */
+#endif /* IGNITION_OPERATION_H_ */

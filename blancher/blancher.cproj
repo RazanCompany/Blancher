@@ -482,6 +482,12 @@
     <Compile Include="Services\Drum_speed_Tasks.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Services\Ignition_operation.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\Ignition_operation.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Services\LCD_Tasks.c">
       <SubType>compile</SubType>
     </Compile>
@@ -492,6 +498,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\Level_Task.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\NVM_Task.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Services\NVM_Task.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Services\tank_operation.c">

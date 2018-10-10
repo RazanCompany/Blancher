@@ -77,6 +77,12 @@ void DIO_init(void)
 	// blower ->> out
 	SET_BIT(BLOWER_DIRECTION_REG , BLOWER_PIN);
 	
+	// WATCH GOG PIN ->> out
+	SET_BIT(WATCH_DOG_DIRECTION_REG , WATCH_DOG_PIN);
+	
+	// SAREEN PIN 
+	SET_BIT(SAREEN_DIRECTION_REG , SAREEN_PIN);
+	
 	
 
 	//UART2
@@ -291,4 +297,21 @@ void Blower_change_state(uint8_t state)
 		CLR_BIT(TANK_VALVE_2_DATA_REG , TANK_VALVE_2_PIN);
 }
 
+
+void Watch_dog_change_state(uint8_t state)
+{
+	if (HIGH == state)
+	SET_BIT(WATCH_DOG_DATA_REG , WATCH_DOG_PIN);
+	else if(LOW == state)
+	CLR_BIT(WATCH_DOG_DATA_REG , WATCH_DOG_PIN);
+}
+
+
+void Sareen_change_state(uint8_t state)
+{
+	if (HIGH == state)
+	SET_BIT(SAREEN_DATA_REG , SAREEN_PIN);
+	else if(LOW == state)
+	CLR_BIT(SAREEN_DATA_REG , SAREEN_PIN);
+}
 

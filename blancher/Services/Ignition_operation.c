@@ -1,20 +1,19 @@
 /*
- * Ignition.c
+ * Ignition_operation.c
  *
  * Created: 10/10/2018 1:33:02 PM
  *  Author: M.nagah
  */ 
 #include <util/delay.h>
 #include <stdint.h>
-#include "Ignition.h"
+#include "Ignition_operation.h"
 #include "../MCAL/DIO.h"
-#include "../GLOBAL.h"
 /*
  * start the ignition process  
  * parameters@ ignition type (GAS - Electric)
  * return@ ok or Error
  */
-uint8_t Start_ignition()
+gSystemError Start_ignition(void)
 {
 	if (ignitiontype == GAS_IGNITION)
 	{
@@ -24,7 +23,7 @@ uint8_t Start_ignition()
 	{
 		return Start_electric_igintion();
 	}
-	return 4;// not define type
+	return E_Fail;// not define type
 	
 }
 /*
@@ -32,7 +31,7 @@ uint8_t Start_ignition()
  * parameters@ ignition type (GAS - Electric)
  * return@ ok or Error
  */
-uint8_t Stop_ignition()
+gSystemError Stop_ignition(void)
 {
 	if (ignitiontype == GAS_IGNITION)
 	{
@@ -42,7 +41,7 @@ uint8_t Stop_ignition()
 	{
 		return  close_electric__igintion();
 	}
-	return 4;// not define type	
+	return E_Fail;// not define type	
 }
 
 
@@ -55,7 +54,7 @@ uint8_t Stop_ignition()
  */
 
 
-uint8_t start_gas__igintion() 
+gSystemError start_gas__igintion(void)
 {
 	uint16_t count = 0 ;  //to count the number of trying turn on
 	while (count < 2)
@@ -66,7 +65,7 @@ uint8_t start_gas__igintion()
 		if ( Get_light_state ())
 		{
 			Spark_change_state(LOW);
-			return OK; // ok
+			return E_OK; // ok 
 		}
 		else
 		{
@@ -76,36 +75,38 @@ uint8_t start_gas__igintion()
 			count ++;
 		}
 	}
-	return Not_ok;
+	return E_Fail;
 }
 /*
  * start the ignition process  For Electric Frying
  * parameters@ Nothing
  * return@ ok or Error
  */
-uint8_t Start_electric_igintion()
+gSystemError Start_electric_igintion(void)
 {
 	Electrical_heater_change_state(HIGH);
-	return OK;
+	return E_OK;
 }
 /*
  * stop the ignition process  For GAS Frying
  * parameters@ Nothing
  * return@ ok or Error
  */
-uint8_t close_gas__igintion() //0x0f
+gSystemError close_gas__igintion(void) //0x0f
 {
 	Gas_valve_change_state(LOW);
 	_delay_ms(1000);
-	return OK;
+	if(Get_light_state ())    return E_Fail ;
+	
+	return E_OK;
 }
 /*
  * stop the ignition process  For Electric Frying
  * parameters@ Nothing
  * return@ ok or Error
  */
-uint8_t close_electric__igintion()
+gSystemError close_electric__igintion(void)
 {
 	Electrical_heater_change_state(LOW);
-	return OK;
+	return E_OK;
 }

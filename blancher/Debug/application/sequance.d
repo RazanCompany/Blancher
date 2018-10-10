@@ -3,7 +3,7 @@ application/sequance.d application/sequance.o: ../application/sequance.c \
  ../application/../GLOBAL.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
- ../application/../MCAL/DIO.h \
+ ../application/../System.h ../application/../MCAL/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  ../application/../MCAL/../CONFIG.h \
  ../application/../Services/tank_operation.h \
@@ -51,6 +51,8 @@ application/sequance.d application/sequance.o: ../application/sequance.c \
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
+
+../application/../System.h:
 
 ../application/../MCAL/DIO.h:
 

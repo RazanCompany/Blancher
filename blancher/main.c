@@ -32,16 +32,18 @@ static void vTask1(void* pvParameters);
 static void vTask2(void* pvParameters);
 static void vTask3(void* pvParameters);
 static void vTask4(void* pvParameters);
+static void vTask5(void* pvParameters);
+
 
 #define STACK_SIZE 500
 /* Structure that will hold the TCB of the task being created. */
-StaticTask_t xTask1Buffer,xTask2Buffer,xTask3Buffer,xTask4Buffer;
+StaticTask_t xTask1Buffer,xTask2Buffer,xTask3Buffer,xTask4Buffer , xTask5Buffer;
 /* Buffer that the task being created will use as its stack. Note this is an array of
 StackType_t variables. The size of StackType_t is dependent on the RTOS port. */
-StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ],xStack3[ STACK_SIZE ],xStack4[ STACK_SIZE ];
+StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ],xStack3[ STACK_SIZE ],xStack4[ STACK_SIZE ] , xStack5[ STACK_SIZE ];
 
 
-TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ,xHandle3 = NULL , xHandle4 = NULL ;
+TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ,xHandle3 = NULL , xHandle4 = NULL , xHandle5 = NULL ;
 
 
 
@@ -105,6 +107,16 @@ int main(void) {
 				2,/* Priority at which the task is created. */
 				xStack4, /* Array to use as the task's stack. */
 				&xTask4Buffer); /* Variable to hold the task's data structure. */
+				
+				
+	xHandle5 = xTaskCreateStatic(
+				vTask5, /* Function that implements the task. */
+				"Task5", /* Text name for the task. */
+				STACK_SIZE, /* The number of indexes in the xStack array. */
+				NULL, /* Parameter passed into the task. */
+				5,/* Priority at which the task is created. */
+				xStack5, /* Array to use as the task's stack. */
+				&xTask5Buffer); /* Variable to hold the task's data structure. */
 
 
 	//char x=0;
@@ -166,7 +178,7 @@ int main(void) {
 static void vTask1(void* pvParameters)
 {
 	char x=0;
-	UART0_puts("Sequance Task1 \n");
+	UART0_puts("Sequence Task1 \n");
 //	Level_main(&x);
     Sequance_task(&x);
 //   while (1)
@@ -178,7 +190,11 @@ static void vTask1(void* pvParameters)
 static void vTask2(void* pvParameters)
 {
 	char x=0;
-	LCD_main(&x);
+	//LCD_main(&x);
+	while(1){
+		Tank_feed_operation(2);
+		vTaskDelay(4000/portTICK_PERIOD_MS);
+	}
 }
 
 
@@ -194,8 +210,10 @@ static void vTask4(void* pvParameters)
 	UART0_puts("Enter Task4\n");
 		while (1)
 		{
-			UART0_puts("vTask4 Exist\n");
+			
+			//UART0_puts("vTask4 Exist\n");
 			//_delay_ms(1000);
+			Tank_out_operation(2);
 			vTaskDelay(500/portTICK_PERIOD_MS);
 		}
 	// 	uint16_t DEBUG_array[16];
@@ -234,3 +252,16 @@ static void vTask4(void* pvParameters)
 	
 }
 
+
+static void vTask5(void* pvParameters)
+{
+	// watch dog pin .
+	while(1)
+	{
+		 Watch_dog_change_state(HIGH);
+		 vTaskDelay(500/portTICK_PERIOD_MS);
+		 Watch_dog_change_state(LOW);
+		 vTaskDelay(500/portTICK_PERIOD_MS);
+	}	
+	
+}

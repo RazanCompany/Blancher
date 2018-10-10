@@ -12,7 +12,7 @@
 #include "../MCAL/DIO.h"
 #include "../CONFIG.h"
 
-
+//#include "../MCAL/UART.h"
 
 
 
@@ -33,10 +33,8 @@ void Flow_rate_init(void (*callback1)(void) , void (*callback2)(void))
 	feeding_configeration.ticks = TICKS_FOR_HALF_LITER ;
 	feeding_configeration.timer_number = FLOWRATE_SENSOR_1_TIMER_NUMBER ;//flowrate1_timer_number
 	feeding_configeration.isr_call_back = flowrate_feeding_callback ;
-	
 	// initialize the needed timer with the previous config .
     timers_init(&feeding_configeration);
-	
 	// initialize other timer for the second flow rate .
 	outing_configeration.ticks = TICKS_FOR_HALF_LITER ;
 	outing_configeration.timer_number = FLOWRATE_SENSOR_2_TIMER_NUMBER ;//flowrate2_timer_number
@@ -54,6 +52,7 @@ void flowrate_feeding_callback (uint32_t time )
 	*	this function is called back from the ISR to increment the liters counter .
 	*/
   // call the feeding operation callback .
+    // UART0_puts("FLOW_FEED FFFFFFFFFFFFFFFFFFFFFFFFF\n");
      feeding_operation_callback();
   
  
@@ -65,6 +64,7 @@ void flowrate_outing_callback (uint32_t time )
 	*	this function is called back from the isr to increment the liters counter .
 	*/
   // call the feeding operation callback .
+  //UART0_puts("FLOW_OUT OOOOOOOOOOOOOOOOOOOOOOOOOOOO\n");
      out_operation_callback();
   
 }
