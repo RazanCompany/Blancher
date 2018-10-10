@@ -16,5 +16,6 @@ static StaticSemaphore_t LCD_mutex_Buffer;
 
 void RTOS_sync_init(void)
 {
-   // LCD_mutex_handle = xSemaphoreCreateBinaryStatic( &LCD_mutex_Buffer );
+    LCD_mutex_handle = xSemaphoreCreateBinaryStatic( &LCD_mutex_Buffer );
+	xSemaphoreGive(LCD_mutex_handle);
 }

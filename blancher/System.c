@@ -15,7 +15,7 @@
 #include "Services/Drum_speed_Tasks.h"
 #include "ECUAL/LCD.h"
 #include "Services/tank_operation.h"
-
+#include "ECUAL/Temperature.h"
 
 
 gSystemError System_init(void){
@@ -26,10 +26,12 @@ gSystemError System_init(void){
 	Service_error_init();
 	RTE_init();
 	RTOS_sync_init();
+	temp_init(0);
 	Inverter_init(UART1,38400,3);
 	Lcd_init(UART3,115200,1);
 	Drum_speed_Tasks_init();         //fixed here because no main task
 	Tank_operation_init();
+	
 	return res;
 
 }

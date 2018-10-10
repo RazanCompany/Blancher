@@ -31,6 +31,9 @@ void DIO_init(void)
 
 	// salt exist >> input
 	CLR_BIT(SALT_EXISTANCE_DIRECTION_REG , SALT_EXISTANCE_PIN);
+	
+	// SALT DROP SENSOR  >>> INPUT 
+    CLR_BIT(SALT_DROP_SUCCESS_DIRECTION_REG , SALT_DROP_SUCCESS_PIN);
 
 	// light sensor  ->> input
 	CLR_BIT(LIGHT_DIRECTION_REG , LIGHT_PIN);
@@ -116,6 +119,13 @@ uint8_t Salt_exist (void)
 {
 	/* check if there is salt in the tank or not  */
 	return   GET_BIT( SALT_EXISTANCE_STATUS_REG , SALT_EXISTANCE_PIN ) ;
+}
+
+//_________________ SALT DROP SENSOR _____________________//
+uint8_t Salt_dropped_successfully (void)
+{
+	/* check if the salt goes out successfully   */
+	return   ! GET_BIT( SALT_DROP_SUCCESS_STATUS_REG , SALT_DROP_SUCCESS_PIN ) ;
 }
 
 

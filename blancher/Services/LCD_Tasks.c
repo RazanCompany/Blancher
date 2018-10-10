@@ -125,8 +125,9 @@ void LCD_main(void* pvParameters){
 		//UART0_puts("LCD alive task \n");
 		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
 		r_err =  LCD_READ_Parameters();
+		UART0_puts("L T M\n");
 		xSemaphoreGive(LCD_mutex_handle ) ;
-		
+		UART0_puts("L R M\n");
  		if(LCD_RESPONCE_TIMED_OUT == r_err)
  		{
 			 read_err_counter++;
@@ -151,8 +152,10 @@ void LCD_main(void* pvParameters){
  		
   		LCD_RTE_COLLECT();
 		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
+		UART0_puts("L T M\n");
  		w_err = LCD_WRITE_Parameters();
 		xSemaphoreGive(LCD_mutex_handle ) ; 
+		UART0_puts("L R M\n");
 		
 		if(LCD_RESPONCE_TIMED_OUT == w_err)
 		{
@@ -188,7 +191,8 @@ void LCD_main(void* pvParameters){
 		//UART0_OutUDec(x_time);
 		//UART0_putc('\n');
 		//_delay_ms(1000);
-		vTaskDelay(200/portTICK_PERIOD_MS);
+		//vTaskDelay(200/portTICK_PERIOD_MS);
+		vTaskDelay(1000/portTICK_PERIOD_MS);
 		//_delay_ms(2000);
 	}
 }

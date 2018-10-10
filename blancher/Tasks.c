@@ -148,7 +148,7 @@ gSystemError Tank_Calibrate(void){
 
 void Tank_operation_calibrate_wash_init(void)
 {
-	Flow_rate_init(FLOWRATE_SENSOR_1_TIMER_NUMBER ,FLOWRATE_SENSOR_2_TIMER_NUMBER, Tank_calibration_feed_callback , Tank_calibration_out_callback);
+	Flow_rate_init(Tank_calibration_feed_callback , Tank_calibration_out_callback);
 	g_calibration_done_feeding = 0;
 	g_calibration_done_outing  = 0 ;
 	g_calibration_feeding_liters_counter = 0 ;

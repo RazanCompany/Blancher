@@ -12,7 +12,7 @@
 
 //#define DEBUG
 
- //#define SALT_EXIST_CHECK			  
+//#define SALT_EXIST_CHECK			  
 //#define POWDER_DROP_CHECK			  
 // #define TANK_FEED_CHECK				  
 // #define TANK_OUT_CHECK			 	  

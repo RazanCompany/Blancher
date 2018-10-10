@@ -35,58 +35,71 @@ void Sequance_task(void* pvParameters)
  	{
  		UART0_puts("salt error \n");
  		uint16_t response  = 0;
-		//xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
+		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY );
+		UART0_puts("S T M\n");
 		lcd_Jump_to( SALT_ERROR_PIC );
  		while(response == 0 )
  		{
+			_delay_ms(200);
  			Lcd_Read(SALT_ERROR_RESPONSE,&response);
+			
  		}
-		//xSemaphoreGive(LCD_mutex_handle);
+		xSemaphoreGive(LCD_mutex_handle);
+		UART0_puts("S R M\n");
 		
 	}
 	
  #endif	
-// #ifdef POWDER_DROP_CHECK  
-// 	if( Powder_drop(2) == E_Fail){
-// 		uint16_t response  = 0;
-// 		UART0_puts(" powder error \n");
-	//	xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
-// 		lcd_Jump_to(DRUM_MOTOR_ERROR_PIC  );
-// 		while(response == 0 )
-// 		{
-// 			Lcd_Read(DRUM_MOTOR_ERROR_RESPONSE,&response);
-// 		}
-	//	xSemaphoreGive(LCD_mutex_handle);
-//	}
-// #endif
-// #ifdef TANK_FEED_CHECK  
-	//if( Tank_feed_operation(2) == E_Fail){
-	//	uint16_t response  = 0;
-	//	UART0_puts(" feed error \n");
-	//	xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
-	//	lcd_Jump_to(INLET_FLOW_ERROR_PIC  );
-	//	while(response == 0 )
-	//	{
-	//		Lcd_Read(INLET_FLOW_ERROR_RESPONSE,&response);
-	//	}
-	//	xSemaphoreGive(LCD_mutex_handle);
-	//}
-// #endif
-// #ifdef TANK_OUT_CHECK  
+ #ifdef POWDER_DROP_CHECK  
+ 	if( Powder_drop(2) == E_Fail){
+ 		uint16_t response  = 0;
+ 		UART0_puts(" powder error \n");
+		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
+		UART0_puts("P T M\n");
+ 		lcd_Jump_to(DRUM_MOTOR_ERROR_PIC  );
+ 		while(response == 0 )
+ 		{
+		    _delay_ms(200); 
+ 			Lcd_Read(DRUM_MOTOR_ERROR_RESPONSE,&response);
+ 		}
+		xSemaphoreGive(LCD_mutex_handle);
+		UART0_puts("P R M\n");
+	}
+#endif
+#ifdef TANK_FEED_CHECK  
+	if( Tank_feed_operation(2) == E_Fail){
+		uint16_t response  = 0;
+		UART0_puts(" feed error \n");
+		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
+		UART0_puts("TF T M\n");
+		lcd_Jump_to(INLET_FLOW_ERROR_PIC  );
+		
+		while(response == 0 )
+		{
+			_delay_ms(200);
+			Lcd_Read(INLET_FLOW_ERROR_RESPONSE,&response);
+		}
+		xSemaphoreGive(LCD_mutex_handle);
+		UART0_puts("TF R M\n");
+	}
+#endif
+#ifdef TANK_OUT_CHECK  
 
-// 	if( Tank_out_operation(2) == E_Fail){
-// 		uint16_t response  = 0;
-// 	//    UART0_puts(" Tank out er\n");
-// 	
-// 	//	xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
-// 	//	lcd_Jump_to(OUTLET_FLOW_ERROR_PIC  );
-// 		while(response == 0 )
-// 		{
-// 		//	Lcd_Read(OUTLET_FLOW_ERROR_RESPONSE,&response);
-// 		}
-	//	xSemaphoreGive(LCD_mutex_handle);
-//	}
-//#endif
+ 	if( Tank_out_operation(2) == E_Fail){
+ 		uint16_t response  = 0;
+ 	    UART0_puts(" Tank out error\n");
+ 	
+		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
+		UART0_puts("TO T M\n");
+		lcd_Jump_to(OUTLET_FLOW_ERROR_PIC  );
+ 		while(response == 0 )
+ 		{
+ 			Lcd_Read(OUTLET_FLOW_ERROR_RESPONSE,&response);
+ 		}
+		xSemaphoreGive(LCD_mutex_handle);
+		UART0_puts("TO R M\n");
+	}
+#endif
 #ifdef DRUM_CONVEYOR_CHECK   
 	Inverter_check_config.distance = distance ;
 	Inverter_check_config.gear_ratio=gear_ratio;
@@ -102,11 +115,11 @@ void Sequance_task(void* pvParameters)
 	Conveyor_motor_change_state(HIGH);
 	_delay_ms(15000);
 	if( Drum_speed() == 0){
-	UART0_puts(" Drum speed Err \n");
-	
+		UART0_puts(" Drum speed Err \n");
 		Inverter_change_state(LOW);
  		uint16_t response  = 0;
-		//xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
+		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
+		UART0_puts("D T M\n");
 		lcd_Jump_to(DRUM_MOTOR_ERROR_PIC );
 		_delay_ms(200);
  		while(response == 0 )
@@ -114,31 +127,37 @@ void Sequance_task(void* pvParameters)
 			Lcd_Read(DRUM_MOTOR_ERROR_RESPONSE,&response);
 			_delay_ms(200);
  		}
-		//xSemaphoreGive(LCD_mutex_handle);
+		 UART0_puts("Response = ");
+		 UART0_OutUDec(response);
+		 UART0_putc('\n');
+		xSemaphoreGive(LCD_mutex_handle);
+		UART0_puts("D R M\n");
 	}
  	Inverter_change_state(LOW);
  	
- 	if( Get_conveyor_state() == 0){
- 	UART0_puts(" con Error \n");
- 	
- 		Conveyor_motor_change_state(LOW);
-		uint16_t response  = 0;
- 		//xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
- 		lcd_Jump_to(CONVEYOR_MOTOR_ERROR_PIC );
-		_delay_ms(200);
- 		while(response == 0 )
- 		{
-			Lcd_Read(CONVEYOR_MOTOR_ERROR_RESPONSE,&response);
-			_delay_ms(200);
- 		}
- 		//xSemaphoreGive(LCD_mutex_handle);
-	 }
- 	Conveyor_motor_change_state(LOW);	
+//  	if( Get_conveyor_state() == 0){
+//  		//UART0_puts(" con Error \n");
+//  	
+//  		Conveyor_motor_change_state(LOW);
+// 		uint16_t response  = 0;
+//  		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
+// 		UART0_puts("C T M\n");
+//  		lcd_Jump_to(CONVEYOR_MOTOR_ERROR_PIC );
+// 		_delay_ms(200);
+//  		while(response == 0 )
+//  		{
+// 			Lcd_Read(CONVEYOR_MOTOR_ERROR_RESPONSE,&response);
+// 			_delay_ms(200);
+//  		}
+//  		xSemaphoreGive(LCD_mutex_handle);
+// 		UART0_puts("C R M\n");
+// 	 }
+//  	Conveyor_motor_change_state(LOW);	
 #endif
 	while (1) 
 	{
 		UART0_puts(" inside seq \n");
-		vTaskDelay(100/portTICK_PERIOD_MS);
+		vTaskDelay(500/portTICK_PERIOD_MS);
 		
 	}
 }

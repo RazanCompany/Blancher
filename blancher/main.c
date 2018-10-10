@@ -5,7 +5,6 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
-
 #include "RTOS_Includes.h"
 #include "MCAL/UART.h"
 #include "ECUAL/LCD.h"
@@ -51,7 +50,7 @@ int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600); //for debug
     System_init();
-	Tank_operation_init();
+	
 	//Lcd_init(UART3,115200,1);
 	UART0_puts("start \n");
 // 	g_Inveter_Config confg;
@@ -61,16 +60,14 @@ int main(void) {
 // 	confg.motor_rpm_max = 900;
 // 	confg.time_user_M = 0;
 // 	confg.time_user_S = 5;
-//  while (1)
-//  {
-//  	UART0_puts("Hello \n");
-//     Inverter_set_Freq(&confg);
-//     _delay_ms(1000);
-//    Inverter_change_state(0);
-// // _delay_ms(1000);
-// // Inverter_change_state(0);
-//    _delay_ms(3000);
-// }
+//   while (1)
+//   {
+//   	UART0_puts("SALT ");
+// 	UART0_OutUDec(Salt_dropped_successfully());
+// 	UART0_putc('\n');
+// 	_delay_ms(1000);
+// 
+//  }
 	//Temp_main_init();
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic( //print LCD data from RTE lowest priority
@@ -82,24 +79,24 @@ int main(void) {
 					xStack1, /* Array to use as the task's stack. */
 					&xTask1Buffer); /* Variable to hold the task's data structure. */
 	
-// 	xHandle2 = xTaskCreateStatic( //LCD highest priority
-// 				vTask2, /* Function that implements the task. */
-// 				"Task2", /* Text name for the task. */
-// 				STACK_SIZE, /* The number of indexes in the xStack array. */
-// 				NULL, /* Parameter passed into the task. */
-// 				2,/* Priority at which the task is created. */
-// 				xStack2, /* Array to use as the task's stack. */
-// 				&xTask2Buffer); /* Variable to hold the task's data structure. */
-// 				
-// 	xHandle3 = xTaskCreateStatic( //temp mid priority
-// 				vTask3, /* Function that implements the task. */
-// 				"Task3", /* Text name for the task. */
-// 				STACK_SIZE, /* The number of indexes in the xStack array. */
-// 				NULL, /* Parameter passed into the task. */
-// 				2,/* Priority at which the task is created. */
-// 				xStack3, /* Array to use as the task's stack. */
-// 				&xTask3Buffer); /* Variable to hold the task's data structure. */
-// 	
+	xHandle2 = xTaskCreateStatic( //LCD highest priority
+				vTask2, /* Function that implements the task. */
+				"Task2", /* Text name for the task. */
+				STACK_SIZE, /* The number of indexes in the xStack array. */
+				NULL, /* Parameter passed into the task. */
+				2,/* Priority at which the task is created. */
+				xStack2, /* Array to use as the task's stack. */
+				&xTask2Buffer); /* Variable to hold the task's data structure. */
+				
+	xHandle3 = xTaskCreateStatic( //temp mid priority
+				vTask3, /* Function that implements the task. */
+				"Task3", /* Text name for the task. */
+				STACK_SIZE, /* The number of indexes in the xStack array. */
+				NULL, /* Parameter passed into the task. */
+				2,/* Priority at which the task is created. */
+				xStack3, /* Array to use as the task's stack. */
+				&xTask3Buffer); /* Variable to hold the task's data structure. */
+	
 	xHandle4 = xTaskCreateStatic(
 				vTask4, /* Function that implements the task. */
 				"Task4", /* Text name for the task. */
@@ -153,6 +150,7 @@ int main(void) {
 	
 
 	  // Start scheduler.
+	  //Tank_operation_init();
 	  vTaskStartScheduler();
 
 	while (1)

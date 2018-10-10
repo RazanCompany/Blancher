@@ -63,7 +63,7 @@ gSystemError Powder_drop(float Gram)
      if	(gram_timeout == 0 && g_GM_target > 0.1 ) return E_Fail ;
 	// close the Motor after put the desire salt
 	Powder_motor_change_state(0);
-
+	return E_OK;
 }
 /*
  * ISR call Back function

@@ -11,6 +11,8 @@
 #include "../CONFIG.h"
 
 
+#include "../MCAL/UART.h"
+
 static void Tank_feed_callback (void);
 static void Tank_out_callback (void);
 
@@ -28,7 +30,7 @@ StaticSemaphore_t feeding_SemaphoreBuffer , outing_SemaphoreBuffer ;
 
 void Tank_operation_init(void)
 {
-	Flow_rate_init(FLOWRATE_SENSOR_1_TIMER_NUMBER ,FLOWRATE_SENSOR_2_TIMER_NUMBER, Tank_feed_callback , Tank_out_callback);	
+	Flow_rate_init(Tank_feed_callback , Tank_out_callback);	
 	//Feeding_Semaphore = xSemaphoreCreateBinaryStatic( &feeding_SemaphoreBuffer );
 	//outing_Semaphore = xSemaphoreCreateBinaryStatic( &outing_SemaphoreBuffer );
 }
@@ -37,7 +39,7 @@ gSystemError Tank_feed_operation(uint16_t liters)
 {   
 	g_feeding_liters_counter = 0;
 	g_feed_liters = liters * 2 ;
-	
+
 	// start the feeding valve to fill the tank.
 	Tank_valve_1_change_state(HIGH);
 	// wait until the tank feed operation ends 
@@ -77,7 +79,8 @@ gSystemError Tank_out_operation(uint16_t liters)
 
 static void Tank_feed_callback (void)
 {
-	
+	//UART0_puts("")
+
 	g_feeding_liters_counter ++ ;
 	// keep monitoring the amount of water .
 	if (g_feeding_liters_counter >= g_feed_liters )
@@ -85,6 +88,9 @@ static void Tank_feed_callback (void)
 		// release the semaphore
 		xSemaphoreGive(Feeding_Semaphore);
 	}
+	UART0_puts("g_feeding_liters_counter =");
+	UART0_OutUDec(g_feeding_liters_counter);
+	UART0_putc('\n');
 	
 }
 
@@ -98,6 +104,9 @@ static void Tank_out_callback(void)
 		xSemaphoreGive(outing_Semaphore );
 	}
 	
+		UART0_puts("g_out_liters_counter =");
+		UART0_OutUDec(g_out_liters_counter);
+		UART0_putc('\n');
 }
 
 

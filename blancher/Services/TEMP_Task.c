@@ -26,7 +26,6 @@ void Temp_main(void* pvParameters){
 	uint16_t current_temp=0;
 	uint8_t count=0;
 	//uint16_t x_time = 0;
-	temp_init(0);
 	while (1)
 	{
 		UART0_puts("Temp task alive\n");

@@ -31,16 +31,22 @@
 #define TANK_LEVEL_3_PIN            6
 
 //__________ BLANCHER LEVEL SENSOR_________//
-#define BLANCHER_LEVEL_DIRECTION_REG  DDRD
-#define BLANCHER_LEVEL_DATA_REG       PORTD
-#define BLANCHER_LEVEL_STATUS_REG     PIND
-#define BLANCHER_LEVEL_PIN            3
+#define BLANCHER_LEVEL_DIRECTION_REG  DDRL
+#define BLANCHER_LEVEL_DATA_REG       PORTL
+#define BLANCHER_LEVEL_STATUS_REG     PINL
+#define BLANCHER_LEVEL_PIN            7
 
 //_________ SALT EXISTANCE ________________//
-#define SALT_EXISTANCE_DIRECTION_REG  DDRB
-#define SALT_EXISTANCE_DATA_REG       PORTB
-#define SALT_EXISTANCE_STATUS_REG     PINB
-#define SALT_EXISTANCE_PIN            0
+#define SALT_EXISTANCE_DIRECTION_REG  DDRC
+#define SALT_EXISTANCE_DATA_REG       PORTC
+#define SALT_EXISTANCE_STATUS_REG     PINC
+#define SALT_EXISTANCE_PIN            4
+
+//_________ SALT DROP   ________________//
+#define SALT_DROP_SUCCESS_DIRECTION_REG       DDRC
+#define SALT_DROP_SUCCESS_DATA_REG            PORTC
+#define SALT_DROP_SUCCESS_STATUS_REG          PINC
+#define SALT_DROP_SUCCESS_PIN                 5
 
 
 // ________ GAS LECKAGE SENSOR ___________//
