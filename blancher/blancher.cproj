@@ -221,12 +221,6 @@
     <Compile Include="DEBUG.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ECUAL\Blancher_level.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ECUAL\Blancher_level.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="ECUAL\Drum.c">
       <SubType>compile</SubType>
     </Compile>

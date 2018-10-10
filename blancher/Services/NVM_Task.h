@@ -10,7 +10,8 @@
 #define NVM_TASK_H_
 
 
-
+void EEPROM_READ_ALL_DATA(void);
+void EEPROM_WRITE_ALL_DATA(void);
 
 
 #endif /* NVM_TASK_H_ */

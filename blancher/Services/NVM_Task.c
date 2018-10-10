@@ -6,6 +6,7 @@
  */ 
 
 #include <avr/eeprom.h>
+#include "NVM_Task.h"
 
 #define	EEPROM_DATA_ELEMENTS_NUMBER		16
 #define	EEPROM_FIRST_DATA_ADDRESS		0
@@ -67,7 +68,7 @@ void EEPROM_WRITE_ALL_DATA(void){
 	//call LCD_read_mutliple regs (fill the struct) and c
 	for(int i=0; i<EEPROM_DATA_ELEMENTS_NUMBER; i++){
 		// fill the struct with data
-		eeprom_write_word( (const uint16_t *) (i*2) , s_eeprom_data_ptr[i]);
+		//eeprom_write_word( (const uint16_t *) (i*2) , s_eeprom_data_ptr[i]);
 	}
 }
 

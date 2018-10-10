@@ -57,7 +57,6 @@ C_SRCS +=  \
 ../application/Level_monitor.c \
 ../application/sequance.c \
 ../application/Temp_monitor.c \
-../ECUAL/Blancher_level.c \
 ../ECUAL/Drum.c \
 ../ECUAL/Encoder/Encoder.c \
 ../ECUAL/Flow_rate.c \
@@ -117,7 +116,6 @@ application/errors.o \
 application/Level_monitor.o \
 application/sequance.o \
 application/Temp_monitor.o \
-ECUAL/Blancher_level.o \
 ECUAL/Drum.o \
 ECUAL/Encoder/Encoder.o \
 ECUAL/Flow_rate.o \
@@ -170,7 +168,6 @@ application/errors.o \
 application/Level_monitor.o \
 application/sequance.o \
 application/Temp_monitor.o \
-ECUAL/Blancher_level.o \
 ECUAL/Drum.o \
 ECUAL/Encoder/Encoder.o \
 ECUAL/Flow_rate.o \
@@ -223,7 +220,6 @@ application/errors.d \
 application/Level_monitor.d \
 application/sequance.d \
 application/Temp_monitor.d \
-ECUAL/Blancher_level.d \
 ECUAL/Drum.d \
 ECUAL/Encoder/Encoder.d \
 ECUAL/Flow_rate.d \
@@ -276,7 +272,6 @@ application/errors.d \
 application/Level_monitor.d \
 application/sequance.d \
 application/Temp_monitor.d \
-ECUAL/Blancher_level.d \
 ECUAL/Drum.d \
 ECUAL/Encoder/Encoder.d \
 ECUAL/Flow_rate.d \
@@ -360,13 +355,6 @@ application/sequance.o: ../application/sequance.c
 	
 
 application/Temp_monitor.o: ../application/Temp_monitor.c
-	@echo Building file: $<
-	@echo Invoking: AVR/GNU C Compiler : 5.4.0
-	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
-	@echo Finished building: $<
-	
-
-ECUAL/Blancher_level.o: ../ECUAL/Blancher_level.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -DDEBUG -DBOARD=STK600_MEGA  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\include" -I"../src/ASF/common/boards" -I"../src/ASF/mega/utils/preprocessor" -I"../src/ASF/mega/utils" -I"../src/ASF/common/utils" -I"../src" -I"../src/config"  -O1 -fdata-sections -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g3 -Wall -mmcu=atmega2560 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.1.130\gcc\dev\atmega2560" -c -std=gnu99 -fno-strict-aliasing -Wstrict-prototypes -Wmissing-prototypes -Werror-implicit-function-declaration -Wpointer-arith -mrelax -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

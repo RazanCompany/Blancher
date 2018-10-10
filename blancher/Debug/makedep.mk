@@ -10,8 +10,6 @@ application\sequance.c
 
 application\Temp_monitor.c
 
-ECUAL\Blancher_level.c
-
 ECUAL\Drum.c
 
 ECUAL\Encoder\Encoder.c

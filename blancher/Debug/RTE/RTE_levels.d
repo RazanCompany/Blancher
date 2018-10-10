@@ -20,7 +20,8 @@ RTE/RTE_levels.d RTE/RTE_levels.o: ../RTE/RTE_levels.c \
  ../RTE/../rtos/mpu_wrappers.h ../RTE/../rtos/FreeRTOSBoardDefs.h \
  ../RTE/../rtos/task.h ../RTE/../rtos/list.h ../RTE/../rtos/task.h \
  ../RTE/../rtos/message_buffer.h ../RTE/../rtos/stream_buffer.h \
- ../RTE/../rtos/semphr.h ../RTE/../rtos/queue.h ../RTE/RTE_levels.h
+ ../RTE/../rtos/semphr.h ../RTE/../rtos/queue.h ../RTE/RTE_levels.h \
+ ../RTE/RTE_error_types.h
 
 ../RTE/../RTOS_Includes.h:
 
@@ -81,3 +82,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../RTE/../rtos/queue.h:
 
 ../RTE/RTE_levels.h:
+
+../RTE/RTE_error_types.h:

@@ -6,10 +6,13 @@
  */ 
 
 #include "Level_monitor.h"
-#include "GLOBAL.h"
+#include "../GLOBAL.h"
+#include "../CONFIG.h"
+#include "../RTE/RTE_levels.h"
+#include "../Services/tank_operation.h"
+#include "../ECUAL/PowderIF.h"
 
-
-#define LEVEL_LITERS_STEP 10
+#define LEVEL_LITERS_STEP	 10
 
 
 
@@ -43,7 +46,7 @@ void Level_monitor_task(void* pvParameters)
 		if(ret_tank_level == 1){
 			
 			// fill with salt water => (level 2 filled + level 2)
-			if( Powder_drop(Tank_powder_density * (Tank_level_1_in_letters_measured+Tank_level_2_in_letters + (Tank_level_2_in_letters * 0.2)) ) == E_OK){
+			if( Powder_drop( TANK_POWDER_DENSITY * (Tank_level_1_in_letters_measured+Tank_level_2_in_letters + (Tank_level_2_in_letters * 0.2)) ) == E_OK){
 				
 				//  feed tank with water till level 2
 				if(Tank_feed_operation(Tank_level_2_in_letters + (Tank_level_2_in_letters * 0.2) ) == E_OK){

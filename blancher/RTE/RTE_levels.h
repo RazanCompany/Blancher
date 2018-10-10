@@ -8,6 +8,8 @@
 
 #ifndef RTE_TANKSLEVELS_H_
 #define RTE_TANKSLEVELS_H_
+#include "RTE_error_types.h"
+
 
 void RTE_levels_init(void);
 

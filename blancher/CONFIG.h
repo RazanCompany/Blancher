@@ -10,7 +10,9 @@
 #define  FLOWRATE_SENSOR_1_TIMER_NUMBER    4
 #define  FLOWRATE_SENSOR_2_TIMER_NUMBER    3
 #define  DRUM_SPEED_ENCODER_TIMER_NUMBER   5
+// density must be gm/litter
 
+#define		TANK_POWDER_DENSITY				 7				//  (gm/litter)
 
 
 
