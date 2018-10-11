@@ -13,7 +13,9 @@ g_Timer_Config g_Powder_config;
 
 volatile float g_GM_target ;
 
-float g_gram_for_one_ticks = 0;
+float g_gram_for_one_ticks = 0.1;
+
+volatile uint8_t g_no_salt_is_dropped = 0 ;
 /*****************************************************************************/
 
 /************************** Functions Prototypes *****************************/
@@ -50,17 +52,25 @@ gSystemError Powder_drop(float Gram)
 {
 	//the desire amount of salt by Gram
 	g_GM_target = Gram;
+	// Check if there is salt in tank .
+	if(!Salt_exist()  ) return E_NO_SALT_IN_TANK_Fail ;
 	//Turn on the Powder Motor
 	Powder_motor_change_state(1);
 	uint16_t gram_timeout = Gram  ;
 	// wait until Put the Whole amount of the salt
 	while(g_GM_target > 0.1)
 	{
+		if(!Salt_exist() )
+		{ 
+			Powder_motor_change_state(0);
+			return E_NO_SALT_IN_TANK_Fail ;
+		}
 		gram_timeout -- ; 
 		_delay_ms(5000);
+		if(g_no_salt_is_dropped) return E_SALT_DROP_Fail ;
 		if (gram_timeout== 0)  break;
 	}
-     if	(gram_timeout == 0 && g_GM_target > 0.1 ) return E_Fail ;
+     if	(gram_timeout == 0 && g_GM_target > 0.1 ) return E_SALT_MOTER_ENCODER_fail ;
 	// close the Motor after put the desire salt
 	Powder_motor_change_state(0);
 	return E_OK;
@@ -74,6 +84,10 @@ void Powder_ISR(uint32_t dif_time)
 {
 	//decrease the amount of salt with one Ticks amount
 	g_GM_target -=g_gram_for_one_ticks ;
+	if (!Salt_dropped_successfully())
+	{
+		g_no_salt_is_dropped = 1;
+	}
 }
 
 
