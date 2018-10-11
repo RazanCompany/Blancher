@@ -13,23 +13,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00005368  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000cf0  00000000  00000000  000053a8  2**0
+  5 .debug_aranges 00000d00  00000000  00000000  000053a8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000e85e  00000000  00000000  00006098  2**0
+  6 .debug_info   0000ea9e  00000000  00000000  000060a8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00003c5a  00000000  00000000  000148f6  2**0
+  7 .debug_abbrev 00003c96  00000000  00000000  00014b46  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000ce42  00000000  00000000  00018550  2**0
+  8 .debug_line   0000cf54  00000000  00000000  000187dc  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00002094  00000000  00000000  00025394  2**2
+  9 .debug_frame  000020e8  00000000  00000000  00025730  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00019822  00000000  00000000  00027428  2**0
+ 10 .debug_str    00019864  00000000  00000000  00027818  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000a594  00000000  00000000  00040c4a  2**0
+ 11 .debug_loc    0000a7d1  00000000  00000000  0004107c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000ce0  00000000  00000000  0004b1de  2**0
+ 12 .debug_ranges 00000cf0  00000000  00000000  0004b84d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  00006d34  00000000  00000000  0004bebe  2**0
+ 13 .debug_macro  00006d4a  00000000  00000000  0004c53d  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1134,20 +1134,22 @@ void Inverter_change_state(uint8_t stat)
 ************************************************************************************************************/
 
 // jump to spacific image
-void lcd_Jump_to(uint16_t pic_id){ // v
+uint8_t lcd_Jump_to(uint16_t pic_id){ // v
 	
 		Modbus_Set_transmit_buffer(LCD,0,pic_id);
      74c:	ac 01       	movw	r20, r24
      74e:	60 e0       	ldi	r22, 0x00	; 0
      750:	80 e0       	ldi	r24, 0x00	; 0
      752:	ad d7       	rcall	.+3930   	; 0x16ae <Modbus_Set_transmit_buffer>
-		Modbus_Our_write_multiple_coils(LCD,LCD_CURRENT_PIC_REG, 1);
+		return Modbus_Our_write_multiple_coils(LCD,LCD_CURRENT_PIC_REG, 1);
      754:	41 e0       	ldi	r20, 0x01	; 1
      756:	50 e0       	ldi	r21, 0x00	; 0
      758:	63 e0       	ldi	r22, 0x03	; 3
      75a:	70 e0       	ldi	r23, 0x00	; 0
      75c:	80 e0       	ldi	r24, 0x00	; 0
      75e:	0c 94 b9 0b 	jmp	0x1772	; 0x1772 <Modbus_Our_write_multiple_coils>
+		
+}
      762:	08 95       	ret
 
 00000764 <Modbus_mster_transaction>:

@@ -52,9 +52,9 @@
 /***************************************** FUNCTIONS PROTOTYPES ***********************************************/
 void Lcd_init(UART_Modules uart_n,uint32_t baudrate,uint8_t slaveID);
 uint16_t Lcd_Read(uint16_t address,uint16_t *pData);
-void Lcd_Write(uint16_t address, uint16_t value);
+uint8_t Lcd_Write(uint16_t address, uint16_t value);
 uint8_t Lcd_Write_multiple_data(uint16_t address ,uint16_t *pData,uint8_t QTY);
 uint8_t Lcd_Read_multiple_data(uint16_t address ,uint16_t *pData,uint8_t QTY);
-void lcd_Jump_to(uint16_t pic_id);
-void lcd_set_buzzer(uint16_t value);
+uint8_t lcd_Jump_to(uint16_t pic_id);
+uint8_t lcd_set_buzzer(uint16_t value);
 #endif /* LCD_H_ */

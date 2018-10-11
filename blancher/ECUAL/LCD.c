@@ -7,6 +7,8 @@
 static void LCD_pre_transmission(void);
 static void LCD_post_transmission(void);
 
+
+#include "Modbus/Modbus_master.h"
 //Configuration global struct
 static modbus_config g_LCD_modbus_config;
 
@@ -56,9 +58,9 @@ uint16_t Lcd_Read(uint16_t address,uint16_t *pData){
 }
 
 //
-void Lcd_Write(uint16_t address, uint16_t value){
+uint8_t Lcd_Write(uint16_t address, uint16_t value){
 	Modbus_Set_transmit_buffer(LCD,0, value);
-    Modbus_Write_multiple_registers(LCD,address, 0x01);
+    return Modbus_Write_multiple_registers(LCD,address, 0x01);
 }
 
 
@@ -97,18 +99,18 @@ uint8_t Lcd_Write_multiple_data(uint16_t address ,uint16_t *pData,uint8_t QTY){
 ************************************************************************************************************/
 
 // jump to spacific image
-void lcd_Jump_to(uint16_t pic_id){ // v
+uint8_t lcd_Jump_to(uint16_t pic_id){ // v
 	
 		Modbus_Set_transmit_buffer(LCD,0,pic_id);
-		Modbus_Our_write_multiple_coils(LCD,LCD_CURRENT_PIC_REG, 1);
+		return Modbus_Our_write_multiple_coils(LCD,LCD_CURRENT_PIC_REG, 1);
 		
 }
 
 // to open buzzer to 2 second pass 200 to this function
-void lcd_set_buzzer(uint16_t value){ //v
+uint8_t lcd_set_buzzer(uint16_t value){ //v
 
 		Modbus_Set_transmit_buffer(LCD,0,value);
-		Modbus_Write_multiple_coils(LCD,LCD_BUZZER_REG, 1);
+		return Modbus_Write_multiple_coils(LCD,LCD_BUZZER_REG, 1);
 
 }
 

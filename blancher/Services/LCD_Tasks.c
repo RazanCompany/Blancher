@@ -71,6 +71,80 @@ void LCD_main_err_Init( void(*callback_read_timeout)(void) , void(*callback_writ
 }
 
 
+uint8_t LCD_main_Report_error(uint16_t PIC_ID){
+	uint8_t res = SUCCESS;
+	uint8_t count = 0;
+	while(1){
+		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
+		res = lcd_Jump_to(PIC_ID);
+		xSemaphoreGive(LCD_mutex_handle);
+		if(res == LCD_RESPONCE_TIMED_OUT) {count++;}
+		else {break;}
+		if(count == 6){
+			if(g_callback_write_timeout == NULL){}
+			else{
+				g_callback_write_timeout();
+			}
+			break;
+		}
+		vTaskDelay(200/portTICK_PERIOD_MS);
+	}
+	return res;
+}
+
+
+uint8_t LCD_main_wait_error_response(uint16_t Response_address, uint16_t* response){
+	
+	uint8_t res = SUCCESS;
+	uint8_t count = 0;
+	* response = 0;
+	while (*response == 0)
+	{
+		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
+		res = Lcd_Read(Response_address , response);
+		xSemaphoreGive(LCD_mutex_handle);
+		
+		if(res == LCD_RESPONCE_TIMED_OUT) count++;
+		else { count = 0;}
+		
+		if(count == 6 ){
+			if(g_callback_read_timeout == NULL){}
+			else
+			{
+				g_callback_read_timeout();
+			}
+			break;
+		}
+		vTaskDelay(200/portTICK_PERIOD_MS);
+		
+		
+	}
+	while(1){
+		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
+		res = Lcd_Write(Response_address , 0);
+		xSemaphoreGive(LCD_mutex_handle);
+			
+			
+		if(res == LCD_RESPONCE_TIMED_OUT) {count++;}
+		else {break;}
+		if(count == 6 ){
+			if(g_callback_write_timeout == NULL){}
+			else
+			{
+				g_callback_write_timeout();
+			}
+			break;
+		}
+		
+		vTaskDelay(200/portTICK_PERIOD_MS);
+	}
+	return res;
+}
+	
+	
+	
+
+
 static uint8_t LCD_READ_Parameters(void){
 	//call LCD_read_mutliple regs (fill the struct) and check for the errors //s_Lcd_data_read
 	//set rte parameters
@@ -186,11 +260,6 @@ void LCD_main(void* pvParameters){
 				
 			}
 		#endif
-		//x_time =  Get_millis() - x_time;
-		//UART0_puts("LCD Exe time = ");
-		//UART0_OutUDec(x_time);
-		//UART0_putc('\n');
-		//_delay_ms(1000);
 		//vTaskDelay(200/portTICK_PERIOD_MS);
 		vTaskDelay(1000/portTICK_PERIOD_MS);
 		//_delay_ms(2000);
