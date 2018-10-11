@@ -165,10 +165,6 @@ int main(void) {
 	  //Tank_operation_init();
 	  vTaskStartScheduler();
 
-	while (1)
-	{
-		
-	}
 }
 
 
@@ -180,19 +176,20 @@ static void vTask1(void* pvParameters)
 	char x=0;
 	UART0_puts("Sequence Task1 \n");
 //	Level_main(&x);
-    Sequance_task(&x);
-//   while (1)
-//   {
-// 	   UART0_puts("task1 alive\n");
-//   }
+ //   Sequance_task(&x);
+  while (1)
+  {
+	 //  UART0_puts("task1 alive\n");
+	 vTaskDelay(200/portTICK_PERIOD_MS);
+  }
 
 }
 static void vTask2(void* pvParameters)
 {
-	char x=0;
+	//char x=0;
 	//LCD_main(&x);
 	while(1){
-		Tank_feed_operation(2);
+		//Tank_feed_operation(2);
 		vTaskDelay(4000/portTICK_PERIOD_MS);
 	}
 }
@@ -208,13 +205,19 @@ static void vTask3(void* pvParameters)
 static void vTask4(void* pvParameters)
 {
 	UART0_puts("Enter Task4\n");
+	uint16_t response =0 ;
 		while (1)
 		{
 			
 			//UART0_puts("vTask4 Exist\n");
 			//_delay_ms(1000);
-			Tank_out_operation(2);
-			vTaskDelay(500/portTICK_PERIOD_MS);
+			//Tank_out_operation(2);
+			LCD_main_Report_error(DRUM_MOTOR_ERROR_PIC);
+			LCD_main_wait_error_response(DRUM_MOTOR_ERROR_RESPONSE,&response);
+			UART0_puts("RESPONSE = ");
+			UART0_OutUDec(response);
+			UART0_putc('\n');
+			vTaskDelay(300/portTICK_PERIOD_MS);
 		}
 	// 	uint16_t DEBUG_array[16];
 	// 	while(1)
@@ -258,9 +261,9 @@ static void vTask5(void* pvParameters)
 	// watch dog pin .
 	while(1)
 	{
-		 Watch_dog_change_state(HIGH);
-		 vTaskDelay(500/portTICK_PERIOD_MS);
-		 Watch_dog_change_state(LOW);
+		// Watch_dog_change_state(HIGH);
+		//
+		// Watch_dog_change_state(LOW);
 		 vTaskDelay(500/portTICK_PERIOD_MS);
 	}	
 	
