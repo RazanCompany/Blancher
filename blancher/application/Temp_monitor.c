@@ -13,6 +13,7 @@
 #include "../RTE/RTE_temperature.h"
 #include "../RTE/RTE_operations.h"
 #include "../Services/Ignition_operation.h"
+#include "errors.h"
 
 // hold temp rang state 
 uint8_t g_heat_state  = 0 ;
@@ -25,14 +26,16 @@ void Temp_monitor_main(void* pvParameters)
 	uint16_t sleep_temp  , sleep_Threshold   ;
 	uint16_t set_temp , threshold_set_temp  ;  
 	uint16_t current_temp;
+	gSystemError error ;
 	
 	while (RTE_get_Start_blancher_Operation() == 0 )
 	{
 		sleep_temp = RTE_get_Sleep_temperature() ;
 		sleep_Threshold = RTE_get_Threshold_sleep_temperature() ;
-		if (Heat( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) != E_OK )
+		if ((error = ( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) ) != E_OK )
 		{
-			// handle errors to be done !!!!!!!!!
+			if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    g_error_number = iGNITION_TYPE ;
+		    else if (error == E_OVER_TEMP_Fail)                       g_error_number  = OVER_TEMP_ERROR ;
 		}
 		vTaskDelay(200/portTICK_PERIOD_MS) ;
 	}
@@ -51,13 +54,14 @@ void Temp_monitor_main(void* pvParameters)
 		{
 			if(Heat((set_temp + threshold_set_temp) , (set_temp - threshold_set_temp)) != E_OK )
 			{
-				// handle errors to be done .
+				if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    g_error_number = iGNITION_TYPE ;
+				else if (error == E_OVER_TEMP_Fail)                       g_error_number  = OVER_TEMP_ERROR ;
 			}
 			
 		} /* current != INVALID_DATA */ 
 		else 
 		{
-			// over temp error .
+			g_error_number  = OVER_TEMP_ERROR ;
 		}
 		vTaskDelay(200/portTICK_PERIOD_MS) ;
      }
