@@ -15,14 +15,15 @@
 #include "../Services/Ignition_operation.h"
 
 // hold temp rang state 
-uint8_t heat_state  = 0 ;
-uint8_t iginited    = 0 ;
+uint8_t g_heat_state  = 0 ;
+uint8_t g_iginited    = 0 ;
+uint16_t  g_negative_offset = 0 , g_Positive_offset = 0 ; 
 
 
 void Temp_monitor_main(void* pvParameters)
 {
 	uint16_t sleep_temp  , sleep_Threshold   ;
-	uint16_t set_temp , threshold_set_temp ,  negative_offset , Positive_offset ;  
+	uint16_t set_temp , threshold_set_temp  ;  
 	uint16_t current_temp;
 	
 	while (RTE_get_Start_blancher_Operation() == 0 )
@@ -33,6 +34,7 @@ void Temp_monitor_main(void* pvParameters)
 		{
 			// handle errors to be done !!!!!!!!!
 		}
+		vTaskDelay(200/portTICK_PERIOD_MS) ;
 	}
 	
 	
@@ -40,7 +42,11 @@ void Temp_monitor_main(void* pvParameters)
 	{
 		set_temp = RTE_get_Set_temperature();
 		threshold_set_temp = RTE_get_Threshold_set_temperature();
-		current_temp = RTE_get_app_Current_temperature();
+		g_Positive_offset = RTE_get_Positive_offset_temperature();
+		g_negative_offset = RTE_get_Negative_offset_temperature();
+		current_temp = RTE_get_app_Current_temperature() ;
+		current_temp += g_Positive_offset ;
+		current_temp -= g_negative_offset ;
 		if (current_temp != INVALID_DATA)
 		{
 			if(Heat((set_temp + threshold_set_temp) , (set_temp - threshold_set_temp)) != E_OK )
@@ -62,23 +68,27 @@ void Temp_monitor_main(void* pvParameters)
 gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 {   
 	uint16_t current_temp = RTE_get_app_Current_temperature() ;
+	current_temp += g_Positive_offset ;
+	current_temp -= g_negative_offset ;
 	
-	if (current_temp > low_temp && current_temp < high_temp )            heat_state = 1 ;
-	else if (current_temp < low_temp )                                   heat_state = 2 ;
-	else if (current_temp > high_temp )                                  heat_state = 3 ;
+	if (current_temp > low_temp && current_temp < high_temp )            g_heat_state = 1 ;
+	else if (current_temp < low_temp )                                   g_heat_state = 2 ;
+	else if (current_temp > high_temp )                                  g_heat_state = 3 ;
 	
-	if (heat_state == 2  )    // lower than low_range .    
+	if (g_heat_state == 2  )    // lower than low_range .    
 	{
-		while (heat_state !=3)
+		while (g_heat_state !=3)
 		{   
 			current_temp = RTE_get_app_Current_temperature() ;
+			current_temp += g_Positive_offset ;
+			current_temp -= g_negative_offset ;
 			if(current_temp == INVALID_DATA)       return E_OVER_TEMP_Fail ;
 			
-			if (current_temp > low_temp && current_temp < high_temp )    heat_state = 1 ;
-			else if (current_temp < low_temp )                           heat_state = 2 ;
-			else if (current_temp > high_temp )                          heat_state = 3 ;
+			if (current_temp > low_temp && current_temp < high_temp )    g_heat_state = 1 ;
+			else if (current_temp < low_temp )                           g_heat_state = 2 ;
+			else if (current_temp > high_temp )                          g_heat_state = 3 ;
 			
-			if (  iginited )
+			if (  g_iginited )
 			{
 				if (!Get_light_state())         return E_FLAME_Fail ;
 				
@@ -87,13 +97,13 @@ gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 			{
 				if (Get_light_state())          return E_FLAME_Fail ;
 				if(Start_ignition() == E_Fail ) return E_IGNITION_Fail ;
-				iginited = 1 ;
+				g_iginited = 1 ;
 			}  /* iginited */
 		}  /*heat_state !=3*/
 		
 	    // stop the flame .	    
 		Stop_ignition();
-		iginited = 0;
+		g_iginited = 0;
 					
 	}/* heat_state = 2 */ 
 	return E_OK;
