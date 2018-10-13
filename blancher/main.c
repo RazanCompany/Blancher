@@ -119,14 +119,35 @@ int main(void) {
 				&xTask5Buffer); /* Variable to hold the task's data structure. */
 
 /*uint16_t res=0;*/
-
-// 	while(1){
+uint8_t watchdog =0 , output=0;
+uint16_t count=0;
+	while(1){
+		count++;
+		//watchdog^=1;
 // 		Lcd_Read(LCD_IGNITION_TYPE_ADDRESS,&res);
 // 		UART0_puts("res = ");
 // 		UART0_OutUDec(res);
 // 		UART0_putc('\n');
 // 		_delay_ms(1000);
-// 	}
+		for (uint16_t i =0 ; i<8  ; i++)
+		{
+			watchdog^=1;
+			Watch_dog_change_state(watchdog);
+			_delay_ms(1000);
+		}
+		output ^=1;
+// 		Conveyor_motor_change_state(output);
+// 		Spark_change_state(output);
+	//	Gas_valve_change_state(output);
+	//	Main_gas_valve_change_state(output); //error
+	//	Sareen_change_state(output);
+	//	Powder_motor_change_state(output);
+		Pump_change_state(output);
+	//	Tank_valve_1_change_state(output	
+	//	Tank_valve_2_change_state(output);
+	//	Blancher_valve_change_state(output);		
+		
+	}
 // 	
 
 	  // Start scheduler.
