@@ -4,6 +4,7 @@
  * Created: 10/10/2018 1:33:02 PM
  *  Author: M.nagah
  */ 
+#define  F_CPU 16000000
 #include <util/delay.h>
 #include <stdint.h>
 #include "Ignition_operation.h"
@@ -11,7 +12,7 @@
 /*
  * start the ignition process  
  * parameters@ ignition type (GAS - Electric)
- * return@ ok or Error
+ * return@ OK or Error
  */
 gSystemError Start_ignition(void)
 {

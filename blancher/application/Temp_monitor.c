@@ -35,7 +35,7 @@ void Temp_monitor_main(void* pvParameters)
 		set_temp = RTE_get_Set_temperature();
 		threshold_set_temp = RTE_get_Set_temperature();
 		current_temp = RTE_get_app_Current_temperature() ;
-		if (current_temp != INVALID_TEMP)
+		if (current_temp != INVALID_DATA)
 		{
 			if(Heat((set_temp + threshold_set_temp) , (set_temp - threshold_set_temp)) != E_OK )
 			{

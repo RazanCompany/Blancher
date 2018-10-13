@@ -40,7 +40,7 @@ void Sequance_task(void* pvParameters)
 		lcd_Jump_to( SALT_ERROR_PIC );
  		while(response == 0 )
  		{
-			_delay_ms(200);
+			vTaskDelay(200/portTICK_PERIOD_MS);
  			Lcd_Read(SALT_ERROR_RESPONSE,&response);
 			
  		}
@@ -59,7 +59,7 @@ void Sequance_task(void* pvParameters)
  		lcd_Jump_to(DRUM_MOTOR_ERROR_PIC  );
  		while(response == 0 )
  		{
-		    _delay_ms(200); 
+		    vTaskDelay(200/portTICK_PERIOD_MS); 
  			Lcd_Read(DRUM_MOTOR_ERROR_RESPONSE,&response);
  		}
 		xSemaphoreGive(LCD_mutex_handle);
@@ -76,7 +76,7 @@ void Sequance_task(void* pvParameters)
 		
 		while(response == 0 )
 		{
-			_delay_ms(200);
+			vTaskDelay(200/portTICK_PERIOD_MS);
 			Lcd_Read(INLET_FLOW_ERROR_RESPONSE,&response);
 		}
 		xSemaphoreGive(LCD_mutex_handle);
@@ -94,6 +94,7 @@ void Sequance_task(void* pvParameters)
 		lcd_Jump_to(OUTLET_FLOW_ERROR_PIC  );
  		while(response == 0 )
  		{
+			vTaskDelay(200/portTICK_PERIOD_MS);
  			Lcd_Read(OUTLET_FLOW_ERROR_RESPONSE,&response);
  		}
 		xSemaphoreGive(LCD_mutex_handle);
@@ -110,10 +111,10 @@ void Sequance_task(void* pvParameters)
 			
 	// check inverter & conveyor
 	Inverter_set_Freq(&Inverter_check_config);
-	_delay_ms(1000);
+	vTaskDelay(1000/portTICK_PERIOD_MS);
 	Inverter_change_state(HIGH);
 	Conveyor_motor_change_state(HIGH);
-	_delay_ms(15000);
+	vTaskDelay(15000/portTICK_PERIOD_MS);
 	if( Drum_speed() == 0){
 		UART0_puts(" Drum speed Err \n");
 		Inverter_change_state(LOW);
@@ -121,15 +122,15 @@ void Sequance_task(void* pvParameters)
 		xSemaphoreTake( LCD_mutex_handle , portMAX_DELAY ) ;
 		UART0_puts("D T M\n");
 		lcd_Jump_to(DRUM_MOTOR_ERROR_PIC );
-		_delay_ms(200);
+		vTaskDelay(200/portTICK_PERIOD_MS);
  		while(response == 0 )
  		{
 			Lcd_Read(DRUM_MOTOR_ERROR_RESPONSE,&response);
-			_delay_ms(200);
+			vTaskDelay(200/portTICK_PERIOD_MS);
  		}
-		 UART0_puts("Response = ");
-		 UART0_OutUDec(response);
-		 UART0_putc('\n');
+		UART0_puts("Response = ");
+		UART0_OutUDec(response);
+		UART0_putc('\n');
 		xSemaphoreGive(LCD_mutex_handle);
 		UART0_puts("D R M\n");
 	}

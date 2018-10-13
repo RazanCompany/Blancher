@@ -18,7 +18,13 @@ typedef enum{
 	E_OUTLET_FLOW_fail,
 	E_DRUM_ENCODER_fail,
 	E_CONVOYER_ENCODER_fail,
-	E_SALT_MOTER_ENCODER_fail
+	E_SALT_MOTER_ENCODER_fail,
+	E_FLAME_Fail,
+	E_IGNITION_Fail,
+	E_NO_SALT_IN_TANK_Fail,
+	E_SALT_DROP_Fail
+	
+	
 
 }gSystemError;
 

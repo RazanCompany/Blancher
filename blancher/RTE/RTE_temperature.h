@@ -8,9 +8,11 @@
 
 #ifndef RTE_TEMPERATURE_H_
 #define RTE_TEMPERATURE_H_
-
+#include "RTE_error_types.h"
 
 void RTE_temperature_init(void);
+
+
 
 void RTE_set_Sleep_temperature(uint16_t u16sleepTemp);
 uint16_t RTE_get_Sleep_temperature(void);
