@@ -118,16 +118,16 @@ int main(void) {
 				xStack5, /* Array to use as the task's stack. */
 				&xTask5Buffer); /* Variable to hold the task's data structure. */
 
-uint16_t res=0;
+/*uint16_t res=0;*/
 
-	while(1){
-		Lcd_Read(LCD_IGNITION_TYPE_ADDRESS,&res);
-		UART0_puts("res = ");
-		UART0_OutUDec(res);
-		UART0_putc('\n');
-		_delay_ms(1000);
-	}
-	
+// 	while(1){
+// 		Lcd_Read(LCD_IGNITION_TYPE_ADDRESS,&res);
+// 		UART0_puts("res = ");
+// 		UART0_OutUDec(res);
+// 		UART0_putc('\n');
+// 		_delay_ms(1000);
+// 	}
+// 	
 
 	  // Start scheduler.
 	  //Tank_operation_init();
