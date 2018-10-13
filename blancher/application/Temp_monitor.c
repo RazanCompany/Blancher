@@ -33,7 +33,7 @@ void Temp_monitor_main(void* pvParameters)
 	while (1)
 	{
 		set_temp = RTE_get_Set_temperature();
-		threshold_set_temp = RTE_get_Set_temperature();
+		threshold_set_temp = RTE_get_Threshold_set_temperature();
 		current_temp = RTE_get_app_Current_temperature() ;
 		if (current_temp != INVALID_DATA)
 		{
@@ -47,10 +47,7 @@ void Temp_monitor_main(void* pvParameters)
 		{
 			// over temp error .
 		}
-		
-	
-	
-	
+     }
 }
 
 
@@ -60,8 +57,8 @@ gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 	uint16_t current_temp = RTE_get_app_Current_temperature() ;
 	
 	if (current_temp > low_temp && current_temp < high_temp )    heat_state = 1 ;
-	else if (current_temp < low_temp )    heat_state = 2 ;
-	else if (current_temp > high_temp )   heat_state = 3 ;
+	else if (current_temp < low_temp )                           heat_state = 2 ;
+	else if (current_temp > high_temp )                          heat_state = 3 ;
 	
 	if (heat_state == 2  )      
 	{
@@ -69,8 +66,8 @@ gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 		{
 			current_temp = RTE_get_app_Current_temperature() ;
 			if (current_temp > low_temp && current_temp < high_temp )    heat_state = 1 ;
-			else if (current_temp < low_temp )    heat_state = 2 ;
-			else if (current_temp > high_temp )   heat_state = 3 ;
+			else if (current_temp < low_temp )                           heat_state = 2 ;
+			else if (current_temp > high_temp )                          heat_state = 3 ;
 			
 			if (  iginited )
 			{
@@ -85,15 +82,14 @@ gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 			}  /* iginited */
 		}  /*heat_state !=3*/
 		
-		if (heat_state == 3)
-		{
-			Stop_ignition();
-			iginited = 0;
-		}		
-				
+	    // stop the flame .	    
+		Stop_ignition();
+		iginited = 0;
+					
 	}/* heat_state = 2 */ 
-}
 	return E_OK;
-
 }
+	
+
+
 
