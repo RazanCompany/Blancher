@@ -9,12 +9,14 @@
 #include "../GLOBAL.h"
 #include "../CONFIG.h"
 #include "../MCAL/DIO.h"
+#include "../RTOS_Includes.h"
 #include "../RTE/RTE_temperature.h"
+#include "../RTE/RTE_operations.h"
 #include "../Services/Ignition_operation.h"
 
 // hold temp rang state 
-uint8_t heat_state = 0 ;
-uint8_t iginited = 0 ;
+uint8_t heat_state  = 0 ;
+uint8_t iginited    = 0 ;
 
 
 void Temp_monitor_main(void* pvParameters)
@@ -23,12 +25,16 @@ void Temp_monitor_main(void* pvParameters)
 	uint16_t set_temp , threshold_set_temp ,  negative_offset , Positive_offset ;  
 	uint16_t current_temp;
 	
-	sleep_temp = RTE_get_Sleep_temperature() ; 
-	sleep_Threshold = RTE_get_Threshold_sleep_temperature() ; 
-	if (Heat( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) != E_OK ) 
+	while (RTE_get_Start_blancher_Operation == 0 )
 	{
-		// handle errors to be done !!!!!!!!!
+		sleep_temp = RTE_get_Sleep_temperature() ;
+		sleep_Threshold = RTE_get_Threshold_sleep_temperature() ;
+		if (Heat( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) != E_OK )
+		{
+			// handle errors to be done !!!!!!!!!
+		}
 	}
+	
 	
 	while (1)
 	{
@@ -42,11 +48,12 @@ void Temp_monitor_main(void* pvParameters)
 				// handle errors to be done .
 			}
 			
-		} /* current != INVALID_TEMP */ 
+		} /* current != INVALID_DATA */ 
 		else 
 		{
 			// over temp error .
 		}
+		vTaskDelay(200/portTICK_PERIOD_MS) ;
      }
 }
 
@@ -56,27 +63,29 @@ gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 {   
 	uint16_t current_temp = RTE_get_app_Current_temperature() ;
 	
-	if (current_temp > low_temp && current_temp < high_temp )    heat_state = 1 ;
-	else if (current_temp < low_temp )                           heat_state = 2 ;
-	else if (current_temp > high_temp )                          heat_state = 3 ;
+	if (current_temp > low_temp && current_temp < high_temp )            heat_state = 1 ;
+	else if (current_temp < low_temp )                                   heat_state = 2 ;
+	else if (current_temp > high_temp )                                  heat_state = 3 ;
 	
-	if (heat_state == 2  )      
+	if (heat_state == 2  )    // lower than low_range .    
 	{
 		while (heat_state !=3)
-		{
+		{   
 			current_temp = RTE_get_app_Current_temperature() ;
+			if(current_temp == INVALID_DATA)       return E_OVER_TEMP_Fail ;
+			
 			if (current_temp > low_temp && current_temp < high_temp )    heat_state = 1 ;
 			else if (current_temp < low_temp )                           heat_state = 2 ;
 			else if (current_temp > high_temp )                          heat_state = 3 ;
 			
 			if (  iginited )
 			{
-				if (!Get_light_state()) return E_FLAME_Fail ;
+				if (!Get_light_state())         return E_FLAME_Fail ;
 				
 			}
 			else
 			{
-				if (Get_light_state()) return E_FLAME_Fail ;
+				if (Get_light_state())          return E_FLAME_Fail ;
 				if(Start_ignition() == E_Fail ) return E_IGNITION_Fail ;
 				iginited = 1 ;
 			}  /* iginited */
