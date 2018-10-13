@@ -296,15 +296,20 @@ Discarded input sections
  .text          0x00000000        0x0 application/Temp_monitor.o
  .data          0x00000000        0x0 application/Temp_monitor.o
  .bss           0x00000000        0x0 application/Temp_monitor.o
- .text.Heat     0x00000000       0xf6 application/Temp_monitor.o
+ .text.Heat     0x00000000      0x126 application/Temp_monitor.o
  .text.Temp_monitor_main
-                0x00000000       0x52 application/Temp_monitor.o
- .bss.iginited  0x00000000        0x1 application/Temp_monitor.o
- .bss.heat_state
+                0x00000000       0x8a application/Temp_monitor.o
+ .bss.g_Positive_offset
+                0x00000000        0x2 application/Temp_monitor.o
+ .bss.g_negative_offset
+                0x00000000        0x2 application/Temp_monitor.o
+ .bss.g_iginited
                 0x00000000        0x1 application/Temp_monitor.o
- .debug_info    0x00000000      0x33d application/Temp_monitor.o
- .debug_abbrev  0x00000000      0x132 application/Temp_monitor.o
- .debug_loc     0x00000000      0x1ea application/Temp_monitor.o
+ .bss.g_heat_state
+                0x00000000        0x1 application/Temp_monitor.o
+ .debug_info    0x00000000      0x38f application/Temp_monitor.o
+ .debug_abbrev  0x00000000      0x125 application/Temp_monitor.o
+ .debug_loc     0x00000000      0x231 application/Temp_monitor.o
  .debug_aranges
                 0x00000000       0x28 application/Temp_monitor.o
  .debug_ranges  0x00000000       0x18 application/Temp_monitor.o
@@ -339,8 +344,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x86 application/Temp_monitor.o
  .debug_macro   0x00000000       0x78 application/Temp_monitor.o
  .debug_macro   0x00000000       0x10 application/Temp_monitor.o
- .debug_line    0x00000000      0x5e6 application/Temp_monitor.o
- .debug_str     0x00000000     0xd89b application/Temp_monitor.o
+ .debug_line    0x00000000      0x605 application/Temp_monitor.o
+ .debug_str     0x00000000     0xd8eb application/Temp_monitor.o
  .comment       0x00000000       0x31 application/Temp_monitor.o
  .debug_frame   0x00000000       0x58 application/Temp_monitor.o
  .group         0x00000000        0x8 ECUAL/Drum.o

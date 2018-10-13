@@ -51,10 +51,12 @@ void Temp_main(void* pvParameters){
 		}
 		else{
 		// set temp for LCD 
+				// set the temp for the application .
+
+			RTE_set_app_Current_temperature(current_temp);
 			RTE_set_Current_temperature(current_temp);
 		}
-		// set the temp for the application .
-		RTE_set_app_Current_temperature(current_temp);
+		//
 		//x_time =  Get_millis() - x_time ;
 		//UART0_puts("temp ex time = ");
 		//UART0_OutUDec(x_time);

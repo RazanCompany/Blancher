@@ -7597,18 +7597,18 @@ void Temp_main(void* pvParameters){
     35be:	8a ef       	ldi	r24, 0xFA	; 250
     35c0:	9f ea       	ldi	r25, 0xAF	; 175
     35c2:	0e 94 c2 12 	call	0x2584	; 0x2584 <RTE_set_app_Current_temperature>
-    35c6:	02 c0       	rjmp	.+4      	; 0x35cc <Temp_main+0x38>
-			
+    35c6:	05 c0       	rjmp	.+10     	; 0x35d2 <Temp_main+0x3e>
 		}
 		else{
 		// set temp for LCD 
+				// set the temp for the application .
+
+			RTE_set_app_Current_temperature(current_temp);
+    35c8:	0e 94 c2 12 	call	0x2584	; 0x2584 <RTE_set_app_Current_temperature>
 			RTE_set_Current_temperature(current_temp);
-    35c8:	0e 94 bd 12 	call	0x257a	; 0x257a <RTE_set_Current_temperature>
-		}
-		// set the temp for the application .
-		RTE_set_app_Current_temperature(current_temp);
     35cc:	ce 01       	movw	r24, r28
-    35ce:	0e 94 c2 12 	call	0x2584	; 0x2584 <RTE_set_app_Current_temperature>
+    35ce:	0e 94 bd 12 	call	0x257a	; 0x257a <RTE_set_Current_temperature>
+		//
 		//x_time =  Get_millis() - x_time ;
 		//UART0_puts("temp ex time = ");
 		//UART0_OutUDec(x_time);
