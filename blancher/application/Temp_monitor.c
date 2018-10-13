@@ -25,7 +25,7 @@ void Temp_monitor_main(void* pvParameters)
 	uint16_t set_temp , threshold_set_temp ,  negative_offset , Positive_offset ;  
 	uint16_t current_temp;
 	
-	while (RTE_get_Start_blancher_Operation == 0 )
+	while (RTE_get_Start_blancher_Operation() == 0 )
 	{
 		sleep_temp = RTE_get_Sleep_temperature() ;
 		sleep_Threshold = RTE_get_Threshold_sleep_temperature() ;
@@ -40,7 +40,7 @@ void Temp_monitor_main(void* pvParameters)
 	{
 		set_temp = RTE_get_Set_temperature();
 		threshold_set_temp = RTE_get_Threshold_set_temperature();
-		current_temp = RTE_get_app_Current_temperature() ;
+		current_temp = RTE_get_app_Current_temperature();
 		if (current_temp != INVALID_DATA)
 		{
 			if(Heat((set_temp + threshold_set_temp) , (set_temp - threshold_set_temp)) != E_OK )

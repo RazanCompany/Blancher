@@ -45,10 +45,19 @@
 #define  LCD_CURRENT_PIC_REG     												    0x0003
 #define  LCD_CURRENT_ENCODER														0x0F02
 #define  LCD_TEMP_DATA																0x0009
+
 #define	 LCD_START_READ_ADDRESS														0x0001
 #define  LCD_START_WRITE_ADDRESS													0x0F00
 #define  LCD_READ_REGS_NUMBER													    17
 #define  LCD_WRITE_REGS_NUMBER														2
+
+#define	 LCD_IGNITION_TYPE_ADDRESS													0x12										    											
+// #define  LCD_MOTOR_GEAR_BOX_RATIO_ADDRESS										    
+// #define  LCD_MOTOR_DRIVER_DIAMETER_ADDRESS
+// #define  LCD_MOTOR_MAX_RPM_ADDRESS
+// #define  LCD_CONVOYER_LENGTH_ADDRESS
+
+
 /***************************************** FUNCTIONS PROTOTYPES ***********************************************/
 void Lcd_init(UART_Modules uart_n,uint32_t baudrate,uint8_t slaveID);
 uint16_t Lcd_Read(uint16_t address,uint16_t *pData);

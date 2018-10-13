@@ -301,17 +301,17 @@ void Blower_change_state(uint8_t state)
 void Watch_dog_change_state(uint8_t state)
 {
 	if (HIGH == state)
-	SET_BIT(WATCH_DOG_DATA_REG , WATCH_DOG_PIN);
+		SET_BIT(WATCH_DOG_DATA_REG , WATCH_DOG_PIN);
 	else if(LOW == state)
-	CLR_BIT(WATCH_DOG_DATA_REG , WATCH_DOG_PIN);
+		CLR_BIT(WATCH_DOG_DATA_REG , WATCH_DOG_PIN);
 }
 
 
 void Sareen_change_state(uint8_t state)
 {
 	if (HIGH == state)
-	SET_BIT(SAREEN_DATA_REG , SAREEN_PIN);
+		SET_BIT(SAREEN_DATA_REG , SAREEN_PIN);
 	else if(LOW == state)
-	CLR_BIT(SAREEN_DATA_REG , SAREEN_PIN);
+		CLR_BIT(SAREEN_DATA_REG , SAREEN_PIN);
 }
 

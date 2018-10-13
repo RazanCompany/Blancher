@@ -22,7 +22,8 @@ typedef enum{
 	E_FLAME_Fail,
 	E_IGNITION_Fail,
 	E_NO_SALT_IN_TANK_Fail,
-	E_SALT_DROP_Fail
+	E_SALT_DROP_Fail,
+	E_OVER_TEMP_Fail
 	
 	
 

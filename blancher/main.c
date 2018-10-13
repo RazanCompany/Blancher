@@ -118,47 +118,15 @@ int main(void) {
 				xStack5, /* Array to use as the task's stack. */
 				&xTask5Buffer); /* Variable to hold the task's data structure. */
 
+uint16_t res=0;
 
-	//char x=0;
-//	Temp_main(&x);
-// 	uint8_t xy=0;
-// 	uint16_t DEBUG_array[16];
-// 	while (1)
-// 	{
-// 		RTE_set_Drum_speed(xy++);
-// 		RTE_set_Current_temperature(xy);
-// 		LCD_main(&x);
-// 		
-// 		DEBUG_array[0]=RTE_get_Threshold_set_temperature();
-// 		DEBUG_array[1]=RTE_get_Threshold_sleep_temperature();
-// 		DEBUG_array[2]=RTE_get_Positive_offset_temperature();
-// 		DEBUG_array[3]=RTE_get_Negative_offset_temperature();
-// 		DEBUG_array[4]=RTE_get_Conveyor_length();
-// 		DEBUG_array[5]=RTE_get_Set_temperature();
-// 		DEBUG_array[6]=RTE_get_Sleep_temperature();
-// 		DEBUG_array[7]=RTE_get_Wash_Operation();
-// 		DEBUG_array[8]=RTE_get_System_on();
-// 		DEBUG_array[9]=RTE_get_Tank_Calibration_Operation();
-// 		DEBUG_array[10]=RTE_get_Start_blancher_Operation(); 
-// 		DEBUG_array[11]=RTE_get_Gear_ratio();
-// 		DEBUG_array[12]=RTE_get_Driver_diameter();
-// 		DEBUG_array[13]=RTE_get_RPM_max(); 
-// 		DEBUG_array[14]=RTE_get_Time_minute();
-// 		DEBUG_array[15]=RTE_get_Time_second();
-// 	
-// 		
-// 		for (uint8_t i=0;i<16;i++)
-// 		{
-// 			UART0_puts("DEBUG_array[");
-// 			UART0_OutUDec(i);
-// 			UART0_puts("] = ");
-// 			UART0_OutUDec(DEBUG_array[i]);
-// 			UART0_putc('\n');
-// 		}
-// 		
-// 		_delay_ms(500);
-// 		
-// 	}
+	while(1){
+		Lcd_Read(LCD_IGNITION_TYPE_ADDRESS,&res);
+		UART0_puts("res = ");
+		UART0_OutUDec(res);
+		UART0_putc('\n');
+		_delay_ms(1000);
+	}
 	
 
 	  // Start scheduler.
@@ -173,7 +141,7 @@ int main(void) {
 
 static void vTask1(void* pvParameters)
 {
-	char x=0;
+//	char x=0;
 	UART0_puts("Sequence Task1 \n");
 //	Level_main(&x);
  //   Sequance_task(&x);
@@ -190,6 +158,7 @@ static void vTask2(void* pvParameters)
 	//LCD_main(&x);
 	while(1){
 		//Tank_feed_operation(2);
+		
 		vTaskDelay(4000/portTICK_PERIOD_MS);
 	}
 }
@@ -205,19 +174,16 @@ static void vTask3(void* pvParameters)
 static void vTask4(void* pvParameters)
 {
 	UART0_puts("Enter Task4\n");
-	uint16_t response =0 ;
+	//uint16_t response =0 ;
 		while (1)
 		{
 			
-			//UART0_puts("vTask4 Exist\n");
-			//_delay_ms(1000);
-			//Tank_out_operation(2);
-			LCD_main_Report_error(DRUM_MOTOR_ERROR_PIC);
-			LCD_main_wait_error_response(DRUM_MOTOR_ERROR_RESPONSE,&response);
-			UART0_puts("RESPONSE = ");
-			UART0_OutUDec(response);
-			UART0_putc('\n');
-			vTaskDelay(300/portTICK_PERIOD_MS);
+// 			LCD_main_Report_error(DRUM_MOTOR_ERROR_PIC);
+// 			LCD_main_wait_error_response(DRUM_MOTOR_ERROR_RESPONSE,&response);
+// 			UART0_puts("RESPONSE = ");
+// 			UART0_OutUDec(response);
+// 			UART0_putc('\n');
+ 			vTaskDelay(300/portTICK_PERIOD_MS);
 		}
 	// 	uint16_t DEBUG_array[16];
 	// 	while(1)
@@ -261,10 +227,9 @@ static void vTask5(void* pvParameters)
 	// watch dog pin .
 	while(1)
 	{
-		// Watch_dog_change_state(HIGH);
-		//
-		// Watch_dog_change_state(LOW);
-		 vTaskDelay(500/portTICK_PERIOD_MS);
+// 		Watch_dog_change_state(HIGH);
+// 		Watch_dog_change_state(LOW);
+		vTaskDelay(500/portTICK_PERIOD_MS);
 	}	
 	
 }

@@ -46,9 +46,13 @@ void Temp_main(void* pvParameters){
 					 over_temp_callback();
 				}
 			}
+			RTE_set_app_Current_temperature(INVALID_DATA);
+			
 		}
+		else{
 		// set temp for LCD 
-		RTE_set_Current_temperature(current_temp);
+			RTE_set_Current_temperature(current_temp);
+		}
 		// set the temp for the application .
 		RTE_set_app_Current_temperature(current_temp);
 		//x_time =  Get_millis() - x_time ;

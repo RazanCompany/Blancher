@@ -287,6 +287,12 @@
     <Compile Include="error_callbacks.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="error_functions.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="error_functions.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="GLOBAL.c">
       <SubType>compile</SubType>
     </Compile>
