@@ -212,10 +212,10 @@ Discarded input sections
  .data          0x00000000        0x0 application/sequance.o
  .bss           0x00000000        0x0 application/sequance.o
  .rodata.str1.1
-                0x00000000       0x3a application/sequance.o
+                0x00000000       0xb2 application/sequance.o
  .text.Sequance_task
-                0x00000000      0x128 application/sequance.o
- .debug_info    0x00000000      0x4e5 application/sequance.o
+                0x00000000      0x318 application/sequance.o
+ .debug_info    0x00000000      0x981 application/sequance.o
  .debug_abbrev  0x00000000      0x146 application/sequance.o
  .debug_loc     0x00000000       0x6e application/sequance.o
  .debug_aranges
@@ -257,9 +257,9 @@ Discarded input sections
  .debug_macro   0x00000000       0x66 application/sequance.o
  .debug_macro   0x00000000       0x86 application/sequance.o
  .debug_macro   0x00000000       0x78 application/sequance.o
- .debug_macro   0x00000000       0x10 application/sequance.o
- .debug_line    0x00000000      0x6b7 application/sequance.o
- .debug_str     0x00000000     0xe56e application/sequance.o
+ .debug_macro   0x00000000       0x28 application/sequance.o
+ .debug_line    0x00000000      0x7d6 application/sequance.o
+ .debug_str     0x00000000     0xe5f8 application/sequance.o
  .comment       0x00000000       0x31 application/sequance.o
  .debug_frame   0x00000000       0x34 application/sequance.o
  COMMON         0x00000000        0xd application/sequance.o

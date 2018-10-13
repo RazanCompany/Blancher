@@ -28,8 +28,7 @@ g_Inveter_Config Inverter_check_config;
 gSystemError errors ;
 
 void Sequance_task(void* pvParameters)
-{
-	
+{	
 #ifdef SALT_EXIST_CHECK 
  	if (Salt_exist() != 1)
  	{
