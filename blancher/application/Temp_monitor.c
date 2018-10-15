@@ -14,6 +14,7 @@
 #include "../RTE/RTE_operations.h"
 #include "../Services/Ignition_operation.h"
 #include "errors.h"
+#include "../MCAL/UART.h"
 
 // hold temp rang state 
 uint8_t g_heat_state  = 0 ;
@@ -30,9 +31,10 @@ void Temp_monitor_main(void* pvParameters)
 	
 	while (RTE_get_Start_blancher_Operation() == 0 )
 	{
+		UART0_puts("start heating to sleep temp ");
 		sleep_temp = RTE_get_Sleep_temperature() ;
 		sleep_Threshold = RTE_get_Threshold_sleep_temperature() ;
-		if ((error = ( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) ) != E_OK )
+		if ((error = Heat( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) ) != E_OK )
 		{
 			if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    g_error_number = iGNITION_TYPE ;
 		    else if (error == E_OVER_TEMP_Fail)                       g_error_number  = OVER_TEMP_ERROR ;
@@ -52,7 +54,7 @@ void Temp_monitor_main(void* pvParameters)
 		current_temp -= g_negative_offset ;
 		if (current_temp != INVALID_DATA)
 		{
-			if(Heat((set_temp + threshold_set_temp) , (set_temp - threshold_set_temp)) != E_OK )
+			if( (error = Heat((set_temp + threshold_set_temp) , (set_temp - threshold_set_temp) )) != E_OK )
 			{
 				if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    g_error_number = iGNITION_TYPE ;
 				else if (error == E_OVER_TEMP_Fail)                       g_error_number  = OVER_TEMP_ERROR ;

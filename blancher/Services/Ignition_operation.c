@@ -9,6 +9,8 @@
 #include <stdint.h>
 #include "Ignition_operation.h"
 #include "../MCAL/DIO.h"
+#include "../MCAL/UART.h"
+#include "../RTOS_Includes.h"
 /*
  * start the ignition process  
  * parameters@ ignition type (GAS - Electric)
@@ -62,17 +64,20 @@ gSystemError start_gas__igintion(void)
 	{
 		Spark_change_state(HIGH);
 		Gas_valve_change_state(HIGH);
-		_delay_ms(4000);
+		vTaskDelay(4000/portTICK_PERIOD_MS) ;
 		if ( Get_light_state ())
 		{
 			Spark_change_state(LOW);
+			UART0_puts("light status ");
+			UART0_OutUDec(Get_light_state());
+			UART0_putc('\n');
 			return E_OK; // ok 
 		}
 		else
 		{
 			Spark_change_state(LOW);
 			Gas_valve_change_state(LOW);
-			_delay_ms(4000);
+		vTaskDelay(4000/portTICK_PERIOD_MS) ;
 			count ++;
 		}
 	}

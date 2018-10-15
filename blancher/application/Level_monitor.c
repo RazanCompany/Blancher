@@ -6,12 +6,13 @@
  */ 
 
 #include "Level_monitor.h"
+#include "../RTOS_Includes.h"
 #include "../GLOBAL.h"
 #include "../CONFIG.h"
 #include "../RTE/RTE_levels.h"
 #include "../Services/tank_operation.h"
 #include "../ECUAL/PowderIF.h"
-
+#include "../MCAL/UART.h"
 #define LEVEL_LITERS_STEP	 10
 
 
@@ -22,8 +23,10 @@ void Level_monitor_task(void* pvParameters)
 	// initialization of the tank with water
 	static uint8_t tank_initailized_water_flag = 0;
 	uint16_t Tank_level_1_in_letters_measured = 0;
+	static uint16_t Tank_out_flow_in_litters = 0 ;
+	uint16_t ret_blancher_level ;
 	uint16_t ret_tank_level = RTE_get_tank_level();
-	
+
 
 	if( (ret_tank_level == 0 ) || (ret_tank_level != INVALID_DATA)){
 
@@ -104,8 +107,43 @@ void Level_monitor_task(void* pvParameters)
 	// Forever loop
 	while (tank_initailized_water_flag)
 	{
+		ret_blancher_level = RTE_get_blancher_level();
+		while ( ret_blancher_level == 0 )
+		{
+			if (Tank_out_operation(LEVEL_LITERS_STEP) == E_OK)
+			{
+				Tank_out_flow_in_litters += LEVEL_LITERS_STEP ;
+			}
+			else 
+			{
+				// error in tank outing .
+			}
+			ret_blancher_level = RTE_get_blancher_level();
+			ret_tank_level = RTE_get_tank_level();
+			if (ret_tank_level == 0 || ret_tank_level == INVALID_DATA ) break ; 
+			
+		} /*while ( ret_blancher_level == 0 ) */  
 		
+		if (Tank_feed_operation(Tank_out_flow_in_litters) == E_OK )
+		{
+			if ( Powder_drop( TANK_POWDER_DENSITY * (Tank_out_flow_in_litters + (Tank_out_flow_in_litters * 0.2)) ) != E_OK)
+			{
+				Tank_out_flow_in_litters = 0 ;
+			}
+			else 
+			{
+				// ERROR IN Powder_drop
+			}
+		}
+		else 
+		{
+			// error feading .
+		}
 		
 	}
-	
+	while (1)
+	{
+		UART0_puts("level monitor task has been stopped .") ;
+		vTaskDelay(500/portTICK_PERIOD_MS) ;
+	}
 }

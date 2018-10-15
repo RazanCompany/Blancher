@@ -284,9 +284,9 @@ void Pre_heater_change_state(uint8_t state)
 void Tank_valve_2_change_state(uint8_t state)
 {
 	if (HIGH == state)
-		SET_BIT(BLOWER_DATA_REG , BLOWER_PIN);
+		SET_BIT(TANK_VALVE_2_DATA_REG , TANK_VALVE_2_PIN);
 	else if(LOW == state)
-		CLR_BIT(BLOWER_DATA_REG , BLOWER_PIN);
+		CLR_BIT(TANK_VALVE_2_DATA_REG , TANK_VALVE_2_PIN);
 }
 
 void Blower_change_state(uint8_t state)

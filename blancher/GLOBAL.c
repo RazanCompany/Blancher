@@ -16,6 +16,6 @@ uint16_t gear_diameter = 6;  // 6 cm
 uint16_t motor_rpm_max = 900;   // 900 rpm
 uint16_t time_user_M ; // time of Inverter to boil by minutes
 uint16_t time_user_S ;
-uint16_t  ignitiontype = 0xAAAA ; //oxAA invalid type
+uint16_t  ignitiontype = 1;//0xAAAA ; //oxAA invalid type
 
 

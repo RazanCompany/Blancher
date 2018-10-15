@@ -1,6 +1,6 @@
 application/errors.d application/errors.o: ../application/errors.c \
  ../application/errors.h ../application/../ECUAL/LCD.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  ../application/../ECUAL/Modbus/Modbus_master.h \
  ../application/../ECUAL/Modbus/../../MCAL/UART.h \
@@ -18,7 +18,7 @@ application/errors.d application/errors.o: ../application/errors.c \
  ../application/../System.h ../application/../CONFIG.h \
  ../application/../MCAL/DIO.h ../application/../MCAL/../CONFIG.h \
  ../application/../RTOS_Includes.h ../application/../rtos/FreeRTOS.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  ../application/../rtos/FreeRTOSConfig.h \
  ../application/../rtos/projdefs.h ../application/../rtos/portmacro.h \
  ../application/../rtos/portable.h \
@@ -32,7 +32,7 @@ application/errors.d application/errors.o: ../application/errors.c \
  ../application/../Services/Ignition_operation.h \
  ../application/../Services/../GLOBAL.h \
  ../application/../ECUAL/Inverter.h ../application/../ECUAL/../CONFIG.h \
- ../application/../ECUAL/../MCAL/UART.h \
+ ../application/../ECUAL/../MCAL/UART.h ../application/../MCAL/UART.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
@@ -41,7 +41,7 @@ application/errors.d application/errors.o: ../application/errors.c \
 
 ../application/../ECUAL/LCD.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
@@ -85,7 +85,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../application/../rtos/FreeRTOS.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
 ../application/../rtos/FreeRTOSConfig.h:
 
@@ -124,6 +124,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../application/../ECUAL/../CONFIG.h:
 
 ../application/../ECUAL/../MCAL/UART.h:
+
+../application/../MCAL/UART.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 

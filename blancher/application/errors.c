@@ -15,6 +15,7 @@
 #include "../Services/Ignition_operation.h"
 #include "../MCAL/DIO.h"
 #include "../ECUAL/Inverter.h"
+#include "../MCAL/UART.h"
 #include <util/delay.h>
 
  uint8_t g_error_number;
@@ -26,6 +27,7 @@
  
  void Error_monitor_main(void* pvParameters)
  {
+	 static uint8_t jumped = 0 ;
 	 g_error_number = NO_ERRORS; 
 	 uint16_t counter=0;
 	 uint8_t watchdog_state =1;
@@ -35,24 +37,31 @@
 		 if (g_error_number != NO_ERRORS)
 		 {
 			 counter++;
+			 // Stop scheduler of The RTOS
+			 vTaskEndScheduler();
 			 watchdog_state^=1;
 			 Watch_dog_change_state(watchdog_state);
 			 Sareen_change_state(HIGH);
+			 // turn off spark .
+			 Spark_change_state(LOW);
 			 //close main Valve of the Gas
 			 Main_gas_valve_change_state(LOW);
 			 // Stop Frying 
 			 Stop_ignition();
-			 // Stop scheduler of The RTOS
-			 vTaskEndScheduler();
-			 if(counter >= 1500 ){
+			 if(counter >= 1500 )
+			 {
 				Inverter_change_state(LOW);
 				Conveyor_motor_change_state(LOW);
-				 
-			 }
+		      }
 			  // delay to sure the bus is free
 			 _delay_ms(200);
-			 // jump to error photo
-			 lcd_Jump_to(g_error_number);  
+			 if (!jumped )
+			 {
+				 // jump to error photo
+				 lcd_Jump_to(g_error_number);
+				 jumped = 1;
+			 }
+			 
 		 }
 		 else
 		 {

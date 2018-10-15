@@ -17,10 +17,13 @@
 #include "System.h"
 #include "application/sequance.h"
 #include "Services/tank_operation.h"
+#include "application/Temp_monitor.h"
+#include "application/errors.h"
 
 #include "ECUAL/levels.h"
 #include "Services/Level_Task.h"
 #include "Services/TEMP_Task.h"
+#include "Services/Ignition_operation.h"
 #ifdef DEBUG
 
 uint8_t debug_send_lcd[11];
@@ -119,40 +122,46 @@ int main(void) {
 				&xTask5Buffer); /* Variable to hold the task's data structure. */
 
 /*uint16_t res=0;*/
-uint8_t watchdog =0 , output=0;
-uint16_t count=0;
-	while(1){
-		count++;
-		//watchdog^=1;
-// 		Lcd_Read(LCD_IGNITION_TYPE_ADDRESS,&res);
-// 		UART0_puts("res = ");
-// 		UART0_OutUDec(res);
-// 		UART0_putc('\n');
-// 		_delay_ms(1000);
-		for (uint16_t i =0 ; i<8  ; i++)
-		{
-			watchdog^=1;
-			Watch_dog_change_state(watchdog);
-			_delay_ms(1000);
-		}
-		output ^=1;
+// uint8_t watchdog =0 , output=0;
+// uint16_t count=0;
+// 	while(1){
+// 		count++;
+// 		//watchdog^=1;
+// // 		Lcd_Read(LCD_IGNITION_TYPE_ADDRESS,&res);
+// // 		UART0_puts("res = ");
+// // 		UART0_OutUDec(res);
+// // 		UART0_putc('\n');
+// // 		_delay_ms(1000);
+// 		for (uint16_t i =0 ; i<8  ; i++)
+// 		{
+// 			watchdog^=1;
+// 			Watch_dog_change_state(watchdog);
+// 			_delay_ms(1000);
+// 		}
+// 		output ^=1;
 // 		Conveyor_motor_change_state(output);
-// 		Spark_change_state(output);
-	//	Gas_valve_change_state(output);
-	//	Main_gas_valve_change_state(output); //error
-	//	Sareen_change_state(output);
-	//	Powder_motor_change_state(output);
-		Pump_change_state(output);
-	//	Tank_valve_1_change_state(output	
-	//	Tank_valve_2_change_state(output);
-	//	Blancher_valve_change_state(output);		
-		
-	}
-// 	
+// 		//Spark_change_state(output);
+// 		Gas_valve_change_state(output);
+// 		Main_gas_valve_change_state(output); //error
+// 		Sareen_change_state(output);
+// 		Powder_motor_change_state(output);
+// 		//Pump_change_state(output);
+// 		Tank_valve_1_change_state(output);	
+// 		Tank_valve_2_change_state(output);
+// 		Blancher_valve_change_state(output);		
+// 		
+// 	}
+
+//      while (1)
+//      {
+// 		 UART0_OutUDec(Get_light_state());
+// 		 UART0_putc('\n');
+//      }
 
 	  // Start scheduler.
 	  //Tank_operation_init();
 	  vTaskStartScheduler();
+
 
 }
 
@@ -162,10 +171,12 @@ uint16_t count=0;
 
 static void vTask1(void* pvParameters)
 {
-//	char x=0;
+	char x=0;
 	UART0_puts("Sequence Task1 \n");
 //	Level_main(&x);
  //   Sequance_task(&x);
+   Temp_monitor_main(&x);
+
   while (1)
   {
 	 //  UART0_puts("task1 alive\n");
@@ -175,8 +186,8 @@ static void vTask1(void* pvParameters)
 }
 static void vTask2(void* pvParameters)
 {
-	//char x=0;
-	//LCD_main(&x);
+	char x=0;
+	LCD_main(&x);
 	while(1){
 		//Tank_feed_operation(2);
 		
@@ -194,8 +205,9 @@ static void vTask3(void* pvParameters)
 
 static void vTask4(void* pvParameters)
 {
+	char x = 0 ;
 	UART0_puts("Enter Task4\n");
-	//uint16_t response =0 ;
+	Error_monitor_main(&x);
 		while (1)
 		{
 			
@@ -248,9 +260,10 @@ static void vTask5(void* pvParameters)
 	// watch dog pin .
 	while(1)
 	{
-// 		Watch_dog_change_state(HIGH);
-// 		Watch_dog_change_state(LOW);
-		vTaskDelay(500/portTICK_PERIOD_MS);
+ 		Watch_dog_change_state(HIGH);
+		vTaskDelay(250/portTICK_PERIOD_MS);
+ 		Watch_dog_change_state(LOW);
+		vTaskDelay(250/portTICK_PERIOD_MS);
 	}	
 	
 }

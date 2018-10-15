@@ -10,6 +10,7 @@
 #include "Services/Level_Task.h"
 #include "Services/tank_operation.h"
 #include "Services/Drum_speed_Tasks.h"
+#include "application/errors.h"
 
 //debug
 #include "MCAL/UART.h"
@@ -31,6 +32,8 @@ static void Level_sensor_error_callback(void){
 /******* Over Temp functions for error callbacks **********************************************/
 static void Temperature_over_temp(void){
 	UART0_puts("Temperature_over_temp \n");
+	g_error_number = OVER_TEMP_ERROR ;
+	
 	
 }
 
