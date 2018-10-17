@@ -51,6 +51,7 @@ void Powder_init(float Gram_for_one_ticks ,int Timer_number )
 gSystemError Powder_drop(float Gram)
 {
 	//the desire amount of salt by Gram
+	if(Gram == 0 )	return E_OK;
 	g_GM_target = Gram;
 	// Check if there is salt in tank .
 	if(!Salt_exist()  ) return E_NO_SALT_IN_TANK_Fail ;

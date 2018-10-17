@@ -32,8 +32,6 @@ ECUAL\Temperature.c
 
 error_callbacks.c
 
-error_functions.c
-
 GLOBAL.c
 
 main.c

@@ -23,15 +23,24 @@
 #define SALT_MOTOR_ERROR_PIC   7 
 #define DRUM_MOTOR_ERROR_PIC    12  
 #define CONVEYOR_MOTOR_ERROR_PIC    11
-#define INLET_FLOW_ERROR_PIC    9
+#define INLET_FLOW_ERROR_PIC    9  
 #define OUTLET_FLOW_ERROR_PIC    10
-/**** Systens Error Pic Addresses *******************************/
-#define DRUM_ERROR_PIC         20
-#define OVER_TEMP_ERROR_PIC    21
-#define CONVEYOR_ERROR_PIC     22
-#define iGNITION_TYPE_PIC      23
-#define GAS_ERROR_PIC          24
 
+/**** Systems Error Pic Addresses *******************************/
+#define DRUM_ERROR_PIC				  20
+#define OVER_TEMP_ERROR_PIC		   	  21
+#define CONVEYOR_ERROR_PIC			  22
+#define iGNITION_TYPE_PIC			  23
+#define GAS_ERROR_PIC				  24
+#define TANK_FEED_OPERATION_FAIL_PIC	25 //flow rate or water off 
+#define POWDER_TANK_FAIL_PIC			26 // salt not exist powder drop sensor fail + motor + encoder
+#define LEVEL_SENSORS_FAIL_PIC			27 //call back or level monitor set that error through error monitor function
+#define TANK_LEVEL_2_FAIL_PIC			28
+#define TANK_LEVEL_1_FAIL_PIC			29
+#define TANK_SHOULD_BE_EMPTY			30
+#define TANK_OUT_FAIL					31
+#define BLANCHER_EMPTY_AND_TANK_ERROR_WITH_WATER_INLET  32
+#define BLANCHER_LEVEL_EMPTY_AND_TANK_POWDER_DROP_ERROR 33
 /**** Addresses for reply on error PICs *******************************/
 #define SALT_ERROR_RESPONSE    0x0A00
 #define SALT_MOTOR_ERROR_RESPONSE   0x0A05

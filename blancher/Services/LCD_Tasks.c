@@ -71,7 +71,7 @@ void LCD_main_err_Init( void(*callback_read_timeout)(void) , void(*callback_writ
 }
 
 
-uint8_t LCD_main_Report_error(uint16_t PIC_ID){
+uint8_t LCD_main_Report_error_warning(uint16_t PIC_ID){
 	uint8_t res = SUCCESS;
 	uint8_t count = 0;
 	while(1){

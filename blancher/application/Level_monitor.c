@@ -38,7 +38,9 @@ void Level_monitor_task(void* pvParameters)
 				Tank_level_1_in_letters_measured += LEVEL_LITERS_STEP;
 			}
 			else{
-				// ERROR in TANK FEED
+				// ERROR in TANK FEED operation
+				// shut down system
+				// Set_System_error_main(TANK_FEED_OPERATION_FAIL_PIC);
 			}
 			
 			ret_tank_level = RTE_get_tank_level();
@@ -61,44 +63,54 @@ void Level_monitor_task(void* pvParameters)
 					if(ret_tank_level != INVALID_DATA){
 						
 						if(ret_tank_level == 2){
-							// every thing ok >> water higher than level 2
-							// we can start the while one loop
-							// Set flag to start while one loop
+							//every thing ok >> water higher than level 2
+							//we can start the while one loop
+							//Set flag to start while one loop
 							tank_initailized_water_flag = 1;
 						}
 						else{
-							// tank did not reach more than level 2
-							// resume or not
-							// احتمال سيسنور 2 بايظ
+							//warning only
+							//tank did not reach more than level 2
+							//احتمال سيسنور 2 بايظ
+							//LCD_main_Report_error_warning(TANK_LEVEL_2_FAIL_PIC);
 						}
 					}
 					else{
-						// ERROR INVALID DATA FROM RTE
-						// sensor fail
-						
+						//ERROR INVALID DATA FROM RTE
+						//sensor fail
+						//Set_System_error_main(LEVEL_SENSORS_FAIL_PIC);
+						// 
 					}
 					
 				}
 				else{
-					// ERROR in TANK FEED TO LEVEL 2
-					
+					//ERROR in TANK FEED TO LEVEL 2
+					//Set_System_error_main(TANK_FEED_OPERATION_FAIL_PIC);
 				}
 			}
 			else{
-				// ERROR IN Powder_drop
-				
+				//ERROR IN Powder_drop
+				//Set_System_error_main(POWDER_TANK_FAIL_PIC);
 			}
 			
 		}
 		else{
-			// ERROR SOMETHING WRONG LEVEL DIDNOT REACH LEVEL 1
-			
+			//ERROR SOMETHING WRONG LEVEL DIDNOT REACH LEVEL 1
+			//LCD_main_Report_error_warning(TANK_LEVEL_1_FAIL_PIC);
 		}
 		
 	}
 	else{
 		// error RTE Should return 0
-	
+		if(ret_tank_level == INVALID_DATA){
+			//shut down the system and empty the tank
+			//Set_System_error_main(LEVEL_SENSORS_FAIL_PIC);
+			
+		}
+		// error RTE Should return 0
+		else{
+			//Set_System_error_main(TANK_SHOULD_BE_EMPTY);
+		}
 	
 	
 	}
@@ -116,34 +128,53 @@ void Level_monitor_task(void* pvParameters)
 			}
 			else 
 			{
-				// error in tank outing .
+				//error in tank outing.
+				//Set_System_error_main(TANK_OUT_FAIL);
+				//	
 			}
 			ret_blancher_level = RTE_get_blancher_level();
 			ret_tank_level = RTE_get_tank_level();
 			if (ret_tank_level == 0 || ret_tank_level == INVALID_DATA ) break ; 
 			
 		} /*while ( ret_blancher_level == 0 ) */  
-		
-		if (Tank_feed_operation(Tank_out_flow_in_litters) == E_OK )
+		if (Powder_drop( TANK_POWDER_DENSITY * (Tank_out_flow_in_litters + (Tank_out_flow_in_litters * 0.2)) ) == E_OK)
 		{
-			if ( Powder_drop( TANK_POWDER_DENSITY * (Tank_out_flow_in_litters + (Tank_out_flow_in_litters * 0.2)) ) != E_OK)
+			
+		
+			if (Tank_feed_operation(Tank_out_flow_in_litters) == E_OK )
 			{
 				Tank_out_flow_in_litters = 0 ;
 			}
 			else 
 			{
-				// ERROR IN Powder_drop
+				//error feeding .
+				//LCD_main_Report_error_warning(TANK_FEED_OPERATION_FAIL_PIC); //warning
+				tank_initailized_water_flag =0;
+				while (ret_blancher_level == 1)
+				{
+					ret_blancher_level = RTE_get_blancher_level();
+					vTaskDelay(2000/portTICK_PERIOD_MS);
+				}
+				//Set_System_error_main(BLANCHER_EMPTY_AND_TANK_ERROR_WITH_WATER_INLET);//check flow rate
 			}
 		}
-		else 
+		else
 		{
-			// error feading .
+			tank_initailized_water_flag = 0;
+			//ERROR IN Powder_drop
+			//LCD_main_Report_error_warning(POWDER_TANK_FAIL_PIC); //warning
+			ret_blancher_level = RTE_get_blancher_level();
+			while (ret_blancher_level == 1)
+			{
+				ret_blancher_level = RTE_get_blancher_level();
+				vTaskDelay(2000/portTICK_PERIOD_MS);
+			}
+			//Set_System_error_main(BLANCHER_LEVEL_EMPTY_AND_TANK_POWDER_DROP_ERROR);//check powder
 		}
-		
 	}
 	while (1)
 	{
 		UART0_puts("level monitor task has been stopped .") ;
-		vTaskDelay(500/portTICK_PERIOD_MS) ;
+		vTaskDelay(3000/portTICK_PERIOD_MS) ;
 	}
 }
