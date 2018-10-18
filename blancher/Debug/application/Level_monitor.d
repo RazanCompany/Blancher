@@ -30,7 +30,12 @@ application/Level_monitor.d application/Level_monitor.o: \
  ../application/../Services/tank_operation.h \
  ../application/../Services/../System.h \
  ../application/../ECUAL/PowderIF.h ../application/../ECUAL/../System.h \
- ../application/../MCAL/UART.h
+ ../application/../MCAL/UART.h ../application/errors.h \
+ ../application/../ECUAL/LCD.h \
+ ../application/../ECUAL/Modbus/Modbus_master.h \
+ ../application/../ECUAL/Modbus/../../MCAL/UART.h \
+ ../application/../ECUAL/Modbus/../../CONFIG.h \
+ ../application/../Services/LCD_Tasks.h
 
 ../application/Level_monitor.h:
 
@@ -111,3 +116,15 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../application/../ECUAL/../System.h:
 
 ../application/../MCAL/UART.h:
+
+../application/errors.h:
+
+../application/../ECUAL/LCD.h:
+
+../application/../ECUAL/Modbus/Modbus_master.h:
+
+../application/../ECUAL/Modbus/../../MCAL/UART.h:
+
+../application/../ECUAL/Modbus/../../CONFIG.h:
+
+../application/../Services/LCD_Tasks.h:

@@ -37,7 +37,8 @@ main.d main.o: .././main.c \
  .././Services/../System.h .././application/Temp_monitor.h \
  .././application/../GLOBAL.h .././application/../System.h \
  .././application/errors.h .././application/../ECUAL/LCD.h \
- .././ECUAL/levels.h .././Services/Level_Task.h .././Services/TEMP_Task.h \
+ .././application/Level_monitor.h .././ECUAL/levels.h \
+ .././Services/Level_Task.h .././Services/TEMP_Task.h \
  .././Services/Ignition_operation.h .././Services/../GLOBAL.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
@@ -169,6 +170,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././application/errors.h:
 
 .././application/../ECUAL/LCD.h:
+
+.././application/Level_monitor.h:
 
 .././ECUAL/levels.h:
 

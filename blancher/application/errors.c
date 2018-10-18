@@ -17,8 +17,17 @@
 #include "../ECUAL/Inverter.h"
 #include "../MCAL/UART.h"
 #include <util/delay.h>
-
- uint8_t g_error_number;
+ static SemaphoreHandle_t Sema_error_handle;
+ static StaticSemaphore_t Sema_error_buffer;
+ uint16_t g_error_number;
+ 
+ void Set_System_error_main(uint16_t error_PIC){
+	g_error_number = error_PIC;
+	xSemaphoreGive(Sema_error_handle);
+ }
+void Get_System_error_main(void){
+   xSemaphoreTake(Sema_error_handle,portMAX_DELAY);
+}
  /*
  * Task run for ever stop the scheduler Report Errors To LCD and Close the Systems 
  *parameters@ Void Pointer
@@ -27,13 +36,16 @@
  
  void Error_monitor_main(void* pvParameters)
  {
+	 Sema_error_handle = xSemaphoreCreateBinaryStatic(&Sema_error_buffer);
 	 static uint8_t jumped = 0 ;
 	 g_error_number = NO_ERRORS; 
 	 uint16_t counter=0;
 	 uint8_t watchdog_state =1;
+	 
 	 while (1)
 	 {
 		 // check the Error number
+		 Get_System_error_main();
 		 if (g_error_number != NO_ERRORS)
 		 {
 			 counter++;

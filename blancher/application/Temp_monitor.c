@@ -36,8 +36,8 @@ void Temp_monitor_main(void* pvParameters)
 		sleep_Threshold = RTE_get_Threshold_sleep_temperature() ;
 		if ((error = Heat( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) ) != E_OK )
 		{
-			if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    g_error_number = iGNITION_TYPE ;
-		    else if (error == E_OVER_TEMP_Fail)                       g_error_number  = OVER_TEMP_ERROR ;
+			if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    Set_System_error_main(iGNITION_TYPE);
+		    else if (error == E_OVER_TEMP_Fail)                       Set_System_error_main(OVER_TEMP_ERROR);//  g_error_number  = OVER_TEMP_ERROR ;
 		}
 		vTaskDelay(200/portTICK_PERIOD_MS) ;
 	}
@@ -56,14 +56,15 @@ void Temp_monitor_main(void* pvParameters)
 		{
 			if( (error = Heat((set_temp + threshold_set_temp) , (set_temp - threshold_set_temp) )) != E_OK )
 			{
-				if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    g_error_number = iGNITION_TYPE ;
-				else if (error == E_OVER_TEMP_Fail)                       g_error_number  = OVER_TEMP_ERROR ;
+				if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    Set_System_error_main(iGNITION_TYPE);//  g_error_number = iGNITION_TYPE ;
+				else if (error == E_OVER_TEMP_Fail)                       Set_System_error_main(OVER_TEMP_ERROR);//g_error_number  = OVER_TEMP_ERROR ;
 			}
 			
 		} /* current != INVALID_DATA */ 
 		else 
 		{
-			g_error_number  = OVER_TEMP_ERROR ;
+			//g_error_number  = OVER_TEMP_ERROR ;
+			Set_System_error_main(OVER_TEMP_ERROR);
 		}
 		vTaskDelay(200/portTICK_PERIOD_MS) ;
      }

@@ -32,8 +32,8 @@ static void Level_sensor_error_callback(void){
 /******* Over Temp functions for error callbacks **********************************************/
 static void Temperature_over_temp(void){
 	UART0_puts("Temperature_over_temp \n");
-	g_error_number = OVER_TEMP_ERROR ;
-	
+//	g_error_number = OVER_TEMP_ERROR ;
+	Set_System_error_main(OVER_TEMP_ERROR);
 	
 }
 

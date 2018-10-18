@@ -37,10 +37,10 @@
 #define LEVEL_SENSORS_FAIL_PIC			27 //call back or level monitor set that error through error monitor function
 #define TANK_LEVEL_2_FAIL_PIC			28
 #define TANK_LEVEL_1_FAIL_PIC			29
-#define TANK_SHOULD_BE_EMPTY			30
-#define TANK_OUT_FAIL					31
-#define BLANCHER_EMPTY_AND_TANK_ERROR_WITH_WATER_INLET  32
-#define BLANCHER_LEVEL_EMPTY_AND_TANK_POWDER_DROP_ERROR 33
+#define TANK_SHOULD_BE_EMPTY_PIC		30
+#define TANK_OUT_FAIL_PIC				31
+#define BLANCHER_EMPTY_AND_TANK_ERROR_WITH_WATER_INLET_PIC	 32
+#define BLANCHER_LEVEL_EMPTY_AND_TANK_POWDER_DROP_ERROR_PIC	 33
 /**** Addresses for reply on error PICs *******************************/
 #define SALT_ERROR_RESPONSE    0x0A00
 #define SALT_MOTOR_ERROR_RESPONSE   0x0A05

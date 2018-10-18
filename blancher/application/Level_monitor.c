@@ -13,6 +13,8 @@
 #include "../Services/tank_operation.h"
 #include "../ECUAL/PowderIF.h"
 #include "../MCAL/UART.h"
+#include "errors.h"
+#include "../Services/LCD_Tasks.h"
 #define LEVEL_LITERS_STEP	 10
 
 
@@ -40,7 +42,7 @@ void Level_monitor_task(void* pvParameters)
 			else{
 				// ERROR in TANK FEED operation
 				// shut down system
-				// Set_System_error_main(TANK_FEED_OPERATION_FAIL_PIC);
+				 Set_System_error_main(TANK_FEED_OPERATION_FAIL);
 			}
 			
 			ret_tank_level = RTE_get_tank_level();
@@ -72,31 +74,31 @@ void Level_monitor_task(void* pvParameters)
 							//warning only
 							//tank did not reach more than level 2
 							//احتمال سيسنور 2 بايظ
-							//LCD_main_Report_error_warning(TANK_LEVEL_2_FAIL_PIC);
+							LCD_main_Report_error_warning(TANK_LEVEL_2_FAIL_PIC);
 						}
 					}
 					else{
 						//ERROR INVALID DATA FROM RTE
 						//sensor fail
-						//Set_System_error_main(LEVEL_SENSORS_FAIL_PIC);
-						// 
+						Set_System_error_main(LEVEL_SENSORS_FAIL);
+						 
 					}
 					
 				}
 				else{
 					//ERROR in TANK FEED TO LEVEL 2
-					//Set_System_error_main(TANK_FEED_OPERATION_FAIL_PIC);
+					Set_System_error_main(TANK_FEED_OPERATION_FAIL);
 				}
 			}
 			else{
 				//ERROR IN Powder_drop
-				//Set_System_error_main(POWDER_TANK_FAIL_PIC);
+				Set_System_error_main(POWDER_TANK_FAIL);
 			}
 			
 		}
 		else{
 			//ERROR SOMETHING WRONG LEVEL DIDNOT REACH LEVEL 1
-			//LCD_main_Report_error_warning(TANK_LEVEL_1_FAIL_PIC);
+			LCD_main_Report_error_warning(TANK_LEVEL_1_FAIL_PIC);
 		}
 		
 	}
@@ -104,12 +106,15 @@ void Level_monitor_task(void* pvParameters)
 		// error RTE Should return 0
 		if(ret_tank_level == INVALID_DATA){
 			//shut down the system and empty the tank
-			//Set_System_error_main(LEVEL_SENSORS_FAIL_PIC);
+			Set_System_error_main(LEVEL_SENSORS_FAIL);
 			
 		}
 		// error RTE Should return 0
+		else if (ret_tank_level ==0){
+			Set_System_error_main(TANK_SHOULD_BE_EMPTY);
+		}
 		else{
-			//Set_System_error_main(TANK_SHOULD_BE_EMPTY);
+			//empty
 		}
 	
 	
@@ -129,8 +134,8 @@ void Level_monitor_task(void* pvParameters)
 			else 
 			{
 				//error in tank outing.
-				//Set_System_error_main(TANK_OUT_FAIL);
-				//	
+				Set_System_error_main(TANK_OUT_FAIL);
+				
 			}
 			ret_blancher_level = RTE_get_blancher_level();
 			ret_tank_level = RTE_get_tank_level();
@@ -148,28 +153,28 @@ void Level_monitor_task(void* pvParameters)
 			else 
 			{
 				//error feeding .
-				//LCD_main_Report_error_warning(TANK_FEED_OPERATION_FAIL_PIC); //warning
+				LCD_main_Report_error_warning(TANK_FEED_OPERATION_FAIL_PIC); //warning
 				tank_initailized_water_flag =0;
 				while (ret_blancher_level == 1)
 				{
 					ret_blancher_level = RTE_get_blancher_level();
 					vTaskDelay(2000/portTICK_PERIOD_MS);
 				}
-				//Set_System_error_main(BLANCHER_EMPTY_AND_TANK_ERROR_WITH_WATER_INLET);//check flow rate
+				Set_System_error_main(BLANCHER_EMPTY_AND_TANK_ERROR_WITH_WATER_INLET);//check flow rate
 			}
 		}
 		else
 		{
 			tank_initailized_water_flag = 0;
 			//ERROR IN Powder_drop
-			//LCD_main_Report_error_warning(POWDER_TANK_FAIL_PIC); //warning
+			LCD_main_Report_error_warning(POWDER_TANK_FAIL_PIC); //warning
 			ret_blancher_level = RTE_get_blancher_level();
 			while (ret_blancher_level == 1)
 			{
 				ret_blancher_level = RTE_get_blancher_level();
 				vTaskDelay(2000/portTICK_PERIOD_MS);
 			}
-			//Set_System_error_main(BLANCHER_LEVEL_EMPTY_AND_TANK_POWDER_DROP_ERROR);//check powder
+			Set_System_error_main(BLANCHER_LEVEL_EMPTY_AND_TANK_POWDER_DROP_ERROR);//check powder
 		}
 	}
 	while (1)
