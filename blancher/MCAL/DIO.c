@@ -117,14 +117,14 @@ uint8_t Get_tank_level_state (uint8_t sensor_num)
 uint8_t Get_blancher_level_state (void)
 {
 	/* check the blancher level weather it is high or low */
-	return   GET_BIT( BLANCHER_LEVEL_STATUS_REG , BLANCHER_LEVEL_PIN ) ;
+	return   !GET_BIT( BLANCHER_LEVEL_STATUS_REG , BLANCHER_LEVEL_PIN ) ;
 }
 
 //_________________ SALT EXIST _____________________//
 uint8_t Salt_exist (void)
 {
 	/* check if there is salt in the tank or not  */
-	return   GET_BIT( SALT_EXISTANCE_STATUS_REG , SALT_EXISTANCE_PIN ) ;
+	return   !GET_BIT( SALT_EXISTANCE_STATUS_REG , SALT_EXISTANCE_PIN ) ;
 }
 
 //_________________ SALT DROP SENSOR _____________________//

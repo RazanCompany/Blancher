@@ -61,7 +61,7 @@ void Temp_main(void* pvParameters){
 		//UART0_puts("temp ex time = ");
 		//UART0_OutUDec(x_time);
 		//UART0_putc('\n');
-		vTaskDelay(50/portTICK_PERIOD_MS) ;
+		vTaskDelay(70/portTICK_PERIOD_MS) ;
 	}
 
 }

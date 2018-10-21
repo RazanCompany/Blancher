@@ -66,14 +66,34 @@ int main(void) {
 // 	confg.motor_rpm_max = 900;
 // 	confg.time_user_M = 0;
 // 	confg.time_user_S = 5;
-//   while (1)
-//   {
-//   	UART0_puts("SALT ");
-// 	UART0_OutUDec(Salt_dropped_successfully());
-// 	UART0_putc('\n');
-// 	_delay_ms(1000);
-// 
-//  }
+  while (1)
+  {
+	 Watch_dog_change_state(1);
+	Conveyor_motor_change_state(1);
+	Powder_motor_change_state(1);
+  	
+	UART0_puts("tank level 1 =  ");
+	UART0_OutUDec(Get_tank_level_state(1));
+	UART0_putc('\n');
+	UART0_puts("tank level 2 =  ");
+	UART0_OutUDec(Get_tank_level_state(2));
+	UART0_putc('\n');
+	UART0_puts("tank level 3 =  ");
+	UART0_OutUDec(Get_tank_level_state(3));
+	UART0_putc('\n');
+	UART0_puts("blancher level  =  ");
+	UART0_OutUDec(Get_blancher_level_state());
+	UART0_putc('\n');
+	UART0_puts("salt_exist =  ");
+	UART0_OutUDec(Salt_exist());
+	UART0_putc('\n');
+	UART0_puts("SALT dropped successfully ");
+	UART0_OutUDec(Salt_dropped_successfully());
+	UART0_putc('\n');
+	_delay_ms(500);
+	 Watch_dog_change_state(0);
+
+ }
 	//Temp_main_init();
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic( //print LCD data from RTE lowest priority
@@ -158,12 +178,12 @@ static void vTask1(void* pvParameters)
 	UART0_puts("Sequence Task1 \n");
 //	Level_main(&x);
  //   Sequance_task(&x);
-   Temp_monitor_main(&x);
+  // Temp_monitor_main(&x);
 
   while (1)
   {
 	 //  UART0_puts("task1 alive\n");
-	 vTaskDelay(200/portTICK_PERIOD_MS);
+	 vTaskDelay(4000/portTICK_PERIOD_MS);
   }
 
 }
@@ -184,13 +204,16 @@ static void vTask3(void* pvParameters)
 	char x=0;
 	UART0_puts("LEVEL Task3 \n");
 	Temp_main(&x);
+	while(1){
+		vTaskDelay(4000/portTICK_PERIOD_MS);
+	}
 }
 
 static void vTask4(void* pvParameters)
 {
 	char x = 0 ;
 	UART0_puts("Enter Task4\n");
-	Error_monitor_main(&x);
+	//Error_monitor_main(&x);
 		while (1)
 		{
  			vTaskDelay(300/portTICK_PERIOD_MS);
@@ -220,7 +243,7 @@ static void vTask7(void* pvParameters){
 	Level_monitor_task(&x);
 	while (1)
 	{
-		
+		vTaskDelay(4000/portTICK_PERIOD_MS);
 	}
 }
 

@@ -30,7 +30,7 @@ void Level_main (void* pvParameters )
 	{
 		UART0_puts("Level task alive \n");
 		Tank_level = Get_tank_level();
-		Blancher_level = Get_blancher_level();
+		Blancher_level = Get_blancher_level(); //watch
 		if (LEVEL_ERROR == Tank_level)
 		{
 		
@@ -47,10 +47,10 @@ void Level_main (void* pvParameters )
 		}
 		else 
 		{
-			RTE_set_tank_level(Tank_level);
-			UART0_puts("TANK level =         ");
-			UART0_OutUDec(Tank_level);
-			UART0_putc('\n');
+			RTE_set_tank_level(Tank_level); //watch
+// 			UART0_puts("TANK level =         ");
+// 			UART0_OutUDec(Tank_level);
+// 			UART0_putc('\n');
 			RTE_set_blancher_level(Blancher_level);
 		}
 		vTaskDelay(50/portTICK_PERIOD_MS) ;

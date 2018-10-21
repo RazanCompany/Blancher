@@ -66,7 +66,7 @@ void Get_System_error_main(void){
 				Conveyor_motor_change_state(LOW);
 		      }
 			  // delay to sure the bus is free
-			 _delay_ms(200);
+			 _delay_ms(2000);
 			 if (!jumped )
 			 {
 				 // jump to error photo
