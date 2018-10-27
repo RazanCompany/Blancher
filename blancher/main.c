@@ -52,49 +52,49 @@ TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ,xHandle3 = NULL , xHandle4 = NUL
 
 
 
-
-void test_peripherials(void){
-	PORTA^=0xff;
-	PORTB^=0xff;
-	PORTK^=0xff;
-	
-		UART0_puts("START(1)= ");
-		UART0_OutUDec((PINC&(1<<7))>>7);
-		UART0_puts(" STOP(2)= ");
-		UART0_OutUDec((PINC&(1<<6))>>6);
-		UART0_puts(" DIN5(3)= ");
-		UART0_OutUDec((PINC&(1<<5))>>5);
-		UART0_puts(" DIN4(4)= ");
-		UART0_OutUDec((PINC&(1<<4))>>4);
-		UART0_puts(" LIGHT1(5)= ");
-		UART0_OutUDec((PINC&(1<<3))>>3);
-		UART0_puts(" LIGHT0(6)= ");
-		UART0_OutUDec((PINC&(1<<2))>>2);
-		UART0_puts(" ENCODER4(7)= ");
-		UART0_OutUDec((PINC&(1<<1))>>1);
-				
-		
-		UART0_puts("DIN3(8)= ");
-		UART0_OutUDec((PINL&(1<<7))>>7);
-		UART0_puts(" DIN2(9)= ");
-		UART0_OutUDec((PINL&(1<<6))>>6);
-		UART0_puts(" DIN1(10)= ");
-		UART0_OutUDec((PINL&(1<<5))>>5);
-		UART0_puts(" DIN0(11)= ");
-		UART0_OutUDec((PINL&(1<<4))>>4);
-		UART0_puts(" GASDETECTOR(12)= ");
-		UART0_OutUDec((PINL&(1<<3))>>3);
-		UART0_puts(" ENCODER2(13)= ");
-		UART0_OutUDec((PINL&(1<<2))>>2);
+// 
+// void test_peripherials(void){
+// 	PORTA^=0xff;
+// 	PORTB^=0xff;
+// 	PORTK^=0xff;
+// 	
+// 		UART0_puts("START(1)= ");
+// 		UART0_OutUDec((PINC&(1<<7))>>7);
+// 		UART0_puts(" STOP(2)= ");
+// 		UART0_OutUDec((PINC&(1<<6))>>6);
+// 		UART0_puts(" DIN5(3)= ");
+// 		UART0_OutUDec((PINC&(1<<5))>>5);
+// 		UART0_puts(" DIN4(4)= ");
+// 		UART0_OutUDec((PINC&(1<<4))>>4);
+// 		UART0_puts(" LIGHT1(5)= ");
+// 		UART0_OutUDec((PINC&(1<<3))>>3);
+// 		UART0_puts(" LIGHT0(6)= ");
+// 		UART0_OutUDec((PINC&(1<<2))>>2);
 // 		UART0_puts(" ENCODER4(7)= ");
 // 		UART0_OutUDec((PINC&(1<<1))>>1);
-
-		UART0_puts(" ENCODER0(14)= ");
-		UART0_OutUDec((PINH&(1<<7))>>7);		
-		
-}
-
-
+// 				
+// 		
+// 		UART0_puts("DIN3(8)= ");
+// 		UART0_OutUDec((PINL&(1<<7))>>7);
+// 		UART0_puts(" DIN2(9)= ");
+// 		UART0_OutUDec((PINL&(1<<6))>>6);
+// 		UART0_puts(" DIN1(10)= ");
+// 		UART0_OutUDec((PINL&(1<<5))>>5);
+// 		UART0_puts(" DIN0(11)= ");
+// 		UART0_OutUDec((PINL&(1<<4))>>4);
+// 		UART0_puts(" GASDETECTOR(12)= ");
+// 		UART0_OutUDec((PINL&(1<<3))>>3);
+// 		UART0_puts(" ENCODER2(13)= ");
+// 		UART0_OutUDec((PINL&(1<<2))>>2);
+// // 		UART0_puts(" ENCODER4(7)= ");
+// // 		UART0_OutUDec((PINC&(1<<1))>>1);
+// 
+// 		UART0_puts(" ENCODER0(14)= ");
+// 		UART0_OutUDec((PINH&(1<<7))>>7);		
+// 		
+// }
+// 
+// 
 
 
 int main(void) {
@@ -226,7 +226,7 @@ int main(void) {
 
 static void vTask1(void* pvParameters)
 {
-	char x=0;
+//	char x=0;
 	UART0_puts("Sequence Task1 \n");
 //	Level_main(&x);
  //   Sequance_task(&x);
@@ -263,7 +263,7 @@ static void vTask3(void* pvParameters)
 
 static void vTask4(void* pvParameters)
 {
-	char x = 0 ;
+	//char x = 0 ;
 	UART0_puts("Enter Task4\n");
 	//Error_monitor_main(&x);
 		while (1)
