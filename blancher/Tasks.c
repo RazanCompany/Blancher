@@ -25,7 +25,6 @@ static void Tank_calibration_out_callback(void);
 
 
 
-
 //this function checks the flow rate of input tank water
 //return 1 for normal operation
 static uint8_t check_water_inlet(void){

@@ -18,8 +18,8 @@ ECUAL/Encoder/Encoder.d ECUAL/Encoder/Encoder.o: \
  ../ECUAL/Encoder/../../MCAL/../RAL/RAL_timer.h \
  ../ECUAL/Encoder/../../MCAL/../utils/Millis.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h \
- ../ECUAL/Encoder/../../MCAL/../utils/../RAL/RAL_timer.h \
- ../ECUAL/Encoder/../../MCAL/../utils/../RAL/HW_types.h \
+ e:\razan\bazaar\blancher\blancher\ral\ral_timer.h \
+ e:\razan\bazaar\blancher\blancher\ral\hw_types.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
@@ -64,9 +64,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\atomic.h:
 
-../ECUAL/Encoder/../../MCAL/../utils/../RAL/RAL_timer.h:
+e:\razan\bazaar\blancher\blancher\ral\ral_timer.h:
 
-../ECUAL/Encoder/../../MCAL/../utils/../RAL/HW_types.h:
+e:\razan\bazaar\blancher\blancher\ral\hw_types.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 

@@ -9,7 +9,7 @@
 #include "../GLOBAL.h"
 #include "../CONFIG.h"
 #include "../MCAL/DIO.h"
-#include "../RTOS_Includes.h"
+#include "../RTOS_sync.h"
 #include "../RTE/RTE_temperature.h"
 #include "../RTE/RTE_operations.h"
 #include "../Services/Ignition_operation.h"
@@ -25,21 +25,30 @@ uint16_t  g_negative_offset = 0 , g_Positive_offset = 0 ;
 void Temp_monitor_main(void* pvParameters)
 {
 	uint16_t sleep_temp  , sleep_Threshold   ;
-	uint16_t set_temp , threshold_set_temp  ;  
+	uint16_t set_temp , threshold_set_temp  ;
 	uint16_t current_temp;
 	gSystemError error ;
+	uint8_t semaRes = 0;
+	xSemaphoreTake(temperature_monitor_semaphore_handle,portMAX_DELAY);//released from level monitor task
+
 	
-	while (RTE_get_Start_blancher_Operation() == 0 )
+	while (1)
 	{
+		semaRes =xSemaphoreTake(System_on_temp_main_start_handle,0);//released from sequence task
+		if(semaRes == pdTRUE) break;
 		UART0_puts("start heating to sleep temp ");
 		sleep_temp = RTE_get_Sleep_temperature() ;
 		sleep_Threshold = RTE_get_Threshold_sleep_temperature() ;
 		if ((error = Heat( (sleep_temp+sleep_Threshold) , (sleep_temp - sleep_Threshold ) ) ) != E_OK )
-		{
+		{	
 			if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    Set_System_error_main(iGNITION_TYPE);
 		    else if (error == E_OVER_TEMP_Fail)                       Set_System_error_main(OVER_TEMP_ERROR);//  g_error_number  = OVER_TEMP_ERROR ;
 		}
-		vTaskDelay(200/portTICK_PERIOD_MS) ;
+		else{ //heat returns E_OK
+			xSemaphoreGive(Blancher_ready_semaphore_handle);//signal sequence task to resume
+			
+		}
+		vTaskDelay(3000/portTICK_PERIOD_MS) ;
 	}
 	
 	
@@ -59,6 +68,9 @@ void Temp_monitor_main(void* pvParameters)
 				if (error == E_FLAME_Fail || error == E_IGNITION_Fail)    Set_System_error_main(iGNITION_TYPE);//  g_error_number = iGNITION_TYPE ;
 				else if (error == E_OVER_TEMP_Fail)                       Set_System_error_main(OVER_TEMP_ERROR);//g_error_number  = OVER_TEMP_ERROR ;
 			}
+			else{
+				xSemaphoreGive(Sequence_main_start_handle);
+			}
 			
 		} /* current != INVALID_DATA */ 
 		else 
@@ -66,12 +78,12 @@ void Temp_monitor_main(void* pvParameters)
 			//g_error_number  = OVER_TEMP_ERROR ;
 			Set_System_error_main(OVER_TEMP_ERROR);
 		}
-		vTaskDelay(200/portTICK_PERIOD_MS) ;
+		vTaskDelay(1500/portTICK_PERIOD_MS) ;
      }
 }
 
 
-
+//blocking function
 gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 {   
 	uint16_t current_temp = RTE_get_app_Current_temperature() ;
@@ -106,6 +118,7 @@ gSystemError Heat ( uint16_t high_temp , uint16_t low_temp )
 				if(Start_ignition() == E_Fail ) return E_IGNITION_Fail ;
 				g_iginited = 1 ;
 			}  /* iginited */
+			vTaskDelay(300/portTICK_PERIOD_MS);
 		}  /*heat_state !=3*/
 		
 	    // stop the flame .	    

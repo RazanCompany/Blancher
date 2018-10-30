@@ -17,8 +17,6 @@ void RTE_drum_init(void);
 
 uint16_t RTE_get_Drum_speed(void);
 void RTE_set_Drum_speed(uint16_t U16rteDrumSpeed);
-void RTE_set_app_Drum_speed(uint16_t U16rteDrumSpeed);
-uint16_t RTE_get_app_Drum_speed(void);
 
 
 

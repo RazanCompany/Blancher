@@ -5,7 +5,7 @@ application/sequance.d application/sequance.o: ../application/sequance.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  ../application/../System.h ../application/../MCAL/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
- ../application/../MCAL/../CONFIG.h \
+ ../application/../MCAL/../CONFIG.h ../application/../CONFIG.h \
  ../application/../Services/tank_operation.h \
  ../application/../Services/../System.h \
  ../application/../ECUAL/Inverter.h ../application/../ECUAL/../CONFIG.h \
@@ -26,8 +26,8 @@ application/sequance.d application/sequance.o: ../application/sequance.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../application/../ECUAL/LCD.h \
  ../application/../ECUAL/Modbus/Modbus_master.h \
- ../application/../ECUAL/Modbus/../../MCAL/UART.h \
- ../application/../ECUAL/Modbus/../../CONFIG.h \
+ e:\razan\bazaar\blancher\blancher\mcal\uart.h \
+ e:\razan\bazaar\blancher\blancher\config.h ../application/../RTOS_sync.h \
  ../application/../RTOS_Includes.h ../application/../rtos/FreeRTOS.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  ../application/../rtos/FreeRTOSConfig.h \
@@ -39,8 +39,8 @@ application/sequance.d application/sequance.o: ../application/sequance.c \
  ../application/../rtos/list.h ../application/../rtos/task.h \
  ../application/../rtos/message_buffer.h \
  ../application/../rtos/stream_buffer.h ../application/../rtos/semphr.h \
- ../application/../rtos/queue.h ../application/../RTOS_sync.h \
- ../application/../RTOS_Includes.h ../application/../DEBUG.h
+ ../application/../rtos/queue.h ../application/../Services/LCD_Tasks.h \
+ ../application/../DEBUG.h
 
 ../application/sequance.h:
 
@@ -59,6 +59,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
 
 ../application/../MCAL/../CONFIG.h:
+
+../application/../CONFIG.h:
 
 ../application/../Services/tank_operation.h:
 
@@ -104,9 +106,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../application/../ECUAL/Modbus/Modbus_master.h:
 
-../application/../ECUAL/Modbus/../../MCAL/UART.h:
+e:\razan\bazaar\blancher\blancher\mcal\uart.h:
 
-../application/../ECUAL/Modbus/../../CONFIG.h:
+e:\razan\bazaar\blancher\blancher\config.h:
+
+../application/../RTOS_sync.h:
 
 ../application/../RTOS_Includes.h:
 
@@ -142,8 +146,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../application/../rtos/queue.h:
 
-../application/../RTOS_sync.h:
-
-../application/../RTOS_Includes.h:
+../application/../Services/LCD_Tasks.h:
 
 ../application/../DEBUG.h:

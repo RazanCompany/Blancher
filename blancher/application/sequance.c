@@ -8,15 +8,15 @@
 #include "sequance.h"
 #include "../GLOBAL.h"
 #include "../MCAL/DIO.h"
-
+#include "../CONFIG.h"
 #include "../Services/tank_operation.h"
 #include "../ECUAL/Inverter.h"
 #include "../ECUAL/Drum.h"
 #include "../ECUAL/PowderIF.h"
 #include "util/delay.h"
 #include "../ECUAL/LCD.h"
-#include "../RTOS_Includes.h"
 #include "../RTOS_sync.h"
+#include "../Services/LCD_Tasks.h"
 
 
 
@@ -152,9 +152,24 @@ void Sequance_task(void* pvParameters)
 //  		xSemaphoreGive(LCD_mutex_handle);
 // 		UART0_puts("C R M\n");
 // 	 }
-//  	Conveyor_motor_change_state(LOW);	
+//  	Conveyor_motor_change_state(LOW);
+	
+	
 #endif
-	while (1) 
+	xSemaphoreGive(level_monitor_semaphore_handle);
+	
+	xSemaphoreTake(Blancher_ready_semaphore_handle,portMAX_DELAY);
+	uint16_t response  = 0;
+	//polling on system on button on LCD to be pressed (blocking)
+	lcd_Jump_to(SYSTEM_STATE_READY_PIC);
+	//wait on ready state selected =D
+	while (response != READY_STATE_RESPONSE)
+	{
+			LCD_main_wait_response(SYSTEM_STATE_RESPONSE,&response);
+	}
+
+	xSemaphoreGive(System_on_temp_main_start_handle);
+	while (1)
 	{
 		UART0_puts(" inside seq \n");
 		vTaskDelay(500/portTICK_PERIOD_MS);

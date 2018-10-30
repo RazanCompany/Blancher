@@ -16,5 +16,13 @@
 
 
 
+//hello
+
 #define TICKS_FOR_LITER			480
 #define TICKS_FOR_HALF_LITER	5
+
+
+#define  NO_RESPONSE				0
+#define  WASH_STATE_RESPONSE		1
+#define  CALIBRATE_STATE_RESPONSE   2
+#define  READY_STATE_RESPONSE		3

@@ -50,7 +50,9 @@ void Get_System_error_main(void){
 		 {
 			 counter++;
 			 // Stop scheduler of The RTOS
+/***********************************************************************************************************************/
 			 vTaskEndScheduler();
+/***********************************************************************************************************************/
 			 watchdog_state^=1;
 			 Watch_dog_change_state(watchdog_state);
 			 Sareen_change_state(HIGH);

@@ -5,8 +5,8 @@ application/Temp_monitor.d application/Temp_monitor.o: \
  ../application/../GLOBAL.h ../application/../System.h \
  ../application/../CONFIG.h ../application/../MCAL/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
- ../application/../MCAL/../CONFIG.h ../application/../RTOS_Includes.h \
- ../application/../rtos/FreeRTOS.h \
+ ../application/../MCAL/../CONFIG.h ../application/../RTOS_sync.h \
+ ../application/../RTOS_Includes.h ../application/../rtos/FreeRTOS.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  ../application/../rtos/FreeRTOSConfig.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
@@ -33,9 +33,8 @@ application/Temp_monitor.d application/Temp_monitor.o: \
  ../application/../Services/../GLOBAL.h ../application/errors.h \
  ../application/../ECUAL/LCD.h \
  ../application/../ECUAL/Modbus/Modbus_master.h \
- ../application/../ECUAL/Modbus/../../MCAL/UART.h \
- ../application/../ECUAL/Modbus/../../CONFIG.h \
- ../application/../MCAL/UART.h
+ e:\razan\bazaar\blancher\blancher\mcal\uart.h \
+ e:\razan\bazaar\blancher\blancher\config.h ../application/../MCAL/UART.h
 
 ../application/Temp_monitor.h:
 
@@ -54,6 +53,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
 
 ../application/../MCAL/../CONFIG.h:
+
+../application/../RTOS_sync.h:
 
 ../application/../RTOS_Includes.h:
 
@@ -123,8 +124,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../application/../ECUAL/Modbus/Modbus_master.h:
 
-../application/../ECUAL/Modbus/../../MCAL/UART.h:
+e:\razan\bazaar\blancher\blancher\mcal\uart.h:
 
-../application/../ECUAL/Modbus/../../CONFIG.h:
+e:\razan\bazaar\blancher\blancher\config.h:
 
 ../application/../MCAL/UART.h:

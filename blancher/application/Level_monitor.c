@@ -6,7 +6,7 @@
  */ 
 
 #include "Level_monitor.h"
-#include "../RTOS_Includes.h"
+#include "../RTOS_sync.h"
 #include "../GLOBAL.h"
 #include "../CONFIG.h"
 #include "../RTE/RTE_levels.h"
@@ -15,6 +15,7 @@
 #include "../MCAL/UART.h"
 #include "errors.h"
 #include "../Services/LCD_Tasks.h"
+
 #define LEVEL_LITERS_STEP	 10
 
 
@@ -23,6 +24,8 @@ void Level_monitor_task(void* pvParameters)
 {
 	// First time : fill the tank to level two
 	// initialization of the tank with water
+	
+	xSemaphoreTake(level_monitor_semaphore_handle,portMAX_DELAY);
 	static uint8_t tank_initailized_water_flag = 0;
 	uint16_t Tank_level_1_in_letters_measured = 0;
 	static uint16_t Tank_out_flow_in_litters = 0 ;
@@ -122,6 +125,8 @@ void Level_monitor_task(void* pvParameters)
 	
 	
 	// Forever loop
+	
+	xSemaphoreGive(temperature_monitor_semaphore_handle); //release the temperature monitor task to start heating
 	while (tank_initailized_water_flag)
 	{
 		ret_blancher_level = RTE_get_blancher_level();
@@ -176,10 +181,11 @@ void Level_monitor_task(void* pvParameters)
 			}
 			Set_System_error_main(BLANCHER_LEVEL_EMPTY_AND_TANK_POWDER_DROP_ERROR);//check powder
 		}
+		vTaskDelay(300/portTICK_PERIOD_MS);
 	}
 	while (1)
 	{
-		UART0_puts("level monitor task has been stopped .") ;
+		UART0_puts("level monitor task has been stopped.") ;
 		vTaskDelay(3000/portTICK_PERIOD_MS) ;
 	}
 }

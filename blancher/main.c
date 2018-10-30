@@ -52,53 +52,8 @@ TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ,xHandle3 = NULL , xHandle4 = NUL
 
 
 
-// 
-// void test_peripherials(void){
-// 	PORTA^=0xff;
-// 	PORTB^=0xff;
-// 	PORTK^=0xff;
-// 	
-// 		UART0_puts("START(1)= ");
-// 		UART0_OutUDec((PINC&(1<<7))>>7);
-// 		UART0_puts(" STOP(2)= ");
-// 		UART0_OutUDec((PINC&(1<<6))>>6);
-// 		UART0_puts(" DIN5(3)= ");
-// 		UART0_OutUDec((PINC&(1<<5))>>5);
-// 		UART0_puts(" DIN4(4)= ");
-// 		UART0_OutUDec((PINC&(1<<4))>>4);
-// 		UART0_puts(" LIGHT1(5)= ");
-// 		UART0_OutUDec((PINC&(1<<3))>>3);
-// 		UART0_puts(" LIGHT0(6)= ");
-// 		UART0_OutUDec((PINC&(1<<2))>>2);
-// 		UART0_puts(" ENCODER4(7)= ");
-// 		UART0_OutUDec((PINC&(1<<1))>>1);
-// 				
-// 		
-// 		UART0_puts("DIN3(8)= ");
-// 		UART0_OutUDec((PINL&(1<<7))>>7);
-// 		UART0_puts(" DIN2(9)= ");
-// 		UART0_OutUDec((PINL&(1<<6))>>6);
-// 		UART0_puts(" DIN1(10)= ");
-// 		UART0_OutUDec((PINL&(1<<5))>>5);
-// 		UART0_puts(" DIN0(11)= ");
-// 		UART0_OutUDec((PINL&(1<<4))>>4);
-// 		UART0_puts(" GASDETECTOR(12)= ");
-// 		UART0_OutUDec((PINL&(1<<3))>>3);
-// 		UART0_puts(" ENCODER2(13)= ");
-// 		UART0_OutUDec((PINL&(1<<2))>>2);
-// // 		UART0_puts(" ENCODER4(7)= ");
-// // 		UART0_OutUDec((PINC&(1<<1))>>1);
-// 
-// 		UART0_puts(" ENCODER0(14)= ");
-// 		UART0_OutUDec((PINH&(1<<7))>>7);		
-// 		
-// }
-// 
-// 
-
-
 int main(void) {
-	//DDRE = 0xFF;
+	DDRE = 0xFF;
 	UART0_init(9600); //for debug
     System_init();
 	
@@ -114,26 +69,26 @@ int main(void) {
   while (1)
   {
 	 Watch_dog_change_state(1);
-	 Conveyor_motor_change_state(1);
-	 Powder_motor_change_state(1);
+	Conveyor_motor_change_state(1);
+	Powder_motor_change_state(1);
   	
-	 UART0_puts("tank level 1 =  ");
-	 UART0_OutUDec(Get_tank_level_state(1));
-	 UART0_putc('\n');
-	 UART0_puts("tank level 2 =  ");
-	 UART0_OutUDec(Get_tank_level_state(2));
-	 UART0_putc('\n');
-	 UART0_puts("tank level 3 =  ");
-	 UART0_OutUDec(Get_tank_level_state(3));
-	 UART0_putc('\n');
-	 UART0_puts("blancher level  =  ");
-	 UART0_OutUDec(Get_blancher_level_state());
-	 UART0_putc('\n');
-	 UART0_puts("salt_exist =  ");
-	 UART0_OutUDec(Salt_exist());
-	 UART0_putc('\n');
-	 UART0_puts("SALT dropped successfully ");
-	 UART0_OutUDec(Salt_dropped_successfully());
+	UART0_puts("tank level 1 =  ");
+	UART0_OutUDec(Get_tank_level_state(1));
+	UART0_putc('\n');
+	UART0_puts("tank level 2 =  ");
+	UART0_OutUDec(Get_tank_level_state(2));
+	UART0_putc('\n');
+	UART0_puts("tank level 3 =  ");
+	UART0_OutUDec(Get_tank_level_state(3));
+	UART0_putc('\n');
+	UART0_puts("blancher level  =  ");
+	UART0_OutUDec(Get_blancher_level_state());
+	UART0_putc('\n');
+	UART0_puts("salt_exist =  ");
+	UART0_OutUDec(Salt_exist());
+	UART0_putc('\n');
+	UART0_puts("SALT dropped successfully ");
+	UART0_OutUDec(Salt_dropped_successfully());
 	UART0_putc('\n');
 	_delay_ms(500);
 	 Watch_dog_change_state(0);
@@ -208,13 +163,6 @@ int main(void) {
 
 	  // Start scheduler.
 	  //Tank_operation_init();
-	  
-	  
-	  while (1)
-	  {
-		 // test_peripherials();
-		  _delay_ms(1000);
-	  }
 	  vTaskStartScheduler();
 
 
@@ -226,7 +174,7 @@ int main(void) {
 
 static void vTask1(void* pvParameters)
 {
-//	char x=0;
+	char x=0;
 	UART0_puts("Sequence Task1 \n");
 //	Level_main(&x);
  //   Sequance_task(&x);
@@ -263,7 +211,7 @@ static void vTask3(void* pvParameters)
 
 static void vTask4(void* pvParameters)
 {
-	//char x = 0 ;
+	char x = 0 ;
 	UART0_puts("Enter Task4\n");
 	//Error_monitor_main(&x);
 		while (1)

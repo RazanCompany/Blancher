@@ -93,7 +93,7 @@ uint8_t LCD_main_Report_error_warning(uint16_t PIC_ID){
 }
 
 
-uint8_t LCD_main_wait_error_response(uint16_t Response_address, uint16_t* response){
+uint8_t LCD_main_wait_response(uint16_t Response_address, uint16_t* response){
 	
 	uint8_t res = SUCCESS;
 	uint8_t count = 0;
@@ -123,8 +123,8 @@ uint8_t LCD_main_wait_error_response(uint16_t Response_address, uint16_t* respon
 		xSemaphoreTake(LCD_mutex_handle , portMAX_DELAY);
 		res = Lcd_Write(Response_address , 0);
 		xSemaphoreGive(LCD_mutex_handle);
-			
-			
+		
+		
 		if(res == LCD_RESPONCE_TIMED_OUT) {count++;}
 		else {break;}
 		if(count == 6 ){
@@ -140,8 +140,7 @@ uint8_t LCD_main_wait_error_response(uint16_t Response_address, uint16_t* respon
 	}
 	return res;
 }
-	
-	
+
 	
 
 
