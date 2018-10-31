@@ -11,6 +11,10 @@
 #define GAS_IGNITION      1
 #define ELECTRIC_IGNITION      2
 
+#define READY_MODE            1
+#define CALIBRATE_MODE        2
+#define WASH_MODE             3
+
 extern uint16_t Tank_level_1_in_letters;
 extern uint16_t Tank_level_2_in_letters;
 extern uint16_t Tank_level_3_in_letters;

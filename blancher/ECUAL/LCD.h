@@ -58,6 +58,19 @@
 #define OUTLET_FLOW_ERROR_RESPONSE    0x0A02 
 #define SYSTEM_STATE_RESPONSE		0x0A06
 
+/**** Addresses for mode selection at the beginng of the machine .****/
+#define  MAIN_SCREEN                         50
+#define  WASH_READY_PIC                      57
+#define  CALIBRATE_READY_PIC                 58
+#define  READY_PIC                           59
+#define  CALIBRATION_DONE_PIC                63
+#define  WASH_DONE_PIC                       61
+
+
+/**** Addresses for reply on mode selection PICs ***/
+#define  CALIBRATE_WASH_READY_RESPONSE      0X0A06
+
+
 
 
 

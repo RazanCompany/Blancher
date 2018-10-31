@@ -1,13 +1,13 @@
 application/Temp_monitor.d application/Temp_monitor.o: \
  ../application/Temp_monitor.c ../application/Temp_monitor.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  ../application/../GLOBAL.h ../application/../System.h \
  ../application/../CONFIG.h ../application/../MCAL/DIO.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  ../application/../MCAL/../CONFIG.h ../application/../RTOS_sync.h \
  ../application/../RTOS_Includes.h ../application/../rtos/FreeRTOS.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h \
  ../application/../rtos/FreeRTOSConfig.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -33,12 +33,13 @@ application/Temp_monitor.d application/Temp_monitor.o: \
  ../application/../Services/../GLOBAL.h ../application/errors.h \
  ../application/../ECUAL/LCD.h \
  ../application/../ECUAL/Modbus/Modbus_master.h \
- e:\razan\bazaar\blancher\blancher\mcal\uart.h \
- e:\razan\bazaar\blancher\blancher\config.h ../application/../MCAL/UART.h
+ ../application/../ECUAL/Modbus/../../MCAL/UART.h \
+ ../application/../ECUAL/Modbus/../../CONFIG.h \
+ ../application/../MCAL/UART.h
 
 ../application/Temp_monitor.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stdint.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
@@ -60,7 +61,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../application/../rtos/FreeRTOS.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\4.9.2\include\stddef.h:
 
 ../application/../rtos/FreeRTOSConfig.h:
 
@@ -124,8 +125,8 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../application/../ECUAL/Modbus/Modbus_master.h:
 
-e:\razan\bazaar\blancher\blancher\mcal\uart.h:
+../application/../ECUAL/Modbus/../../MCAL/UART.h:
 
-e:\razan\bazaar\blancher\blancher\config.h:
+../application/../ECUAL/Modbus/../../CONFIG.h:
 
 ../application/../MCAL/UART.h:

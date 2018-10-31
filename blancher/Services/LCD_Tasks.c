@@ -141,6 +141,50 @@ uint8_t LCD_main_wait_response(uint16_t Response_address, uint16_t* response){
 	return res;
 }
 
+
+/*
+* this function will be used to wait response from LCD but before the scheduler starts .
+*/
+uint8_t LCD_main_wait_select_mode_response(uint16_t Response_address, uint16_t* response){
+	
+	uint8_t res = SUCCESS;
+	uint8_t count = 0;
+	* response = 0;
+	while (*response == 0)
+	{
+		res = Lcd_Read(Response_address , response);
+		
+		if(res == LCD_RESPONCE_TIMED_OUT) count++;
+		else { count = 0;}
+		
+		if(count == 6 ){
+			if(g_callback_read_timeout == NULL){}
+			else
+			{
+				g_callback_read_timeout();
+			}
+			break;
+		}
+		_delay_ms(2000);
+	}
+	while(1){
+		res = Lcd_Write(Response_address , 0);
+		
+		if(res == LCD_RESPONCE_TIMED_OUT) {count++;}
+		else {break;}
+		if(count == 6 ){
+			if(g_callback_write_timeout == NULL){}
+			else
+			{
+				g_callback_write_timeout();
+			}
+			break;
+		}
+		_delay_ms(2000);
+	}
+	return res;
+}
+
 	
 
 

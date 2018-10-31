@@ -24,6 +24,7 @@
 #include "Services/Level_Task.h"
 #include "Services/TEMP_Task.h"
 #include "Services/Ignition_operation.h"
+#include "Tasks.h"
 #ifdef DEBUG
 
 uint8_t debug_send_lcd[11];
@@ -49,52 +50,63 @@ StackType_t xStack1[ STACK_SIZE ],xStack2[ STACK_SIZE ],xStack3[ STACK_SIZE ],xS
 
 TaskHandle_t xHandle1 = NULL , xHandle2 = NULL ,xHandle3 = NULL , xHandle4 = NULL ,  xHandle5 = NULL,  xHandle6 = NULL, xHandle7 = NULL;
 
-
+// VARIABLES TO HOLD LCD RESPONSE IN SELECT MODE PICS
+uint16_t select_mode_response ;
+uint8_t Wash_flag = 0 , Calibrate_flag = 0 ;
 
 
 int main(void) {
 	DDRE = 0xFF;
 	UART0_init(9600); //for debug
     System_init();
-	
-	//Lcd_init(UART3,115200,1);
-	UART0_puts("start \n");
-// 	g_Inveter_Config confg;
-// 	confg.gear_diameter = 6;
-// 	confg.gear_ratio = 80;
-// 	confg.distance = 210;
-// 	confg.motor_rpm_max = 900;
-// 	confg.time_user_M = 0;
-// 	confg.time_user_S = 5;
-  while (1)
-  {
-	 Watch_dog_change_state(1);
-	Conveyor_motor_change_state(1);
-	Powder_motor_change_state(1);
-  	
-	UART0_puts("tank level 1 =  ");
-	UART0_OutUDec(Get_tank_level_state(1));
-	UART0_putc('\n');
-	UART0_puts("tank level 2 =  ");
-	UART0_OutUDec(Get_tank_level_state(2));
-	UART0_putc('\n');
-	UART0_puts("tank level 3 =  ");
-	UART0_OutUDec(Get_tank_level_state(3));
-	UART0_putc('\n');
-	UART0_puts("blancher level  =  ");
-	UART0_OutUDec(Get_blancher_level_state());
-	UART0_putc('\n');
-	UART0_puts("salt_exist =  ");
-	UART0_OutUDec(Salt_exist());
-	UART0_putc('\n');
-	UART0_puts("SALT dropped successfully ");
-	UART0_OutUDec(Salt_dropped_successfully());
-	UART0_putc('\n');
-	_delay_ms(500);
-	 Watch_dog_change_state(0);
 
- }
-	//Temp_main_init();
+/*---------------------- this code will be executed once the machine is on */
+while (select_mode_response != READY_MODE)
+{
+	// 1- the first pic have three values  ready << 1 , caliprate << 2 , wash << 3 .
+	LCD_main_wait_select_mode_response(CALIBRATE_WASH_READY_RESPONSE , &select_mode_response ) ;
+	if (select_mode_response == CALIBRATE_MODE)
+	{
+		if (Tank_Calibrate() == E_Fail)
+		{
+			//lcd_Jump_to();    // error in tank calibrate
+		}
+		else
+		{
+			lcd_Jump_to(CALIBRATION_DONE_PIC);
+			_delay_ms(30000);
+			// check if calibration is done before .
+			if (!Wash_flag)
+			{
+				Calibrate_flag = 1 ;
+				lcd_Jump_to(WASH_READY_PIC);
+			}
+			else  { lcd_Jump_to(READY_PIC);}
+		}
+	}
+	else if (select_mode_response == WASH_MODE)
+	{
+		if (Wash(3) == E_Fail)
+		{ /*lcd_Jump_to();    // error in wash */}
+		else
+		{
+			lcd_Jump_to(WASH_DONE_PIC);
+			_delay_ms(15000);
+			// check if WASH is done before .
+			if (!Calibrate_flag)
+			{
+				Wash_flag = 1 ;
+				lcd_Jump_to(CALIBRATE_READY_PIC);
+			}
+			else  {lcd_Jump_to(READY_PIC) ;}
+		}
+	}
+	else if(select_mode_response == READY_MODE)
+	break;
+}
+lcd_Jump_to(MAIN_SCREEN) ;
+	
+
 	/* Create the task without using any dynamic memory allocation. */
 	xHandle1 = xTaskCreateStatic( //print LCD data from RTE lowest priority
 					vTask1, /* Function that implements the task. */
