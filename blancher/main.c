@@ -64,7 +64,7 @@ int main(void) {
 while (select_mode_response != READY_MODE)
 {
 	// 1- the first pic have three values  ready << 1 , caliprate << 2 , wash << 3 .
-	LCD_main_wait_select_mode_response(CALIBRATE_WASH_READY_RESPONSE , &select_mode_response ) ;
+	LCD_main_wait_select_mode_response(SYSTEM_STATE_RESPONSE , &select_mode_response ) ;
 	if (select_mode_response == CALIBRATE_MODE)
 	{
 		if (Tank_Calibrate() == E_Fail)
@@ -73,15 +73,15 @@ while (select_mode_response != READY_MODE)
 		}
 		else
 		{
-			lcd_Jump_to(CALIBRATION_DONE_PIC);
+			lcd_Jump_to(SYSTEM_STATE_CALIBRATE_DONE_PIC);
 			_delay_ms(30000);
 			// check if calibration is done before .
 			if (!Wash_flag)
 			{
 				Calibrate_flag = 1 ;
-				lcd_Jump_to(WASH_READY_PIC);
+				lcd_Jump_to(SYSTEM_STATE_WASH_READY_PIC);
 			}
-			else  { lcd_Jump_to(READY_PIC);}
+			else  { lcd_Jump_to(SYSTEM_STATE_READY_PIC);}
 		}
 	}
 	else if (select_mode_response == WASH_MODE)
@@ -90,15 +90,15 @@ while (select_mode_response != READY_MODE)
 		{ /*lcd_Jump_to();    // error in wash */}
 		else
 		{
-			lcd_Jump_to(WASH_DONE_PIC);
+			lcd_Jump_to(SYSTEM_STATE_WASH_DONE_PIC);
 			_delay_ms(15000);
 			// check if WASH is done before .
 			if (!Calibrate_flag)
 			{
 				Wash_flag = 1 ;
-				lcd_Jump_to(CALIBRATE_READY_PIC);
+				lcd_Jump_to(SYSTEM_STATE_CALIBRATE_READY_PIC);
 			}
-			else  {lcd_Jump_to(READY_PIC) ;}
+			else  {lcd_Jump_to(SYSTEM_STATE_READY_PIC) ;}
 		}
 	}
 	else if(select_mode_response == READY_MODE)

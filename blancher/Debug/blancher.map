@@ -265,7 +265,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 application/Level_monitor.o
  .debug_macro   0x00000000       0x58 application/Level_monitor.o
  .debug_macro   0x00000000       0x94 application/Level_monitor.o
- .debug_macro   0x00000000      0x136 application/Level_monitor.o
+ .debug_macro   0x00000000      0x112 application/Level_monitor.o
  .debug_macro   0x00000000       0x52 application/Level_monitor.o
  .group         0x00000000        0x8 application/sequance.o
  .group         0x00000000        0x8 application/sequance.o
@@ -337,7 +337,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 application/sequance.o
  .debug_macro   0x00000000      0x166 application/sequance.o
  .debug_macro   0x00000000       0x94 application/sequance.o
- .debug_macro   0x00000000      0x136 application/sequance.o
+ .debug_macro   0x00000000      0x112 application/sequance.o
  .debug_macro   0x00000000      0x166 application/sequance.o
  .debug_macro   0x00000000      0x106 application/sequance.o
  .debug_macro   0x00000000       0x52 application/sequance.o
@@ -356,7 +356,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c application/sequance.o
  .debug_macro   0x00000000       0x28 application/sequance.o
  .debug_line    0x00000000      0x82b application/sequance.o
- .debug_str     0x00000000     0xea5e application/sequance.o
+ .debug_str     0x00000000     0xe9bc application/sequance.o
  .comment       0x00000000       0x31 application/sequance.o
  .debug_frame   0x00000000       0x34 application/sequance.o
  COMMON         0x00000000        0xd application/sequance.o
@@ -449,10 +449,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 application/Temp_monitor.o
  .debug_macro   0x00000000       0xd1 application/Temp_monitor.o
  .debug_macro   0x00000000       0x94 application/Temp_monitor.o
- .debug_macro   0x00000000      0x136 application/Temp_monitor.o
+ .debug_macro   0x00000000      0x112 application/Temp_monitor.o
  .debug_macro   0x00000000       0x52 application/Temp_monitor.o
  .debug_line    0x00000000      0x760 application/Temp_monitor.o
- .debug_str     0x00000000     0xe853 application/Temp_monitor.o
+ .debug_str     0x00000000     0xe7b1 application/Temp_monitor.o
  .comment       0x00000000       0x31 application/Temp_monitor.o
  .debug_frame   0x00000000       0x58 application/Temp_monitor.o
  .group         0x00000000        0x8 ECUAL/Drum.o
@@ -684,7 +684,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xcb ECUAL/LCD.o
  .debug_macro   0x00000000       0x58 ECUAL/LCD.o
  .debug_macro   0x00000000       0x94 ECUAL/LCD.o
- .debug_macro   0x00000000      0x136 ECUAL/LCD.o
+ .debug_macro   0x00000000      0x112 ECUAL/LCD.o
  .debug_macro   0x00000000       0x10 ECUAL/LCD.o
  .debug_macro   0x00000000      0x166 ECUAL/LCD.o
  .debug_macro   0x00000000      0x106 ECUAL/LCD.o
@@ -937,7 +937,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xcb error_callbacks.o
  .debug_macro   0x00000000       0x58 error_callbacks.o
  .debug_macro   0x00000000       0x94 error_callbacks.o
- .debug_macro   0x00000000      0x136 error_callbacks.o
+ .debug_macro   0x00000000      0x112 error_callbacks.o
  .debug_macro   0x00000000       0x52 error_callbacks.o
  .group         0x00000000        0x8 GLOBAL.o
  .group         0x00000000        0x8 GLOBAL.o
@@ -1040,7 +1040,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xd1 main.o
  .debug_macro   0x00000000       0x58 main.o
  .debug_macro   0x00000000       0x94 main.o
- .debug_macro   0x00000000      0x136 main.o
+ .debug_macro   0x00000000      0x112 main.o
  .debug_macro   0x00000000       0x10 main.o
  .debug_macro   0x00000000       0x69 main.o
  .debug_macro   0x00000000       0x34 main.o
@@ -2631,7 +2631,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xd1 Services/LCD_Tasks.o
  .debug_macro   0x00000000       0x58 Services/LCD_Tasks.o
  .debug_macro   0x00000000       0x94 Services/LCD_Tasks.o
- .debug_macro   0x00000000      0x136 Services/LCD_Tasks.o
+ .debug_macro   0x00000000      0x112 Services/LCD_Tasks.o
  .debug_macro   0x00000000       0x69 Services/LCD_Tasks.o
  .debug_macro   0x00000000       0x34 Services/LCD_Tasks.o
  .debug_macro   0x00000000      0x112 Services/LCD_Tasks.o
@@ -2746,7 +2746,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x166 Services/NVM_Task.o
  .debug_macro   0x00000000       0x39 Services/NVM_Task.o
  .debug_line    0x00000000      0x294 Services/NVM_Task.o
- .debug_str     0x00000000     0x8f7f Services/NVM_Task.o
+ .debug_str     0x00000000     0x8f61 Services/NVM_Task.o
  .comment       0x00000000       0x31 Services/NVM_Task.o
  .debug_frame   0x00000000       0x48 Services/NVM_Task.o
  .group         0x00000000        0x8 Services/tank_operation.o
@@ -2865,7 +2865,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xcb Services/TEMP_Task.o
  .debug_macro   0x00000000       0x58 Services/TEMP_Task.o
  .debug_macro   0x00000000       0x94 Services/TEMP_Task.o
- .debug_macro   0x00000000      0x136 Services/TEMP_Task.o
+ .debug_macro   0x00000000      0x112 Services/TEMP_Task.o
  .debug_macro   0x00000000      0x166 Services/TEMP_Task.o
  .debug_macro   0x00000000      0x106 Services/TEMP_Task.o
  .debug_macro   0x00000000       0x52 Services/TEMP_Task.o
@@ -2966,7 +2966,7 @@ Discarded input sections
  .debug_macro   0x00000000       0xd1 System.o
  .debug_macro   0x00000000       0x10 System.o
  .debug_macro   0x00000000       0x94 System.o
- .debug_macro   0x00000000      0x136 System.o
+ .debug_macro   0x00000000      0x112 System.o
  .group         0x00000000        0x8 Tasks.o
  .group         0x00000000        0x8 Tasks.o
  .group         0x00000000        0x8 Tasks.o
@@ -5142,88 +5142,88 @@ END GROUP
  .debug_frame   0x00002280       0x24 utils/CRC16.o
  .debug_frame   0x000022a4       0x64 utils/Millis.o
 
-.debug_str      0x00000000    0x1a435
+.debug_str      0x00000000    0x1a410
  *(.debug_str)
  .debug_str     0x00000000      0x3e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega2560/avr6/crtatmega2560.o
- .debug_str     0x000003e6     0xea46 application/errors.o
-                               0xec1b (size before relaxing)
- .debug_str     0x0000ee2c      0x291 application/Level_monitor.o
-                               0xe7e7 (size before relaxing)
- .debug_str     0x0000f0bd       0x7d ECUAL/Drum.o
+ .debug_str     0x000003e6     0xe9eb application/errors.o
+                               0xeb79 (size before relaxing)
+ .debug_str     0x0000edd1      0x291 application/Level_monitor.o
+                               0xe745 (size before relaxing)
+ .debug_str     0x0000f062       0xb3 ECUAL/Drum.o
                                0x90ab (size before relaxing)
- .debug_str     0x0000f13a      0xd62 ECUAL/Encoder/Encoder.o
+ .debug_str     0x0000f115      0xd62 ECUAL/Encoder/Encoder.o
                                0x9d05 (size before relaxing)
- .debug_str     0x0000fe9c       0xd5 ECUAL/Flow_rate.o
+ .debug_str     0x0000fe77       0xd5 ECUAL/Flow_rate.o
                                0x9adb (size before relaxing)
- .debug_str     0x0000ff71      0x1fc ECUAL/Inverter.o
+ .debug_str     0x0000ff4c      0x1fc ECUAL/Inverter.o
                                0x917c (size before relaxing)
- .debug_str     0x0001016d      0x18a ECUAL/LCD.o
-                               0xe3b0 (size before relaxing)
- .debug_str     0x000102f7       0xa8 ECUAL/levels.o
+ .debug_str     0x00010148      0x18a ECUAL/LCD.o
+                               0xe30e (size before relaxing)
+ .debug_str     0x000102d2       0xa8 ECUAL/levels.o
                                0x3ab8 (size before relaxing)
- .debug_str     0x0001039f      0x7c1 ECUAL/Modbus/Modbus_master.o
+ .debug_str     0x0001037a      0x7c1 ECUAL/Modbus/Modbus_master.o
                                0xa982 (size before relaxing)
- .debug_str     0x00010b60       0xe2 ECUAL/PowderIF.o
+ .debug_str     0x00010b3b       0xe2 ECUAL/PowderIF.o
                                0x9c45 (size before relaxing)
- .debug_str     0x00010c42       0x78 ECUAL/Temperature.o
+ .debug_str     0x00010c1d       0x78 ECUAL/Temperature.o
                                0xdc54 (size before relaxing)
- .debug_str     0x00010cba      0x129 error_callbacks.o
-                               0x9862 (size before relaxing)
- .debug_str     0x00010de3       0x4b GLOBAL.o
+ .debug_str     0x00010c95      0x129 error_callbacks.o
+                               0x97c0 (size before relaxing)
+ .debug_str     0x00010dbe       0x4b GLOBAL.o
                                0x339f (size before relaxing)
- .debug_str     0x00010e2e      0x347 main.o
-                               0xfbb6 (size before relaxing)
- .debug_str     0x00011175      0xb6c MCAL/ADC.o
+ .debug_str     0x00010e09      0x347 main.o
+                               0xfb14 (size before relaxing)
+ .debug_str     0x00011150      0xb6c MCAL/ADC.o
                                0xa224 (size before relaxing)
- .debug_str     0x00011ce1      0x258 MCAL/DIO.o
+ .debug_str     0x00011cbc      0x258 MCAL/DIO.o
                                0x9aee (size before relaxing)
- .debug_str     0x00011f39      0x11a MCAL/Timer.o
+ .debug_str     0x00011f14      0x11a MCAL/Timer.o
                                0x99f1 (size before relaxing)
- .debug_str     0x00012053     0x2fb8 MCAL/UART.o
+ .debug_str     0x0001202e     0x2fb8 MCAL/UART.o
                                0xc218 (size before relaxing)
- .debug_str     0x0001500b       0x56 RTE/RTE_drum.o
+ .debug_str     0x00014fe6       0x56 RTE/RTE_drum.o
                                0xd48b (size before relaxing)
- .debug_str     0x00015061      0x2a9 RTE/RTE_invertersetting.o
+ .debug_str     0x0001503c      0x2a9 RTE/RTE_invertersetting.o
                                0xd878 (size before relaxing)
- .debug_str     0x0001530a       0xd2 RTE/RTE_levels.o
+ .debug_str     0x000152e5       0xd2 RTE/RTE_levels.o
                                0xd6b8 (size before relaxing)
- .debug_str     0x000153dc       0x44 RTE/RTE_main.o
+ .debug_str     0x000153b7       0x44 RTE/RTE_main.o
                                0x3391 (size before relaxing)
- .debug_str     0x00015420      0x245 RTE/RTE_operations.o
+ .debug_str     0x000153fb      0x245 RTE/RTE_operations.o
                                0xd825 (size before relaxing)
- .debug_str     0x00015665      0x49b RTE/RTE_temperature.o
+ .debug_str     0x00015640      0x49b RTE/RTE_temperature.o
                                0xda66 (size before relaxing)
- .debug_str     0x00015b00      0xbd0 rtos/hooks.o
+ .debug_str     0x00015adb      0xbd0 rtos/hooks.o
                                0xd3a1 (size before relaxing)
- .debug_str     0x000166d0      0x2a1 rtos/list.o
+ .debug_str     0x000166ab      0x2a1 rtos/list.o
                                0xbe9f (size before relaxing)
- .debug_str     0x00016971     0x149b rtos/port.o
+ .debug_str     0x0001694c     0x149b rtos/port.o
                                0xd794 (size before relaxing)
- .debug_str     0x00017e0c      0xa19 rtos/queue.o
+ .debug_str     0x00017de7      0xa19 rtos/queue.o
                                0xd12f (size before relaxing)
- .debug_str     0x00018825     0x103d rtos/tasks.o
+ .debug_str     0x00018800     0x103d rtos/tasks.o
                                0xdd1a (size before relaxing)
- .debug_str     0x00019862      0x4ab rtos/timers.o
+ .debug_str     0x0001983d      0x4ab rtos/timers.o
                                0xd5b9 (size before relaxing)
- .debug_str     0x00019d0d      0x1c8 RTOS_sync.o
+ .debug_str     0x00019ce8      0x1c8 RTOS_sync.o
                                0xd772 (size before relaxing)
- .debug_str     0x00019ed5       0x4e Services/Drum_speed_Tasks.o
+ .debug_str     0x00019eb0       0x4e Services/Drum_speed_Tasks.o
                                0xd4e2 (size before relaxing)
- .debug_str     0x00019f23      0x1be Services/LCD_Tasks.o
-                               0xf98f (size before relaxing)
- .debug_str     0x0001a0e1       0x41 Services/Level_Task.o
+ .debug_str     0x00019efe      0x1be Services/LCD_Tasks.o
+                               0xf8ed (size before relaxing)
+ .debug_str     0x0001a0bc       0x41 Services/Level_Task.o
                                0xd9a2 (size before relaxing)
- .debug_str     0x0001a122       0xf1 Services/tank_operation.o
+ .debug_str     0x0001a0fd       0xf1 Services/tank_operation.o
                                0xdd45 (size before relaxing)
- .debug_str     0x0001a213       0x3e Services/TEMP_Task.o
-                               0xefd3 (size before relaxing)
- .debug_str     0x0001a251       0x1a System.o
-                               0xf15b (size before relaxing)
- .debug_str     0x0001a26b      0x17f Tasks.o
+ .debug_str     0x0001a1ee       0x3e Services/TEMP_Task.o
+                               0xef31 (size before relaxing)
+ .debug_str     0x0001a22c       0x1a System.o
+                               0xf0b9 (size before relaxing)
+ .debug_str     0x0001a246      0x17f Tasks.o
                                0x426a (size before relaxing)
- .debug_str     0x0001a3ea       0x11 utils/CRC16.o
+ .debug_str     0x0001a3c5       0x11 utils/CRC16.o
                                0x390e (size before relaxing)
- .debug_str     0x0001a3fb       0x3a utils/Millis.o
+ .debug_str     0x0001a3d6       0x3a utils/Millis.o
                                0x94fd (size before relaxing)
 
 .debug_loc      0x00000000     0xae92
@@ -5323,7 +5323,7 @@ END GROUP
  .debug_ranges  0x00000d60       0x10 utils/CRC16.o
  .debug_ranges  0x00000d70       0x20 utils/Millis.o
 
-.debug_macro    0x00000000     0x8685
+.debug_macro    0x00000000     0x8661
  *(.debug_macro)
  .debug_macro   0x00000000      0x214 application/errors.o
  .debug_macro   0x00000214      0xa78 application/errors.o
@@ -5341,94 +5341,94 @@ END GROUP
  .debug_macro   0x0000364b       0xcb application/errors.o
  .debug_macro   0x00003716       0x58 application/errors.o
  .debug_macro   0x0000376e       0x94 application/errors.o
- .debug_macro   0x00003802      0x136 application/errors.o
- .debug_macro   0x00003938       0x52 application/errors.o
- .debug_macro   0x0000398a       0x22 application/errors.o
- .debug_macro   0x000039ac       0x10 application/errors.o
- .debug_macro   0x000039bc      0x166 application/errors.o
- .debug_macro   0x00003b22      0x106 application/errors.o
- .debug_macro   0x00003c28       0x52 application/errors.o
- .debug_macro   0x00003c7a       0x82 application/errors.o
- .debug_macro   0x00003cfc       0x16 application/errors.o
- .debug_macro   0x00003d12       0x68 application/errors.o
- .debug_macro   0x00003d7a       0x1f application/errors.o
- .debug_macro   0x00003d99      0x3f3 application/errors.o
- .debug_macro   0x0000418c       0xb5 application/errors.o
- .debug_macro   0x00004241       0x8c application/errors.o
- .debug_macro   0x000042cd       0x10 application/errors.o
- .debug_macro   0x000042dd       0x18 application/errors.o
- .debug_macro   0x000042f5       0x66 application/errors.o
- .debug_macro   0x0000435b       0x86 application/errors.o
- .debug_macro   0x000043e1       0x78 application/errors.o
- .debug_macro   0x00004459       0x10 application/errors.o
- .debug_macro   0x00004469       0x10 application/errors.o
- .debug_macro   0x00004479      0x166 application/errors.o
- .debug_macro   0x000045df      0x202 application/Level_monitor.o
- .debug_macro   0x000047e1      0x100 application/Level_monitor.o
- .debug_macro   0x000048e1       0x10 application/Level_monitor.o
- .debug_macro   0x000048f1       0xd1 application/Level_monitor.o
- .debug_macro   0x000049c2       0x1c application/Level_monitor.o
- .debug_macro   0x000049de       0xc5 ECUAL/Drum.o
- .debug_macro   0x00004aa3      0x114 ECUAL/Encoder/Encoder.o
- .debug_macro   0x00004bb7       0x63 ECUAL/Encoder/Encoder.o
- .debug_macro   0x00004c1a       0x10 ECUAL/Encoder/Encoder.o
- .debug_macro   0x00004c2a       0x8e ECUAL/Encoder/Encoder.o
- .debug_macro   0x00004cb8      0x112 ECUAL/Encoder/Encoder.o
- .debug_macro   0x00004dca       0x34 ECUAL/Encoder/Encoder.o
- .debug_macro   0x00004dfe      0x122 ECUAL/Flow_rate.o
- .debug_macro   0x00004f20       0xeb ECUAL/Inverter.o
- .debug_macro   0x0000500b      0x193 ECUAL/LCD.o
- .debug_macro   0x0000519e       0x54 ECUAL/levels.o
- .debug_macro   0x000051f2       0x10 ECUAL/levels.o
- .debug_macro   0x00005202      0x12d ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x0000532f       0x69 ECUAL/Modbus/Modbus_master.o
- .debug_macro   0x00005398      0x129 ECUAL/PowderIF.o
- .debug_macro   0x000054c1      0x2fc ECUAL/PowderIF.o
- .debug_macro   0x000057bd      0x172 ECUAL/Temperature.o
- .debug_macro   0x0000592f      0x11e error_callbacks.o
- .debug_macro   0x00005a4d       0x16 error_callbacks.o
- .debug_macro   0x00005a63       0x16 error_callbacks.o
- .debug_macro   0x00005a79       0x3d GLOBAL.o
- .debug_macro   0x00005ab6      0x2fc main.o
- .debug_macro   0x00005db2       0x16 main.o
- .debug_macro   0x00005dc8       0x10 main.o
- .debug_macro   0x00005dd8       0xe6 MCAL/ADC.o
- .debug_macro   0x00005ebe      0x2e5 MCAL/ADC.o
- .debug_macro   0x000061a3       0xcf MCAL/DIO.o
- .debug_macro   0x00006272       0x88 MCAL/DIO.o
- .debug_macro   0x000062fa       0x52 MCAL/DIO.o
- .debug_macro   0x0000634c       0xfd MCAL/Timer.o
- .debug_macro   0x00006449      0x1c8 MCAL/UART.o
- .debug_macro   0x00006611       0x10 MCAL/UART.o
- .debug_macro   0x00006621       0x89 MCAL/UART.o
- .debug_macro   0x000066aa      0x181 MCAL/UART.o
- .debug_macro   0x0000682b      0x155 RTE/RTE_drum.o
- .debug_macro   0x00006980      0x155 RTE/RTE_invertersetting.o
- .debug_macro   0x00006ad5      0x15e RTE/RTE_levels.o
- .debug_macro   0x00006c33       0x69 RTE/RTE_main.o
- .debug_macro   0x00006c9c      0x155 RTE/RTE_operations.o
- .debug_macro   0x00006df1      0x15e RTE/RTE_temperature.o
- .debug_macro   0x00006f4f      0x15c rtos/hooks.o
- .debug_macro   0x000070ab       0x3b rtos/hooks.o
- .debug_macro   0x000070e6       0x10 rtos/hooks.o
- .debug_macro   0x000070f6      0x128 rtos/list.o
- .debug_macro   0x0000721e      0x155 rtos/port.o
- .debug_macro   0x00007373      0x182 rtos/queue.o
- .debug_macro   0x000074f5       0x16 rtos/queue.o
- .debug_macro   0x0000750b       0x20 rtos/queue.o
- .debug_macro   0x0000752b      0x1f3 rtos/tasks.o
- .debug_macro   0x0000771e      0x14e rtos/timers.o
- .debug_macro   0x0000786c      0x155 RTOS_sync.o
- .debug_macro   0x000079c1      0x169 Services/Drum_speed_Tasks.o
- .debug_macro   0x00007b2a      0x227 Services/LCD_Tasks.o
- .debug_macro   0x00007d51      0x193 Services/Level_Task.o
- .debug_macro   0x00007ee4      0x194 Services/tank_operation.o
- .debug_macro   0x00008078      0x1d5 Services/TEMP_Task.o
- .debug_macro   0x0000824d       0x10 Services/TEMP_Task.o
- .debug_macro   0x0000825d      0x257 System.o
- .debug_macro   0x000084b4       0xa3 Tasks.o
- .debug_macro   0x00008557       0x28 Tasks.o
- .debug_macro   0x0000857f       0x3d utils/CRC16.o
- .debug_macro   0x000085bc       0xc9 utils/Millis.o
+ .debug_macro   0x00003802      0x112 application/errors.o
+ .debug_macro   0x00003914       0x52 application/errors.o
+ .debug_macro   0x00003966       0x22 application/errors.o
+ .debug_macro   0x00003988       0x10 application/errors.o
+ .debug_macro   0x00003998      0x166 application/errors.o
+ .debug_macro   0x00003afe      0x106 application/errors.o
+ .debug_macro   0x00003c04       0x52 application/errors.o
+ .debug_macro   0x00003c56       0x82 application/errors.o
+ .debug_macro   0x00003cd8       0x16 application/errors.o
+ .debug_macro   0x00003cee       0x68 application/errors.o
+ .debug_macro   0x00003d56       0x1f application/errors.o
+ .debug_macro   0x00003d75      0x3f3 application/errors.o
+ .debug_macro   0x00004168       0xb5 application/errors.o
+ .debug_macro   0x0000421d       0x8c application/errors.o
+ .debug_macro   0x000042a9       0x10 application/errors.o
+ .debug_macro   0x000042b9       0x18 application/errors.o
+ .debug_macro   0x000042d1       0x66 application/errors.o
+ .debug_macro   0x00004337       0x86 application/errors.o
+ .debug_macro   0x000043bd       0x78 application/errors.o
+ .debug_macro   0x00004435       0x10 application/errors.o
+ .debug_macro   0x00004445       0x10 application/errors.o
+ .debug_macro   0x00004455      0x166 application/errors.o
+ .debug_macro   0x000045bb      0x202 application/Level_monitor.o
+ .debug_macro   0x000047bd      0x100 application/Level_monitor.o
+ .debug_macro   0x000048bd       0x10 application/Level_monitor.o
+ .debug_macro   0x000048cd       0xd1 application/Level_monitor.o
+ .debug_macro   0x0000499e       0x1c application/Level_monitor.o
+ .debug_macro   0x000049ba       0xc5 ECUAL/Drum.o
+ .debug_macro   0x00004a7f      0x114 ECUAL/Encoder/Encoder.o
+ .debug_macro   0x00004b93       0x63 ECUAL/Encoder/Encoder.o
+ .debug_macro   0x00004bf6       0x10 ECUAL/Encoder/Encoder.o
+ .debug_macro   0x00004c06       0x8e ECUAL/Encoder/Encoder.o
+ .debug_macro   0x00004c94      0x112 ECUAL/Encoder/Encoder.o
+ .debug_macro   0x00004da6       0x34 ECUAL/Encoder/Encoder.o
+ .debug_macro   0x00004dda      0x122 ECUAL/Flow_rate.o
+ .debug_macro   0x00004efc       0xeb ECUAL/Inverter.o
+ .debug_macro   0x00004fe7      0x193 ECUAL/LCD.o
+ .debug_macro   0x0000517a       0x54 ECUAL/levels.o
+ .debug_macro   0x000051ce       0x10 ECUAL/levels.o
+ .debug_macro   0x000051de      0x12d ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x0000530b       0x69 ECUAL/Modbus/Modbus_master.o
+ .debug_macro   0x00005374      0x129 ECUAL/PowderIF.o
+ .debug_macro   0x0000549d      0x2fc ECUAL/PowderIF.o
+ .debug_macro   0x00005799      0x172 ECUAL/Temperature.o
+ .debug_macro   0x0000590b      0x11e error_callbacks.o
+ .debug_macro   0x00005a29       0x16 error_callbacks.o
+ .debug_macro   0x00005a3f       0x16 error_callbacks.o
+ .debug_macro   0x00005a55       0x3d GLOBAL.o
+ .debug_macro   0x00005a92      0x2fc main.o
+ .debug_macro   0x00005d8e       0x16 main.o
+ .debug_macro   0x00005da4       0x10 main.o
+ .debug_macro   0x00005db4       0xe6 MCAL/ADC.o
+ .debug_macro   0x00005e9a      0x2e5 MCAL/ADC.o
+ .debug_macro   0x0000617f       0xcf MCAL/DIO.o
+ .debug_macro   0x0000624e       0x88 MCAL/DIO.o
+ .debug_macro   0x000062d6       0x52 MCAL/DIO.o
+ .debug_macro   0x00006328       0xfd MCAL/Timer.o
+ .debug_macro   0x00006425      0x1c8 MCAL/UART.o
+ .debug_macro   0x000065ed       0x10 MCAL/UART.o
+ .debug_macro   0x000065fd       0x89 MCAL/UART.o
+ .debug_macro   0x00006686      0x181 MCAL/UART.o
+ .debug_macro   0x00006807      0x155 RTE/RTE_drum.o
+ .debug_macro   0x0000695c      0x155 RTE/RTE_invertersetting.o
+ .debug_macro   0x00006ab1      0x15e RTE/RTE_levels.o
+ .debug_macro   0x00006c0f       0x69 RTE/RTE_main.o
+ .debug_macro   0x00006c78      0x155 RTE/RTE_operations.o
+ .debug_macro   0x00006dcd      0x15e RTE/RTE_temperature.o
+ .debug_macro   0x00006f2b      0x15c rtos/hooks.o
+ .debug_macro   0x00007087       0x3b rtos/hooks.o
+ .debug_macro   0x000070c2       0x10 rtos/hooks.o
+ .debug_macro   0x000070d2      0x128 rtos/list.o
+ .debug_macro   0x000071fa      0x155 rtos/port.o
+ .debug_macro   0x0000734f      0x182 rtos/queue.o
+ .debug_macro   0x000074d1       0x16 rtos/queue.o
+ .debug_macro   0x000074e7       0x20 rtos/queue.o
+ .debug_macro   0x00007507      0x1f3 rtos/tasks.o
+ .debug_macro   0x000076fa      0x14e rtos/timers.o
+ .debug_macro   0x00007848      0x155 RTOS_sync.o
+ .debug_macro   0x0000799d      0x169 Services/Drum_speed_Tasks.o
+ .debug_macro   0x00007b06      0x227 Services/LCD_Tasks.o
+ .debug_macro   0x00007d2d      0x193 Services/Level_Task.o
+ .debug_macro   0x00007ec0      0x194 Services/tank_operation.o
+ .debug_macro   0x00008054      0x1d5 Services/TEMP_Task.o
+ .debug_macro   0x00008229       0x10 Services/TEMP_Task.o
+ .debug_macro   0x00008239      0x257 System.o
+ .debug_macro   0x00008490       0xa3 Tasks.o
+ .debug_macro   0x00008533       0x28 Tasks.o
+ .debug_macro   0x0000855b       0x3d utils/CRC16.o
+ .debug_macro   0x00008598       0xc9 utils/Millis.o
 OUTPUT(blancher.elf elf32-avr)
 LOAD linker stubs

@@ -23,13 +23,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   9 .debug_frame  00002308  00000000  00000000  0002ac44  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    0001a435  00000000  00000000  0002cf4c  2**0
+ 10 .debug_str    0001a410  00000000  00000000  0002cf4c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000ae92  00000000  00000000  00047381  2**0
+ 11 .debug_loc    0000ae92  00000000  00000000  0004735c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000d90  00000000  00000000  00052213  2**0
+ 12 .debug_ranges 00000d90  00000000  00000000  000521ee  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro  00008685  00000000  00000000  00052fa3  2**0
+ 13 .debug_macro  00008661  00000000  00000000  00052f7e  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3970,7 +3970,7 @@ int main(void) {
     1b78:	02 d5       	rcall	.+2564   	; 0x257e <UART0_init>
     System_init();
     1b7a:	0e 94 21 29 	call	0x5242	; 0x5242 <System_init>
-			lcd_Jump_to(WASH_DONE_PIC);
+			lcd_Jump_to(SYSTEM_STATE_WASH_DONE_PIC);
 			_delay_ms(15000);
 			// check if WASH is done before .
 			if (!Calibrate_flag)
@@ -3986,7 +3986,7 @@ while (select_mode_response != READY_MODE)
     1b80:	5a c0       	rjmp	.+180    	; 0x1c36 <main+0xd6>
 {
 	// 1- the first pic have three values  ready << 1 , caliprate << 2 , wash << 3 .
-	LCD_main_wait_select_mode_response(CALIBRATE_WASH_READY_RESPONSE , &select_mode_response ) ;
+	LCD_main_wait_select_mode_response(SYSTEM_STATE_RESPONSE , &select_mode_response ) ;
     1b82:	63 e7       	ldi	r22, 0x73	; 115
     1b84:	73 e1       	ldi	r23, 0x13	; 19
     1b86:	86 e0       	ldi	r24, 0x06	; 6
@@ -4009,7 +4009,7 @@ while (select_mode_response != READY_MODE)
 		}
 		else
 		{
-			lcd_Jump_to(CALIBRATION_DONE_PIC);
+			lcd_Jump_to(SYSTEM_STATE_CALIBRATE_DONE_PIC);
     1ba6:	8f e3       	ldi	r24, 0x3F	; 63
     1ba8:	90 e0       	ldi	r25, 0x00	; 0
     1baa:	0e 94 4f 03 	call	0x69e	; 0x69e <lcd_Jump_to>
@@ -4033,13 +4033,13 @@ while (select_mode_response != READY_MODE)
 			{
 				Calibrate_flag = 1 ;
     1bcc:	c0 93 1b 07 	sts	0x071B, r28	; 0x80071b <Calibrate_flag>
-				lcd_Jump_to(WASH_READY_PIC);
+				lcd_Jump_to(SYSTEM_STATE_WASH_READY_PIC);
     1bd0:	89 e3       	ldi	r24, 0x39	; 57
     1bd2:	90 e0       	ldi	r25, 0x00	; 0
     1bd4:	0e 94 4f 03 	call	0x69e	; 0x69e <lcd_Jump_to>
     1bd8:	2e c0       	rjmp	.+92     	; 0x1c36 <main+0xd6>
 			}
-			else  { lcd_Jump_to(READY_PIC);}
+			else  { lcd_Jump_to(SYSTEM_STATE_READY_PIC);}
     1bda:	8b e3       	ldi	r24, 0x3B	; 59
     1bdc:	90 e0       	ldi	r25, 0x00	; 0
     1bde:	0e 94 4f 03 	call	0x69e	; 0x69e <lcd_Jump_to>
@@ -4059,7 +4059,7 @@ while (select_mode_response != READY_MODE)
 		{ /*lcd_Jump_to();    // error in wash */}
 		else
 		{
-			lcd_Jump_to(WASH_DONE_PIC);
+			lcd_Jump_to(SYSTEM_STATE_WASH_DONE_PIC);
     1bf4:	8d e3       	ldi	r24, 0x3D	; 61
     1bf6:	90 e0       	ldi	r25, 0x00	; 0
     1bf8:	0e 94 4f 03 	call	0x69e	; 0x69e <lcd_Jump_to>
@@ -4083,13 +4083,13 @@ while (select_mode_response != READY_MODE)
 			{
 				Wash_flag = 1 ;
     1c1a:	c0 93 1c 07 	sts	0x071C, r28	; 0x80071c <Wash_flag>
-				lcd_Jump_to(CALIBRATE_READY_PIC);
+				lcd_Jump_to(SYSTEM_STATE_CALIBRATE_READY_PIC);
     1c1e:	8a e3       	ldi	r24, 0x3A	; 58
     1c20:	90 e0       	ldi	r25, 0x00	; 0
     1c22:	0e 94 4f 03 	call	0x69e	; 0x69e <lcd_Jump_to>
     1c26:	07 c0       	rjmp	.+14     	; 0x1c36 <main+0xd6>
 			}
-			else  {lcd_Jump_to(READY_PIC) ;}
+			else  {lcd_Jump_to(SYSTEM_STATE_READY_PIC) ;}
     1c28:	8b e3       	ldi	r24, 0x3B	; 59
     1c2a:	90 e0       	ldi	r25, 0x00	; 0
     1c2c:	0e 94 4f 03 	call	0x69e	; 0x69e <lcd_Jump_to>
